@@ -1,0 +1,429 @@
+<!doctype html>
+<html class="no-js {% if settings.icon_options == "modern" %}modern-icon-set{% endif %} {% if settings.theme_mode_default == "dark" and settings.theme_mode_enabled %} dark{% endif %}" lang="{{ request.locale.iso_code }}"{% if settings.lang_direction contains request.locale.iso_code %} dir="rtl"{% endif %}>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="">
+    <meta name="google-site-verification" content="KK-urxvls17mdv7CajD9EHH11mP7g3aKIE6p-BhvPqc" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TL5SLQM8');</script>
+    <!-- End Google Tag Manager -->
+
+
+    {% if settings.show_canonical_url_collection and template.name == "collection" %}
+      <link rel="canonical" href="{{ canonical_url | split: '?' | first }}">
+    {% else %}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {% endif %}
+    
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+    
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+    
+    {%- if settings.enable_organization_schema and template.name == 'index' -%}
+      {% liquid 
+        if settings.business_address_1 != nil
+          assign first_business_addr = settings.business_address_1 | split: ","
+        endif
+        if settings.business_address_2 != nil
+          assign second_business_addr = settings.business_address_2 | split: ","
+        endif
+      %}
+      <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "{{ settings.site_type }}",
+          "name": "{{ settings.business_name }}",
+          "description": "{{ settings.business_description }}",
+          {% if settings.business_logo != blank %}
+          "logo": {{ settings.business_logo | image_url: width: 112 | prepend: "https:" | json }},
+          {% endif %}
+          "telephone": "{{ settings.business_phone }}",
+          "address": [{
+            "@type": "PostalAddress",
+            "streetAddress": "{{ first_business_addr[0] }}",
+            "addressLocality": "{{ first_business_addr[1] }}",
+            "addressRegion": "{{ first_business_addr[2] }}",
+            "postalCode": "{{ first_business_addr[3] }}",
+            "addressCountry": "{{ first_business_addr[4] }}"
+          },{
+            "streetAddress": "{{ second_business_addr[0] }}",
+            "addressLocality": "{{ second_business_addr[1] }}",
+            "addressRegion": "{{ second_business_addr[2] }}",
+            "postalCode": "{{ second_business_addr[3] }}",
+            "addressCountry": "{{ second_business_addr[4] }}"
+          }],
+          "email": "{{ settings.business_email }}"
+        }
+      </script>
+    {%- endif -%}
+    {% if settings.schema_search and template.name == 'index' %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "{{ shop.name }}",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{{ shop.url }}/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          },
+          "url": "{{ shop.url }}"
+        }
+      </script>
+    {% endif %}
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+    {% comment %} Replaced for optimization YS {% endcomment %}
+    {% comment %} {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }} {% endcomment %}
+    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
+    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+    
+    {% # theme-check-disable AssetPreload %}
+
+    {% comment %} Replaced for optimization YS {% endcomment %}
+    {% comment %} <link rel="preload" href="{{ settings.type_body_font | font_url }}" as="font" type="font/woff2" crossorigin="anonymous" /> {% endcomment %}
+    {% assign body_font = settings.type_body_font | font_modify: 'weight', '400' %}
+    <link rel="preload" as="font" href="{{ body_font | font_url }}" type="font/woff2" crossorigin>
+
+    {% # theme-check-enable AssetPreload %}
+    {% liquid 
+      render 'meta-tags'
+      render 'font-face'
+      render 'css-variables'
+      render 'theme-mode-control'
+    %}
+    {% if request.page_type == 'policy' %}
+      {{ 'page.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endif %}
+    {{ content_for_header }}
+    {{ settings.additional_head }}
+
+    {% liquid
+      assign menu_font_400 = settings.type_menu_font | font_modify: 'weight', '400'
+    %}
+
+    {% style %}
+      body {
+        /* INP mobile */
+        touch-action: manipulation;
+      }
+      .Avada-FaqsWelcomePopup.right {
+        right: 100px !important;
+      }
+      form#product-form-template--19461518590123__main {
+          display: flex;
+      }
+
+      button#x-atc-button-template--19461518590123__main {
+          width: 50%;
+          margin-right: 10px;
+      }
+      div#x-payment-button-template--19461518590123__main {
+          width: 50%;
+      }
+      {{ menu_font_400 | font_face: font_display: 'swap' }}
+      #page-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background:rgb(255, 255, 255); /* loader background color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999999;
+        transition: opacity 0.5s ease;
+      }
+
+      #page-loader.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #page-loader img.loader-logo {
+        width: 30%;      /* adjust size */
+        height: auto;
+        animation: fadeIn 1.2s ease-in-out infinite alternate;
+      }
+      @media (max-width: 768px) {
+        #page-loader img.loader-logo {
+          width: 50% !important;
+        }
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0.5; }
+        to { opacity: 1; }
+      }
+    {% endstyle %}
+  </head>
+  <body 
+    class="gradient scrollbar-body overflow-x-hidden text-[{{ settings.text_base_size | times: 0.007875 }}rem] md:text-[{{ settings.text_base_size | times: 0.00875 }}rem]{% if settings.lang_direction contains request.locale.iso_code %} rtl{% endif %}" 
+    x-data="{ runDispatch: true }"
+    :class="($store.xPopup.open || $store.xPopup.openVideoShopping) && 'overflow-hidden padding-scrollbar'" 
+    x-init="$store.xPopup.setWidthScrollbar();{% if request.design_mode %} document.addEventListener('shopify:section:load', ()=>{ runDispatch = true }); $store.xCc.load('{{ shop.url }}','{{ shop.email }}','{{ settings.preset }}'){% endif %}"
+    x-on:mouseover="if (runDispatch) { $dispatch('init-run'); runDispatch = false; }"
+    x-on:touchstart="if (runDispatch) { 
+      if (event.target.parentNode.parentNode.id == 'SearchOpen' || event.target.parentNode.id == 'SearchOpen') { setTimeout(() => {  document.querySelector('#SearchOpen').click() }, 200) 
+      } else if (event.target.parentNode.parentNode.id == 'cart-icon' || event.target.parentNode.id == 'cart-icon') { setTimeout(() => {  document.querySelector('#cart-icon').click() }, 200) 
+      }  else if (event.target.parentNode.id == 'mobile-navigation' || event.target.id == 'mobile-navigation') { setTimeout(() => {  document.querySelector('#mobile-navigation').click() }, 200) 
+      }
+      $dispatch('init-run'); runDispatch = false;
+    }"
+  >
+
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL5SLQM8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {% section 'custom-font' %}
+    {%- if settings.enable_tab_attention -%}
+      {%- if settings.message_1 != blank or settings.message_2 != blank -%}
+        <div
+          class="hidden" 
+          x-data='xTabAttention({
+            message1: {{ settings.message_1 | json | replace: "'", "\\u0027" }}, 
+            message2: {{ settings.message_2 | json | replace: "'", "\\u0027" }}, 
+            delay: {{ settings.message_delay }}
+          })'
+        >
+        </div>
+        <script src="{{ 'tab-attention.js' | asset_url }}" defer></script>
+      {%- endif -%}
+    {%- endif -%}
+    {% unless template.name == 'index' %}
+      {%- if settings.page_transition -%}
+        <script>
+          window.addEventListener('DOMContentLoaded', (event) => {
+            const transitionEl = document.getElementById('page-loader');
+            transitionEl.style.opacity = '0';
+            setTimeout(() => {
+              transitionEl.remove();
+            }, 100); 
+          });
+        </script>
+        <div id="page-loader"  class="transition-all ease-in-out duration-1000 opacity-100 fixed top-0 left-0 w-full h-full bg-black z-[9999]">
+            <img src="{{ settings.loader_image | image_url }}" alt="Loading..." class="loader-logo" >
+        </div>
+      {%- endif -%}
+    {% endunless %}
+    <div class="main-container flex flex-col min-h-screen relative">
+      <a class="skip-to-content absolute -z-10 button button-solid hidden lg:block pt-2.5 pb-2.5 pl-6 pr-6 lg:pt-3 lg:pb-3 mt-0.5 ml-0.5 leading-normal justify-center cursor-pointer focus-visible:z-60" href="#MainContent">
+        {{ 'accessibility.skip_to_text' | t }}
+      </a>
+      
+      {% case settings.selected_preset %}
+        {% when "breath" %}
+          {% sections 'header-group-breath' %}
+          {% sections 'aside-group-breath' %}
+        {% when "swirl" %}
+          {% sections 'header-group-swirl' %}
+          {% sections 'aside-group-swirl' %}
+        {% when "whiff" %}
+          {% sections 'header-group-whiff' %}
+          {% sections 'aside-group-whiff' %}
+        {% when "puff" %}
+          {% sections 'header-group-puff' %}
+          {% sections 'aside-group-puff' %}
+        {% else %}
+          {% sections 'header-group' %}
+          {% sections 'aside-group' %}
+      {% endcase %}
+
+      {% if settings.enable_save_share_cart and content_for_header contains "share_cart:true" %}
+        <div x-init="if (runDispatch) { $dispatch('init-run'); runDispatch = false; }" class="z-[100] bg-black opacity-40 fixed top-0 right-0 bottom-0 left-0" :class="$store.xCartShare.shared && 'hidden'">
+          <div class="lg:inline-block text-white animate-spin w-4 h-4 md:w-10 md:h-10 absolute top-[calc(50%-8px)] left-[calc(50%-8px)] md:top-[calc(50%-10px)] md:left-[calc(50%-10px)]">
+            {% render 'icon-alls', icon: 'icon-loading' %}
+          </div>
+        </div>
+      {% endif %}
+      <main id="MainContent" class="content-for-layout focus-none outline-none grow theme-template-{{ template.name }} theme-template-suffix-{{ template.suffix | default: 'none' }}" role="main" tabindex="-1">
+        {{ content_for_layout }}
+      </main>
+
+      {% case settings.selected_preset %}
+        {% when "breath" %}
+          {% sections 'footer-group-breath' %}
+        {% when "swirl" %}
+          {% sections 'footer-group-swirl' %}
+        {% when "whiff" %}
+          {% sections 'footer-group-whiff' %}
+        {% when "puff" %}
+          {% sections 'footer-group-puff' %}
+        {% else %}
+          {% sections 'footer-group' %}
+        {% endcase %}
+      {% render 'popups' %}
+      {% if settings.enable_scroll_top_desktop or settings.enable_scroll_top_mobile %}
+        {% render 'scroll-to-top' %}
+      {% endif %}
+      {% render 'popup-price-detail' %}
+    </div>
+    <div>
+      <ul hidden>
+        <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}
+        </li>
+        <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}
+        </li>
+      </ul>
+      <script>
+        window.Eurus = {
+          sliderScript: '{{ 'splide4.1.3.js' | asset_url }}',
+          cart_error: `{{ 'sections.cart.cart_error' | t }}`,
+          cart_quantity_error_html: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+          loadedScript: new Set(),
+          cart_add_url: '{{ routes.cart_add_url }}'
+        };
+      </script>
+      {% if settings.cart_type == 'page' and template.name != 'cart' %}
+        <script>
+          document.addEventListener('eurus:cart:redirect', function(event) {
+            window.location.href = '{{ routes.cart_url }}';
+          })
+        </script>
+      {% endif %}
+      {% if settings.enable_save_share_cart %}
+        <script src="{{ 'share-cart.js' | asset_url }}" defer></script>
+      {% endif %}
+      {% comment %} commented below code and added new code below it {% endcomment %}
+      {% comment %} {% unless settings.show_minicart %}
+        <script src="{{ 'cart-noti.js' | asset_url }}" defer></script>
+      {% endunless %} {% endcomment %}
+       {% if template.name == 'cart' or template.name == 'product' %}
+        {% unless settings.show_minicart %}
+          <script src="{{ 'cart-noti.js' | asset_url }}" defer></script>
+        {% endunless %}
+      {% endif %}
+      {% comment %} till here {% endcomment %}
+      
+      {% comment %} {%- if settings.enable_featured_discount -%}
+        <script src="{{ 'coupon-code.js' | asset_url }}" defer></script>
+      {%- endif -%} {% endcomment %}
+      {%- if settings.show_cart_custom_field and settings.cart_custom_field_label != blank -%}
+        <script src="{{ 'cart-fields.js' | asset_url }}" defer></script>
+      {%- endif -%}
+      {%- if settings.cart_enable_terms_and_conditions -%}
+        <script src="{{ 'cart-term.js' | asset_url }}" defer></script>
+      {%- endif -%}
+      {% if settings.enable_upsell_minicart %}
+        <script src="{{ 'product-recommendations.js' | asset_url }}" defer></script>
+      {% endif %}
+      {% comment %} {%- if settings.enable_estimate_shipping -%}
+        <script src="{{ 'estimate-shipping-rate.js' | asset_url }}" defer></script>
+      {%- endif -%} {% endcomment %}
+      {% comment %} {%- if settings.enable_shipping_insurance -%}
+        <script src="{{ 'product-insurance.js' | asset_url }}" defer></script>
+      {%- endif -%} {% endcomment %}
+
+      {% if template.name == 'cart' %}
+        {% if settings.enable_featured_discount %}
+          <script src="{{ 'coupon-code.js' | asset_url }}" defer></script>
+        {% endif %}
+        {% if settings.enable_estimate_shipping %}
+          <script src="{{ 'estimate-shipping-rate.js' | asset_url }}" defer></script>
+        {% endif %}
+        {% if settings.enable_shipping_insurance %}
+          <script src="{{ 'product-insurance.js' | asset_url }}" defer></script>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.swatches_type == 'both_text_and_color' or settings.swatches_type == 'color' or settings.swatches_type == 'text' %}
+        <script src="{{ 'preview-color-swatches.js' | asset_url }}" defer></script>
+      {%- endif -%}
+      {%- if request.design_mode -%}
+        <script src="{{ 'theme-editor-alpine-custom.js' | asset_url }}" defer></script>
+        <script src="{{ 'theme-editor.js' | asset_url }}" defer></script>
+      {%- endif -%}
+      {%- if settings.countdown_timer_message -%}
+        <script src="{{ 'cart-countdown-timer.js' | asset_url }}" defer></script>
+      {%- endif -%}
+      <script src="{{ 'theme.js' | asset_url }}" defer></script>
+      <script src="{{ 'vendors.js' | asset_url }}" defer></script>
+
+      {% comment %} <script src="{{ 'variant-select-card.js' | asset_url }}" defer></script> {% endcomment %}
+       {% comment %} added this only to run in product and collection pages {% endcomment %}
+       {% if template.name == 'product' or template.name == 'collection' %}
+        <script src="{{ 'variant-select-card.js' | asset_url }}" defer></script>
+      {% endif %}
+      {% comment %} till here {% endcomment %}
+      <script>
+        window.addEventListener("load", (event) => {
+          deferScriptLoad('instant.page', '{{ 'instant.page.v5.1.1.js' | asset_url }}', () => {}, true);
+        });
+      </script>
+    </div>
+
+    {% comment %} bottom nav block {% endcomment %}
+    <div class="bottom-nav">
+      {% assign bottom_menu = linklists['bottom-navigation'].links %}
+      {% for link in bottom_menu %}
+        {% assign handle = link.url | split: '/' | last %}
+        {% assign title = link.title | downcase %}
+        {% assign collection = collections[handle] %}
+
+        <a href="{{ link.url }}" title="{{ link.title }}" class="{% if link.url == request.path %}active{% endif %}">
+          {% if title == 'home' or title == 'account' %}
+            <span class="bottom-nav-icon">
+              {% case title %}
+                {% when 'home' %}
+                  <span class="bottom-nav-svg-wrapper">
+                    <!-- Home Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M277.8 8.6c-12.3-11.4-31.3-11.4-43.5 0l-224 208c-9.6 9-12.8 22.9-8 35.1S18.8 272 32 272l16 0 0 176c0 35.3 28.7 64 64 64l288 0c35.3 0 64-28.7 64-64l0-176 16 0c13.2 0 25-8.1 29.8-20.3s1.6-26.2-8-35.1l-224-208zM240 320l32 0c26.5 0 48 21.5 48 48l0 96-128 0 0-96c0-26.5 21.5-48 48-48z"/></svg>
+
+                  </span>
+                {% when 'account' %}
+                  <span class="bottom-nav-svg-wrapper">
+                    <!-- Account Icon SVG -->
+                    {% comment %} <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24,17H8a5,5,0,0,0-5,5v7H5V22a3,3,0,0,1,3-3H24a3,3,0,0,1,3,3v7h2V22A5,5,0,0,0,24,17Z"/>
+                      <path d="M16,15a6,6,0,1,0-6-6A6,6,0,0,0,16,15ZM16,5a4,4,0,1,1-4,4A4,4,0,0,1,16,5Z"/>
+                    </svg> {% endcomment %}
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+	<path d="M 45 0 C 20.147 0 0 20.147 0 45 c 0 24.853 20.147 45 45 45 s 45 -20.147 45 -45 C 90 20.147 69.853 0 45 0 z M 45 22.007 c 8.899 0 16.14 7.241 16.14 16.14 c 0 8.9 -7.241 16.14 -16.14 16.14 c -8.9 0 -16.14 -7.24 -16.14 -16.14 C 28.86 29.248 36.1 22.007 45 22.007 z M 45 83.843 c -11.135 0 -21.123 -4.885 -27.957 -12.623 c 3.177 -5.75 8.144 -10.476 14.05 -13.341 c 2.009 -0.974 4.354 -0.958 6.435 0.041 c 2.343 1.126 4.857 1.696 7.473 1.696 c 2.615 0 5.13 -0.571 7.473 -1.696 c 2.083 -1 4.428 -1.015 6.435 -0.041 c 5.906 2.864 10.872 7.591 14.049 13.341 C 66.123 78.957 56.135 83.843 45 83.843 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill:#f0e5e5; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+</g>
+</svg>
+                  </span>
+                {% else %}
+                  📦
+              {% endcase %}
+            </span>
+          {% elsif collection.image %}
+            <img
+              src="{{ collection.image | image_url: width: 40 }}"
+              alt="{{ collection.title }}"
+              width="40"
+              height="40"
+              class="bottom-nav-img"
+            />
+          {% else %}
+            <span class="bottom-nav-icon">📦</span>
+          {% endif %}
+          <span class="nav-label">{{ link.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+{% render 'swym-custom' %}
+  </body>
+</html>

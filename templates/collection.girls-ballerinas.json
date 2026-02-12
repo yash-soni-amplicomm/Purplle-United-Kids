@@ -1,0 +1,967 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "promotion_banner_P8dCRH": {
+      "type": "promotion-banner",
+      "name": "t:sections.promotion-banner.name",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/banner_1.jpg",
+        "image_mobile": "shopify://shop_images/front_banner_mobile.jpg",
+        "image_link": "shopify://collections/ballerinas",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "show_hero": false,
+        "full_width": false,
+        "padding_full_width": false,
+        "adapt_corners_desktop": false,
+        "rounded_corner_image": true,
+        "desktop_height": "natural",
+        "padding_top": 12,
+        "padding_bottom": 0,
+        "full_width_mobile": false,
+        "adapt_corners_mobile": false,
+        "rounded_corner_image_mobile": true,
+        "mobile_height": "natural",
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "blocks": {
+        "breadcrumbs": {
+          "type": "breadcrumbs",
+          "settings": {
+            "show_breadcrumbs_border": false,
+            "full_width_breadcrumb": false,
+            "desktop_content_alignment": "text-center",
+            "mobile_content_alignment": "text-center",
+            "background_color_light": "#ffffff",
+            "text_color_light": "rgba(0,0,0,0)",
+            "textlink_color_light": "rgba(0,0,0,0)",
+            "background_color_dark": "rgba(0,0,0,0)",
+            "text_color_dark": "rgba(0,0,0,0)",
+            "textlink_color_dark": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumbs"
+      ],
+      "custom_css": [
+        ".collection-title {padding: 0px !important;}"
+      ],
+      "settings": {
+        "show_collection_image": false,
+        "image_overlay_opacity": 20,
+        "show_collection_name": true,
+        "title_position": "text-center",
+        "size_title": 60,
+        "heading_tag": "h1",
+        "full_width_title": true,
+        "desktop_height": "auto",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_height": "auto",
+        "full_width_mobile": true,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".x-variants-data {display: block;}",
+        ".rounded-\\[10px\\] {border-radius: 20px;}",
+        "@media (min-width: 768px) {.md\\:pt-7 {padding-top: 10px; }}",
+        "@media (max-width: 767px) {.col-span-1.filter-aside\\:md\\:hidden {height: 5px; }}"
+      ],
+      "settings": {
+        "enable_filtering": true,
+        "sticky_filtering": true,
+        "filter_type": "aside",
+        "filter_edge_style": "rounded",
+        "default_hide_filtering": false,
+        "expand_filter": true,
+        "enable_collection_count": true,
+        "enable_sorting": true,
+        "products_per_page": "",
+        "products_per_row_on_desktop": 5,
+        "products_per_row_on_mobile": "2",
+        "pagination": "infinite_scroll",
+        "paginate_type": "circle",
+        "show_vendor": false,
+        "show_rating": false,
+        "show_highlighted_features": true,
+        "show_highlighted_attributes": true,
+        "show_quickview": true,
+        "show_description": true,
+        "enable_advanced_filter": false,
+        "key_value": "Skin color",
+        "hide_unavaiable_filter": true,
+        "columns_desktop_1": 4,
+        "desktop_image_width_1": 150,
+        "columns_desktop_2": 4,
+        "desktop_image_width_2": 150,
+        "enable_desktop_slider": true,
+        "image_ratio_filter": "round",
+        "advanced_filter_image_ratio": "square",
+        "enable_micro_schema": false,
+        "full_width": false,
+        "spacing_col": 14,
+        "spacing_row": 20,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "spacing_col_mobile": 9,
+        "spacing_row_mobile": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "featured_collection_z9r7qr": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_zaYYJA": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-products",
+            "show_description": false,
+            "description": "",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less",
+            "show_vendor": false,
+            "show_rating": false,
+            "show_highlighted_features": true,
+            "show_highlighted_attributes": true,
+            "show_quickview": true,
+            "show_promotion": false,
+            "promotion_position": "left",
+            "card_link": "",
+            "open_new_window": false,
+            "heading": "Featured collection",
+            "highlight_type": "underline",
+            "heading_size": 70,
+            "content": "<p>10% OFF</p>",
+            "text_size": 100,
+            "content_alignment": "center",
+            "content_position": "bottom",
+            "button_label": "See more",
+            "button_link": "",
+            "open_new_window_button": false,
+            "show_button_style": "primary",
+            "enable_text_overlay": false,
+            "overlay_opacity": 0,
+            "image_ratio": "100",
+            "background_color": "rgba(0,0,0,0)",
+            "color_text": "rgba(0,0,0,0)",
+            "color_heading_highlight_light": "rgba(0,0,0,0)",
+            "color_button": "rgba(0,0,0,0)",
+            "color_text_button": "rgba(0,0,0,0)",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)",
+            "show_sound_control": false,
+            "video_url": "",
+            "enable_video_autoplay": false,
+            "video_alt_text": "",
+            "product_card": ""
+          }
+        },
+        "collection_4khM9a": {
+          "type": "collection",
+          "settings": {
+            "collection": "footwear-1",
+            "show_description": true,
+            "description": "",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less",
+            "show_vendor": false,
+            "show_rating": false,
+            "show_highlighted_features": true,
+            "show_highlighted_attributes": true,
+            "show_quickview": true,
+            "show_promotion": false,
+            "promotion_position": "left",
+            "card_link": "",
+            "open_new_window": false,
+            "heading": "Featured collection",
+            "highlight_type": "underline",
+            "heading_size": 70,
+            "content": "<p>10% OFF</p>",
+            "text_size": 100,
+            "content_alignment": "center",
+            "content_position": "bottom",
+            "button_label": "See more",
+            "button_link": "",
+            "open_new_window_button": false,
+            "show_button_style": "primary",
+            "enable_text_overlay": false,
+            "overlay_opacity": 0,
+            "image_ratio": "100",
+            "background_color": "rgba(0,0,0,0)",
+            "color_text": "rgba(0,0,0,0)",
+            "color_heading_highlight_light": "rgba(0,0,0,0)",
+            "color_button": "rgba(0,0,0,0)",
+            "color_text_button": "rgba(0,0,0,0)",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)",
+            "show_sound_control": false,
+            "video_url": "",
+            "enable_video_autoplay": false,
+            "video_alt_text": "",
+            "product_card": ""
+          }
+        },
+        "collection_q4CbDL": {
+          "type": "collection",
+          "settings": {
+            "collection": "ready-to-play-infant",
+            "show_description": true,
+            "description": "",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less",
+            "show_vendor": false,
+            "show_rating": false,
+            "show_highlighted_features": true,
+            "show_highlighted_attributes": true,
+            "show_quickview": true,
+            "show_promotion": false,
+            "promotion_position": "left",
+            "card_link": "",
+            "open_new_window": false,
+            "heading": "Featured collection",
+            "highlight_type": "underline",
+            "heading_size": 70,
+            "content": "<p>10% OFF</p>",
+            "text_size": 100,
+            "content_alignment": "center",
+            "content_position": "bottom",
+            "button_label": "See more",
+            "button_link": "",
+            "open_new_window_button": false,
+            "show_button_style": "primary",
+            "enable_text_overlay": false,
+            "overlay_opacity": 0,
+            "image_ratio": "100",
+            "background_color": "rgba(0,0,0,0)",
+            "color_text": "rgba(0,0,0,0)",
+            "color_heading_highlight_light": "rgba(0,0,0,0)",
+            "color_button": "rgba(0,0,0,0)",
+            "color_text_button": "rgba(0,0,0,0)",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)",
+            "show_sound_control": false,
+            "video_url": "",
+            "enable_video_autoplay": false,
+            "video_alt_text": "",
+            "product_card": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_zaYYJA",
+        "collection_4khM9a",
+        "collection_q4CbDL"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".collection-title-container {display: flex; max-width: 100%; overflow-x: auto; white-space: nowrap; justify-content: flex-end;}",
+        ".collection-title-container > * {flex-shrink: 0;}",
+        "@media (max-width: 768px) {.collection-title-container {padding: 0 10px; overflow-x: scroll; justify-content: flex-start; }}"
+      ],
+      "settings": {
+        "title": "You May like",
+        "highlight_type": "underline",
+        "heading_size": 130,
+        "heading_tag": "h2",
+        "heading_alignment": "left",
+        "subheading": "",
+        "text": "",
+        "show_view_all": true,
+        "view_all_position": "bottom",
+        "view_all_button_style": "text-link",
+        "title_size": 90,
+        "title_style": "capitalize",
+        "title_position": "inline",
+        "tab_button_style": "label",
+        "color_background": "rgba(0,0,0,0)",
+        "color_text": "rgba(0,0,0,0)",
+        "color_background_secondary": "rgba(0,0,0,0)",
+        "color_text_secondary": "rgba(0,0,0,0)",
+        "color_background_hover": "rgba(0,0,0,0)",
+        "color_text_hover": "rgba(0,0,0,0)",
+        "color_background_dark": "rgba(0,0,0,0)",
+        "color_text_dark": "rgba(0,0,0,0)",
+        "color_background_secondary_dark": "rgba(0,0,0,0)",
+        "color_text_secondary_dark": "rgba(0,0,0,0)",
+        "color_background_hover_dark": "rgba(0,0,0,0)",
+        "color_text_hover_dark": "rgba(0,0,0,0)",
+        "enable_desktop_slider": true,
+        "slider_style": "horizontal",
+        "swiper_on_mobile": true,
+        "enable_arrow_mobile": false,
+        "auto_play": false,
+        "change_slides_speed": 5,
+        "columns_desktop": 5,
+        "rows_desktop": 2,
+        "spacing": 20,
+        "full_width": false,
+        "show_section_divider": false,
+        "padding_top": 20,
+        "padding_bottom": 60,
+        "columns_mobile": "3",
+        "spacing_mobile": 10,
+        "full_width_mobile": false,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "multicolumn_M3Rbqp": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_kfHTVk": {
+          "type": "column",
+          "settings": {
+            "icon": "flower",
+            "another_icon": "",
+            "custom_icon": "",
+            "title": "Safe to use",
+            "highlight_type": "underline",
+            "title_link": "",
+            "open_new_window": false,
+            "heading_size": 100,
+            "text": "<p>EWG VERIFIED™, made with 99.9%+ natural origin ingredients* including phytoglycogen.</p>"
+          }
+        },
+        "column_xRt3RE": {
+          "type": "column",
+          "settings": {
+            "icon": "dna",
+            "another_icon": "",
+            "custom_icon": "",
+            "title": "Non-allergen",
+            "highlight_type": "underline",
+            "title_link": "",
+            "open_new_window": false,
+            "heading_size": 100,
+            "text": "<p>The SHA accreditation is an instant way to recognise a product meets the highest standards of skin safety.</p>"
+          }
+        },
+        "column_nzcaWE": {
+          "type": "column",
+          "settings": {
+            "icon": "star",
+            "another_icon": "",
+            "custom_icon": "",
+            "title": "Confidence by trust",
+            "highlight_type": "underline",
+            "title_link": "",
+            "open_new_window": false,
+            "heading_size": 100,
+            "text": "<p>Businesses must prioritize ethical practices and customer-centric strategies to ensure long-term success.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "column_kfHTVk",
+        "column_xRt3RE",
+        "column_nzcaWE"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "secondary_background": "section",
+        "border_column": "full_border",
+        "column_content_alignment": "center",
+        "icon_position": "above",
+        "icon_size": 45,
+        "enable_desktop_slider": false,
+        "swiper_on_mobile": true,
+        "enable_arrow_mobile": false,
+        "auto_play": true,
+        "change_bar_every": 5,
+        "background_color_light": "rgba(0,0,0,0)",
+        "heading_light": "rgba(0,0,0,0)",
+        "text_light": "rgba(0,0,0,0)",
+        "color_heading_highlight_light": "rgba(0,0,0,0)",
+        "line_border_light": "rgba(0,0,0,0)",
+        "color_icon_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "heading_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "color_heading_highlight_dark": "rgba(0,0,0,0)",
+        "line_border_dark": "rgba(0,0,0,0)",
+        "color_icon_dark": "rgba(0,0,0,0)",
+        "column_layout_desktop": "lg:w-1/3",
+        "section_height_desktop": "md:py-7",
+        "spacing_desktop": 28,
+        "full_width": false,
+        "padding_full_width": false,
+        "show_section_divider": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "column_layout_mobile": "w-full",
+        "section_height_mobile": "py-5",
+        "spacing_mobile": 16,
+        "full_width_mobile": false,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24
+      }
+    },
+    "products_bundle_D3XUi7": {
+      "type": "products-bundle",
+      "disabled": true,
+      "custom_css": [
+        ".inline-flex.flex-wrap.justify-center.gap-x-1\\.5.ml-0\\.5.mr-0\\.5 {max-height: 100px; overflow-y: auto; overflow-x: hidden; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; padding-right: 4px;}"
+      ],
+      "name": "t:sections.products-bundle.name",
+      "settings": {
+        "heading": "Bundle Packs",
+        "highlight_type": "underline",
+        "heading_size": 130,
+        "heading_tag": "h2",
+        "description": "",
+        "heading_alignment": "center",
+        "show_discount_value_label": false,
+        "label_type": "rounded",
+        "discount_value_label": "",
+        "discount_value_label_text": "",
+        "button_atb_label": "ADD TO BUNDLE",
+        "collection": "",
+        "product_to_show": 6,
+        "products": [
+          "baby-unisex-maroon-striped-jersey-dungaree-set",
+          "girls-red-corduroy-tiered-pinafore-dress-with-poplin-ruffle-shirt",
+          "baby-kids-grey-red-buttoned-sweatshirt-jogger-set"
+        ],
+        "show_highlighted_features": false,
+        "each_product_can_added_to_bundle_once": true,
+        "minimum_items": 3,
+        "discount_type": "percentage",
+        "discount_value": "",
+        "apply_discount_once_per_order": false,
+        "enable_desktop_slider": false,
+        "swiper_on_mobile": true,
+        "enable_arrow_mobile": false,
+        "auto_play": true,
+        "change_slides_speed": 3,
+        "summary_layout": "vertical",
+        "summary_position": "right",
+        "bundler_heading": "Bundle Contents",
+        "bundler_text": "<p>Add at least 3 items to get 33% Off</p>",
+        "background_color_light": "rgba(0,0,0,0)",
+        "title_color": "rgba(0,0,0,0)",
+        "text_light": "rgba(0,0,0,0)",
+        "button_light": "rgba(0,0,0,0)",
+        "button_text_light": "rgba(0,0,0,0)",
+        "button_hover_light": "rgba(0,0,0,0)",
+        "button_text_hover_light": "rgba(0,0,0,0)",
+        "line_border": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "title_color_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "button_dark": "rgba(0,0,0,0)",
+        "button_text_dark": "rgba(0,0,0,0)",
+        "button_hover_dark": "rgba(0,0,0,0)",
+        "button_text_hover_dark": "rgba(0,0,0,0)",
+        "line_border_dark": "rgba(0,0,0,0)",
+        "spacing": 4,
+        "show_section_divider": false,
+        "full_width": false,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "columns_mobile": "3",
+        "spacing_mobile": 10,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28
+      }
+    },
+    "store_finder_8qdyYQ": {
+      "type": "store-finder",
+      "name": "Store Finder Banner",
+      "settings": {
+        "bg_image": "shopify://shop_images/17a7607a9664a363ddb99c7e068c0e5b39f81674_2.png",
+        "title": "Discover trendy kids’ clothing and footwear just around the corner.",
+        "input_link": "https://purpleunitedkids.myshopify.com/apps/cws-store-locator",
+        "input_button_text": "Find your Nearest Store",
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20,
+        "padding_mobile": 36,
+        "margin_top": 40,
+        "margin_bottom": 40,
+        "padding": 36
+      }
+    },
+    "related_blog_posts_MzWApY": {
+      "type": "related-blog-posts",
+      "disabled": true,
+      "custom_css": [
+        ".x-container-featured-blog.pt-\\[28px\\].md\\:pt-\\[0px\\].pb-\\[28px\\].md\\:pb-\\[0px\\] {padding: 0px 12px;}",
+        ".x-block-posts {padding: 0px;}",
+        ".x-block-header {padding: 0px; margin: 0px;}",
+        ".splide__track {padding-top: 0px; padding-bottom: 24px;}",
+        ".article-card {border: 1px solid black; border-radius: 24px;}",
+        ".text-left {padding-left: 10px; padding-right: 10px;}"
+      ],
+      "name": "t:sections.featured-blog.related_blog",
+      "settings": {
+        "heading": "Our Blogs",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "heading_alignment": "center",
+        "subheading": "",
+        "post_limit": 3,
+        "blog": "related-blogs",
+        "related_to_product_via": "product_tag",
+        "show_show_more": false,
+        "show_view_all": false,
+        "view_all_position": "top",
+        "handle_blog": "",
+        "metafield_key": "",
+        "title_size": 140,
+        "content_alignment": "left",
+        "show_image": true,
+        "image_ratio": "75",
+        "item_secondary_background": false,
+        "show_author": true,
+        "show_name": false,
+        "show_date": true,
+        "show_excerpt": true,
+        "show_tag": true,
+        "show_comment_counts": true,
+        "show_read_more": true,
+        "button_read_more_label": "Read more",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
+        "swiper_on_mobile": false,
+        "enable_arrow_mobile": false,
+        "auto_play": false,
+        "change_slides_speed": 5,
+        "full_width": false,
+        "spacing": 28,
+        "show_section_divider": false,
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "columns_mobile": "1",
+        "spacing_mobile": 28,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 12
+      }
+    },
+    "1756453148875bcee6": {
+      "type": "apps",
+      "blocks": {
+        "ot_instagram_feed_ot_easy_instagram_feed_rcXjET": {
+          "type": "shopify://apps/ot-instagram-feed/blocks/ot-easy-instagram-feed/75d29d92-c4c5-4091-87e8-4dde82e3828c",
+          "settings": {
+            "feed_id": "",
+            "title": "",
+            "show_tagged_posts": false,
+            "titleColor": "#000000",
+            "titleSize": 40,
+            "title_tag": "span",
+            "profileTextColor": "#000000",
+            "description": "",
+            "desColor": "#000000",
+            "section_full_width_desktop": false,
+            "show_divider_desktop": false,
+            "top_padding_desktop": 0,
+            "bottom_padding_desktop": 0,
+            "section_full_width_mobile": false,
+            "show_divider_mobile": false,
+            "use_title_settings": false,
+            "titleSizeMobile": 24,
+            "top_padding_mobile": 0,
+            "bottom_padding_mobile": 0,
+            "bss_custom_code": "",
+            "bss_advanced_custom_code": ""
+          }
+        }
+      },
+      "block_order": [
+        "ot_instagram_feed_ot_easy_instagram_feed_rcXjET"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".powered-by-omnithemes {display: none;}",
+        ".page-width {padding: 10px;}",
+        ".splide__pagination {position: relative; margin-top: 20px; text-align: center; z-index: 1;}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "products_features_card_NP4y7U": {
+      "type": "products-features-card",
+      "blocks": {
+        "card_d6KqCD": {
+          "type": "card",
+          "settings": {
+            "card_title": "Lab Tested",
+            "card_description": "Our products undergo rigorous lab testing to meet the highest quality standards.",
+            "card_icon": "shopify://shop_images/test-tube-chemistry_svgrepo.com_1.svg"
+          }
+        },
+        "card_RaUCEH": {
+          "type": "card",
+          "settings": {
+            "card_title": "Premium Quality",
+            "card_description": "Our products exhibit exceptional craftsmanship, superior materials, and outstanding performance.",
+            "card_icon": "shopify://shop_images/medal-quality_svgrepo.com.svg"
+          }
+        },
+        "card_Vn6gz9": {
+          "type": "card",
+          "settings": {
+            "card_title": "No Animals Were Harmed",
+            "card_description": "Fashion with heart—cruelty-free and kind to all creatures.",
+            "card_icon": "shopify://shop_images/no-pets_svgrepo.com.svg"
+          }
+        },
+        "card_JAEW7c": {
+          "type": "card",
+          "settings": {
+            "card_title": "Gentle On Skin",
+            "card_description": "Soft, Safe, And Gentle-Perfect For Your Child's Delicate Skin.",
+            "card_icon": "shopify://shop_images/love-care_svgrepo.com.svg"
+          }
+        },
+        "card_jtC6ft": {
+          "type": "card",
+          "settings": {
+            "card_title": "Biodegradable Packaging",
+            "card_description": "Eco-Conscious Packaging That Biodegrades, Protecting The Planet For Future Generations.",
+            "card_icon": "shopify://shop_images/planet-earth-environment_svgrepo.com.svg"
+          }
+        }
+      },
+      "block_order": [
+        "card_d6KqCD",
+        "card_RaUCEH",
+        "card_Vn6gz9",
+        "card_JAEW7c",
+        "card_jtC6ft"
+      ],
+      "name": "product feature cards",
+      "settings": {
+        "section_title": "",
+        "section_description": ""
+      }
+    },
+    "rich_text_Xcf46k": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HDBiVe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Girls Ballerinas",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "heading_tag": "h2"
+          }
+        },
+        "text_6mnLVG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kids’ footwear has evolved with current times, but classics, like girls’ ballerinas, which are a symbol of poise and grace, continue to maintain their position. <br/><br/>Ballerina flats are the most preferred girls’ footwear preferred by parents, for they protect the feet without restricting foot movement. <br/><br/>If you’re clueless about which shoes to buy for your daughter, begin with some stunning pairs of ballerinas from Purple United—your one-stop shop for premium kids’ clothes and accessories. <br/><br/>Continue reading to know everything you need to know about girls’ ballerina shoes.  </p>",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less"
+          }
+        },
+        "heading_rbenWW": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are the Best Ballerina Shoes for Girls?",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "heading_tag": "h3"
+          }
+        },
+        "text_ByNc3a": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The best ballerina shoes for girls are those that have the following features. </p><ul><li><strong>Cushioned footbeds –</strong> Proper cushioning under the feet protects the knees from direct impact from play. </li><li><strong>Flexible Soles –</strong> Flexible soles encourage natural movement of the feet. </li><li><strong>Straps –</strong> Straps or elastic bands that secure the shoes to the feet are essential for ease of movement.</li><li><strong>Soft, Breathable Material –</strong> You don’t want your child to suffer blisters and shoe bites.    </li><li><strong>Durable Construction –</strong> The ballerinas should withstand active play. </li></ul>",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less"
+          }
+        },
+        "heading_Hgy9fE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Are Ballerinas Good for Daily Wear for Kids?",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "heading_tag": "h3"
+          }
+        },
+        "text_Ncfphg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Yes, ballerinas designed to take wear and tear are perfect for daily wear. Ensure you choose the ones that have the features we’ve stated above and fit cozy, allowing the child to move freely.  </p>",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HDBiVe",
+        "text_6mnLVG",
+        "heading_rbenWW",
+        "text_ByNc3a",
+        "heading_Hgy9fE",
+        "text_Ncfphg"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "heading_light": "#5d2f91",
+        "color_heading_highlight_light": "#5d2f91",
+        "text_light": "#282928",
+        "background_color_light": "rgba(0,0,0,0)",
+        "heading_dark": "#5d2f91",
+        "color_heading_highlight_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "content_alignment": "left",
+        "show_section_divider": false,
+        "make_full_page_width": true,
+        "padding_top": 60,
+        "padding_bottom": 28,
+        "content_alignment_mobile": "left",
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28
+      }
+    },
+    "rich_text_W7AEw6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YWzdVq": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to Choose the Right Size of Ballerinas for Girls?",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "heading_tag": "h3"
+          }
+        },
+        "text_PRy9FL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To buy ballerina shoes online, you must know your child’s shoe size. Measure their foot accurately from the tip of the longest toe to the heel. You may also outline a foot on a paper and measure from the tip of the longest toe to the heel of the outline. Use the size chart given for the ballerina shoes you wish to buy and size up to allow room to grow and ensure comfort. If you’re buying them at a store, an attendant can help you figure out your child’s correct size and provide options.   </p>",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less"
+          }
+        },
+        "heading_wNaRnp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Which Ballerina Shoes Are Most Comfortable for Children?",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "heading_tag": "h3"
+          }
+        },
+        "text_BjUNMj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Go for shoes made with breathable, flexible, yet durable materials. They should have flexible soles, too, and a good grip to prevent slips and falls. Ensure the shoes have cushioning on the inside to protect the feet, and have full coverage, rounded toes, and sturdy straps to hold them securely for greater comfort. </p>",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less"
+          }
+        },
+        "heading_t7HdJY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Are Ballerinas Suitable for Casual, and Party Wear?",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "heading_tag": "h3"
+          }
+        },
+        "text_ieUEyd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Girls ballerinas come in a variety of designs and colors. You can choose the right texture, finish, material, and styles to suit your daughter’s style or a particular look. Whether it’s for a casual outing, or a party, at Purple United, you’ll find many options to choose from. Our party wear shoes for girls are shiny and shimmery. Choose from metallic finish, sequin work, glitter, and sparkly accents. Need something more sophisticated? Try those with pearl embellishments and metallic straps. For casual wear, go for lighter colors, charming embellishments, subtle prints, or classic monochrome style ballerina flats.</p>",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YWzdVq",
+        "text_PRy9FL",
+        "heading_wNaRnp",
+        "text_BjUNMj",
+        "heading_t7HdJY",
+        "text_ieUEyd"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "heading_light": "#5d2f91",
+        "color_heading_highlight_light": "#5d2f91",
+        "text_light": "#282928",
+        "background_color_light": "rgba(0,0,0,0)",
+        "heading_dark": "#5d2f91",
+        "color_heading_highlight_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "content_alignment": "left",
+        "show_section_divider": false,
+        "make_full_page_width": true,
+        "padding_top": 8,
+        "padding_bottom": 12,
+        "content_alignment_mobile": "left",
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28
+      }
+    },
+    "faq_qptHUk": {
+      "type": "faq",
+      "blocks": {
+        "frequently_asked_question_qqFGcQ": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "Which type of ballerina shoes are best for girls?",
+            "row_content": "<p>Rounded toe ballerinas with flexible soles, made in breathable material are the best for girls. Be sure to check that the material is also flexible (kids footwear should not restrict the child’s movement). Other than these features, the shoes should have an elastic or adjustable strap and a good grip to prevent slips and falls.</p>"
+          }
+        },
+        "frequently_asked_question_xQWQqe": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "Aregirls ballerinas comfortable for school and daily wear?",
+            "row_content": "<p>Although most schools in India have uniforms, your child may be permitted to express her style on certain occasions. Purple United girls’ ballerinas are a great choice for school events, and of course, for daily wear, too. They are designed for complete comfort. Pair them with socks in complementary colors and frills to elevate the overall outfit. </p>"
+          }
+        },
+        "frequently_asked_question_HjD8Dh": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "How do I measure the correct size for girls ballerina shoes?",
+            "row_content": "<p>Measure the foot on the floor (ensure it is a flat surface) from the tip of the longest toe to the heel, or outline it and measure it with a measuring tape. Compare the size with the size chart and buy ballerinas online. </p>"
+          }
+        },
+        "frequently_asked_question_4emcw3": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "What materials are best for durable and comfortable ballerinas for kids?",
+            "row_content": "<p>The materials often chosen for ballerinas vary in properties. Canvas is a lightweight, breathable, and soft material, but it is not a good choice for monsoons. High-quality synthetic materials may not be as breathable as canvas but may be just as durable and even waterproof or water-resistant, and therefore, a great choice for monsoons. Assess the use and the benefits of choosing a certain ballerina shoe material before buying shoes online. </p>"
+          }
+        },
+        "frequently_asked_question_CLLnRt": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "Can girls ballerina flats be worn for parties and special occasions?",
+            "row_content": "<p>Absolutely! Ballerinas are the best shoes for parties and special occasions. They protect the feet while allowing the wearer to be themselves without worrying about damaging them. Additionally, they come in fancy colors and cute embellishments, perfect for all kids’ events.  </p>"
+          }
+        }
+      },
+      "block_order": [
+        "frequently_asked_question_qqFGcQ",
+        "frequently_asked_question_xQWQqe",
+        "frequently_asked_question_HjD8Dh",
+        "frequently_asked_question_4emcw3",
+        "frequently_asked_question_CLLnRt"
+      ],
+      "name": "t:sections.question_and_answer.name",
+      "settings": {
+        "heading": "Ballerinas for Girls FAQs",
+        "highlight_type": "font_highlight",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "heading_alignment": "left",
+        "show_border": false,
+        "row_background": false,
+        "collapsible": true,
+        "show_view_all": false,
+        "view_all_position": "top",
+        "button_link": "",
+        "open_new_window": false,
+        "background_color_light": "#ffffff",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "enable_microdata_schema": true,
+        "desktop_layout": "1",
+        "image_alignment": "left",
+        "desktop_height": "400px",
+        "show_section_divider": false,
+        "make_full_page_width": false,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "image_alignment_mobile": "left",
+        "mobile_height": "250px",
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28
+      }
+    }
+  },
+  "order": [
+    "promotion_banner_P8dCRH",
+    "banner",
+    "product-grid",
+    "featured_collection_z9r7qr",
+    "multicolumn_M3Rbqp",
+    "products_bundle_D3XUi7",
+    "store_finder_8qdyYQ",
+    "related_blog_posts_MzWApY",
+    "1756453148875bcee6",
+    "products_features_card_NP4y7U",
+    "rich_text_Xcf46k",
+    "rich_text_W7AEw6",
+    "faq_qptHUk"
+  ]
+}

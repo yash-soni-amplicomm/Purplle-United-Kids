@@ -1,0 +1,127 @@
+{% comment %}
+  Section: Quarterly Results
+{% endcomment %}
+
+<section class="quarterly-results">
+  <h2 class="text-center">Quarterly Results</h2>
+
+  <div class="fy-wrapper">
+    {% for block in section.blocks %}
+      <div class="fy-item">
+        <button class="fy-toggle" type="button">
+          {{ block.settings.fy_title }}
+        </button>
+        <div class="fy-content">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% assign rows = "Quarterly Update,Financial Results,Earnings Presentation,Earnings Conference Call,Earnings Call Transcript,Press Releases" | split: "," %}
+              {% for row in rows %}
+                <tr>
+                  <td>{{ row }}</td>
+                  {% for q in (1..4) %}
+                    {% assign key = row | handleize | append: "_q" | append: q %}
+                    <td class="file-cell">
+                      {% if block.settings[key] != blank %}
+                        <a href="{{ block.settings[key] }}" target="_blank">
+                          <img src="{{ 'icon-active.png' | asset_url }}" alt="{{ row }} Q{{ q }}">
+                        </a>
+                      {% else %}
+                        <img src="{{ 'icon-inactive.png' | asset_url }}" alt="{{ row }} Q{{ q }}">
+                      {% endif %}
+                    </td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.quarterly-results { padding: 40px 0; }
+.fy-item { margin-bottom: 20px; border: 1px solid #ddd; }
+.fy-toggle { background: #f7b500; padding: 10px 20px; width: 100%; text-align: left; font-weight: bold; cursor: pointer; }
+.results-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.results-table th, .results-table td { border: 1px solid #ccc; text-align: center; padding: 10px; }
+.file-cell img { width: 24px; height: 24px; opacity: 1; }
+.file-cell img[alt*="inactive"] { opacity: 0.3; }
+.fy-content { display: none; padding: 10px; }
+.fy-item.active .fy-content { display: block; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll(".fy-toggle").forEach(btn => {
+    btn.addEventListener("click", function(){
+      this.parentNode.classList.toggle("active");
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Quarterly Results",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "year",
+      "name": "Financial Year",
+      "settings": [
+        { "type": "text", "id": "fy_title", "label": "Financial Year Title (e.g. FY'25-26)" },
+
+        { "type": "header", "content": "Quarterly Update" },
+        { "type": "url", "id": "quarterly-update_q1", "label": "Q1 File" },
+        { "type": "url", "id": "quarterly-update_q2", "label": "Q2 File" },
+        { "type": "url", "id": "quarterly-update_q3", "label": "Q3 File" },
+        { "type": "url", "id": "quarterly-update_q4", "label": "Q4 File" },
+
+        { "type": "header", "content": "Financial Results" },
+        { "type": "url", "id": "financial-results_q1", "label": "Q1 File" },
+        { "type": "url", "id": "financial-results_q2", "label": "Q2 File" },
+        { "type": "url", "id": "financial-results_q3", "label": "Q3 File" },
+        { "type": "url", "id": "financial-results_q4", "label": "Q4 File" },
+
+        { "type": "header", "content": "Earnings Presentation" },
+        { "type": "url", "id": "earnings-presentation_q1", "label": "Q1 File" },
+        { "type": "url", "id": "earnings-presentation_q2", "label": "Q2 File" },
+        { "type": "url", "id": "earnings-presentation_q3", "label": "Q3 File" },
+        { "type": "url", "id": "earnings-presentation_q4", "label": "Q4 File" },
+
+        { "type": "header", "content": "Earnings Conference Call" },
+        { "type": "url", "id": "earnings-conference-call_q1", "label": "Q1 File" },
+        { "type": "url", "id": "earnings-conference-call_q2", "label": "Q2 File" },
+        { "type": "url", "id": "earnings-conference-call_q3", "label": "Q3 File" },
+        { "type": "url", "id": "earnings-conference-call_q4", "label": "Q4 File" },
+
+        { "type": "header", "content": "Earnings Call Transcript" },
+        { "type": "url", "id": "earnings-call-transcript_q1", "label": "Q1 File" },
+        { "type": "url", "id": "earnings-call-transcript_q2", "label": "Q2 File" },
+        { "type": "url", "id": "earnings-call-transcript_q3", "label": "Q3 File" },
+        { "type": "url", "id": "earnings-call-transcript_q4", "label": "Q4 File" },
+
+        { "type": "header", "content": "Press Releases" },
+        { "type": "url", "id": "press-releases_q1", "label": "Q1 File" },
+        { "type": "url", "id": "press-releases_q2", "label": "Q2 File" },
+        { "type": "url", "id": "press-releases_q3", "label": "Q3 File" },
+        { "type": "url", "id": "press-releases_q4", "label": "Q4 File" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Quarterly Results" }
+  ]
+}
+{% endschema %}

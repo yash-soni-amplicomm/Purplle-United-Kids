@@ -1,0 +1,351 @@
+<section class="custom-section-budget-buy">
+  <div class="budget-buy-section">
+      {% if section.settings.title != blank %}
+          <h2 class="budget-title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      <div class="budget-cards-scroll">
+          <div class="budget-cards-wrapper">
+              {% for block in section.blocks %}
+                  <div class="budget-card">
+                    {% if block.settings.background_image %}
+                      <picture class="budget-bg">
+                        <!-- Mobile -->
+                        <source
+                          media="(max-width: 767px)"
+                          srcset="
+                            {{ block.settings.background_image | image_url: width: 150 }} 150w,
+                            {{ block.settings.background_image | image_url: width: 300 }} 300w
+                          "
+                          sizes="150px"
+                        >
+
+                        <!-- Desktop -->
+                        <source
+                          media="(min-width: 768px)"
+                          srcset="
+                            {{ block.settings.background_image | image_url: width: 300 }} 300w,
+                            {{ block.settings.background_image | image_url: width: 600 }} 600w
+                          "
+                          sizes="(min-width: 1024px) 20vw, 33vw"
+                        >
+
+                        <img
+                          src="{{ block.settings.background_image | image_url: width: 300 }}"
+                          alt="{{ block.settings.heading | escape }}"
+                          loading="lazy"
+                          decoding="async"
+                          width="300"
+                          height="400"
+                        >
+                      </picture>
+                    {% endif %}
+
+                    <div class="budget-overlay"></div>
+
+                    <h3 class="budget-card-title">{{ block.settings.heading }}</h3>
+                    <div class="budget-card-subtitle">
+                      <span class="dash"></span>
+                      <p>{{ block.settings.subtitle }}</p>
+                    </div>
+                    <div class="budget-card-price">₹{{ block.settings.price }}</div>
+                    <a href="{{ block.settings.button_link }}" class="budget-btn">
+                      {{ block.settings.button_label }}
+                    </a>
+                  </div>
+
+              {% endfor %}
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+<style>
+.custom-section-budget-buy {
+  text-align: center;
+  padding: 24px 36px;
+  {% comment %} padding: 40px 0; {% endcomment %}
+}
+
+.budget-title {
+  font-family: "GT America Trial";
+  font-size: 39px;
+  font-weight: 275;
+  {% comment %} margin: 20px 0; {% endcomment %}
+}
+
+.budget-cards-wrapper {
+  display: flex;
+  gap: 20px;
+{% comment %} padding: 24px 36px; {% endcomment %}
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.budget-card {
+  width: calc(20% - 20px); /* 5 items per row on desktop */
+  min-height: 290px;
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+  .budget-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+.budget-bg,
+.budget-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.budget-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(93, 47, 145, 0.9) 0%,
+    rgba(28, 14, 43, 0.9) 142.55%
+  );
+  z-index: 1;
+}
+
+/* Content above image */
+.budget-card > *:not(.budget-bg):not(.budget-overlay) {
+  position: relative;
+  z-index: 2;
+}
+
+.budget-card-title {
+  color: white;
+  font-size: 31px;
+  font-weight: 500;
+}
+
+.budget-card-subtitle {
+  font-size: 14px;
+  width: 100%;
+}
+
+.budget-card-subtitle p {
+  font-size: 25px;
+  color: white;
+}
+
+.budget-card-subtitle .dash {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #fff;
+  margin: 6px 0;
+  opacity: 0.6;
+}
+
+.budget-card-price {
+  color: white;
+  font-size: 49px;
+  font-weight: 700;
+}
+
+.budget-btn {
+  display: flex;
+  padding: 12px 29px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  background: #FAFAFA;
+  color: #1A1A1A;
+  border-radius: 20px;
+}
+
+.budget-btn:hover {
+  background: #eee;
+}
+
+.budget-cards-scroll {
+  overflow-x: unset;
+}
+
+.budget-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding-top:24px;
+}
+
+/* Desktop view: 5 items per row */
+@media screen and (min-width: 1024px) {
+  .budget-card {
+    width: calc(20% - 20px); /* 5 items per row */
+  }
+}
+
+/* Tablet/Mobile view: 3 items per row */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .budget-card {
+    width: calc(33.33% - 20px); /* 3 items per row */
+  }
+}
+
+/* Mobile view: 3 items per row */
+@media screen and (max-width: 768px) {
+  .budget-card-title {
+    font-size: 13.627px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+  }
+.budget-title {
+  font-size: 31px;
+font-style: normal;
+font-weight: 275;
+line-height: normal;
+}
+  .budget-card-subtitle p{
+   font-size: 10.989px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  }
+
+  .budget-card-price {
+    font-size: 21.539px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+  }
+
+  .budget-btn {
+    padding: 5.275px 12.747px;
+    font-size: 8.791px;
+font-style: normal;
+font-weight: 400;
+  }
+
+  .budget-cards-wrapper {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    min-width: max-content;
+    paddint-top:0px;
+  }
+
+  .budget-card {
+     min-height:0px;
+    width: 133.189px;
+  }
+
+  .budget-cards-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .custom-section-budget-buy {
+    padding: 24px 16px;
+    {% comment %} margin-top:20px; {% endcomment %}
+  }
+}
+
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollContainer = document.querySelector('.budget-cards-scroll');
+
+    if (window.innerWidth <= 900 && scrollContainer) {
+      let scrollAmount = 0;
+      const cardWidth = 240; // card width + margin
+      const slideInterval = 3000;
+
+      setInterval(() => {
+        scrollAmount += cardWidth * 3; // Scroll 3 cards at a time
+        if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+          scrollAmount = 0;
+        }
+        scrollContainer.scrollTo({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }, slideInterval);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Budget Buy Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Budget Buy"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "T-shirt"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Under"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "499"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Budget Buy",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

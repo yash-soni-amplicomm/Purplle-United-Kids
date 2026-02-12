@@ -1,0 +1,198 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_heading": false,
+        "heading_size": 100,
+        "heading_tag": "h1",
+        "show_breadcrumbs": true,
+        "show_breadcrumbs_border": false,
+        "full_width_breadcrumb": true,
+        "desktop_content_alignment": "text-left",
+        "mobile_content_alignment": "text-left",
+        "background_color_light": "#ffffff",
+        "text_color_light": "rgba(0,0,0,0)",
+        "textlink_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "text_color_dark": "rgba(0,0,0,0)",
+        "textlink_color_dark": "rgba(0,0,0,0)",
+        "max_container_page_width": 100,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "faq_ditPU9": {
+      "type": "faq",
+      "blocks": {
+        "frequently_asked_question_mPKDNE": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"#4d2d82\" viewbox=\"0 0 24 24\">\n  <path d=\"M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 2.03 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z\"></path>\n</svg>",
+            "heading": "<b>What age group do your clothes cater to?</b>",
+            "row_content": "<p>Our collection is designed for newborns to 14-year-olds. Whether it’s playful rompers for babies or trendy outfits for tweens, we’ve got them covered.</p>"
+          }
+        },
+        "frequently_asked_question_dJpUgc": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>Do you offer clothing for both boys and girls?</b>",
+            "row_content": "<p>Yes! Our range includes fashion-forward and functional pieces for both boys and girls  from comfy basics to standout partywear</p>"
+          }
+        },
+        "frequently_asked_question_pmihwt": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>Where can I shop for Purple United Kids products?</b>",
+            "row_content": "<p>You can shop with us at our exclusive stores across India or directly from our website.</p>"
+          }
+        },
+        "frequently_asked_question_bnUAr3": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>How do I choose the right size for my child?</b>",
+            "row_content": "<p>Every product page includes a detailed <strong>Size Guide</strong>. We recommend checking it before placing your order, as sizes may slightly vary by style.</p>"
+          }
+        },
+        "frequently_asked_question_D8q87M": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>Can I return or exchange an item?</b>",
+            "row_content": "<p>Absolutely. We offer a <strong>hassle-free 7-day return or exchange</strong> policy on unused items with tags intact. For more details, visit our [Returns & Exchange Policy] page.</p>"
+          }
+        },
+        "frequently_asked_question_XfHwaP": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>Do you offer gift cards?</b>",
+            "row_content": "<p>Yes! You can purchase digital or physical gift cards: perfect for birthdays, baby showers, or special surprises.</p>"
+          }
+        },
+        "frequently_asked_question_bYcGFJ": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>Are your products safe and gentle for babies?</b>",
+            "row_content": "<p>Yes. Our baby range uses ultra-soft, breathable fabrics that are gentle on sensitive skin ensuring comfort, safety, and style in one.<br/><br/></p>"
+          }
+        },
+        "frequently_asked_question_MqAmyK": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>What makes Purple United Kids different from other brands?</b>",
+            "row_content": "<p>We combine premium quality, thoughtful design, and everyday comfort, all under one roof. Every piece is crafted to let kids move freely, feel great, and shine bright.</p>"
+          }
+        },
+        "frequently_asked_question_bWQgc7": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>How long does delivery take?</b>",
+            "row_content": "<p>We usually ship within 24–48 hours. Delivery time depends on your location but typically takes <strong>3–7 business days</strong>.</p>"
+          }
+        },
+        "frequently_asked_question_DcWrYy": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>Is there a way to track my order?</b>",
+            "row_content": "<p>Yes, once your order is shipped, you’ll receive a tracking link via SMS or email so you can follow your order in real time.</p>"
+          }
+        },
+        "frequently_asked_question_4z6XtQ": {
+          "type": "frequently_asked_question",
+          "settings": {
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "heading": "<b>Do you run sales or offers?</b>",
+            "row_content": "<p>We occasionally run exciting promotions and early-access sales. Stay in the loop by following us on Instagram.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "frequently_asked_question_mPKDNE",
+        "frequently_asked_question_dJpUgc",
+        "frequently_asked_question_pmihwt",
+        "frequently_asked_question_bnUAr3",
+        "frequently_asked_question_D8q87M",
+        "frequently_asked_question_XfHwaP",
+        "frequently_asked_question_bYcGFJ",
+        "frequently_asked_question_MqAmyK",
+        "frequently_asked_question_bWQgc7",
+        "frequently_asked_question_DcWrYy",
+        "frequently_asked_question_4z6XtQ"
+      ],
+      "settings": {
+        "heading": "Frequently [Asked Questions]",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "heading_alignment": "center",
+        "show_border": false,
+        "row_background": false,
+        "collapsible": true,
+        "show_view_all": false,
+        "view_all_position": "top",
+        "button_link": "",
+        "open_new_window": false,
+        "background_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "enable_microdata_schema": false,
+        "desktop_layout": "1",
+        "image_alignment": "left",
+        "desktop_height": "400px",
+        "show_section_divider": false,
+        "make_full_page_width": false,
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "image_alignment_mobile": "left",
+        "mobile_height": "250px",
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 64
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_ditPU9"
+  ]
+}

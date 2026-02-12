@@ -1,0 +1,236 @@
+{% schema %}
+{
+  "name": "Full Carousel Grid",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "carousel_slide",
+      "name": "Carousel Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "slide_title",
+          "label": "Slide Title",
+          "default": "Category Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "Link 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "Link 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "url",
+          "id": "link_3",
+          "label": "Link 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "url",
+          "id": "link_4",
+          "label": "Link 4"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Full Carousel Grid",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.full-carousel-grid {
+  background-image: url({{ section.settings.background_image | image_url }});
+  background-size: cover;
+  background-position: center;
+  padding: 80px 15px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  gap:30px;
+}
+
+
+
+.carousel-slide {
+  flex: 0 0 100%;
+  width:180px;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  
+}
+
+.carousel-slide h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.image-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.image-grid.one {
+  grid-template-columns: 1fr;
+}
+.image-grid.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+.image-grid.three,
+.image-grid.four {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.image-grid a img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.carousel-buttons button {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+</style>
+
+<div class="full-carousel-grid">
+  <div class="carousel-track" id="carouselTrack">
+    {% for block in section.blocks %}
+      {% assign image_count = 0 %}
+      {% for i in (1..4) %}
+        {% assign img_id = 'image_' | append: i %}
+        {% if block.settings[img_id] %}
+          {% assign image_count = image_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+
+      <div class="carousel-slide" data-index="{{ forloop.index0 }}">
+        <h3>{{ block.settings.slide_title }}</h3>
+        <div class="image-grid {% case image_count %}{% when 1 %}one{% when 2 %}two{% when 3 %}three{% when 4 %}four{% endcase %}">
+          {% for i in (1..4) %}
+            {% assign img_id = 'image_' | append: i %}
+            {% assign link_id = 'link_' | append: i %}
+            {% if block.settings[img_id] %}
+              <a href="{{ block.settings[link_id] | default: '#' }}">
+                <img src="{{ block.settings[img_id] | image_url: width: 500 }}" alt="Image {{ i }}">
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="scrollCarousel(-1)">◀</button>
+    <button onclick="scrollCarousel(1)">▶</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const track = document.getElementById('carouselTrack');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const prevButton = document.querySelector('.carousel-buttons button:first-child');
+    const nextButton = document.querySelector('.carousel-buttons button:last-child');
+
+    let currentIndex = 0;
+
+    function getSlideWidth() {
+      return slides[0].getBoundingClientRect().width; // includes gap
+    }
+
+    function getVisibleCount() {
+      const containerWidth = track.parentElement.getBoundingClientRect().width;
+      return Math.floor(containerWidth / getSlideWidth());
+    }
+
+    function updateCarousel() {
+      const slideWidth = getSlideWidth();
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      const maxIndex = slides.length - getVisibleCount();
+
+      prevButton.disabled = currentIndex <= 0;
+      nextButton.disabled = currentIndex >= maxIndex;
+
+      prevButton.style.opacity = prevButton.disabled ? 0.4 : 1;
+      nextButton.style.opacity = nextButton.disabled ? 0.4 : 1;
+    }
+
+    window.scrollCarousel = function (direction) {
+      const maxIndex = slides.length - getVisibleCount();
+      const nextIndex = currentIndex + direction;
+
+      if (nextIndex >= 0 && nextIndex <= maxIndex) {
+        currentIndex = nextIndex;
+        updateCarousel();
+      }
+    };
+
+    window.addEventListener("resize", updateCarousel);
+    updateCarousel(); // on load
+  });
+</script>

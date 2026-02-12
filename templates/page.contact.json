@@ -1,0 +1,112 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_heading": false,
+        "heading_size": 100,
+        "heading_tag": "h1",
+        "show_breadcrumbs": true,
+        "show_breadcrumbs_border": false,
+        "full_width_breadcrumb": true,
+        "desktop_content_alignment": "text-left",
+        "mobile_content_alignment": "text-left",
+        "background_color_light": "#f2f2f2",
+        "text_color_light": "rgba(0,0,0,0)",
+        "textlink_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "#313131",
+        "text_color_dark": "rgba(0,0,0,0)",
+        "textlink_color_dark": "rgba(0,0,0,0)",
+        "max_container_page_width": 100,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "blocks": {
+        "name": {
+          "type": "name",
+          "settings": {
+            "heading": "Name",
+            "mark_as_required": true
+          }
+        },
+        "email": {
+          "type": "email",
+          "settings": {
+            "heading": "Email"
+          }
+        },
+        "phone": {
+          "type": "phone",
+          "settings": {
+            "heading": "Phone number",
+            "mark_as_required": true
+          }
+        },
+        "message": {
+          "type": "message",
+          "settings": {
+            "heading": "What's on Your Mind?",
+            "mark_as_required": true
+          }
+        }
+      },
+      "block_order": [
+        "name",
+        "email",
+        "phone",
+        "message"
+      ],
+      "settings": {
+        "heading": "Reach out to Us",
+        "highlight_type": "underline",
+        "heading_size": 70,
+        "heading_tag": "h2",
+        "heading_alignment": "left",
+        "text": "",
+        "background_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "button_label": "Send",
+        "button_alignment": "right",
+        "success_message": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "show_content": "info",
+        "form_alignment": "left",
+        "desktop_height": "550px",
+        "mobile_height": "400px",
+        "contact_heading": "Customer Care Details",
+        "highlight_type_1": "underline",
+        "heading_tag_2": "h2",
+        "infomation": "",
+        "address": "Purple United Sales Limited (Formerly known as Purple United Sales Private Limited) Tower 2, Ground Floor, Candor TechSpace, Plot 20 & 21, Sector 135, Noida Uttar Pradesh-201304",
+        "phone_nummber": "+919319391444",
+        "email_address": "connect@purpleunited.com",
+        "contact_text": "<p>Join Our Team!</p><p><a href=\"mailto:hire@purpleunited.in\">hire@purpleunited.com</a></p>",
+        "full_width": false,
+        "show_section_divider": false,
+        "padding_top": 76,
+        "padding_bottom": 100,
+        "full_width_mobile": false,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form"
+  ]
+}

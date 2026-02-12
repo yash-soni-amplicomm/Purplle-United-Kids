@@ -1,0 +1,74 @@
+        <div class="{% if enable_filtering and results.filters != empty %}hidden{% else %}flex{% endif %} md:flex items-center {% if is_rtl %}{% if rounded_filter != 'square' %} ml-7{% endif %}{% else %}{% if rounded_filter != 'square' %} mr-7{% endif %}{% endif %}">
+          <div class="hidden md:flex{% if is_rtl %} ml-3 md:ml-6{% else %} mr-3 md:mr-6{% endif %}">
+            {% comment %} <button
+              @click="toggleLayout(true)"
+              :class="!listLayout && 'opacity-50'"
+              class="inline-block w-6 h-12 px-1 py-4 cursor-pointer"
+              aria-label="list layout"
+            >
+              {% render 'icon-alls', icon: 'icon-list' %}
+            </button>
+            <button
+              @click="toggleLayout(false)"
+              :class="listLayout && 'opacity-50'"
+              class="{% if is_rtl %} ml-1{% else %} mr-1{% endif %} inline-block w-6 px-1 h-12 cursor-pointer"
+              aria-label="Grid layout"
+            >
+              {% render 'icon-alls', icon: 'icon-grid' %}
+            </button> {% endcomment %}
+          </div>
+          {%- if enable_sorting -%}
+            <div class="{% if enable_filtering and show_filter %}hidden{% else %}flex{% endif %} md:flex items-center rounded-full border">
+              <p class="whitespace-nowrap py-1.5 pl-2">
+                {{ 'products.facets.sort_by_label' | t }}
+              </p>
+              <div class="flex relative{% if is_rtl %} mr-1{% else %} ml-1{% endif %} eurus">
+                {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
+                <select
+                  id="FormSelectFilter"
+                  class="{% if is_rtl %} pl-7 pr-2{% else %} pr-7 pl-2{% endif %} cursor-pointer border focus:outline-none focus-visible:border bg-transparent border-[rgba(var(--background-color))] focus-visible:border-current"
+                  name="sort_by"
+                  form="FacetFiltersForm"
+                  aria-label="Sort by"
+                  aria-describedby="a11y-refresh-page-message"
+                  @change="onSubmit(0)"
+                >
+                  {% comment %}
+                    {%- for option in results.sort_options -%}
+                      <option class="bg-[rgba(var(--background-color),1)]" value="{{ option.value | escape }}"{% if option.value == sort_by %} selected="selected"{% endif %}>{{ option.name | escape }}</option>
+                    {%- endfor -%}
+                  {% endcomment %}
+                  {%- for option in results.sort_options -%}
+                    {% unless option.value contains 'title-'
+                      or option.value contains 'manual'
+                      or option.value contains 'created-ascending'
+                    %}
+                      <option
+                        class="bg-[rgba(var(--background-color),1)]"
+                        value="{{ option.value | escape }}"
+                        {% if option.value == sort_by %}
+                          selected="selected"
+                        {% endif %}
+                      >
+                        {{ option.name | escape }}
+                      </option>
+                    {% endunless %}
+                  {%- endfor -%}
+                  <!-- Add the custom 'Sort by Discount' option -->
+                 {% comment %} <option
+                    class="bg-[rgba(var(--background-color),1)]"
+                    value="discount"
+                    {% if sort_by == 'discount' %}
+                      selected="selected"
+                    {% endif %}
+                  >
+                    Better Discount
+                  </option>{% endcomment %}
+                </select>
+                <span class="absolute top-1/2 {% if is_rtl %} left-2{% else %} right-2{% endif %} -translate-y-1/2 w-2.5">
+                  {%- render 'icon-alls', icon: 'icon-caret' -%}
+                </span>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>

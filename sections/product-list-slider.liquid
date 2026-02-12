@@ -1,0 +1,907 @@
+{% comment %} <style>
+.slick-slider{position:relative;display:block;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0}
+.slick-list:focus{outline:0}.slick-list.dragging{cursor:pointer;cursor:hand}
+.slick-slider .slick-list,.slick-slider .slick-track{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
+.slick-track{position:relative;top:0;left:0;display:block;margin-left:auto;margin-right:auto}
+.slick-track:after,.slick-track:before{display:table;content:''}.slick-track:after{clear:both}
+.slick-loading .slick-track{visibility:hidden}.slick-slide{display:none;float:left;height:100%;min-height:1px}[dir=rtl] 
+.slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}
+.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}
+.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}
+.slick-arrow.slick-hidden{display:none}
+.slick-loading .slick-list{background:#fff url(ajax-loader.gif) center center no-repeat}@font-face{font-family:slick;font-weight:400;font-style:normal;src:url(fonts/slick.eot);src:url(fonts/slick.eot?#iefix) format('embedded-opentype'),url(fonts/slick.woff) format('woff'),url(fonts/slick.ttf) format('truetype'),url(fonts/slick.svg#slick) format('svg')}
+.slick-next,.slick-prev{font-size:0;line-height:0;position:absolute;top:50%;display:block;width:20px;height:20px;padding:0;-webkit-transform:translate(0,-50%);-ms-transform:translate(0,-50%);transform:translate(0,-50%);cursor:pointer;color:transparent;border:none;outline:0;background:0 0}
+.slick-next:focus,.slick-next:hover,.slick-prev:focus,.slick-prev:hover{color:transparent;outline:0;background:0 0}.slick-next:focus:before,.slick-next:hover:before,.slick-prev:focus:before,.slick-prev:hover:before{opacity:1}.slick-next.slick-disabled:before,.slick-prev.slick-disabled:before{opacity:.25}.slick-next:before,.slick-prev:before{font-family:slick;font-size:20px;line-height:1;opacity:.75;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.slick-prev{left:-25px}[dir=rtl] .slick-prev{right:-25px;left:auto}.slick-prev:before{content:'←'}[dir=rtl] .slick-prev:before{content:'→'}.slick-next{right:-25px}[dir=rtl] .slick-next{right:auto;left:-25px}.slick-next:before{content:'→'}[dir=rtl] .slick-next:before{content:'←'}.slick-dotted.slick-slider{margin-bottom:30px}.slick-dots{position:absolute;bottom:-25px;display:block;width:100%;padding:0;margin:0;list-style:none;text-align:center}.slick-dots li{position:relative;display:inline-block;width:20px;height:20px;margin:0 5px;padding:0;cursor:pointer}.slick-dots li button{font-size:0;line-height:0;display:block;width:20px;height:20px;padding:5px;cursor:pointer;color:transparent;border:0;outline:0;background:0 0}.slick-dots li button:focus,.slick-dots li button:hover{outline:0}.slick-dots li button:focus:before,.slick-dots li button:hover:before{opacity:1}
+.slick-dots li button:before{font-family:slick;font-size:6px;line-height:20px;position:absolute;top:0;left:0;width:20px;height:20px;content:'•';text-align:center;opacity:.25;color:#000;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.slick-dots li.slick-active button:before{opacity:.75;color:#000}
+
+</style>
+
+<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+{% stylesheet %}
+/* ---------- SECTION: Tabbed Promo Slider ---------- */
+.scc-ct-tabs-section { box-sizing: border-box; padding: 0rem 0rem 0.8rem 0rem; }
+.scc-banner-tab-wrapper { display: flex;  align-items: flex-start; justify-content: space-between; width: 100%; }
+
+
+/* Left banner (45%) */
+.scc-banner-image { display: flex;
+width: 511px;
+justify-content: center;
+align-items: flex-start; }
+.scc-banner-image img { width: 100%; height: auto; border-radius: 16px; object-fit: cover; display: block; }
+
+@media (min-width:1024px){
+  .scc-banner-image{
+    margin-left:20px;
+  }
+}
+
+/* Right content (tabs & products) - 55% */
+.scc-tab-content { flex: 1 1 65%; max-width: 65%;     display: flex; flex-direction: column; position: relative; }
+
+/* Title */
+.scc-section-title { margin: 0 0 12px; font-weight: 600; font-size: {{ section.settings.heading_size }}px; color: {{ section.settings.text_color }}; }
+
+/* Tabs nav */
+.scc-tabs-nav { display: inline-flex; padding: 8px; border-radius: 8px;
+    border: 0.5px solid #5D2F91;gap: 10px; list-style: none; flex-wrap: wrap; }
+.scc-tabs-nav li { list-style: none; }
+.scc-tab-link {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 20px;
+  background: {{ section.settings.tab_background_color }};
+  color: {{ section.settings.tab_text_color }};
+  border: 1px solid {{ section.settings.tab_border_color }};
+  font-size: 14px;
+  text-decoration: none;
+  transition: all .18s ease;
+}
+.scc-tab-link.active { background: rgb(40 41 39 / 10%);
+    color: rgb(40, 41, 40);
+ }
+
+/* Panel */
+.scc-tab-panel { display: none; }
+.scc-tab-panel.active { display: block; right: 60px; position: relative;}
+
+/* PRODUCT SLIDER */
+.scc-ct-tabs .product-slider { position: relative; box-sizing: border-box; }
+.scc-ct-tabs .product-slider .grid__item { display: block; width: auto; box-sizing: border-box; outline: none; border-radius: 16px; background: var(--Grey-0, #FAFAFA);}
+
+.scc-ct-tabs .slick-prev,
+.scc-ct-tabs .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 5;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.scc-ct-tabs .slick-prev { left: 8px; }
+.scc-ct-tabs .slick-next { right: 8px; }
+.scc-ct-tabs .slick-prev:before,
+.scc-ct-tabs .slick-next:before { color:  #6c5959; font-size: 40px; opacity: 1; }
+
+.slick-dotted.slick-slider { margin-bottom: 0px !important; }
+
+.scc-ct-tabs .slick-dots { position: relative;  text-align: left;}
+.scc-ct-tabs .slick-dots li button:before { font-size: 25px; color: #bbb; opacity: 1; }
+.scc-ct-tabs .slick-dots li.slick-active button:before { color: #333; }
+.slick-dots li {margin: 0 !important;}
+.slick-dots {bottom: 0px !important; margin: auto !important; width: 50% !important;}
+
+/* View all link */
+.collection__view-all { margin-top: 10px; text-align: right; }
+.collection__view-all a { color: #333; text-decoration: underline; font-size: 14px; }
+@media (min-width: 1024px) { .scc-tab-panel.active { top: 30px; } .product-list-slider-custom-nav { padding-top: 25px;} }
+@media (max-width: 1024px) {
+  .scc-banner-tab-wrapper { flex-direction: column; gap: 20px; }
+  .scc-banner-image, .scc-tab-content { max-width: 100%; flex: 1 1 100%; }
+  .scc-section-title { text-align: center; }
+  .scc-tabs-nav {display: flex; justify-content: center; margin:0; }
+  .scc-tab-panel.active { right: 0px; position: relative;}
+  .scc-ct-tabs .slick-dots { text-align: right; width: 100% !important; }
+  .scc-ct-tabs .product-slider .grid__item{padding:0px !important;}
+  .scc-tab-link{ padding: 6px 10px; }
+  .scc-banner-tab-wrapper { justify-content: center; align-items: center; gap: 20px; }
+  .product-list-slider-custom-nav { display: flex; justify-content: center; align-items: center; }
+
+  .scc-banner-image{
+    width:285px;
+  }
+}
+.product-slider .slick-slide { width: calc((100% / 3) - 10px); }
+
+.rounded-\[10px\] { border-radius: 20px; }
+/* .x-variants-data { display: block; position: absolute; bottom: -0.5rem; } */
+fieldset[data-option-name="size"] { max-height: 100px; overflow-y: auto; display: flex; flex-direction: column; }
+/* .card-product { padding-bottom: 0px; margin: 20px 10px 0px 10px; } */
+.product-list-slider-custom-nav{ text-align:center; }
+.scc-banner-tab-wrapper{ margin-top:20px; }
+{% endstylesheet %}
+
+<div class="scc-ct-tabs-section page-width mt-4" aria-label="Tabbed promotional products">
+  <div class="scc-banner-tab-wrapper">
+
+   {% if section.settings.banner_image != blank or section.settings.banner_image_mobile != blank %}
+  <div class="scc-banner-image">
+    <picture>
+      {% if section.settings.banner_image_mobile != blank %}
+        <source media="(max-width: 749px)" srcset="{{ section.settings.banner_image_mobile | image_url: width: 750 }}">
+      {% endif %}
+      {% if section.settings.banner_image != blank %}
+        <img src="{{ section.settings.banner_image | image_url: width: 1400 }}" alt="{{ section.settings.title | escape }}">
+      {% endif %}
+    </picture>
+  </div>
+{% endif %}
+
+    <div class="scc-tab-content">
+      {% if section.settings.title != blank %}
+        <div class="flex justify-center items-center"><h2 class="scc-section-title">{{ section.settings.title }}</h2></div>
+      {% endif %}
+
+      <div id="scc-ct-tabs-{{ section.id }}" class="scc-ct-tabs">
+        <!-- Tabs -->
+        <div class="product-list-slider-custom-nav">
+          <ul class="scc-tabs-nav" role="tablist">
+            {% for block in section.blocks %}
+              {% assign collection = collections[block.settings.collection] %}
+              {% if collection != blank %}
+                <li role="presentation">
+                  <a href="#panel-{{ forloop.index }}-{{ section.id }}" data-target="#panel-{{ forloop.index }}-{{ section.id }}" class="scc-tab-link {% if forloop.first %}active{% endif %}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                    {{ block.settings.custom_tab_label | default: collection.title }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Panels -->
+        {% for block in section.blocks %}
+          {% assign collection = collections[block.settings.collection] %}
+          {% if collection != blank %}
+            <div id="panel-{{ forloop.index }}-{{ section.id }}" class="scc-tab-panel {% if forloop.first %}active{% endif %}" role="tabpanel" aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}">
+              <div class="product-slider">
+                {% for product in collection.products limit: section.settings.product_limit %}
+                  <div class="grid__item">
+                   {% render 'card-product', card_product: product %}
+                  </div>
+                {% endfor %}
+              </div>
+
+              {% if block.settings.viewall %}
+                <div class="collection__view-all">
+                  <a href="{{ collection.url }}">View All Collection →</a>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+jQuery(function($) {
+  var hasSlick = !!($.fn && $.fn.slick);
+  var $section = $('#scc-ct-tabs-{{ section.id }}');
+
+  function initSlickPanel($panel) {
+    var $slider = $panel.find('.product-slider');
+    if (!$slider.length || !hasSlick) return;
+    if ($slider.hasClass('slick-initialized')) return;
+
+    $slider.slick({
+      dots: true,
+      arrows: false,
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      centerMode: false,
+      variableWidth: false,
+      responsive: [
+        { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, infinite: false } },
+        { breakpoint: 600,  settings: { slidesToShow: 3, slidesToScroll: 1, infinite: false } }
+      ]
+    });
+  }
+
+  var $firstTabPanel = $section.find('.scc-tab-panel.active');
+  if ($firstTabPanel.length) initSlickPanel($firstTabPanel);
+
+  $section.on('click', '.scc-tab-link', function(e) {
+    e.preventDefault();
+    var $link = $(this);
+    if ($link.hasClass('active')) return;
+
+    $section.find('.scc-tab-link').removeClass('active').attr('aria-selected', 'false');
+    $link.addClass('active').attr('aria-selected', 'true');
+
+    var target = $link.data('target');
+    $section.find('.scc-tab-panel').removeClass('active').attr('aria-hidden', 'true').hide();
+    var $panel = $(target);
+    $panel.addClass('active').attr('aria-hidden', 'false').show();
+
+    initSlickPanel($panel);
+    if (hasSlick) $panel.find('.product-slider.slick-initialized').slick('setPosition');
+  });
+
+  $(window).on('load resize', function() {
+    if (!hasSlick) return;
+    $section.find('.product-slider.slick-initialized').each(function() {
+      try { $(this).slick('setPosition'); } catch(e) {}
+    });
+  });
+});
+</script> {% endcomment %}
+
+{% assign sid = section.id %} 
+<section id="section-{{ sid }}" class="pls-section-custom pls-{{ sid }}" style="background: {{ section.settings.background_color }};">
+  <div class="pls-wrapper-custom">
+    <!-- Banner -->
+    <div class="pls-banner-custom"> 
+      {% if section.settings.banner_image != blank %} 
+        {% comment %} <picture> 
+          {% if section.settings.banner_image_mobile != blank %}
+            <source media="(max-width: 767px)" srcset="{{ section.settings.banner_image_mobile | image_url: width: 800 }}">
+          {% endif %} 
+        </picture> {% endcomment %}
+        <a href="{{  section.settings.section_collection.url }}">
+          <img style="width: 100%;height: 100%;" src="{{ section.settings.banner_image | image_url: width: 1200 }}" alt="{{ section.settings.title | escape }}" loading="lazy">
+        </a>
+        {% endif %}
+    </div>
+    <div></div>
+
+    <!-- Content -->
+    <div class="pls-content-custom">
+      {% if section.settings.title != blank %}
+        <h2 class="pls-heading-custom">{{ section.settings.title }}</h2> 
+      {% endif %}
+
+      <!-- Tabs -->
+      <div class="pls-tabs-custom" role="tablist"> 
+        {% for block in section.blocks %} 
+          {% assign tab_label = block.settings.custom_tab_label | default: block.settings.collection.title %} 
+            <button class="pls-tab-custom{% if forloop.first %} is-active{% endif %}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" data-tab="{{ forloop.index }}" type="button">
+              {{ tab_label }}
+            </button> 
+            {% unless forloop.last %}
+              <div style="width:1px;background:#e7e7e7;margin:0 5px;"></div>
+            {% endunless %}
+        {% endfor %} 
+      </div>
+
+      <!-- Panels --> 
+      {% for block in section.blocks %} 
+        {% if block.settings.collection != blank %} 
+          {% assign collection = block.settings.collection %} 
+          {% assign product_count = collection.products | size %}
+
+          <div class="pls-panel-custom{% if forloop.first %} is-active{% endif %}" data-panel="{{ forloop.index }}" role="tabpanel">
+            <div class="pls-carousel-custom" data-carousel>
+              <div class="pls-track-custom{% if product_count < 4 %} center-aligned{% endif %}" data-index="0"> 
+                {% for product in collection.products limit: section.settings.product_limit %} 
+                  <div class="pls-slide-custom">
+                      <a href="{{ product.url }}" data-link="{{ product.url }}">
+                        <div
+                          class="bundle-image"
+                          data-handle="{{ product.handle }}">
+                            <img
+                              src="{{ product.featured_image | image_url: width: 600 }}"
+                              alt="{{ product.title }}"
+                            >
+                        </div>
+                        <div class="card-title-wrapper">
+                          
+                          <!-- Title -->
+                          <h4 class="bundle-title">
+                            {{ product.title }}
+                          </h4>
+
+                          {% assign current_variant = product.selected_or_first_available_variant %}
+                          {% assign price = current_variant.price %}
+                          {% assign compare_price = current_variant.compare_at_price %}
+
+                          <div class="bundle-price-summary" style="padding-bottom:10px">
+                            <span class="price-current">
+                              {{ price | money }}
+                            </span>
+                            {% if compare_price > price %}
+                              <span class="price-compare">
+                                {{ compare_price | money }}
+                              </span>
+                    
+                              {% assign discount_percent = compare_price | minus: price | times: 100 | divided_by: compare_price %}
+                              <span class="price-discount">
+                                ({{ discount_percent | round }}% OFF)
+                              </span>
+                            {% endif %}
+
+                          </div>
+                        </div>
+
+                      </a>
+                  </div> 
+                {% endfor %} 
+
+              </div>
+              {% if product_count > 4  %}
+                  <button class="pls-nav-custom prev" aria-label="Previous">
+                    <svg style="fill: none" width="55%" height="55%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M15.3783 21.9712L6.3173 12.9103C5.89423 12.4873 5.89423 11.8013 6.3173 11.3783L15.3783 2.3173C15.8013 1.89423 16.4873 1.89423 16.9103 2.3173C17.3334 2.74036 17.3334 3.42631 16.9103 3.84937L9.69873 11.0609C9.69873 11.0609 8.16661 12.0678 9.69869 13.2276L16.9103 20.4392C17.3334 20.8623 17.3334 21.5482 16.9103 21.9712C16.4873 22.3943 15.8013 22.3943 15.3783 21.9712Z" fill="currentColor"></path>  
+                    </svg>
+                  </button>
+                  <button class="pls-nav-custom next" aria-label="Next">
+                    <svg style="fill: none" width="55%" height="55%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.84937 2.3173L17.9103 11.3783C18.3334 11.8013 18.3334 12.4873 17.9103 12.9103L8.84937 21.9712C8.4263 22.3944 7.74038 22.3944 7.31731 21.9712C6.89424 21.5482 6.89424 20.8623 7.31731 20.4392L14.5289 13.2276C14.5289 13.2276 16.061 12.2208 14.529 11.061L7.3173 3.84937C6.89423 3.4263 6.89423 2.74036 7.3173 2.3173C7.74037 1.89423 8.4263 1.89423 8.84937 2.3173Z" fill="currentColor"></path>          
+                    </svg>
+                  </button>
+              {% endif %}
+
+              <div class="tab-activity-wrapper">
+                <div></div>
+                {% assign total_products = collection.products | size %}
+                {% assign visible_desktop = 4 %}
+                {% assign total_dots = total_products | minus: visible_desktop | plus: 1 %}
+                {% if total_dots < 1 %}
+                  {% assign total_dots = 1 %}
+                {% endif %}
+                <div class="pls-dots-custom">
+                  {% for i in (1..total_dots) %}
+                    <button class="pls-dot{% if forloop.first %} is-active{% endif %}"></button>
+                  {% endfor %}
+                </div>
+                <div class="pls-view-collection">
+                  <a href="{{ collection.url }}" class="pls-view-btn">
+                    View Collection  →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div> 
+        
+        {% endif %} 
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pls-section-custom{
+    padding:10px;
+    margin:40px 0
+  }
+  .pls-{{ sid }} .pls-wrapper-custom {
+    display: grid;
+    grid-template-columns: 30% 65%;
+    height: 430px;
+    align-items: center;
+    position:relative
+  }
+  .pls-banner-custom{
+    position:absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    top: 0;
+    left: 10px;
+  }
+  .pls-content-custom {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%
+  }
+
+  .pls-{{ sid }} .pls-tabs-custom {
+    display: flex;
+    gap: 8px;
+    border:1px solid #5d2f91;
+    border-radius:10px;
+    padding: 8px 16px;
+    font-size:0.86625rem;
+  }
+
+  .pls-{{ sid }} .pls-tab-custom {
+    padding: 8px 10px;
+    cursor: pointer;
+    color:black;
+    border-radius:8px
+  }
+
+  .pls-{{ sid }} .pls-tab-custom.is-active {
+    font-weight: 600;
+    color:black;
+    background: rgba(40, 41, 40, 0.1);
+  }
+
+  .pls-{{ sid }} .pls-panel-custom {
+    display: none;
+    padding: 10px;
+    z-index: 1;
+    border-radius: 30px;
+    width:100%
+  }
+
+  .pls-{{ sid }} .pls-panel-custom.is-active {
+    display: block;
+  }
+
+  .pls-{{ sid }} .pls-carousel-custom {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pls-{{ sid }} .pls-track-custom {
+    display: flex;
+    transition: transform 0.4s ease;
+  }
+  .pls-{{ sid }} .pls-track-custom.center-aligned {
+    justify-content:center
+  }
+
+  .pls-{{ sid }} .pls-slide-custom {
+    flex: 0 0 25%;
+    overflow:hidden;
+    padding:10px;
+  }
+  .pls-title-custom{
+    font-size:10px
+  }
+  .pls-dots-custom {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items:center
+  }
+
+  .pls-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #d1d1d1;
+    border: none;
+    cursor: pointer;
+  }
+
+  .pls-dot.is-active {
+    background: #000;
+    width: 8px;
+    height: 8px;
+  }
+
+  .pls-view-collection {
+    text-align: center;
+  }
+
+  .pls-view-btn {
+    display: inline-block;
+    color: black;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+
+  .pls-{{ sid }} .pls-nav-custom {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: #000;
+    opacity: 0.6;
+    border: 0;
+    cursor: pointer;
+    border-radius:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white
+  }
+
+  .pls-{{ sid }} .pls-nav-custom.prev {
+    left: 0px;
+  }
+
+  .pls-{{ sid }} .pls-nav-custom.next {
+    right: 0px;
+  }
+  .card-title-wrapper{
+    background:#fafafa;
+    margin-top:-22px;
+    padding-top:30px;
+    border-radius:10px;
+    padding-left:5px
+  }
+    .tab-activity-wrapper{
+      display:flex;justify-content:space-between;align-items:center
+    }
+
+   .pls-{{ sid }} .pls-slide-custom .bundle-image img {
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    height:240px
+  }
+  .card-title-wrapper .bundle-title {
+    font-size: 12px;
+    margin: 8px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;   
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+    max-height: calc(1.4em * 2);
+    margin-bottom:8px
+  }
+  .card-title-wrapper .bundle-price-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .bundle-price-summary .price-current {
+    font-size: 16px;
+    font-weight: 700;
+    color: #5d2f91; /* purple */
+  }
+
+  .bundle-price-summary .price-compare {
+    font-size: 11px;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  .bundle-price-summary .price-discount {
+    font-size: 10px;
+    font-weight: 600;
+    color: #16a34a; /* green */
+  }
+  @media (max-width: 1024px) {
+    .pls-{{ sid }} .pls-slide-custom {
+      flex: 0 0 25%;
+    }
+    .pls-{{ sid }} .pls-slide-custom .bundle-image img {
+      height:170px
+    }
+    .card-title-wrapper .bundle-price-summary span{
+      font-size:11px;
+    }
+    .card-title-wrapper .bundle-price-summary {
+      gap:5px
+    }
+    .bundle-price-summary .price-discount {
+      font-size: 8px !important;
+    }
+  }
+
+  @media (max-width: 780px) {
+    .pls-{{ sid }} .pls-wrapper-custom {
+      height:350px
+    }
+    .card-title-wrapper{
+      padding-top:22px;
+    }
+    .card-title-wrapper h4{
+      font-size:10px
+    }
+    .card-title-wrapper .bundle-price-summary{
+      flex-direction:column;
+      gap:4px
+    }
+    .card-title-wrapper .bundle-price-summary span{
+      font-size:11px;
+    }
+    .card-title-wrapper .bundle-price-summary .price-discount{
+      font-size:8px;
+    }
+  
+    .pls-{{ sid }} .pls-slide-custom .bundle-image img {
+      height:100px
+    }
+    .pls-{{ sid }} .pls-tabs-custom {
+      padding: 5px 8px;
+      font-size: 11px;
+      gap:6px
+    }
+    .pls-dot {
+      width: 5px;
+      height: 5px;
+    }
+    .pls-dot.is-active {
+      width: 6px;
+      height: 6px;
+    }
+
+  }
+  @media (max-width: 480px) {
+    .pls-section-custom {
+      margin:10px 0
+    }
+    .pls-{{ sid }} .pls-wrapper-custom {
+      grid-template-columns: 100%;
+      gap:8px;
+      height:auto
+    }
+    .pls-{{ sid }} .pls-slide-custom {
+      flex: 0 0 33.33%;
+      padding:5px
+    }
+    .pls-{{ sid }} .pls-slide-custom .bundle-image img {
+      height:124px
+    }
+    .pls-banner-custom{
+      position:relative;
+      width: 100%;
+      border-radius: 20px;
+      height: auto;
+      left: 0px;
+    }
+    .pls-content-custom {
+      gap:8px
+    }
+    .pls-{{ sid }} .pls-panel-custom {
+      padding: 0px;
+    }
+    .card-title-wrapper .bundle-price-summary{
+      flex-direction:row;
+      gap:5px
+    }
+    .card-title-wrapper .bundle-price-summary span{
+      font-size:10px
+    }
+    .card-title-wrapper .bundle-price-summary .price-discount{
+      font-size:8px;
+      display:flex !important
+    }
+    
+    .pls-{{ sid }} .pls-nav-custom {
+      top: 36%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+    }
+    .tab-activity-wrapper{
+      flex-direction:column;
+      gap:7px
+    }
+    .pls-view-collection {
+      margin-top:10px
+    }
+  }
+  @media (max-width: 370px) {
+    .pls-{{ sid }} .pls-slide-custom .bundle-image img {
+      height:100px
+    }
+    .card-title-wrapper .bundle-price-summary .price-discount {
+      display:none !important
+    }
+  }
+</style>
+
+<script>
+(function () {
+  const section = document.getElementById('section-{{ sid }}');
+  if (!section) return;
+
+  const tabs = section.querySelectorAll('.pls-tab-custom');
+  const panels = section.querySelectorAll('.pls-panel-custom');
+
+  const getVisibleCount = () => (window.innerWidth <= 450 ? 3 : 4);
+
+  /* ---------------- Tabs ---------------- */
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const id = tab.dataset.tab;
+
+      tabs.forEach(t => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+      });
+
+      panels.forEach(panel => panel.classList.remove('is-active'));
+
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const activePanel = section.querySelector(
+        `.pls-panel-custom[data-panel="${id}"]`
+      );
+      if (activePanel) {
+        activePanel.classList.add('is-active');
+        activePanel.dispatchEvent(new CustomEvent('tab:activate'));
+      }
+    });
+  });
+
+  /* ------------- Carousel per panel ------------- */
+  panels.forEach(panel => {
+    const carousel = panel.querySelector('[data-carousel]');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.pls-track-custom');
+    const prev = carousel.querySelector('.pls-nav-custom.prev');
+    const next = carousel.querySelector('.pls-nav-custom.next');
+    const dotsWrap = carousel.querySelector('.pls-dots-custom');
+
+    let translateX = 0;
+    let timer = null;
+
+    const getMaxTranslate = () =>
+      Math.max(0, track.scrollWidth - carousel.clientWidth);
+      console.log('track',carousel)
+
+    const getStep = () =>
+      carousel.clientWidth / getVisibleCount();
+
+    /* ---------- Dots ---------- */
+    const buildDots = () => {
+      dotsWrap.innerHTML = '';
+
+      const steps = Math.ceil(getMaxTranslate() / getStep());
+
+      for (let i = 0; i <= steps; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'pls-dot' + (i === 0 ? ' is-active' : '');
+        dotsWrap.appendChild(dot);
+
+        dot.addEventListener('click', () => {
+          translateX = i * getStep();
+          update();
+          start();
+        });
+      }
+    };
+
+    const updateDots = () => {
+      const dots = dotsWrap.querySelectorAll('.pls-dot');
+      const index = Math.round(translateX / getStep());
+
+      dots.forEach((d, i) =>
+        d.classList.toggle('is-active', i === index)
+      );
+    };
+
+    /* ---------- Update ---------- */
+    const update = () => {
+      const maxTranslate = getMaxTranslate();
+
+      translateX = Math.max(0, Math.min(translateX, maxTranslate));
+      track.style.transform = `translateX(-${translateX}px)`;
+
+      if (prev && next) {
+        prev.disabled = translateX <= 0;
+        next.disabled = translateX >= maxTranslate - 1;
+
+        prev.style.opacity = prev.disabled ? '0.5' : '1';
+        next.style.opacity = next.disabled ? '0.3' : '1';
+      }
+
+      updateDots();
+    };
+
+    /* ---------- Controls ---------- */
+    next?.addEventListener('click', () => {
+      translateX += getStep();
+      update();
+      start();
+    });
+
+    prev?.addEventListener('click', () => {
+      translateX -= getStep();
+      update();
+      start();
+    });
+
+    /* ---------- Autoplay ---------- */
+    const start = () => {
+      stop();
+      timer = setInterval(() => {
+        const maxTranslate = getMaxTranslate();
+        translateX = translateX < maxTranslate ? translateX + getStep() : 0;
+        update();
+      }, 2000);
+    };
+
+    const stop = () => {
+      if (timer) clearInterval(timer);
+    };
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+
+    /* ---------- Tab reset ---------- */
+    panel.addEventListener('tab:activate', () => {
+      translateX = 0;
+      buildDots();
+      update();
+      start();
+    });
+
+    /* ---------- Resize ---------- */
+    window.addEventListener('resize', () => {
+      translateX = 0;
+      buildDots();
+      update();
+    });
+
+    /* ---------- Init ---------- */
+    buildDots();
+    if (panel.classList.contains('is-active')) {
+      update();
+      start();
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "product list slider",
+  "settings": [
+    { "type": "image_picker", "id": "banner_image", "label": "Banner Image" },
+    { "type": "image_picker", "id": "banner_image_mobile", "label": "Mobile Banner Image" },
+    { "type": "text", "id": "title", "label": "Section Title", "default": "Explore Our Collections" },
+    { "type": "collection", "id": "section_collection", "label": "Banner Collection" },
+    { "type": "color", "id": "background_color", "label": "Background Color", "default": "#ffffff" },
+    { "type": "range", "id": "heading_size", "label": "Heading Font Size (px)", "min": 16, "max": 48, "step": 2, "default": 26 },
+    { "type": "color", "id": "text_color", "label": "Heading Text Color", "default": "#111111" },
+    { "type": "color", "id": "tab_text_color", "label": "Tab Text Color", "default": "#111111" },
+    { "type": "color", "id": "tab_background_color", "label": "Tab Background Color", "default": "#f5f5f5" },
+    { "type": "color", "id": "tab_border_color", "label": "Tab Border Color", "default": "#dddddd" },
+    { "type": "range", "id": "product_limit", "label": "Products per Tab", "min": 3, "max": 16, "step": 1, "default": 8 },
+    { "type": "select", "id": "image_ratio", "label": "Image Aspect Ratio", "default": "square", "options": [
+        { "label": "Square", "value": "square" },
+        { "label": "Portrait", "value": "portrait" },
+        { "label": "Landscape", "value": "landscape" },
+        { "label": "Adapt to image", "value": "adapt" }
+      ]
+    },
+    { "type": "select", "id": "image_shape", "label": "Image Shape", "default": "default", "options": [
+        { "label": "Default", "value": "default" },
+        { "label": "Rounded", "value": "rounded" },
+        { "label": "Circle", "value": "circle" }
+      ]
+    },
+    { "type": "checkbox", "id": "show_secondary_image", "label": "Show Secondary Image", "default": true },
+    { "type": "checkbox", "id": "show_vendor", "label": "Show Vendor", "default": false },
+    { "type": "checkbox", "id": "show_rating", "label": "Show Rating", "default": false },
+    { "type": "checkbox", "id": "show_quick_add", "label": "Enable Quick Add", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "text", "id": "custom_tab_label", "label": "Custom Tab Label" },
+        { "type": "checkbox", "id": "viewall", "label": "Show View All link", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabbed Product Slider",
+      "blocks": [
+        { "type": "tab" },
+        { "type": "tab" }
+      ]
+    }
+  ]
+}
+{% endschema %}

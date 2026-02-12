@@ -1,0 +1,189 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "meta-banner": {
+      "type": "collection-banner",
+      "settings": {}
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "blocks": {
+        "breadcrumbs": {
+          "type": "breadcrumbs",
+          "settings": {
+            "show_breadcrumbs_border": false,
+            "full_width_breadcrumb": false,
+            "desktop_content_alignment": "text-center",
+            "mobile_content_alignment": "text-center",
+            "background_color_light": "#ffffff",
+            "text_color_light": "rgba(0,0,0,0)",
+            "textlink_color_light": "rgba(0,0,0,0)",
+            "background_color_dark": "rgba(0,0,0,0)",
+            "text_color_dark": "rgba(0,0,0,0)",
+            "textlink_color_dark": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumbs"
+      ],
+      "custom_css": [
+        ".collection-title {padding: 0px !important;}"
+      ],
+      "settings": {
+        "show_collection_image": false,
+        "image_overlay_opacity": 20,
+        "show_collection_name": true,
+        "title_position": "text-center",
+        "size_title": 60,
+        "heading_tag": "h1",
+        "full_width_title": true,
+        "desktop_height": "auto",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_height": "auto",
+        "full_width_mobile": true,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".x-variants-data {display: block;}",
+        ".rounded-\\[10px\\] {border-radius: 20px;}",
+        "@media (min-width: 768px) {.md\\:pt-7 {padding-top: 10px; }}",
+      ],
+      "settings": {
+        "enable_filtering": true,
+        "sticky_filtering": true,
+        "filter_type": "aside",
+        "filter_edge_style": "rounded",
+        "default_hide_filtering": false,
+        "expand_filter": true,
+        "enable_collection_count": true,
+        "enable_sorting": true,
+        "products_per_page": "",
+        "products_per_row_on_desktop": 5,
+        "products_per_row_on_mobile": "2",
+        "pagination": "infinite_scroll",
+        "paginate_type": "circle",
+        "show_vendor": false,
+        "show_rating": false,
+        "show_highlighted_features": true,
+        "show_highlighted_attributes": true,
+        "show_quickview": true,
+        "show_description": true,
+        "enable_advanced_filter": false,
+        "key_value": "Skin color",
+        "hide_unavaiable_filter": true,
+        "columns_desktop_1": 4,
+        "desktop_image_width_1": 150,
+        "columns_desktop_2": 4,
+        "desktop_image_width_2": 150,
+        "enable_desktop_slider": true,
+        "image_ratio_filter": "round",
+        "advanced_filter_image_ratio": "square",
+        "enable_micro_schema": false,
+        "full_width": false,
+        "spacing_col": 14,
+        "spacing_row": 20,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "spacing_col_mobile": 9,
+        "spacing_row_mobile": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "store_finder_8qdyYQ": {
+      "type": "store-finder",
+      "name": "Store Finder Banner",
+      "settings": {
+        "bg_image": "shopify://shop_images/17a7607a9664a363ddb99c7e068c0e5b39f81674_2.png",
+        "title": "Discover trendy kids’ clothing and footwear just around the corner.",
+        "input_link": "https://purpleunited.com/a/store-locator/list",
+        "input_button_text": "Find your Nearest Store",
+        "margin_top_mobile": 20,
+        "margin_bottom_mobile": 20,
+        "padding_mobile": 36,
+        "margin_top": 40,
+        "margin_bottom": 40,
+        "padding": 36
+      }
+    },
+    "products_features_card_NP4y7U": {
+      "type": "products-features-card",
+      "blocks": {
+        "card_d6KqCD": {
+          "type": "card",
+          "settings": {
+            "card_title": "Lab Tested",
+            "card_description": "Our products undergo rigorous lab testing to meet the highest quality standards.",
+            "card_icon": "shopify://shop_images/test-tube-chemistry_svgrepo.com_1.svg"
+          }
+        },
+        "card_RaUCEH": {
+          "type": "card",
+          "settings": {
+            "card_title": "Premium Quality",
+            "card_description": "Our products exhibit exceptional craftsmanship, superior materials, and outstanding performance.",
+            "card_icon": "shopify://shop_images/medal-quality_svgrepo.com.svg"
+          }
+        },
+        "card_Vn6gz9": {
+          "type": "card",
+          "settings": {
+            "card_title": "No Animals Were Harmed",
+            "card_description": "Fashion with heart—cruelty-free and kind to all creatures.",
+            "card_icon": "shopify://shop_images/no-pets_svgrepo.com.svg"
+          }
+        },
+        "card_JAEW7c": {
+          "type": "card",
+          "settings": {
+            "card_title": "Gentle On Skin",
+            "card_description": "Soft, Safe, And Gentle-Perfect For Your Child's Delicate Skin.",
+            "card_icon": "shopify://shop_images/love-care_svgrepo.com.svg"
+          }
+        },
+        "card_jtC6ft": {
+          "type": "card",
+          "settings": {
+            "card_title": "Biodegradable Packaging",
+            "card_description": "Eco-Conscious Packaging That Biodegrades, Protecting The Planet For Future Generations.",
+            "card_icon": "shopify://shop_images/planet-earth-environment_svgrepo.com.svg"
+          }
+        }
+      },
+      "block_order": [
+        "card_d6KqCD",
+        "card_RaUCEH",
+        "card_Vn6gz9",
+        "card_JAEW7c",
+        "card_jtC6ft"
+      ],
+      "name": "product feature cards",
+      "settings": {
+        "section_title": "",
+        "section_description": ""
+      }
+    }
+  },
+  "order": [
+    "meta-banner",
+    "banner",
+    "product-grid",
+    "store_finder_8qdyYQ",
+    "products_features_card_NP4y7U"
+  ]
+}

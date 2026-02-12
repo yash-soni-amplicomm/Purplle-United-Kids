@@ -1,0 +1,463 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "rating_AeRdFJ": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_name_xkPbAa": {
+          "type": "product_name",
+          "settings": {
+            "title_size": 100,
+            "heading_tag": "h1"
+          }
+        },
+        "judge_me_reviews_preview_badge_QD6A8W": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "badges_fCnAXm": {
+          "type": "badges",
+          "settings": {
+            "position_adapt": true
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false,
+            "text_size_price": 60
+          }
+        },
+        "text_ndiAH7": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Tax Included</p>",
+            "number_of_lines_shown": "none",
+            "read_more_label": "Read more",
+            "see_less_label": "See less"
+          }
+        },
+        "coupon_code_TMHcXR": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "block_edges": "rounded_corners",
+            "coupon_box_edges": "rounded_corners",
+            "icon": "hot-sale",
+            "another_icon": "",
+            "custom_icon": "",
+            "icon_size": 30,
+            "heading_text": "Best offers",
+            "coupon_text_1": "<strong>Flat $30 off</strong> on all orders",
+            "coupon_code_1": "SALEM30",
+            "coupon_text_2": "<strong>Flat 10% off</strong> on all order",
+            "coupon_code_2": "SALEP10",
+            "background_color_light": "rgba(0,0,0,0)",
+            "heading_color_light": "rgba(0,0,0,0)",
+            "coupon_box_color_light": "rgba(0,0,0,0)",
+            "text_color_light": "rgba(0,0,0,0)",
+            "coupon_color_light": "rgba(0,0,0,0)",
+            "background_color_dark": "rgba(0,0,0,0)",
+            "heading_color_dark": "rgba(0,0,0,0)",
+            "coupon_box_color_dark": "rgba(0,0,0,0)",
+            "text_color_dark": "rgba(0,0,0,0)",
+            "coupon_color_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "show_variant_option": true,
+            "enable_color_swatches": true,
+            "swatch_size": "small"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+            "style": "rounded-full"
+          }
+        },
+        "gift_wrapping_EK3NQn": {
+          "type": "gift_wrapping",
+          "settings": {
+            "text_gift": "",
+            "show_border": true,
+            "color_icon_light": "rgba(0,0,0,0)",
+            "border_color_light": "rgba(0,0,0,0)",
+            "color_icon_dark": "rgba(0,0,0,0)",
+            "border_color_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "wishlist_plus_wishlist_pdp_button_RBzEfL": {
+          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+          "disabled": true,
+          "settings": {
+            "swym_atw_button_icon": "heart",
+            "swym_atw_icon_thickness": 1.7,
+            "swym_atw_display_btn_text": false,
+            "swym_button_position": "product_title_right",
+            "swym_atw_button_vertical_offset": 0,
+            "swym_atw_full_width": true,
+            "swym_atw_button_alignment": "center",
+            "swym_add_to_wishlist_color": "#5d2f91",
+            "swym_added_to_wishlist_color": "#5d2f91",
+            "swym_button_text_color": "#ffffff",
+            "swym_atw_border_color": "#000000",
+            "swym_atw_border_thickness": 0,
+            "swym_atw_button_border_radius": 30,
+            "swym_enable_hover_customization": false,
+            "swym_hover_add_to_wishlist_color": "#000000",
+            "swym_hover_added_to_wishlist_color": "#222222",
+            "swym_hover_button_text_color": "#ffffff",
+            "swym_hover_atw_border_color": "#000000",
+            "swym_hover_atw_border_thickness": 0,
+            "swym_hover_atw_button_border_radius": 0,
+            "swym_custom_css": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_button_style": "secondary",
+            "show_dynamic_checkout": true,
+            "show_atc_quantity": false,
+            "show_add_to_cart": true,
+            "show_price": true,
+            "hide_sale_price": true,
+            "show_gift_card_recipient": true,
+            "pickup_availability": true,
+            "hide_when_pre_order": false,
+            "preorder_button_label": "Pre-order",
+            "preorder_message": "<p>This product will be available for sale in 2 weeks, but you can pre-order now to receive 10% discount!</p>",
+            "preorder_show_dynamic_button": false,
+            "show_background": false,
+            "box_type": "round",
+            "background_color_light": "rgba(0,0,0,0)",
+            "message_color_light": "rgba(0,0,0,0)",
+            "background_color_dark": "rgba(0,0,0,0)",
+            "message_color_dark": "rgba(0,0,0,0)",
+            "button_light": "rgba(0,0,0,0)",
+            "button_text_light": "rgba(0,0,0,0)",
+            "button_hover_light": "rgba(0,0,0,0)",
+            "button_text_hover_light": "rgba(0,0,0,0)",
+            "secondary_button_light": "rgba(0,0,0,0)",
+            "secondary_button_text_light": "rgba(0,0,0,0)",
+            "button_dark": "rgba(0,0,0,0)",
+            "button_text_dark": "rgba(0,0,0,0)",
+            "button_hover_dark": "rgba(0,0,0,0)",
+            "button_text_hover_dark": "rgba(0,0,0,0)",
+            "secondary_button_dark": "rgba(0,0,0,0)",
+            "secondary_button_text_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "trafficly_visitors_counter_trafficly_DJrUAL": {
+          "type": "shopify://apps/trafficly-visitors-counter/blocks/trafficly/ff0a9f47-c478-468c-8fa1-f5a7bb122960",
+          "settings": {}
+        },
+        "collapsible_tab_zTQcQ8": {
+          "type": "collapsible_tab",
+          "settings": {
+            "open_by_default": false,
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "use_secondary_background": false,
+            "heading": "More Information",
+            "tab_content": "<p>custom.more_information</p><p>custom.product_info1</p><p>custom.product_info2</p><p>custom.product_info3</p><p>custom.product_info_4</p><p>custom.product_info5</p><p>custom.product_info6</p><p>custom.product_info7</p>"
+          }
+        },
+        "collapsible_tab_i7jQ78": {
+          "type": "collapsible_tab",
+          "settings": {
+            "open_by_default": false,
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "use_secondary_background": false,
+            "heading": "Description",
+            "tab_content": "{{ product.description }}"
+          }
+        },
+        "collapsible_tab_GKkjHB": {
+          "type": "collapsible_tab",
+          "settings": {
+            "open_by_default": true,
+            "icon": "none",
+            "another_icon": "",
+            "custom_icon": "",
+            "use_secondary_background": false,
+            "heading": "Contact Us",
+            "tab_content": "<p><strong>Address :-<br/></strong>Purple United Sales Limited Tower 2, Ground Floor, Candor TechSpace, Plot No. 20 & 21, Sector 135, Noida Uttar Pradesh - 201304</p><p><br/><strong>Contact no. :-<br/></strong>+91 93193 91444<br/><br/><strong>Email id. :-<br/></strong>customer.care@purpleunited.com</p>"
+          }
+        },
+        "sticky-atc": {
+          "type": "sticky_add_to_cart",
+          "settings": {
+            "desktop_display_type": "full_width",
+            "show_quantity_selector": false,
+            "link_to_atc_btn": false
+          }
+        }
+      },
+      "block_order": [
+        "rating_AeRdFJ",
+        "product_name_xkPbAa",
+        "judge_me_reviews_preview_badge_QD6A8W",
+        "badges_fCnAXm",
+        "price",
+        "text_ndiAH7",
+        "coupon_code_TMHcXR",
+        "variant_picker",
+        "quantity_selector",
+        "gift_wrapping_EK3NQn",
+        "wishlist_plus_wishlist_pdp_button_RBzEfL",
+        "buy_buttons",
+        "trafficly_visitors_counter_trafficly_DJrUAL",
+        "collapsible_tab_zTQcQ8",
+        "collapsible_tab_i7jQ78",
+        "collapsible_tab_GKkjHB",
+        "sticky-atc"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {.full-width-mobile.full-width {padding: 0 24px; }}",
+        "div#x-product-template--19125633810603__main {padding-left: 15px; padding-right: 15px;}",
+        "button.block.w-full.relative.overflow-hidden.md\\:rounded-\\[10px\\] {border-radius: 16px;}",
+        ".price-sale {font-size: 25px; padding-right: 16px;}",
+        ".pro.price-compare {font-size: 13px;}"
+      ],
+      "settings": {
+        "enable_sticky_image": true,
+        "show_product_name": false,
+        "title_size": 100,
+        "heading_tag": "h1",
+        "show_vendor": true,
+        "link_vendor": false,
+        "make_content_center": false,
+        "desktop_layout": "left",
+        "desktop_media_layout": "thumbnail_slider",
+        "show_arrow_button": true,
+        "mobile_media_size": "full_width",
+        "show_thumnail_mobile": true,
+        "transition_style": "fade",
+        "image_ratio": "natural",
+        "thumbnail_position": "vertical",
+        "enable_image_zoom": true,
+        "zoom_effect": "gallery",
+        "enable_video_autoplay": true,
+        "enable_video_loop": true,
+        "show_first_image_avaiable": true,
+        "show_media_with_variant_selected": true,
+        "option_to_classify_variant_media": "Color;",
+        "enable_microdata": true,
+        "show_breadcrumbs": true,
+        "show_breadcrumbs_border": false,
+        "full_width_breadcrumb": false,
+        "desktop_content_alignment": "text-left",
+        "mobile_content_alignment": "text-center",
+        "background_color_light": "#ffffff",
+        "text_color_light": "rgba(0,0,0,0)",
+        "textlink_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "text_color_dark": "rgba(0,0,0,0)",
+        "textlink_color_dark": "rgba(0,0,0,0)",
+        "full_width": true,
+        "spacing_col": "small",
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "e27592240c5bd6890e28": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You May Also Like...",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "heading_alignment": "center",
+        "products_to_show": 5,
+        "background_color_light": "",
+        "background_color_dark": "",
+        "show_vendor": false,
+        "show_rating": true,
+        "show_highlighted_features": true,
+        "show_highlighted_attributes": true,
+        "show_quickview": true,
+        "enable_carousel_desktop": false,
+        "enable_swiper_mobile": true,
+        "enable_arrow_mobile": false,
+        "columns_desktop": 5,
+        "full_width": true,
+        "show_section_divider": false,
+        "spacing": 28,
+        "padding_top": 56,
+        "padding_bottom": 88,
+        "columns_mobile": "1",
+        "show_section_divider_mobile": false,
+        "spacing_mobile": 16,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "175697046437d32405": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_YqcX7y": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "no_reviews",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_YqcX7y"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "recently_viewed_iWhNfX": {
+      "type": "recently-viewed",
+      "name": "t:sections.recently-viewed-products.name",
+      "settings": {
+        "heading": "Recently viewed products",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "heading_alignment": "center",
+        "enable_clear_history": true,
+        "products_to_show": 5,
+        "background_color_light": "",
+        "background_color_dark": "",
+        "show_vendor": false,
+        "show_rating": false,
+        "show_highlighted_features": true,
+        "show_highlighted_attributes": true,
+        "show_quickview": true,
+        "enable_carousel_desktop": true,
+        "enable_swiper_mobile": true,
+        "enable_arrow_mobile": true,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_section_divider": false,
+        "spacing": 14,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "columns_mobile": "3",
+        "show_section_divider_mobile": false,
+        "spacing_mobile": 9,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "store_finder_aibL7r": {
+      "type": "store-finder",
+      "name": "Store Finder Banner",
+      "settings": {
+        "bg_image": "shopify://shop_images/17a7607a9664a363ddb99c7e068c0e5b39f81674_2.png",
+        "title": "Discover trendy kids’ clothing and footwear just around the corner.",
+        "input_link": "https://purpleunited.com/a/store-locator/list",
+        "input_button_text": "Find your Nearest Store",
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 20,
+        "padding_mobile": 36,
+        "margin_top": 40,
+        "margin_bottom": 40,
+        "padding": 36
+      }
+    },
+    "products_features_card_YYGVLY": {
+      "type": "products-features-card",
+      "blocks": {
+        "card_K4DB73": {
+          "type": "card",
+          "settings": {
+            "card_title": "Lab Tested",
+            "card_description": "Our products undergo rigorous lab testing to meet the highest quality standards.",
+            "card_icon": "shopify://shop_images/test-tube-chemistry_svgrepo.com_1.svg"
+          }
+        },
+        "card_LRMXQR": {
+          "type": "card",
+          "settings": {
+            "card_title": "Premium Quality",
+            "card_description": "Our products exhibit exceptional craftsmanship, superior materials, and outstanding performance.",
+            "card_icon": "shopify://shop_images/medal-quality_svgrepo.com.svg"
+          }
+        },
+        "card_8EB9Kr": {
+          "type": "card",
+          "settings": {
+            "card_title": "No Animals Were Harmed",
+            "card_description": "Fashion with heart—cruelty-free and kind to all creatures.",
+            "card_icon": "shopify://shop_images/no-pets_svgrepo.com.svg"
+          }
+        },
+        "card_yDmY7H": {
+          "type": "card",
+          "settings": {
+            "card_title": "Gentle On Skin",
+            "card_description": "Soft, Safe, And Gentle-Perfect For Your Child's Delicate Skin.",
+            "card_icon": "shopify://shop_images/love-care_svgrepo.com.svg"
+          }
+        },
+        "card_L9Aqbi": {
+          "type": "card",
+          "settings": {
+            "card_title": "Biodegradable Packaging",
+            "card_description": "Eco-Conscious Packaging That Biodegrades, Protecting The Planet For Future Generations.",
+            "card_icon": "shopify://shop_images/planet-earth-environment_svgrepo.com.svg"
+          }
+        }
+      },
+      "block_order": [
+        "card_K4DB73",
+        "card_LRMXQR",
+        "card_8EB9Kr",
+        "card_yDmY7H",
+        "card_L9Aqbi"
+      ],
+      "name": "product feature cards",
+      "settings": {
+        "section_title": "Our Promise",
+        "section_description": "Our products are made with care and the highest quality standards. We prioritize sustainability and the well-being of animals and people alike."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e27592240c5bd6890e28",
+    "product-recommendations",
+    "175697046437d32405",
+    "recently_viewed_iWhNfX",
+    "store_finder_aibL7r",
+    "products_features_card_YYGVLY"
+  ]
+}

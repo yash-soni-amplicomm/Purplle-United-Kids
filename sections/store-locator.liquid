@@ -1,0 +1,818 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  :root {
+    --theme-color: rgba(93, 47, 145, 1);
+  }
+
+  body {
+    font-family: "Inter", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+  }
+
+  /* --- Header Wrapper --- */
+  .store-header {
+      background: #fcfaf9;
+      padding: 10px 35px;
+      text-align: center;
+      position: sticky;
+      top: 68px;
+      z-index: 1;
+  }
+  .store-header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* --- Search Box --- */
+  .search-box {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    background: white;
+    border: 2px solid #E2E2E2;
+    border-radius: 14px;
+    flex: none;
+    overflow: hidden;
+  }
+
+  #search-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--theme-color) 0%, #1C0E2B 142.55%);
+    cursor: pointer;
+  }
+
+  #search-location {
+    width: 90%;
+    padding: 10px 14px 12px 25px;
+    font-size: 14px;
+    outline: none;
+    border: 0px;
+  }
+
+  #search-location:focus {
+    border-color: transparent;
+  }
+
+  /* --- Location Button --- */
+  #use-location-btn, #use-location-btn-mobile {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 10px;
+    height: 40px;
+    background: #FAFAFA;
+    border: 1px solid var(--theme-color);
+    border-radius: 14px;
+    flex: none;
+    cursor: pointer;
+  }
+
+  #use-location-btn-mobile {
+    display: none;
+  }
+
+  #use-location-btn .location-icon {
+    margin-top: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .store-header {
+      padding: 10px 15px;
+      top: 75px;
+    }
+
+    .store-header-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .search-box {
+      width: 100%;
+      position: relative;
+    }
+
+    #search-location {
+      width: 90%;
+      padding: 6px 10px;
+    }
+
+    #search-btn {
+      width: 36px;
+      position: absolute;
+      right: 0;
+    }
+
+    #use-location-btn-mobile {
+      display: flex;
+      width: 56px;
+      height: 35px;
+    }
+
+    #use-location-btn {
+      display: none;
+    }
+  }
+
+  /* ---- Layout ---- */
+  .content {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 70px);
+  }
+
+  #store-details {
+    width: 60%;
+    overflow-y: auto;
+    padding: 20px;
+    background: #fff;
+    border-right: 1px solid #eee;
+  }
+
+  #map {
+    width: 35%;
+  }
+
+  /* ---- Store Card ---- */
+  .store-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  .store-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .cardImageWrap {
+    width: 150px;
+    height: 180px;
+  }
+
+  .store-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .store-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .store-info h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: #333;
+  }
+
+  .store-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .store-info a.phone-link {
+    color: var(--theme-color);
+    text-decoration: none;
+  }
+
+  .store-info a.phone-link:hover {
+    text-decoration: underline;
+  }
+
+  .store-error {
+    color: red;
+    font-weight: bold;
+  }
+
+  .store-card.highlight {
+    background-color: #e7e7e7;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      height: auto;
+    }
+
+    #store-details {
+      width: 100% !important;
+    }
+
+    #map {
+      display: none !important;
+    }
+
+    .store-card {
+      flex-direction: column;
+    }
+
+    .cardImageWrap {
+      width: 100%;
+      height: 150px;
+    }
+  }
+</style>
+
+<div id="store-locator-section" class="store-locator-wrapper">
+  <header class="store-header">
+    <div class="store-header-content">
+      <button id="use-location-btn">
+        <span class="location-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C11 0.44772 10.5523 0 10 0C9.4477 0 9 0.44772 9 1V2.06189C5.38128 2.51314 2.51314 5.38128 2.06189 9H1C0.44772 9 0 9.4477 0 10C0 10.5523 0.44772 11 1 11H2.06189C2.51314 14.6187 5.38128 17.4869 9 17.9381V19C9 19.5523 9.4477 20 10 20C10.5523 20 11 19.5523 11 19V17.9381C14.6187 17.4869 17.4869 14.6187 17.9381 11H19C19.5523 11 20 10.5523 20 10C20 9.4477 19.5523 9 19 9H17.9381C17.4869 5.38128 14.6187 2.51314 11 2.06189V1ZM8 10C8 8.8954 8.8954 8 10 8C11.1046 8 12 8.8954 12 10C12 11.1046 11.1046 12 10 12C8.8954 12 8 11.1046 8 10ZM10 6C7.79086 6 6 7.79086 6 10C6 12.2091 7.79086 14 10 14C12.2091 14 14 12.2091 14 10C14 7.79086 12.2091 6 10 6Z" fill="var(--theme-color)"/>
+          </svg>
+        </span>Your Location
+      </button>
+
+      <button id="use-location-btn-mobile">
+        <span class="location-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11 1C11 0.44772 10.5523 0 10 0C9.4477 0 9 0.44772 9 1V2.06189C5.38128 2.51314 2.51314 5.38128 2.06189 9H1C0.44772 9 0 9.4477 0 10C0 10.5523 0.44772 11 1 11H2.06189C2.51314 14.6187 5.38128 17.4869 9 17.9381V19C9 19.5523 9.4477 20 10 20C10.5523 20 11 19.5523 11 19V17.9381C14.6187 17.4869 17.4869 14.6187 17.9381 11H19C19.5523 11 20 10.5523 20 10C20 9.4477 19.5523 9 19 9H17.9381C17.4869 5.38128 14.6187 2.51314 11 2.06189V1ZM8 10C8 8.8954 8.8954 8 10 8C11.1046 8 12 8.8954 12 10C12 11.1046 11.1046 12 10 12C8.8954 12 8 11.1046 8 10ZM10 6C7.79086 6 6 7.79086 6 10C6 12.2091 7.79086 14 10 14C12.2091 14 14 12.2091 14 10C14 7.79086 12.2091 6 10 6Z" fill="var(--theme-color)"/>
+          </svg>
+        </span>
+      </button>
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="search-location"
+          placeholder="Search by State/Pincode/Locality"
+        />
+        <div id="search-btn" class="search-btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="15"
+            height="15"
+            stroke="white"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+    <div id="store-details" style="width: 60%">
+      <div id="noStoreData" style="width:100%; height:300px;display:flex;justify-content:center;align-items:center">
+        <div class="no-store-wrap" style="display:flex;justify-content:center;align-items:center;width:100%;height:200px;flex-direction:column;text-align:center">
+          <div style="width:100px;height:100px">
+            <img width="80" height="80" src="https://img.icons8.com/carbon-copy/100/shop.png" alt="shop"/>
+          </div>
+          <div class="no-store-texts">
+            <div class="no-store-title">Loading Stores ...</div>
+            <div class="no-store-sub">Please wait while we fetch stores</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="map" style="width:35%"></div>
+  </div>
+</div>
+
+<!-- ✅ Load XLSX and Google Maps -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{ section.settings.google_api_key }}&libraries=places,geometry"
+  async
+  defer
+></script>
+
+<script>
+  let map, service, infoWindow;
+  let storeDetailsArray = [];
+  let markers = [];
+
+  // 🗺️ Initialize Map
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 16.5, lng: 75.8 },
+      zoom: 6,
+    });
+    infoWindow = new google.maps.InfoWindow();
+    service = new google.maps.places.PlacesService(map);
+  }
+
+  // 📊 Load Excel → JSON
+  async function loadExcelAsJSON(excelUrl) {
+    if (!excelUrl) {
+      console.warn("⚠️ No Excel file URL provided!");
+      return [];
+    }
+
+    try {
+      const response = await fetch(excelUrl);
+      if (!response.ok) throw new Error(`Failed to fetch Excel file: ${response.status}`);
+
+      const arrayBuffer = await response.arrayBuffer();
+      const workbook = XLSX.read(arrayBuffer, { type: "array" });
+      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const jsonData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+      if (jsonData && jsonData.length > 0) {
+        await getStoreDetails(jsonData);
+      }
+
+      return jsonData;
+    } catch (err) {
+      console.error("❌ Error loading Excel:", err);
+      return [];
+    }
+  }
+
+  // 🧭 Extract city, state, zip
+  function extractLocationParts(address) {
+    const parts = address.split(",").map(p => p.trim());
+    let city = "", state = "", zipCode = "";
+
+    const zipMatch = address.match(/\b\d{5,6}\b/);
+    if (zipMatch) zipCode = zipMatch[0];
+
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const part = parts[i];
+      if (part.includes("India")) continue;
+      if (/\d{5,6}/.test(part)) {
+        const stateMatch = part.match(/([A-Za-z\s]+)\s*\d{5,6}/);
+        state = stateMatch ? stateMatch[1].trim() : "";
+        city = parts[i - 1]?.trim() || "";
+        break;
+      }
+    }
+    return { city, state, zipCode };
+  }
+
+  // 🔍 Fetch Google Maps details for each store
+  async function getStoreDetails(stores) {
+    if (!service) {
+      console.error("⚠️ PlacesService not initialized!");
+      return;
+    }
+
+    const fetchPromises = stores.map((store) => {
+      return new Promise((resolve) => {
+        const request = {
+          query: store.name,
+          fields: ["place_id"],
+        };
+
+        // Step 1️⃣ Find the place ID
+        service.findPlaceFromQuery(request, (results, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && results[0]) {
+            const placeId = results[0].place_id;
+
+            // Step 2️⃣ Get full place details using place_id
+            const detailRequest = {
+              placeId: placeId,
+              fields: [
+                "name",
+                "formatted_address",
+                "geometry",
+                "rating",
+                "user_ratings_total",
+                "formatted_phone_number",
+                "opening_hours",
+                "photos",
+              ],
+            };
+
+            service.getDetails(detailRequest, (place, status2) => {
+              if (status2 === google.maps.places.PlacesServiceStatus.OK && place) {
+                const { city, state, zipCode } = extractLocationParts(place.formatted_address);
+
+                const merged = {
+                  name: place.name,
+                  excelName: store.name,
+                  store_list_dropdown_banner_url: store.store_list_dropdown_banner_url || "",
+                  store_image: store.store_image || "",
+                  place_id: place.place_id,
+                  formatted_address: place.formatted_address,
+                  location: place.geometry?.location?.toJSON() || null,
+                  rating: place.rating || "N/A",
+                  user_ratings_total: place.user_ratings_total || 0,
+                  phone: place.formatted_phone_number || "",
+                  opening_hours: place.opening_hours?.weekday_text || [],
+                  photos: place.photos || [],
+                  city,
+                  state,
+                  zipCode,
+                };
+
+                storeDetailsArray.push(merged);
+
+                // 🧭 Add marker to map
+                if (place.geometry?.location) {
+                  const marker = new google.maps.Marker({
+                    map,
+                    position: place.geometry.location,
+                    title: place.name,
+                  });
+                  markers.push({ marker, storeName: place.name });
+
+                  marker.addListener("click", () => {
+                    infoWindow.setContent(`
+                      <strong>${merged.name}</strong><br>
+                      ${merged.formatted_address || ""}
+                    `);
+                    infoWindow.open(map, marker);
+                    scrollToStoreCard(merged.name);
+                    map.panTo(marker.getPosition());
+                    map.setZoom(10);
+                  });
+                }
+              } else {
+                console.warn(`⚠️ Could not fetch details for ${store.name}`);
+              }
+              resolve();
+            });
+          } else {
+            console.warn(`⚠️ No place found for: ${store.name}`);
+            resolve();
+          }
+        });
+      });
+    });
+
+    await Promise.all(fetchPromises);
+
+    if (storeDetailsArray.length > 0) {
+      displayStores(storeDetailsArray);
+    }
+  }
+
+  function scrollToStoreCard(storeName) {
+    const container = document.getElementById("store-details");
+    const allCards = container.querySelectorAll(".store-card");
+    
+    allCards.forEach((card) => {
+      const title = card.querySelector("h3")?.textContent?.trim();
+      if (title === storeName) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+        card.classList.add("highlight");
+      } else {
+        card.classList.remove("highlight");
+      }
+    });
+  }
+
+  function updateMapMarkers(filteredStores) {
+    markers.forEach(({ marker }) => marker.setMap(null));
+
+    filteredStores.forEach((store) => {
+      const markerObj = markers.find((m) => m.storeName === store.name);
+      if (markerObj) {
+        markerObj.marker.setMap(map);
+      }
+    });
+
+    const bounds = new google.maps.LatLngBounds();
+    filteredStores.forEach((store) => {
+      const markerObj = markers.find((m) => m.storeName === store.name);
+      if (markerObj) bounds.extend(markerObj.marker.getPosition());
+    });
+    if (!bounds.isEmpty()) map.fitBounds(bounds);
+  }
+
+  let selectedMarker = null;
+
+  function displayStores(stores) {
+    const container = document.getElementById("store-details");
+
+    if (stores.length === 0) {
+      container.innerHTML = `
+        <div class="no-store-wrap" style="display:flex;justify-content:center;align-items:center;width:100%;height:200px;flex-direction:column;text-align:center">
+          <div style="width:100px;height:100px">
+            <img width="80" height="80" src="https://img.icons8.com/carbon-copy/100/shop.png" alt="shop"/>
+          </div>
+          <div class="no-store-texts">
+            <div class="no-store-title">No store found</div>
+            <div class="no-store-sub">Try a different area or refine your search</div>
+          </div>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = "";
+
+    const countLine = document.createElement("p");
+    countLine.style.color = "gray";
+    countLine.style.fontStyle = "italic";
+    countLine.style.fontSize = "12px";
+    countLine.style.margin = "0 0 10px 0";
+    countLine.textContent = `${stores.length} store${stores.length !== 1 ? "s" : ""} available`;
+    container.appendChild(countLine);
+
+    stores.forEach((place, index) => {
+      const card = document.createElement("div");
+      const adDiv = document.createElement("div");
+      card.classList.add("store-card");
+      adDiv.classList.add("ad-Banner");
+
+      const adContent = place.store_list_dropdown_banner_url
+        ? `<img src="${place.store_list_dropdown_banner_url}" alt="Advertisement" style="width:100%;height:auto;border-radius:12px;object-fit:cover;margin-bottom:15px"/>`
+        : "";
+
+      const photoUrl = place.store_image ? place.store_image :
+        place.photos && place.photos.length > 0
+          ? place.photos[0].getUrl({ maxWidth: 300 })
+          : "https://www.pngjewellers.com/cdn/shop/files/store-today.webp?v=1743681139&width=1070";
+
+      const phone = place.phone
+        ? `<a href="tel:${place.phone}" style="color:var(--theme-color);text-decoration:none;font-weight:500;">${place.phone}</a>`
+        : "N/A";
+
+      const baseUrl = "https://www.pngjewellers.com/pages/";
+      const detailsUrl =
+        baseUrl +
+        place.excelName
+          .toLowerCase()
+          .replace(/by\s+/g, "by-")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/-+/g, "-")
+          .replace(/^-|-$/g, "");
+
+      card.innerHTML = `
+        <div class="cardImageWrap">
+          <img src="${photoUrl}" alt="${place.name}" style="width:160px;height:180px;border-radius:12px;object-fit:cover;">
+        </div>
+
+        <div style="flex:1;margin-top:5px">
+          <div style="display:flex;justify-content:space-between;align-items:start;">
+            <h3 style="margin:0;font-size:14px;color:#111;font-weight:600;width:70%">${place.name}</h3>
+            <div style="display:flex;align-items:center;gap:5px;color:#14b8a6;font-size:14px;">
+              ★ <span style="color:black;font-size:14px;">${place.rating}(${place.user_ratings_total})</span>
+            </div>
+          </div>
+
+          <p style="margin:6px 0 0;color:#555;font-size:12px;line-height:1.4;">
+            ${place.formatted_address || "Address not available"}
+          </p>
+          ${
+            place.opening_hours && place.opening_hours.weekday_text
+              ? `<p style="color:#777;font-size:13px;margin:4px 0 8px;">Hours: ${
+                  place.opening_hours.weekday_text[new Date().getDay() - 1].split("y:")[1] || "N/A"
+                }</p>`
+              : ""
+          }
+
+          <div style="display:flex;align-items:center;gap:16px;margin:6px 0;">
+            <div style="display:flex;align-items:center;gap:5px;color:var(--theme-color);">
+              📞 ${phone}
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;color:var(--theme-color);">
+              📍<a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+                place.name
+              )}" target="_blank" style="color:var(--theme-color);text-decoration:none;">Direction</a>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:12px;">
+            <a href="${detailsUrl}" target="_blank" style="flex:1;text-align:center;padding:10px 0;border:1px solid var(--theme-color);border-radius:8px;color:var(--theme-color);text-decoration:none;font-weight:500;font-size:12px">
+              Store Details
+            </a>
+            <a href="https://www.pngjewellers.com/pages/book-appointment" target="_blank" style="background:var(--theme-color);flex:1;text-align:center;padding:10px 0;border-radius:8px;color:#FFF;text-decoration:none;font-weight:500;font-size:12px">
+              Book Appointment
+            </a>
+          </div>
+        </div>
+      `;
+
+      adDiv.innerHTML = `${adContent}`;
+
+      container.appendChild(card);
+      container.appendChild(adDiv);
+
+      let markerObj = markers.find((m) => m.storeName === place.name);
+      let marker;
+      if (markerObj) {
+        marker = markerObj.marker;
+      } else {
+        marker = new google.maps.Marker({
+          map,
+          position: place.location,
+          title: place.name,
+        });
+        markers.push({ storeName: place.name, marker });
+      }
+
+      card.addEventListener("click", () => {
+        const allCards = document.querySelectorAll(".store-card");
+        allCards.forEach((c) => c.classList.remove("highlight"));
+        card.classList.add("highlight");
+
+        map.panTo(marker.getPosition());
+        map.setZoom(10);
+
+        infoWindow.close();
+
+        infoWindow.setContent(`
+          <div style="min-width:200px;position:relative;padding:5px;">
+            <h4 style="margin:0;font-size:14px">${place.name}</h4>
+            <p style="margin:2px 0;font-size:12px;color:#555">${place.formatted_address}</p>
+          </div>
+        `);
+
+        infoWindow.open(map, marker);
+
+        if (selectedMarker && selectedMarker !== marker) {
+          selectedMarker.setAnimation(null);
+          selectedMarker.setIcon(null);
+        }
+
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        marker.setIcon({
+          scaledSize: new google.maps.Size(30, 30)
+        });
+
+        selectedMarker = marker;
+      });
+    });
+  }
+
+  function searchStores() {
+    const query = document.getElementById("search-location").value.trim().toLowerCase();
+
+    if (!query) {
+      displayStores(storeDetailsArray);
+      updateMapMarkers(storeDetailsArray);
+      return;
+    }
+
+    const filtered = storeDetailsArray.filter(store => {
+      const city = store.city?.toLowerCase() || "";
+      const state = store.state?.toLowerCase() || "";
+      const zip = store.zipCode?.toString() || "";
+      const name = store.name?.toLowerCase() || "";
+
+      return (
+        city.includes(query) ||
+        state.includes(query) ||
+        zip.includes(query) ||
+        name.includes(query)
+      );
+    });
+
+    displayStores(filtered);
+    updateMapMarkers(filtered);
+  }
+
+  function useCurrentLocation() {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        const nearbyStores = [];
+
+        storeDetailsArray.forEach(store => {
+          if (store.location) {
+            const storeLatLng = new google.maps.LatLng(store.location.lat, store.location.lng);
+            const distance = google.maps.geometry.spherical.computeDistanceBetween(userLatLng, storeLatLng);
+
+            if (distance <= 5000) {
+              nearbyStores.push({ ...store, distance: (distance / 1000).toFixed(2) });
+            }
+          }
+        });
+
+        map.setCenter(userLatLng);
+        new google.maps.Marker({
+          map,
+          position: userLatLng,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: "#14b8a6",
+            fillOpacity: 1,
+            strokeWeight: 2,
+            strokeColor: "#fff",
+          },
+          title: "You are here",
+        });
+
+        if (nearbyStores.length > 0) {
+          displayStores(nearbyStores);
+          updateMapMarkers(nearbyStores);
+        } else {
+          document.getElementById("store-details").innerHTML = `
+            <div class="no-store-wrap" style="display:flex;justify-content:center;align-items:center;width:100%;height:200px;flex-direction:column;text-align:center">
+              <div style="width:100px;height:100px">
+                <img width="80" height="80" src="https://img.icons8.com/carbon-copy/100/shop.png" alt="shop"/>
+              </div>
+              <div class="no-store-texts">
+                <div class="no-store-title">No stores found within 5 km of your location.</div>
+                <div class="no-store-sub">Try a different area or refine your search</div>
+              </div>
+            </div>`;
+        }
+      },
+      (error) => {
+        console.error("Geolocation error:", error);
+        alert("Unable to get your location. Please allow location access.");
+      }
+    );
+  }
+
+  window.addEventListener("load", async () => {
+    initMap();
+
+    const excelUrl = "{{ section.settings.excel_file_url | default: '' }}";
+    await loadExcelAsJSON(excelUrl);
+
+    const searchInput = document.getElementById("search-location");
+    const searchBtn = document.getElementById("search-btn");
+    const useLocationBtn = document.getElementById("use-location-btn");
+    const useLocationBtnMobile = document.getElementById("use-location-btn-mobile");
+
+    if (searchBtn) searchBtn.addEventListener("click", searchStores);
+    if (searchInput) searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") searchStores();
+    });
+    if (useLocationBtn) useLocationBtn.addEventListener("click", useCurrentLocation);
+    if (useLocationBtnMobile) useLocationBtnMobile.addEventListener("click", useCurrentLocation);
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Store Locator",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "Store Locator"
+      },
+      {
+        "type": "text",
+        "id": "google_api_key",
+        "label": "Google Maps API Key"
+      },
+      {
+        "type": "url",
+        "id": "excel_file_url",
+        "label": "Excel File URL",
+        "info": "Upload your .xlsx file under Content → Files → Upload file → paste the link here."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "store",
+        "name": "Store",
+        "settings": [
+          { "type": "text", "id": "name", "label": "Store Name" }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Store Locator"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-2": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "open_by_default": false,
+            "heading_text": "Custom text",
+            "subtext": "<p>Enter custom message or instruction.</p>",
+            "show_social_icons": false,
+            "icon_layout": "horizontal",
+            "image_width": 100,
+            "link_image_footer": "",
+            "open_new_window": false
+          }
+        },
+        "link_list_we9eAt": {
+          "type": "link_list",
+          "settings": {
+            "open_by_default": true,
+            "heading_menu": "",
+            "menu": "newfootermenu-1",
+            "show_social_icons": false
+          }
+        },
+        "footer-1": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "open_by_default": false,
+            "heading_menu": "Use Cases",
+            "menu": "newfootermenu-2",
+            "show_social_icons": false
+          }
+        },
+        "footer-0": {
+          "type": "link_list",
+          "settings": {
+            "open_by_default": false,
+            "heading_menu": "",
+            "menu": "newfootermenu-3",
+            "show_social_icons": false
+          }
+        },
+        "link_list_JMLJPG": {
+          "type": "link_list",
+          "settings": {
+            "open_by_default": false,
+            "heading_menu": "",
+            "menu": "newfootermenu-4",
+            "show_social_icons": false
+          }
+        },
+        "contact_DigHxK": {
+          "type": "contact",
+          "settings": {
+            "open_by_default": false,
+            "heading_menu": "Contact",
+            "show_social_icons": false,
+            "icon_1": "map-pin",
+            "another_icon_1": "",
+            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"25\" viewbox=\"0 0 24 25\">\n  <g clip-path=\"url(#clip0_246_1425)\">\n    <path d=\"M21 10.5386C21 17.5386 12 23.5386 12 23.5386C12 23.5386 3 17.5386 3 10.5386C3 8.15163 3.94821 5.86244 5.63604 4.17461C7.32387 2.48679 9.61305 1.53857 12 1.53857C14.3869 1.53857 16.6761 2.48679 18.364 4.17461C20.0518 5.86244 21 8.15163 21 10.5386Z\" stroke=\"#FAFAFA\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n    <path d=\"M12 13.5386C13.6569 13.5386 15 12.1954 15 10.5386C15 8.88172 13.6569 7.53857 12 7.53857C10.3431 7.53857 9 8.88172 9 10.5386C9 12.1954 10.3431 13.5386 12 13.5386Z\" stroke=\"#FAFAFA\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  </g>\n  <defs>\n    <clippath id=\"clip0_246_1425\">\n      <rect width=\"24\" height=\"24\" transform=\"translate(0 0.538574)\"></rect>\n    </clippath>\n  </defs>\n</svg>",
+            "title_1": "Purple United Sales Limited (Formerly known as Purple United Sales Private Limited)                                                  Tower 2, Ground Floor, Candor TechSpace, Plot No. 20 & 21, Sector 135, Noida Uttar Pradesh - 201304",
+            "text_1": "",
+            "text_link_1": "",
+            "open_new_window_1": false,
+            "enable_text_link_1": true,
+            "icon_2": "another_icon",
+            "another_icon_2": "",
+            "custom_icon_2": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"25\" viewbox=\"0 0 24 25\" fill=\"none\">\n  <path d=\"M4 4.53857H20C21.1 4.53857 22 5.43857 22 6.53857V18.5386C22 19.6386 21.1 20.5386 20 20.5386H4C2.9 20.5386 2 19.6386 2 18.5386V6.53857C2 5.43857 2.9 4.53857 4 4.53857Z\" stroke=\"#FAFAFA\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n  <path d=\"M22 6.53857L12 13.5386L2 6.53857\" stroke=\"#FAFAFA\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n</svg>",
+            "title_2": "connect@purpleunited.com",
+            "text_2": "",
+            "text_link_2": "",
+            "open_new_window_2": false,
+            "enable_text_link_2": true,
+            "icon_3": "none",
+            "another_icon_3": "",
+            "custom_icon_3": "",
+            "title_3": "",
+            "text_3": "",
+            "text_link_3": "",
+            "open_new_window_3": false,
+            "enable_text_link_3": true
+          }
+        },
+        "text_fa7UTa": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "open_by_default": false,
+            "heading_text": "",
+            "subtext": "",
+            "show_social_icons": true,
+            "icon_layout": "horizontal",
+            "image_width": 100,
+            "link_image_footer": "",
+            "open_new_window": false
+          }
+        }
+      },
+      "block_order": [
+        "footer-2",
+        "link_list_we9eAt",
+        "footer-1",
+        "footer-0",
+        "link_list_JMLJPG",
+        "contact_DigHxK",
+        "text_fa7UTa"
+      ],
+      "custom_css": [
+        ".footer-body {padding: 55.979px 48px 20.021px 48px; flex-direction: column; align-items: center; gap: 24px; align-self: stretch;}",
+        ".additional-footer {padding: 24px 101px 20.021px 117px;}",
+        ".footer-item {border-color: #fff !important;}",
+        "@media (min-width: 768px) {.footer-item {border-color: #fff !important; }}",
+        "span.inline-block.h-6.w-6.lg\\:h-9.lg\\:w-9.min-w-\\[24px\\].lg\\:min-w-\\[36px\\] > svg {fill: none;}"
+      ],
+      "settings": {
+        "columns_desktop": 4,
+        "show_language_selector": true,
+        "show_currency_selector": true,
+        "show_social_icons": false,
+        "payment_enable": true,
+        "custom_payment": "",
+        "show_copyright": true,
+        "add_copyright_text": "<p>  <a href=\"/pages/terms-condition\" title=\"Terms Condition\">Terms of Use </a>  <a href=\"/pages/refund-policy\" title=\"Refund Policy\">Sales and Refunds</a>  <a href=\"/pages/store-locator\" title=\"Store Locator\">Legal Site Map   </a><a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Privacy Policy</a> </p>",
+        "additional_layout": "vertical",
+        "show_powered": false,
+        "enable_follow_on_shop": false,
+        "horizontal_position": "right",
+        "top_padding": 0,
+        "bottom_padding": 0,
+        "top_padding_mobile": 0,
+        "bottom_padding_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

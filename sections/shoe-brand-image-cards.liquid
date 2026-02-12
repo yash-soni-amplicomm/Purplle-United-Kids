@@ -1,0 +1,104 @@
+{% schema %}
+{
+  "name": "Shoe Brand Image Cards",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Card Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Shoe Brand Image Cards"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+/* 🔲 DESKTOP STYLES */
+.promo-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px; /* minimal gaps */
+  padding: 20px 28px;
+  background: linear-gradient(180deg, #5D2F91 0%, #FFF 100%);
+}
+
+.promo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  {% comment %} padding: 16px; {% endcomment %}
+  border-radius: 16px;
+  background: transparent;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.promo-card-image {
+  width: 100%;
+  height: auto; /* no fixed height */
+  object-fit: contain; /* ✅ show whole image */
+  display: block;
+}
+
+/* 📱 MOBILE STYLES */
+@media (max-width: 991px) {
+  .promo-section {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 16px 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .promo-section {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    padding: 20px 12px;
+  }
+
+  .promo-card {
+    {% comment %} padding: 12px; {% endcomment %}
+    align-items: flex-end;
+  }
+}
+</style>
+
+<div class="promo-section">
+  {% for block in section.blocks %}
+    <a href="{{ block.settings.card_link | default: '#' }}" class="promo-card">
+      {% if block.settings.desktop_image or block.settings.mobile_image %}
+        <picture>
+          {% if block.settings.mobile_image %}
+            <source srcset="{{ block.settings.mobile_image | img_url: 'master' }}" media="(max-width: 767px)">
+          {% endif %}
+          {% if block.settings.desktop_image %}
+            <img src="{{ block.settings.desktop_image | img_url: 'master' }}" class="promo-card-image" alt="Card Image">
+          {% endif %}
+        </picture>
+      {% endif %}
+    </a>
+  {% endfor %}
+</div>

@@ -1,0 +1,1071 @@
+{% schema %}
+{
+  "name": "Investor Relations",
+  "tag": "section",
+  "class": "investor-relations",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        {
+          "type": "select",
+          "id": "target",
+          "label": "Opens Group",
+          "options": [
+            { "value": "overview", "label": "Overview" },
+            { "value": "financials", "label": "Financials" },
+            { "value": "documents", "label": "Material Documents" },
+            { "value": "governance", "label": "Governance" },
+            { "value": "policies", "label": "Policies & Compliances" },
+            { "value": "investor", "label": "Investor Contacts" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fy_row",
+      "name": "Fiscal Row",
+      "settings": [
+        {
+          "type": "select",
+          "id": "year",
+          "label": "Fiscal Year",
+          "options": [
+            { "value": "fy-25-26", "label": "FY'25-26" },
+            { "value": "fy-24-25", "label": "FY'24-25" },
+            { "value": "fy-23-24", "label": "FY'23-24" },
+            { "value": "fy-22-23", "label": "FY'22-23" }
+          ],
+          "default": "fy-25-26"
+        },
+        {
+          "type": "select",
+          "id": "group",
+          "label": "Group",
+          "options": [
+            { "value": "overview", "label": "Overview" },
+            { "value": "financials", "label": "Financials" },
+            { "value": "documents", "label": "Material Documents" },
+            { "value": "governance", "label": "Governance" },
+            { "value": "policies", "label": "Policies & Compliances" },
+            { "value": "investor", "label": "Investor Contacts" }
+          ],
+          "default": "overview"
+        },
+        { "type": "text", "id": "row_label", "label": "Row Title", "default": "Quarterly Update" },
+        { "type": "url", "id": "q1_link", "label": "Q1 Link (optional)" },
+        { "type": "url", "id": "q2_link", "label": "Q2 Link (optional)" },
+        { "type": "url", "id": "q3_link", "label": "Q3 Link (optional)" },
+        { "type": "url", "id": "q4_link", "label": "Q4 Link (optional)" },
+        { "type": "text", "id": "row_label2", "label": "Row Title", "default": "Financial Results" },
+        { "type": "url", "id": "q1_link2", "label": "Q1 Link (optional)" },
+        { "type": "url", "id": "q2_link2", "label": "Q2 Link (optional)" },
+        { "type": "url", "id": "q3_link2", "label": "Q3 Link (optional)" },
+        { "type": "url", "id": "q4_link2", "label": "Q4 Link (optional)" },
+        { "type": "text", "id": "row_label3", "label": "Row Title", "default": "Investor Presentations" },
+{ "type": "url", "id": "q1_link3", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link3", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link3", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link3", "label": "Q4 Link (optional)" },
+
+{ "type": "text", "id": "row_label4", "label": "Row Title", "default": "Earnings Call Transcripts" },
+{ "type": "url", "id": "q1_link4", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link4", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link4", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link4", "label": "Q4 Link (optional)" },
+
+{ "type": "text", "id": "row_label5", "label": "Row Title", "default": "Press Releases" },
+{ "type": "url", "id": "q1_link5", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link5", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link5", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link5", "label": "Q4 Link (optional)" },
+
+{ "type": "text", "id": "row_label6", "label": "Row Title", "default": "Board Meeting Outcome" },
+{ "type": "url", "id": "q1_link6", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link6", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link6", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link6", "label": "Q4 Link (optional)" }
+
+        
+        
+      ]
+    },
+   
+{
+  "type": "pdf_block",
+  "name": "PDF Item",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pdf_title_1",
+      "label": "PDF Title 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_1",
+      "label": "Thumbnail Image 1"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_1",
+      "label": "Content 1"
+    },
+
+    {
+      "type": "text",
+      "id": "pdf_title_2",
+      "label": "PDF Title 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_2",
+      "label": "Thumbnail Image 2"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_2",
+      "label": "Content 2"
+    },
+    {
+      "type": "text",
+      "id": "pdf_title_3",
+      "label": "PDF Title 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_3",
+      "label": "Thumbnail Image 3"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_3",
+      "label": "Content 3"
+    },
+    {
+      "type": "text",
+      "id": "pdf_title_4",
+      "label": "PDF Title 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_4",
+      "label": "Thumbnail Image 4"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_4",
+      "label": "Content 4"
+    },
+    {
+      "type": "text",
+      "id": "pdf_title_5",
+      "label": "PDF Title 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_5",
+      "label": "Thumbnail Image 5"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_5",
+      "label": "Content 5"
+    },
+    {
+      "type": "text",
+      "id": "pdf_title_6",
+      "label": "PDF Title 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_6",
+      "label": "Thumbnail Image 6"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_6",
+      "label": "Content 6"
+    },
+    {
+      "type": "text",
+      "id": "pdf_title_7",
+      "label": "PDF Title 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_7",
+      "label": "Thumbnail Image 7"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_7",
+      "label": "Content 7"
+    },
+    {
+      "type": "text",
+      "id": "pdf_title_8",
+      "label": "PDF Title 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdf_thumbnail_8",
+      "label": "Thumbnail Image 8"
+    },
+    {
+      "type": "richtext",
+      "id": "pdf_content_8",
+      "label": "Content 8"
+    },
+
+   
+  ]
+}
+
+
+,
+    {
+      "type": "report_row",
+      "name": "Fiscal Report",
+      "settings": [
+        {
+          "type": "select",
+          "id": "year",
+          "label": "Fiscal Year",
+          "options": [
+            { "value": "fy-25-26", "label": "FY'25-26" },
+            { "value": "fy-24-25", "label": "FY'24-25" },
+            { "value": "fy-23-24", "label": "FY'23-24" },
+            { "value": "fy-22-23", "label": "FY'22-23" }
+          ],
+          "default": "fy-25-26"
+        },
+        {
+          "type": "select",
+          "id": "group",
+          "label": "Group",
+          "options": [
+            { "value": "overview", "label": "Overview" },
+            { "value": "financials", "label": "Financials" },
+            { "value": "documents", "label": "Material Documents" },
+            { "value": "governance", "label": "Governance" },
+            { "value": "policies", "label": "Policies & Compliances" },
+            { "value": "investor", "label": "Investor Contacts" }
+          ],
+          "default": "overview"
+        },
+
+        { "type": "url", "id": "q1_link", "label": "Q1 Link (optional)" },
+        { "type": "url", "id": "q2_link", "label": "Q2 Link (optional)" },
+        { "type": "url", "id": "q3_link", "label": "Q3 Link (optional)" },
+        { "type": "url", "id": "q4_link", "label": "Q4 Link (optional)" },
+       
+        { "type": "url", "id": "q1_link2", "label": "Q1 Link (optional)" },
+        { "type": "url", "id": "q2_link2", "label": "Q2 Link (optional)" },
+        { "type": "url", "id": "q3_link2", "label": "Q3 Link (optional)" },
+        { "type": "url", "id": "q4_link2", "label": "Q4 Link (optional)" },
+       
+{ "type": "url", "id": "q1_link3", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link3", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link3", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link3", "label": "Q4 Link (optional)" },
+
+
+{ "type": "url", "id": "q1_link4", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link4", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link4", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link4", "label": "Q4 Link (optional)" },
+
+
+{ "type": "url", "id": "q1_link5", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link5", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link5", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link5", "label": "Q4 Link (optional)" },
+
+
+{ "type": "url", "id": "q1_link6", "label": "Q1 Link (optional)" },
+{ "type": "url", "id": "q2_link6", "label": "Q2 Link (optional)" },
+{ "type": "url", "id": "q3_link6", "label": "Q3 Link (optional)" },
+{ "type": "url", "id": "q4_link6", "label": "Q4 Link (optional)" }
+
+        
+        
+      ]
+    },
+    {
+      "type": "rating_row",
+      "name": "Fiscal Rating",
+      "settings": [
+        {
+          "type": "select",
+          "id": "year",
+          "label": "Fiscal Year",
+          "options": [
+            { "value": "fy-25-26", "label": "FY'25-26" },
+            { "value": "fy-24-25", "label": "FY'24-25" },
+            { "value": "fy-23-24", "label": "FY'23-24" },
+            { "value": "fy-22-23", "label": "FY'22-23" }
+          ],
+          "default": "fy-25-26"
+        },
+        {
+          "type": "select",
+          "id": "group",
+          "label": "Group",
+          "options": [
+            { "value": "overview", "label": "Overview" },
+            { "value": "financials", "label": "Financials" },
+            { "value": "documents", "label": "Material Documents" },
+            { "value": "governance", "label": "Governance" },
+            { "value": "policies", "label": "Policies & Compliances" },
+            { "value": "investor", "label": "Investor Contacts" }
+          ],
+          "default": "overview"
+        },
+
+      {
+  "type": "richtext",
+  "id": "q1_content",
+  "label": "Q1 Content"
+}, 
+        
+      ]
+    },
+     {
+      "type": "investor_left_column",
+      "name": "Investor Left Column",
+      "settings": [
+        { "type": "text", "id": "left_title", "label": "Left Column Title" },
+        { "type": "richtext", "id": "left_content", "label": "Left Column Content" }
+      ]
+    },
+    {
+      "type": "investor_right_column",
+      "name": "Investor Right Column",
+      "settings": [
+        { "type": "text", "id": "right_title", "label": "Right Column Title" },
+        { "type": "richtext", "id": "right_content", "label": "Right Column Content" }
+      ]
+    },
+    {
+      "type": "sidebar_item",
+      "name": "Sidebar Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "group",
+          "label": "Group",
+          "options": [
+            { "value": "overview", "label": "Overview" },
+            { "value": "financials", "label": "Financials" },
+            { "value": "documents", "label": "Material Documents" },
+            { "value": "governance", "label": "Governance" },
+            { "value": "policies", "label": "Policies & Compliances" },
+            { "value": "investor", "label": "Investor Contacts" }
+          ],
+          "default": "overview"
+        },
+        { "type": "text", "id": "title", "label": "Item Title", "default": "Our Business" },
+        { "type": "url", "id": "link", "label": "Optional Link" },
+        { "type": "richtext", "id": "content", "label": "Content" },
+        { "type": "image_picker", "id": "content_image", "label": "Content image (optional)" },
+        { "type": "image_picker", "id": "icon", "label": "Icon (optional)" },
+        { "type": "text", "id": "icon_text", "label": "Icon text (optional)" },
+        { "type": "url", "id": "doc_url", "label": "Document URL (upload in Settings > Files, then paste link here)" },
+        { "type": "text", "id": "doc_label", "label": "Document link label", "default": "Download Document" }
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Investor Relations",
+      "category": "Custom",
+      "blocks": [{ "type": "image" }, { "type": "sidebar_item" }, { "type": "fy_row" }]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .investor-relations { padding:28px; }
+  .ir-grid { display:flex; gap:20px; }
+  .ir-left { flex:2; }
+  .ir-right { flex:1; }
+  @media (max-width: 768px) {
+    .ir-grid {
+      flex-direction: column;
+    }
+
+    .ir-left {
+      order: 1;
+    }
+
+    .ir-right {
+      order: 2;
+      margin-top: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    .image-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  /* Image grid */
+  .image-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .image-grid img { width:100%; height:220px; object-fit:cover; border-radius:8px; cursor:pointer; }
+  .image-grid-title { text-align:center; margin-top:6px; }
+
+  /* Left collapsibles */
+  .detail-panels { margin-bottom:20px; }
+  .detail-panel { border:1px solid #ddd; border-radius:6px; margin-bottom:10px; background:#fff; }
+  .detail-header { padding:12px; cursor:pointer; font-weight:600; display:flex; justify-content:space-between; background:#f5f5f5; }
+  .detail-header.open { background:#4c1d95; color:#fff; }
+  .detail-body { display:none; padding:12px; }
+  .detail-body.open { display:block; }
+
+  /* Fiscal years */
+  .fy-header { background:#eee; padding:10px; cursor:pointer; border-radius:6px; margin-top:6px; display:flex; justify-content:space-between; }
+  .fy-header.open { background:#ede9fe; color:#4c1d95; }
+  .fy-body { display:none; margin-bottom:12px; }
+  .fy-body.open { display:block; }
+  .fy-table { width:100%; border-collapse:collapse; }
+  .fy-table th { background:#4c1d95; color:#fff; padding:8px; }
+  .fy-table td { border:1px solid #ddd; padding:8px; text-align:center; }
+  .fy-table td:first-child { background:#f9f9f9; font-weight:600; text-align:left; }
+  .cell-disabled { opacity:0.3; }
+
+  /* Sidebar */
+  .sidebar-group { border:1px solid #ddd; border-radius:6px; margin-bottom:10px; }
+  .sidebar-header { padding:10px; cursor:pointer; font-weight:600; background:#eee; display:flex; justify-content:space-between; }
+  .sidebar-header.open { background:#4c1d95; color:#fff; }
+  .sidebar-items { display:none; padding:8px; }
+  .sidebar-items.open { display:block; }
+  {% comment %} .sidebar-item { padding:6px; cursor:pointer; border:1px solid #ddd; border-radius:4px; margin-bottom:6px; background:#fff; } {% endcomment %}
+
+  /* Sidebar visual / sub-item styling */
+  .sidebar-group { border:1px solid #ddd; border-radius:8px; margin-bottom:12px; overflow:hidden; }
+  .sidebar-header { padding:12px; cursor:pointer; font-weight:700; background:#eee; display:flex; justify-content:space-between; align-items:center; }
+  .sidebar-header.open { background:#4c1d95; color:#fff; }
+  .sidebar-items { display:none; padding:10px; background:transparent; }
+  .sidebar-items.open { display:block; }
+
+  /* sub-items list (one column pills on desktop; tappable on mobile) */
+  .sidebar-item {
+  display: block; /* force block layout (one per line) */
+  width: 100%; /* make sure it spans the whole width */
+  box-sizing: border-box; /* ensure padding doesn't overflow */
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  transition: all 0.12s ease;
+  user-select: none;
+}
+  .sidebar-item:last-child { margin-bottom:0; }
+
+  .sidebar-item:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Default closed state (small down arrow) */
+.fy-header::after,
+.sidebar-header::after,
+.detail-header::after {
+  content: "▼";
+  font-size: 11px;   /* smaller size */
+  margin-left: auto;
+  display: inline-block;
+  transition: transform 0.25s ease;
+  transform: rotate(0deg);
+  line-height: 1;
+}
+
+/* Open state (small up arrow) */
+.fy-header.open::after,
+.sidebar-header.open::after,
+.detail-header.open::after {
+  content: "▲";
+}
+
+
+  /* active (selected) sub-item */
+  .sidebar-item.active {
+    background: #ede9fe;
+    color: #4c1d95;
+    border-color: rgba(76,29,149,0.15);
+    box-shadow: inset 0 0 0 1px rgba(76,29,149,0.06);
+  }
+
+  /* keep hidden content in DOM but not visible in the sidebar */
+  .sidebar-item #content-{{ 'x' }} { display:none !important; }
+
+  /* Ensure left panels continue to behave as accordions */
+  .detail-panel { border:1px solid #ddd; border-radius:6px; margin-bottom:10px; background:#fff; overflow:hidden; }
+  .detail-header { padding:12px; cursor:pointer; font-weight:600; display:flex; justify-content:space-between; background:#f5f5f5; }
+  .detail-header.open { background:#4c1d95; color:#fff; }
+  .detail-body { display:none; padding:12px; }
+  .detail-body.open { display:block; }
+
+  /* responsive tweaks */
+  @media (max-width: 768px) {
+    .sidebar-item { padding:10px; font-size:14px; }
+    .sidebar-group { margin-bottom:10px; }
+  }
+</style>
+
+<!-- IMAGE GRID -->
+<div id="image-grid" class="image-grid">
+  {% for block in section.blocks %}
+    {% if block.type == 'image' %}
+      <div
+        onclick="openIRLayout('{{ block.settings.target }}')"
+        style="position: relative; display: inline-block; width: 100%;"
+      >
+        {% if block.settings.image != blank %}
+          <img
+            src="{{ block.settings.image | img_url: '600x600' }}"
+            alt="{{ block.settings.title }}"
+            style="width: 100%; display: block;"
+          >
+        {% else %}
+          <div style="background:#ddd;height:200px;display:flex;align-items:center;justify-content:center;">
+            No image
+          </div>
+        {% endif %}
+        <div
+          class="image-grid-title"
+          style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            {% comment %} background: rgba(0, 0, 0, 0.5); {% endcomment %}
+            padding: 10px;
+            border-radius: 5px;
+            width: 80%;
+          "
+        >
+          {{ block.settings.title }}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<!-- INVESTOR RELATIONS LAYOUT -->
+<div id="ir-layout" style="display:none;">
+  {% comment %} <button onclick="showImageGrid()" class="inline-block mb-4 px-3 py-1 border rounded">← Back to gallery</button> {% endcomment %}
+  <div class="ir-grid">
+    <!-- LEFT CONTENT -->
+    <div class="ir-left">
+      <div id="detail-panels" class="detail-panels">
+        <div class="detail-placeholder">
+          <h3>Welcome</h3>
+          <p>Select a sidebar item to view content.</p>
+        </div>
+      </div>
+
+      <!-- Fiscal Year Accordions -->
+      {% assign years = "fy-25-26|FY'25-26,fy-24-25|FY'24-25,fy-23-24|FY'23-24,fy-22-23|FY'22-23" | split: ',' %}
+      {% for y in years %}
+        {% assign p = y | split: '|' %}
+        {% assign yval = p[0] %}
+        {% assign ylabel = p[1] %}
+        {% assign has_rows = false %}
+        {% for b in section.blocks %}
+          {% if b.type == 'fy_row' and b.settings.year == yval %}
+            {% assign has_rows = true %}
+          {% endif %}
+        {% endfor %}
+        {% if has_rows %}
+          <div class="fiscal-year">
+            <div class="fy-header" data-year="{{ yval }}">
+              {{ ylabel }}
+              {% comment %} <span>▾</span> {% endcomment %}
+            </div>
+            <div class="fy-body">
+              <table class="fy-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>H1</th>
+                    <th>H2</th>
+                    <th>H3</th>
+                    <th>H4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for b in section.blocks %}
+                    {% if b.type == 'fy_row' and b.settings.year == yval %}
+                      <tr>
+                        <td>{{ b.settings.row_label }}</td>
+                        <td>
+                          {% if b.settings.q1_link != blank -%}
+                            <a href="{{ b.settings.q1_link }}" download="Q1 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                        <td>
+                          {% if b.settings.q2_link != blank -%}
+                            <a href="{{ b.settings.q2_link }}"  download="Q2 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                        <td>
+                          {% if b.settings.q3_link != blank -%}
+                            <a href="{{ b.settings.q3_link }}"  download="Q3 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                        <td>
+                          {% if b.settings.q4_link != blank -%}
+                            <a href="{{ b.settings.q4_link }}" download="Q4 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                      </tr>
+                      <tr>
+  <td>{{ b.settings.row_label2 }}</td>
+  <td>{% if b.settings.q1_link2 != blank %}<a href="{{ b.settings.q1_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link2 != blank %}<a href="{{ b.settings.q2_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link2 != blank %}<a href="{{ b.settings.q3_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link2 != blank %}<a href="{{ b.settings.q4_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+  <td>{{ b.settings.row_label3 }}</td>
+  <td>{% if b.settings.q1_link3 != blank %}<a href="{{ b.settings.q1_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link3 != blank %}<a href="{{ b.settings.q2_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link3 != blank %}<a href="{{ b.settings.q3_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link3 != blank %}<a href="{{ b.settings.q4_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+
+<tr>
+  <td>{{ b.settings.row_label4 }}</td>
+  <td>{% if b.settings.q1_link4 != blank %}<a href="{{ b.settings.q1_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link4 != blank %}<a href="{{ b.settings.q2_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link4 != blank %}<a href="{{ b.settings.q3_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link4 != blank %}<a href="{{ b.settings.q4_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+
+<tr>
+  <td>{{ b.settings.row_label5 }}</td>
+  <td>{% if b.settings.q1_link5 != blank %}<a href="{{ b.settings.q1_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link5 != blank %}<a href="{{ b.settings.q2_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link5 != blank %}<a href="{{ b.settings.q3_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link5 != blank %}<a href="{{ b.settings.q4_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+
+<tr>
+  <td>{{ b.settings.row_label6 }}</td>
+  <td>{% if b.settings.q1_link6 != blank %}<a href="{{ b.settings.q1_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link6 != blank %}<a href="{{ b.settings.q2_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link6 != blank %}<a href="{{ b.settings.q3_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link6 != blank %}<a href="{{ b.settings.q4_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% assign years = "fy-25-26|FY'25-26,fy-24-25|FY'24-25,fy-23-24|FY'23-24,fy-22-23|FY'22-23" | split: ',' %}
+      {% for y in years %}
+        {% assign p = y | split: '|' %}
+        {% assign yval = p[0] %}
+        {% assign ylabel = p[1] %}
+        {% assign has_rows = false %}
+        {% for b in section.blocks %}
+          {% if b.type == 'report_row' and b.settings.year == yval %}
+            {% assign has_rows = true %}
+          {% endif %}
+        {% endfor %}
+        {% if has_rows %}
+          <div class="fiscal-year">
+            <div class="fy-header" data-year="{{ yval }}">
+              {{ ylabel }}
+              {% comment %} <span>▾</span> {% endcomment %}
+            </div>
+            <div class="fy-body">
+              <table class="fy-table">
+                <thead>
+                  <tr>
+                    <th>H1</th>
+                    <th>H2</th>
+                    <th>H3</th>
+                    <th>H4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for b in section.blocks %}
+                    {% if b.type == 'report_row' and b.settings.year == yval %}
+                      <tr>
+                        {% comment %} <td>{{ b.settings.row_label }}</td> {% endcomment %}
+                        <td>
+                          {% if b.settings.q1_link != blank -%}
+                            <a href="{{ b.settings.q1_link }}" download="Q1 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                        <td>
+                          {% if b.settings.q2_link != blank -%}
+                            <a href="{{ b.settings.q2_link }}"  download="Q2 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                        <td>
+                          {% if b.settings.q3_link != blank -%}
+                            <a href="{{ b.settings.q3_link }}"  download="Q3 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                        <td>
+                          {% if b.settings.q4_link != blank -%}
+                            <a href="{{ b.settings.q4_link }}" download="Q4 Update">📄</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                      </tr>
+                      <tr>
+  {% comment %} <td>{{ b.settings.row_label2 }}</td> {% endcomment %}
+  <td>{% if b.settings.q1_link2 != blank %}<a href="{{ b.settings.q1_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link2 != blank %}<a href="{{ b.settings.q2_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link2 != blank %}<a href="{{ b.settings.q3_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link2 != blank %}<a href="{{ b.settings.q4_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+  {% comment %} <td>{{ b.settings.row_label3 }}</td> {% endcomment %}
+  <td>{% if b.settings.q1_link3 != blank %}<a href="{{ b.settings.q1_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link3 != blank %}<a href="{{ b.settings.q2_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link3 != blank %}<a href="{{ b.settings.q3_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link3 != blank %}<a href="{{ b.settings.q4_link3 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+
+<tr>
+  {% comment %} <td>{{ b.settings.row_label4 }}</td> {% endcomment %}
+  <td>{% if b.settings.q1_link4 != blank %}<a href="{{ b.settings.q1_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link4 != blank %}<a href="{{ b.settings.q2_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link4 != blank %}<a href="{{ b.settings.q3_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link4 != blank %}<a href="{{ b.settings.q4_link4 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+
+<tr>
+  {% comment %} <td>{{ b.settings.row_label5 }}</td> {% endcomment %}
+  <td>{% if b.settings.q1_link5 != blank %}<a href="{{ b.settings.q1_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link5 != blank %}<a href="{{ b.settings.q2_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link5 != blank %}<a href="{{ b.settings.q3_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link5 != blank %}<a href="{{ b.settings.q4_link5 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+
+<tr>
+  {% comment %} <td>{{ b.settings.row_label6 }}</td> {% endcomment %}
+  <td>{% if b.settings.q1_link6 != blank %}<a href="{{ b.settings.q1_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q2_link6 != blank %}<a href="{{ b.settings.q2_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q3_link6 != blank %}<a href="{{ b.settings.q3_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+  <td>{% if b.settings.q4_link6 != blank %}<a href="{{ b.settings.q4_link6 }}" download>📄</a>{% else %}<span class="cell-disabled">—</span>{% endif %}</td>
+</tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        {% endif %}
+         {% endfor %}
+      {% assign years = "fy-25-26|FY'25-26,fy-24-25|FY'24-25,fy-23-24|FY'23-24,fy-22-23|FY'22-23" | split: ',' %}
+      {% for y in years %}
+        {% assign p = y | split: '|' %}
+        {% assign yval = p[0] %}
+        {% assign ylabel = p[1] %}
+        {% assign has_rows = false %}
+        {% for b in section.blocks %}
+          {% if b.type == 'rating_row' and b.settings.year == yval %}
+            {% assign has_rows = true %}
+          {% endif %}
+        {% endfor %}
+        {% if has_rows %}
+          <div class="fiscal-year">
+            <div class="fy-header" data-year="{{ yval }}">
+              {{ ylabel }}
+              {% comment %} <span>▾</span> {% endcomment %}
+            </div>
+            <div class="fy-body">
+              <table class="fy-table">
+                <tbody>
+                  {% for b in section.blocks %}
+                    {% if b.type == 'rating_row' and b.settings.year == yval %}
+                      <tr>
+                        {% comment %} <td>{{ b.settings.row_label }}</td> {% endcomment %}
+                        <td>
+                          {% if b.settings.q1_content != blank -%}
+                            <a href="{{ b.settings.q1_content}}" download="Q1 Update">{{b.settings.q1_content}}</a>
+                          {%- else -%}
+                            <span class="cell-disabled">—</span>
+                          {%- endif %}
+                        </td>
+                      </tr>
+    
+
+
+
+
+
+
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        {% endif %}
+        
+      {% endfor %}
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
+  {% for b in section.blocks %}
+    {% if b.type == 'investor_left_column' %}
+      <div class="oi-investors-inner__address border p-4 rounded h-full">
+        {% if b.settings.left_title != blank %}
+          <p><strong>{{ b.settings.left_title }}</strong></p>
+          <hr class="my-2">
+        {% endif %}
+        {% if b.settings.left_content != blank %}
+          <div>{{ b.settings.left_content }}</div>
+        {% endif %}
+      </div>
+    {% elsif b.type == 'investor_right_column' %}
+      <div class="oi-investors-inner__address border p-4 rounded h-full">
+        {% if b.settings.right_title != blank %}
+          <p><strong>{{ b.settings.right_title }}</strong></p>
+          <hr class="my-2">
+        {% endif %}
+        {% if b.settings.right_content != blank %}
+          <div>{{ b.settings.right_content }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+{% for b in section.blocks %}
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-2">
+  {% for i in (1..8) %}
+    {% assign title_key = "pdf_title_" | append: i %}
+    {% assign thumb_key = "pdf_thumbnail_" | append: i %}
+    {% assign content_key = "pdf_content_" | append: i %}
+
+    {% assign title = b.settings[title_key] %}
+    {% assign thumb = b.settings[thumb_key] %}
+    {% assign content = b.settings[content_key] %}
+    
+    {% if title != blank or thumb != blank or content != blank %}
+      <div class="text-center">
+        {% if thumb != blank %}
+          <img src="{{ thumb | img_url: '400x' }}" alt="{{ title }}" class="mx-auto rounded shadow">
+        {% endif %}
+        {% if title != blank %}
+          <p class="mt-2 font-semibold text-red-600">{{ title }}</p>
+        {% endif %}
+        {% if content != blank %}
+          <div class="mt-1 text-sm text-gray-700">
+            {{ content }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+ {% endfor %}
+
+    </div>
+
+
+    <!-- RIGHT SIDEBAR -->
+    <div class="ir-right">
+      {% assign groups = 'overview|Quarterly Results,financials|Annual Reports,documents|Subsidiaries,governance|Shareholder Information,policies|Policies & Compliances,investor|Investor Contacts'
+        | split: ','
+      %}
+      {% for g in groups %}
+        {% assign parts = g | split: '|' %}
+        {% assign gval = parts[0] %}
+        {% assign glabel = parts[1] %}
+        {% assign has_items = false %}
+        {% for b in section.blocks %}
+          {% if b.type == 'sidebar_item' and b.settings.group == gval %}
+            {% assign has_items = true %}
+          {% endif %}
+        {% endfor %}
+        {% if has_items %}
+          <div class="sidebar-group">
+            <div class="sidebar-header" data-group="{{ gval }}">
+              {{ glabel }}
+              {% comment %} <span>▾</span> {% endcomment %}
+            </div>
+            <div class="sidebar-items" data-group="{{ gval }}">
+              {% for b in section.blocks %}
+                {% if b.type == 'sidebar_item' and b.settings.group == gval %}
+                  <div class="sidebar-item" data-block-id="{{ b.id }}">
+                    {% if b.settings.icon %}
+                      <img
+                        src="{{ b.settings.icon | img_url: '40x' }}"
+                        alt="Icon"
+                        style="width: 24px; vertical-align: middle; margin-right: 8px;"
+                      >
+                    {% endif %}
+                    <span>{{ b.settings.title }}</span>
+                  </div> 
+
+                  <!-- Hidden content outside the .sidebar-item -->
+                  <div id="content-{{ b.id }}" style="display:none;">
+                    {% if b.settings.content_image %}
+                      <img
+                        src="{{ b.settings.content_image | img_url: '600x' }}"
+                        style="max-width:100%; margin-bottom:10px;"
+                      >
+                    {% endif %}
+
+                    {{ b.settings.content }}
+
+                    {% if b.settings.doc_url != blank %}
+                      <p style="margin-top: 12px;">
+                        <a
+                          href="{{ b.settings.doc_url }}"
+                          class="inline-block mt-2 px-4 py-2 border rounded bg-purple-900  hover:bg-purple-800"
+                          download="pdf"
+                        >
+                          {{ b.settings.doc_label | default: 'Download Document' }}
+                        </a>
+                      </p>
+                    {% endif %}
+                  </div>
+
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function openIRLayout(target) {
+    document.getElementById('image-grid').style.display = 'none';
+    document.getElementById('ir-layout').style.display = 'block';
+
+    // Auto-open sidebar group if target passed
+    if (target) {
+      const header = document.querySelector('.sidebar-header[data-group="' + target + '"]');
+      const items = document.querySelector('.sidebar-items[data-group="' + target + '"]');
+      if (header && items) {
+        header.classList.add('open');
+        items.classList.add('open');
+
+        // auto-click first sub-item in the group (if present)
+        const first = items.querySelector('.sidebar-item');
+        if (first) {
+          // Delay slightly so DOM ready states settle (safe, tiny)
+          setTimeout(() => first.click(), 50);
+        }
+      }
+    }
+  }
+
+  function showImageGrid() {
+    document.getElementById('image-grid').style.display = 'grid';
+    document.getElementById('ir-layout').style.display = 'none';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fiscal year accordion
+    document.querySelectorAll('.fy-header').forEach((h) => {
+      h.addEventListener('click', () => {
+        h.classList.toggle('open');
+        const body = h.nextElementSibling;
+        if (body) body.classList.toggle('open');
+      });
+    });
+
+    // Sidebar groups (toggle open/close)
+    document.querySelectorAll('.sidebar-header').forEach((h) => {
+      h.addEventListener('click', () => {
+        h.classList.toggle('open');
+        const items = h.nextElementSibling;
+        if (items) items.classList.toggle('open');
+      });
+    });
+
+    // Sidebar items → show single content panel in LEFT column (replace current panels)
+    document.querySelectorAll('.sidebar-item').forEach((item) => {
+      item.addEventListener('click', function (e) {
+        e.stopPropagation();
+        // ensure clicking inner elements works too
+        const el = this;
+        const bid = el.dataset.blockId;
+        if (!bid) return;
+
+        // mark active
+        document.querySelectorAll('.sidebar-item').forEach((i) => i.classList.remove('active'));
+        el.classList.add('active');
+
+        // pull content from hidden content container for this block
+        const contentDiv = document.getElementById('content-' + bid);
+        const contentHtml = contentDiv ? contentDiv.innerHTML : '<p>No content available.</p>';
+        const titleSpan = el.querySelector('span');
+        const title = titleSpan ? titleSpan.innerText.trim() : el.innerText.trim();
+
+        // Replace left column with a single panel (so it's not growing with each click)
+        const container = document.getElementById('detail-panels');
+        if (!container) return;
+        // Remove placeholder if present
+        const placeholder = container.querySelector('.detail-placeholder');
+        if (placeholder) placeholder.style.display = 'none';
+
+        // clear existing and create a single panel
+        container.innerHTML = '';
+        const panel = document.createElement('div');
+        panel.className = 'detail-panel';
+        panel.setAttribute('data-bid', bid);
+
+        const header = document.createElement('div');
+        header.className = 'detail-header open';
+        header.innerHTML = `<span>${title}</span>`;
+
+        const body = document.createElement('div');
+        body.className = 'detail-body open';
+        body.innerHTML = contentHtml;
+
+        // toggle collapse for this panel header
+        header.addEventListener('click', () => {
+          header.classList.toggle('open');
+          body.classList.toggle('open');
+        });
+
+        panel.appendChild(header);
+        panel.appendChild(body);
+        container.appendChild(panel);
+
+        // On mobile, ensure the left content is visible (scroll)
+        if (window.innerWidth <= 768) {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>

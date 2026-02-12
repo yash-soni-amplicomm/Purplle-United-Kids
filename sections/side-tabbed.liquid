@@ -1,0 +1,385 @@
+{% schema %}
+{
+  "name": "Content Collapsible Test",
+  "tag": "section",
+  "class": "sidebar-content-test",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "select", "id": "target", "label": "Opens Collapsible", "options": [
+            { "value": "overview-children", "label": "Overview" },
+            { "value": "financials-children", "label": "Financials" },
+            { "value": "documents-children", "label": "Material Documents" },
+            { "value": "governance-children", "label": "Governance" },
+            { "value": "policies-children", "label": "Policies" },
+            { "value": "investor-children", "label": "Investor Contacts" }
+        ]}
+      ]
+    },
+    {
+      "type": "collapsible_item",
+      "name": "Collapsible Child Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "parent",
+          "label": "Parent group",
+          "options": [
+            { "value": "overview-children", "label": "Overview" },
+            { "value": "financials-children", "label": "Financials" },
+            { "value": "documents-children", "label": "Material Documents" },
+            { "value": "governance-children", "label": "Governance" },
+            { "value": "policies-children", "label": "Policies" },
+            { "value": "investor-children", "label": "Investor Contacts" }
+          ],
+          "default": "overview-children"
+        },
+        { "type": "text", "id": "title", "label": "Child tab title", "default": "Item title" },
+        { "type": "textarea", "id": "description", "label": "Description (optional)" },
+        { "type": "image_picker", "id": "content_image", "label": "Content image (optional)" },
+        { "type": "image_picker", "id": "icon", "label": "Icon (optional)" },
+        { "type": "text", "id": "icon_text", "label": "Icon text (optional)" },
+        { "type": "url", "id": "doc_url", "label": "Document URL (upload in Settings > Files, then paste link here)" },
+        { "type": "text", "id": "doc_label", "label": "Document link label", "default": "Download Document" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content Collapsible Test",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "collapsible_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  /* Active states */
+.tab.active {
+  background-color:#4c1d95; /* light purple */
+  font-weight: 600;
+  color: #fff; /* dark purple */
+}
+
+.child-tab.active {
+  background-color:#4c1d95;
+  color: #fff;
+  font-weight: 600;
+}
+
+  .sidebar-content-test {
+    padding: 48px;
+    background: #fff;
+  }
+  .grid-test {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+  .grid-test img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .sidebar-content-section {
+    display: flex;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+  }
+  .sidebar-content-section .content { width: 66.6%; padding: 20px; background: #fff; }
+  .sidebar-content-section .sidebar { width: 33.3%;  padding: 10px; }
+  .tab { padding: 10px; cursor: pointer; border: 1px solid #ddd; border-radius:10px; position: relative;margin:5px;background: #E2E2E2 }
+  {% comment %} .tab:hover { background: #e0e0e0; } {% endcomment %}
+  .tab::after { content: "▸"; position: absolute; right: 10px; transition: transform 0.3s; }
+  .tab.open::after { transform: rotate(90deg); }
+  .child-tabs { margin-left: 10px; display: none;}
+  .child-tabs.open { display: block; }
+  .child-tab { padding: 8px; cursor: pointer;border: 1px solid #ddd; border-radius:10px;margin:5px;background: #E2E2E2; }
+  {% comment %} .child-tab:hover { background: #ddd; } {% endcomment %}
+  .content-image { max-width: 100%; margin-top: 16px; border-radius: 8px; }
+  @media (max-width:768px) {
+    .sidebar-content-section { flex-direction: column; }
+    .sidebar-content-section .content, .sidebar-content-section .sidebar { width: 100%; }
+    .grid-test { grid-template-columns: repeat(2, 1fr); }
+  }
+  {% comment %} file grid {% endcomment %}
+/* Financials files grid */
+.files-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+@media (max-width:1024px) {
+  .files-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.file-card {
+  border: 1px solid #e6e6ea;
+  padding: 14px;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  min-height: 84px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:8px;
+}
+.file-card .year { font-weight:600; color:#3b2b6b; }
+.file-card .label { font-size:14px; color:#333; }
+.file-card a { color:inherit; text-decoration:none; display:block; }
+.file-card .download-icon { font-size:18px; color:#6b2fa6; }
+
+
+</style>
+
+<!-- IMAGE GRID -->
+<div id="image-grid" class="grid-test">
+  {% for block in section.blocks %}
+    {% if block.type == 'image' %}
+      <div>
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: '600x600' }}" 
+               alt="{{ block.settings.title }}" 
+               onclick="openCollapsibleFromImage('{{ block.settings.target }}')">
+        {% else %}
+          <div style="background:#ddd;height:200px;display:flex;align-items:center;justify-content:center;cursor:pointer;"
+               onclick="openCollapsibleFromImage('{{ block.settings.target }}')">
+            No image
+          </div>
+        {% endif %}
+        <p style="text-align:center;margin-top:5px;">{{ block.settings.title }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<!-- COLLAPSIBLE SECTION (hidden initially) -->
+<div id="collapsible-section" class="sidebar-content-section" style="display:none;border-radius: 16px;border:1px solid black;">
+  <div class="content col col-8" id="main-content">
+    <button onclick="showImageGrid()" class="inline-block mb-4 px-3 py-1 border rounded">← Back to gallery</button>
+    <h2>Welcome</h2>
+    <p>Select a tab to view content.</p>
+  </div>
+  <div class="sidebar col col-4">
+    <!-- Parent tabs -->
+    <div class="tab" onclick="toggleCollapse(this,'overview-children')">Overview</div>
+    <div class="child-tabs" id="overview-children">
+      {% for block in section.blocks %}
+        {% if block.type == 'collapsible_item' and block.settings.parent == 'overview-children' %}
+          <div class="child-tab"
+               data-title="{{ block.settings.title | escape }}"
+               data-desc="{{ block.settings.description | escape }}"
+               data-img="{% if block.settings.content_image != blank %}{{ block.settings.content_image | img_url: '1200x' }}{% endif %}"
+               data-doc="{{ block.settings.doc_url }}"
+               data-doclabel="{{ block.settings.doc_label }}"
+               data-icon="{% if block.settings.icon != blank %}{{ block.settings.icon | img_url: '100x' }}{% endif %}"
+               data-icontext="{{ block.settings.icon_text }}">
+            {{ block.settings.title }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="tab" onclick="toggleCollapse(this,'financials-children')">Financials</div>
+    <div class="child-tabs" id="financials-children">
+      {% for block in section.blocks %}
+        {% if block.type == 'collapsible_item' and block.settings.parent == 'financials-children' %}
+          <div class="child-tab"
+               data-title="{{ block.settings.title | escape }}"
+               data-desc="{{ block.settings.description | escape }}"
+               data-img="{% if block.settings.content_image != blank %}{{ block.settings.content_image | img_url: '1200x' }}{% endif %}"
+               data-doc="{{ block.settings.doc_url }}"
+               data-doclabel="{{ block.settings.doc_label }}"
+               data-icon="{% if block.settings.icon != blank %}{{ block.settings.icon | img_url: '100x' }}{% endif %}"
+               data-icontext="{{ block.settings.icon_text }}">
+            {{ block.settings.title }}
+          </div>
+        {% endif %}
+      {% endfor %}
+      <!-- Hidden file-links pool for Financials (JS will read these) -->
+<div id="file-links-financials" style="display:none;">
+  {% for f in section.blocks %}
+    {% if f.type == 'file_link' and f.settings.parent_group == 'financials-children' %}
+      <div class="file-link-item" data-child="{{ f.settings.child_title | escape }}">
+        <a href="{{ f.settings.doc_url }}" target="_blank" rel="noopener noreferrer">{{ f.settings.doc_label }}</a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+    </div>
+
+    <!-- Repeat for other groups (documents, governance, policies, investor) -->
+    <div class="tab" onclick="toggleCollapse(this,'documents-children')">Material Documents</div>
+    <div class="child-tabs" id="documents-children">
+      {% for block in section.blocks %}
+        {% if block.type == 'collapsible_item' and block.settings.parent == 'documents-children' %}
+          <div class="child-tab"
+               data-title="{{ block.settings.title | escape }}"
+               data-desc="{{ block.settings.description | escape }}"
+               data-img="{% if block.settings.content_image != blank %}{{ block.settings.content_image | img_url: '1200x' }}{% endif %}"
+               data-doc="{{ block.settings.doc_url }}"
+               data-doclabel="{{ block.settings.doc_label }}"
+               data-icon="{% if block.settings.icon != blank %}{{ block.settings.icon | img_url: '100x' }}{% endif %}"
+               data-icontext="{{ block.settings.icon_text }}">
+            {{ block.settings.title }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="tab" onclick="toggleCollapse(this,'governance-children')">Governance</div>
+    <div class="child-tabs" id="governance-children">
+      {% for block in section.blocks %}
+        {% if block.type == 'collapsible_item' and block.settings.parent == 'governance-children' %}
+          <div class="child-tab"
+               data-title="{{ block.settings.title | escape }}"
+               data-desc="{{ block.settings.description | escape }}"
+               data-img="{% if block.settings.content_image != blank %}{{ block.settings.content_image | img_url: '1200x' }}{% endif %}"
+               data-doc="{{ block.settings.doc_url }}"
+               data-doclabel="{{ block.settings.doc_label }}"
+               data-icon="{% if block.settings.icon != blank %}{{ block.settings.icon | img_url: '100x' }}{% endif %}"
+               data-icontext="{{ block.settings.icon_text }}">
+            {{ block.settings.title }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="tab" onclick="toggleCollapse(this,'policies-children')">Policies & Compliances</div>
+    <div class="child-tabs" id="policies-children">
+      {% for block in section.blocks %}
+        {% if block.type == 'collapsible_item' and block.settings.parent == 'policies-children' %}
+          <div class="child-tab"
+               data-title="{{ block.settings.title | escape }}"
+               data-desc="{{ block.settings.description | escape }}"
+               data-img="{% if block.settings.content_image != blank %}{{ block.settings.content_image | img_url: '1200x' }}{% endif %}"
+               data-doc="{{ block.settings.doc_url }}"
+               data-doclabel="{{ block.settings.doc_label }}"
+               data-icon="{% if block.settings.icon != blank %}{{ block.settings.icon | img_url: '100x' }}{% endif %}"
+               data-icontext="{{ block.settings.icon_text }}">
+            {{ block.settings.title }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="tab" onclick="toggleCollapse(this,'investor-children')">Investor Contacts</div>
+    <div class="child-tabs" id="investor-children">
+      {% for block in section.blocks %}
+        {% if block.type == 'collapsible_item' and block.settings.parent == 'investor-children' %}
+          <div class="child-tab"
+               data-title="{{ block.settings.title | escape }}"
+               data-desc="{{ block.settings.description | escape }}"
+               data-img="{% if block.settings.content_image != blank %}{{ block.settings.content_image | img_url: '1200x' }}{% endif %}"
+               data-doc="{{ block.settings.doc_url }}"
+               data-doclabel="{{ block.settings.doc_label }}"
+               data-icon="{% if block.settings.icon != blank %}{{ block.settings.icon | img_url: '100x' }}{% endif %}"
+               data-icontext="{{ block.settings.icon_text }}">
+            {{ block.settings.title }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function openCollapsibleFromImage(targetId) {
+    document.getElementById("image-grid").style.display = "none";
+    document.getElementById("collapsible-section").style.display = "flex";
+
+    const tab = document.querySelector('.tab[onclick*="' + targetId + '"]');
+    const children = document.getElementById(targetId);
+    if (tab) tab.classList.add('open');
+    if (children) children.classList.add('open');
+
+    const firstChild = children?.querySelector('.child-tab');
+    if (firstChild) firstChild.click();
+  }
+
+  function showImageGrid() {
+    document.getElementById("collapsible-section").style.display = "none";
+    document.getElementById("image-grid").style.display = "grid";
+  }
+
+  function toggleCollapse(tab, childrenId) {
+    tab.classList.toggle('open');
+    document.getElementById(childrenId)?.classList.toggle('open');
+  }
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('child-tab')) {
+    const el = e.target;
+
+    // Remove active from all child tabs
+    document.querySelectorAll('.child-tab').forEach(tab => tab.classList.remove('active'));
+    // Set active on clicked
+    el.classList.add('active');
+
+    const title = el.dataset.title || '';
+    const desc = el.dataset.desc || '';
+    const img = el.dataset.img || '';
+    const doc = el.dataset.doc || '';
+    const doclabel = el.dataset.doclabel || '';
+    const icon = el.dataset.icon || '';
+    const icontext = el.dataset.icontext || '';
+    showContent(title, desc, img, doc, doclabel, icon, icontext);
+  }
+
+  if (e.target.classList.contains('tab')) {
+    const parentTab = e.target;
+
+    // Remove active from all parent tabs
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    // Set active on clicked parent
+    parentTab.classList.add('active');
+  }
+});
+
+  {% comment %} document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('child-tab')) {
+      const el = e.target;
+      const title = el.dataset.title || '';
+      const desc = el.dataset.desc || '';
+      const img = el.dataset.img || '';
+      const doc = el.dataset.doc || '';
+      const doclabel = el.dataset.doclabel || '';
+      const icon = el.dataset.icon || '';
+      const icontext = el.dataset.icontext || '';
+      showContent(title, desc, img, doc, doclabel, icon, icontext);
+    }
+  }); {% endcomment %}
+
+  function showContent(title, desc, img, doc, doclabel, icon, icontext) {
+    const main = document.getElementById('main-content');
+    if (!main) return;
+
+    const imgHtml = img ? `<img class="content-image" src="${img}" alt="${title || ''}">` : '';
+    const docHtml = doc ? `<p><a href="${doc}" target="_blank" rel="noopener noreferrer" download class="underline text-blue-600">${doclabel || 'Download Document'}</a></p>` : '';
+    const iconHtml = icon ? `<div class="flex items-center gap-2 mt-4"><img src="${icon}" alt="" style="width:24px;height:24px;"> <span>${icontext || ''}</span></div>` : '';
+
+    main.innerHTML = `
+      {% comment %} <button onclick="showImageGrid()" class="inline-block mb-4 px-3 py-1 border rounded">← Back to gallery</button> {% endcomment %}
+      <h2>${title || ''}</h2>
+      <p>${desc || ''}</p>
+      ${imgHtml}
+      ${iconHtml}
+      ${docHtml}
+    `;
+  }
+</script>

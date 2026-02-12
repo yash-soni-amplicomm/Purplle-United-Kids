@@ -1,0 +1,110 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_heading": true,
+        "heading_size": 170,
+        "heading_tag": "h1",
+        "show_breadcrumbs": true,
+        "show_breadcrumbs_border": false,
+        "full_width_breadcrumb": true,
+        "desktop_content_alignment": "text-left",
+        "mobile_content_alignment": "text-left",
+        "background_color_light": "#f2f2f2",
+        "text_color_light": "rgba(0,0,0,0)",
+        "textlink_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "#313131",
+        "text_color_dark": "rgba(0,0,0,0)",
+        "textlink_color_dark": "rgba(0,0,0,0)",
+        "max_container_page_width": 100,
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "products_bundle_4V3GPd": {
+      "type": "products-bundle",
+      "name": "t:sections.products-bundle.name",
+      "settings": {
+        "heading": "Product bundle",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "description": "",
+        "heading_alignment": "center",
+        "show_discount_value_label": false,
+        "label_type": "rounded",
+        "discount_value_label": "",
+        "discount_value_label_text": "",
+        "button_atb_label": "ADD TO BUNDLE",
+        "collection": "",
+        "product_to_show": 4,
+        "products": [
+          "boys-beige-twill-cargo-trousers",
+          "boys-olive-cargo-trousers-with-elasticated-waist",
+          "girls-metallic-gold-high-top-boots",
+          "kids-high-top-blue-canvas-shoes-with-lace-up-closure",
+          "boys-navy-sky-blue-clogs-with-adjustable-strap",
+          "girls-teddy-pink-slip-on-lightweight-clogs"
+        ],
+        "show_highlighted_features": false,
+        "each_product_can_added_to_bundle_once": true,
+        "minimum_items": 3,
+        "discount_type": "percentage",
+        "discount_value": "",
+        "apply_discount_once_per_order": false,
+        "enable_desktop_slider": false,
+        "swiper_on_mobile": true,
+        "enable_arrow_mobile": false,
+        "auto_play": false,
+        "change_slides_speed": 5,
+        "summary_layout": "vertical",
+        "summary_position": "right",
+        "bundler_heading": "Bundle Contents",
+        "bundler_text": "<p>Add at least 4 items to get 10% Off</p>",
+        "background_color_light": "rgba(0,0,0,0)",
+        "title_color": "rgba(0,0,0,0)",
+        "text_light": "rgba(0,0,0,0)",
+        "button_light": "rgba(0,0,0,0)",
+        "button_text_light": "rgba(0,0,0,0)",
+        "button_hover_light": "rgba(0,0,0,0)",
+        "button_text_hover_light": "rgba(0,0,0,0)",
+        "line_border": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "title_color_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "button_dark": "rgba(0,0,0,0)",
+        "button_text_dark": "rgba(0,0,0,0)",
+        "button_hover_dark": "rgba(0,0,0,0)",
+        "button_text_hover_dark": "rgba(0,0,0,0)",
+        "line_border_dark": "rgba(0,0,0,0)",
+        "spacing": 4,
+        "show_section_divider": false,
+        "full_width": false,
+        "padding_top": 20,
+        "padding_bottom": 28,
+        "columns_mobile": "1",
+        "spacing_mobile": 4,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28
+      }
+    }
+  },
+  "order": [
+    "main",
+    "products_bundle_4V3GPd"
+  ]
+}

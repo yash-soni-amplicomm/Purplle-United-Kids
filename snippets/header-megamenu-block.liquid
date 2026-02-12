@@ -1,0 +1,1401 @@
+{% liquid 
+  assign will_animate = section.settings.primary_menu_label_animation
+  if section.settings.highlight_style == "circle" and section.settings.enable_highlight
+    assign will_animate = false
+  endif
+  if settings.lang_direction contains request.locale.iso_code
+    assign is_rtl = true
+    assign class_image_ratio = "w-8 h-8 ml-4"
+  else
+    assign is_rtl = false
+    assign class_image_ratio = "w-8 h-8 mr-4"
+  endif
+  if section.settings.enable_highlight
+    assign menus = section.settings.menus | newline_to_br | strip_newlines | split: '<br />'
+  endif
+  assign labeled_menus = block.settings.applied_menus | newline_to_br | strip_newlines | split: '<br />'
+  assign list_labeled_menu = labeled_menus | join: '||' | prepend: '||' | append: '||' | escape
+%}
+{%- style -%}
+  {% if section.settings.enable_highlight %}
+    .svg-highlight-{{ section.id }} {
+      {% if section.settings.highlight_color_light != blank and section.settings.highlight_color_light.alpha != 0.0 %}
+        --color-highlight: {{ section.settings.highlight_color_light }};
+      {% endif %}
+    }
+    .dark .svg-highlight-{{ section.id }} {
+      {% if section.settings.highlight_color_dark != blank and section.settings.highlight_color_dark.alpha != 0.0 %}
+        --color-highlight: {{ section.settings.highlight_color_dark }};
+      {% else %}
+        --color-highlight: {{ settings.colors_dark_heading_highlight }};
+      {% endif %}
+    }
+  {% endif %}
+  .x-icon-caret svg {
+    color: var(--colors-text-header);
+    --tw-rotate: 0deg;
+    transform: rotate(var(--tw-rotate));
+    transition: transform 0.5s ease 0.1s;
+  }
+  {% if select_motion == "hover" %} 
+    .is-focus .x-icon-caret svg {
+      color: var(--colors-text-link);
+      --tw-rotate: 180deg;
+    }
+  {% else %}
+    .clicked .x-icon-caret svg {
+      color: var(--colors-text-link);
+      --tw-rotate: 180deg;
+    }
+  {% endif %}
+{%- endstyle -%}
+<nav 
+  {% if enable_hamburger %}:class="$store.xHeaderMenu.openHamburgerMenu ? 'opacity-100' : 'opacity-0'"{% endif %}
+  x-on:click.away="$store.xHeaderMenu.hideMenu($el)" 
+  class="x-container-header-nav  [grid-area:navigation] w-full 
+    {% unless enable_hamburger %}{% else %}pb-6 transition-all ease-in duration-100 delay-200{% endunless %}
+    {% if logo_above %} lg:[grid-area:navigation] {% else %}{% unless logo_center %} lg:[grid-area:auto]{% endunless %}{% endif %}
+    order-3 flex items-center justify-center"
+>  
+<div class="header-megamenu-container">
+<ul class="header-megamenu-block-ul"></ul>
+<ul class="duration-500 list-menu header-megamenu-block-ul2-display">
+    {%- if section.blocks == blank -%}
+      {% capture menu_label %}
+        {%- if section.settings.label != blank -%}
+          <div class="color-label-{{ section.id }} z-10 min-w-[40px] w-fit flex items-center -right-1.5 bottom-[85%] {% if settings.edges_type == "rounded_corners" %}rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if section.settings.label_position == "above" and will_animate == false %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %}rtl:mr-2 ml-2{% endif %}">
+            {% if section.settings.label_icon != 'none' %}
+              {% unless section.settings.label_custom_icon == blank and section.settings.label_another_icon == blank and section.settings.label_icon == 'another_icon' %}
+                <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                  {% if section.settings.label_custom_icon == blank %}
+                    {% if section.settings.label_another_icon != blank and section.settings.label_icon == 'another_icon' %}
+                      {% render 'icon-new-alls', icon: section.settings.label_another_icon %}
+                    {% else %}
+                      {% render 'icon-labels-bags', icon: section.settings.label_icon %}
+                    {% endif %}
+                  {% else %}
+                    {{ section.settings.label_custom_icon }}
+                  {% endif %}
+                </span>
+              {% endunless %}
+            {%- endif -%}                
+            <span>{{ section.settings.label }}</span>
+          </div>
+        {%- endif -%}
+      {% endcapture %}
+      {%- if section.settings.menu != blank -%}
+        {% liquid
+          assign labeled_menus = section.settings.applied_menus | newline_to_br | strip_newlines | split: '<br />'
+          assign list_labeled_menu = labeled_menus | join: '||' | prepend: '||' | append: '||' | escape
+        %}
+        {%- style -%}
+          {%- if section.settings.label != blank -%}
+            .color-label-{{ section.id }} {
+              background: {{ section.settings.label_color }};
+              color: {{ section.settings.label_text_color_light }};
+            }
+            .color-label-{{ section.id }}:before{
+              border-top-color: {{ section.settings.label_color }}; 
+            }
+            .dark .color-label-{{ section.id }} {
+              background: {{ section.settings.label_color_dark }};
+              color: {{ section.settings.label_text_color_dark }}
+            }
+            .dark .color-label-{{ section.id }}:before {
+              border-top-color: {{ section.settings.label_color_dark }};
+            }
+          {% endif %}
+        {%- endstyle -%}
+        {%- for link in section.settings.menu.links -%}
+          {%- liquid
+            assign is_link = false
+            assign is_active = false
+            if link.links != blank
+              assign is_link = true
+              for link_child in link.links
+                if link_child.current or link_child.child_active
+                 assign is_active = true
+                endif
+              endfor
+            endif
+            assign is_labeled = false
+            assign menu_item = '||' | append: link.title | append: '||' | escape
+            if list_labeled_menu contains menu_item
+              assign is_labeled = true
+            endif
+          -%}
+          <li 
+            class="{% if will_animate %}flip-container{% endif %} tree-menu{% if logo_center %} mr-7{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}{% if is_link %} relative has-dropdown{% endif %}"
+            {% if select_motion == "hover" %} 
+              x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+              @mouseleave="$el.classList.remove('is-focus');"
+              @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+              @focusout="$el.classList.remove('is-focus');"
+            {% else %}
+              {% if is_link == false and link %}
+                @click="window.location.replace($el.querySelector('a').getAttribute('href'));"
+              {% endif %}
+              x-on:mouseover="$el.classList.add('is-focus');"
+              @mouseleave="$el.classList.remove('is-focus');"
+              @focusin="$el.classList.add('is-focus');"
+              @focusout="$el.classList.remove('is-focus');"
+            {% endif %}
+          >
+            <div class="relative cursor-pointer tree-menu-item p-break-words{% if is_link or block.settings.label_position == "aside" %} flex items-center{% else %} inline-block{% endif %}{% if is_active or request.path == link.url %}  link-active{% endif %} justify-center pt-1 pb-1 relative duration-200 transition hover-text-link is-focus:link-active{% if request.path == link %} link-active{% endif %}" x-data='{ active: false }' 
+              {% if is_link and select_motion == "hover" %}x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"{% endif %}
+              {% if select_motion == "click" and is_link %} 
+                @click="$store.xHeaderMenu.clickItem($el, $event)"
+              {% endif %}
+            >
+              <div class="{% if will_animate %}overflow-hidden pb-[1px] {% endif %}flex items-center">
+                <div class="relative">
+                  <a
+                    href="{{ link.url }}"
+                    class="{% if will_animate %}front{% endif %} cursor-pointer tree-menu-item p-break-words{% if is_link or block.settings.label_position == "aside" %} flex items-center{% else %} inline-block{% endif %}{% if is_active or request.path == link.url %}  link-active{% endif %} justify-center pt-1 pb-1 relative duration-200 transition hover-text-link is-focus:link-active{% if request.path == link %} link-active{% endif %}" 
+                  >
+                    {% assign title = link.title %}
+                    {% if section.settings.enable_highlight %}
+                      {% liquid
+                        assign is_highlight = false
+                        assign list_menu = menus | join: '||' | prepend: '||' | append: '||' | escape
+                        assign menu_item = '||' | append: title | append: '||' | escape
+                        if list_menu contains menu_item
+                          assign is_highlight = true
+                        endif
+                      %}
+                      {% if is_highlight %}
+                        {% render 'menu-highlight',
+                          highlight_type: section.settings.highlight_style,
+                          menu_title: title,
+                          section_id: section.id,
+                        %}
+                      {% else %}
+                        <span>{{ title | escape }}</span>
+                      {% endif %}
+                    {% else %}
+                      <span>{{ title | escape }}</span>
+                    {% endif %}
+                  </a>
+                  {% if will_animate %}
+                    <a
+                      tabindex="-1"
+                      href="{{ link.url }}"
+                      class="back cursor-pointer tree-menu-item p-break-words{% if is_link or block.settings.label_position == "aside" %} flex items-center{% else %} inline-block{% endif %}{% if is_active or request.path == link.url %}  link-active{% endif %} justify-center pt-1 pb-1 relative duration-200 transition hover-text-link is-focus:link-active{% if request.path == link %} link-active{% endif %}" 
+                    >
+                      {% assign title = link.title %}
+                      {% if section.settings.enable_highlight %}
+                        {% liquid
+                          assign is_highlight = false
+                          assign list_menu = menus | join: '||' | prepend: '||' | append: '||' | escape
+                          assign menu_item = '||' | append: title | append: '||' | escape
+                          if list_menu contains menu_item
+                            assign is_highlight = true
+                          endif
+                        %}
+                        {% if is_highlight %}
+                          {% render 'menu-highlight',
+                            highlight_type: section.settings.highlight_style,
+                            menu_title: title,
+                            section_id: section.id,
+                          %}
+                        {% else %}
+                          <span>{{ title | escape }}</span>
+                        {% endif %}
+                      {% else %}
+                        <span>{{ title | escape }}</span>
+                      {% endif %}
+                    </a>
+                  {% endif %}
+                </div>
+                {%- if is_link -%}
+                  <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                {%- endif -%}
+                {% if is_labeled %}
+                  {{ menu_label }}
+                {% endif %}
+              </div>
+            </div>
+            {%- if is_link -%}
+              <template x-if="!runDispatch">
+                <div class="toggle-menu toggle-menu-hidden text-[rgba(var(--colors-text))] absolute z-50 background-header top-full w-48 xl:w-[222px] shadow-md is-focus:text-[rgba(var(--colors-text))] duration-300"                 >
+                  <ul class="tree-menu-nav pt-5 pb-5">
+                    {% assign level = 0 %}
+                    {%- for link in link.links -%}
+                      {%- liquid
+                        assign is_link = false
+                        if link.links != blank
+                          assign is_link = true
+                        endif
+                        if link.levels > level
+                          assign level = link.levels
+                        endif
+                      -%}
+                      <li 
+                        x-data="{ openSub: false }" 
+                        class="relative{% if is_rtl %} pr-7 pl-6{% else %} pl-7 pr-6{% endif %}" 
+                        @mouseover="openSub = true; $el.classList.add('is-focus-child');" 
+                        @mouseleave="$el.classList.remove('is-focus-child');"
+                        @mouseover.away="openSub = false"
+                        @focusin="openSub = true; $el.classList.add('is-focus-child');" 
+                        @focusout="openSub = false; $el.classList.remove('is-focus-child');"
+                      >
+                        <div class="sub-menu flex items-center{% unless forloop.first %} pt-3{% endunless %}">
+                          <span class="flex-1">
+                            <a href="{{ link.url }}" class="nav-link relative p-break-words{% if is_link or block.settings.label_position == "aside" %} flex items-center{% if is_rtl %} pl-5{% else %} pr-5{% endif %}{% else %} inline-block{% endif %} duration-200 transition hover-text-link is-focus-child:effect-inline{% if link.current or link.child_active %} flex border-b effect-inline{% endif %}"
+                              {% if select_motion == "click" and is_link %} @click="openSub = true; $store.xHeaderMenu.clickItem($el, $event, true, true)"{% endif %}
+                            >
+                              {% assign title = link.title %}
+                              {% if section.settings.enable_highlight %}
+                                {% liquid
+                                  assign is_highlight = false
+                                  assign list_menu = menus | join: '||' | prepend: '||' | append: '||' | escape
+                                  assign menu_item = '||' | append: title | append: '||' | escape
+                                  if list_menu contains menu_item
+                                    assign is_highlight = true
+                                  endif
+                                %}
+                                {% if is_highlight %}
+                                  {% render 'menu-highlight',
+                                    highlight_type: section.settings.highlight_style,
+                                    menu_title: title,
+                                    section_id: section.id,
+                                  %}
+                                {% else %}
+                                  <span>{{ title | escape }}</span>
+                                {% endif %}
+                              {% else %}
+                                <span>{{ title | escape }}</span>
+                              {% endif %}
+
+                              {%- if is_link -%}
+                                <span class="icon-child z-10 w-5 h-4 p-1 rounded-full block absolute -rotate-90{% if is_rtl %} left-0{% else %} right-0{% endif %}">
+                                  {% render 'icon-alls', icon: 'icon-caret' %}
+                                </span>
+                              {%- endif -%}
+                            </a>
+                          </span>
+                        </div>
+                        {%- if is_link -%}
+                          <div class="sub-menu-toggle background-header child absolute{% if forloop.first %} -top-5{% else %} -top-2{% endif %} w-full shadow-showdownInset left-full" :class="openSub ? 'opacity-1 max-h-auto' : 'opacity-0 max-h-0 overflow-hidden' ">
+                            <ul class="pt-5 pb-5">
+                              {%- for childlink in link.links -%}
+                                <li class="relative{% if is_rtl %} pr-7 pl-6{% else %} pl-7 pr-6{% endif %}"
+                                >
+                                  <div class="flex items-center{% unless forloop.first %} pt-3{% endunless %}">
+                                    <span class="flex-1">
+                                      <a href="{{ childlink.url }}" class="nav-link inline-block p-break-words relative duration-200 hover-text-link transition is-focus-subchild:effect-inline{% if childlink.current or childlink.child_active %} border-b effect-inline{% endif %}">
+                                        {% assign title = childlink.title %}
+                                        {% if section.settings.enable_highlight %}
+                                          {% liquid
+                                            assign is_highlight = false
+                                            assign list_menu = menus | join: '||' | prepend: '||' | append: '||' | escape
+                                            assign menu_item = '||' | append: title | append: '||' | escape
+                                            if list_menu contains menu_item
+                                              assign is_highlight = true
+                                            endif
+                                          %}
+                                          {% if is_highlight %}
+                                            {% render 'menu-highlight',
+                                              highlight_type: section.settings.highlight_style,
+                                              menu_title: title,
+                                              section_id: section.id,
+                                            %}
+                                          {% else %}
+                                            <span>{{ title | escape }}</span>
+                                          {% endif %}
+                                        {% else %}
+                                          <span>{{ title | escape }}</span>
+                                        {% endif %}
+                                      </a>
+                                    </span>
+                                  </div>
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          </div>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                  {% if level > 0 %}
+                    <div class="hidden {{ level }}" x-init="$store.xHeaderMenu.setPosition($el,{{ level | plus: 1 }}{% if enable_hamburger %},true{% endif %}); $store.xHeaderMenu.resizeWindow($el,{{ level | plus: 1 }}{% if enable_hamburger %},true{% endif %})"></div>
+                  {% endif %}
+                </div>
+              </template>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        {% capture menu_title %}
+          {% assign title = block.settings.heading %}
+          {% if section.settings.enable_highlight %}
+            {% liquid
+              assign is_highlight = false
+              assign list_menu = menus | join: '||' | prepend: '||' | append: '||' | escape
+              assign menu_item = '||' | append: title | append: '||' | escape
+              if list_menu contains menu_item
+                assign is_highlight = true
+              endif
+            %}
+            {% if is_highlight %}
+              {% render 'menu-highlight',
+                highlight_type: section.settings.highlight_style,
+                menu_title: title,
+                section_id: section.id,
+              %}
+            {% else %}
+              <span>{{ title | escape }}</span>
+            {% endif %}
+          {% else %}
+            <span>{{ title | escape }}</span>
+          {% endif %}
+        {% endcapture %}
+        {%- case block.type -%}
+          {%- when 'tabbed_menu' -%}
+            {%- if block.settings.heading != blank -%}
+              {%- liquid
+                assign link = false
+                assign is_link = false
+                assign is_active = false
+                if block.settings.menu_item_link
+                  assign link = block.settings.menu_item_link
+                endif
+                if block.settings.menu.links != blank
+                  assign is_link = true
+                  for link_child in block.settings.menu.links
+                    if link_child.current or link_child.child_active
+                      assign is_active = true
+                    endif
+                  endfor
+                endif 
+              -%}
+              <li x-data='{ selectedMenu: false, active: false }' 
+                class="{% if will_animate %}flip-container{% endif %} tabbed_menu {{ block.type }} {% if logo_center %} mr-5{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}{% if is_link %} has-dropdown{% endif %}{% if is_link and block.settings.tab_style == 'vertical' %} tabbed-animation-change{% endif %}"
+                @mouseover.once="$store.xHeaderMenu.initToggleMenuHeight($el)"
+                {% if select_motion == "hover" %}
+                  x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus'); selectedMenu = true;"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus'); selectedMenu = true;"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% else %}
+                  {% if is_link == false and link %}
+                    @click="window.location.replace($el.querySelector('a').getAttribute('href'));"
+                  {% endif %}
+                  x-on:mouseover="$el.classList.add('is-focus'); selectedMenu = true;"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$el.classList.add('is-focus'); selectedMenu = true;"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% endif %}
+              >
+                <div class="tabbed_menu_item relative cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}"
+                  {% if is_link %}
+                    {% if select_motion == "click" %}
+                      @click="$store.xHeaderMenu.clickItem($el, $event, false, false, {{ block.settings.open_new_window }})"
+                    {% else %}
+                      x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"
+                    {% endif %}
+                  {% endif %}
+                >
+                  <div class="{% if will_animate %}overflow-hidden pb-[1px]{% endif %} flex items-center">
+                    <div class="relative flex items-center z-10 relative pl-2.5 pr-2.5">
+                        {% comment %} {%- render 'menu-item-image',image_class: rounded-full w-10 h-10 object-cover,  link: link, show_image_product: block.settings.show_image_product, show_image_collection: block.settings.show_image_collection, show_first_image_product: block.settings.show_first_image_product, class_ratio: class_image_ratio, image_left: true, collection_metafield: block.settings.collection_metafield -%} {% endcomment %}
+                 {% if block.settings.custom_image %}
+                  <img src="{{ block.settings.custom_image | image_url: width: 300 }}" alt="Custom Image" class="rounded-full w-10 h-10 mr-2 object-cover">
+                   {% endif %}
+
+                        <span class="flex-1"> 
+                      <a href="{% if link %}{{ link }}{% else %}#{% endif %}"{% if block.settings.open_new_window and link %} target="_blank"{% endif %}
+                        class="{% if will_animate %}front{% endif %} cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                      >
+                        {{ menu_title }}
+                      </a>
+                      </span>
+                      {% if will_animate %}
+                        <a href="{% if link %}{{ link }}{% else %}#{% endif %}"{% if block.settings.open_new_window and link %} target="_blank"{% endif %}
+                          tabindex="-1"
+                          class="back cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                        >
+                          {{ menu_title }}
+                        </a>
+                      {% endif %}
+                    </div>
+                    {%- if is_link -%}
+                      <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                    {%- endif -%}
+                    {%- if block.settings.label != blank -%}
+                      {%- style -%}
+                        .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color }};
+                          color: {{ block.settings.label_text_color_light }};
+                          {% if block.settings.label_position != "above" %}
+                            line-height: normal
+                          {% endif %}
+                        }
+                        .color-label-{{ block.id }}:before{
+                          border-top-color: {{ block.settings.label_color }}; 
+                        }
+                        .dark .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color_dark }};
+                          color: {{ block.settings.label_text_color_dark }}
+                        }
+                        .dark .color-label-{{ block.id }}:before {
+                          border-top-color: {{ block.settings.label_color_dark }};
+                        }
+                      {%- endstyle -%}    
+                      <div class="color-label-{{ block.id }} z-10 min-w-[40px] flex items-center -right-1.5 bottom-[85%] {% if settings.edges_type == "rounded_corners" %}rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if block.settings.label_position == "above" %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %}rtl:mr-2 ml-2{% endif %}">
+                        {% if block.settings.icon != 'none' %}
+                          {% unless block.settings.custom_icon == blank and block.settings.another_icon == blank and block.settings.icon == 'another_icon' %}
+                            <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                              {% if block.settings.custom_icon == blank %}
+                                {% if block.settings.another_icon != blank and block.settings.icon == 'another_icon' %}
+                                  {% render 'icon-new-alls', icon: block.settings.another_icon %}
+                                {% else %}
+                                  {% render 'icon-labels-bags', icon: block.settings.icon %}
+                                {% endif %}
+                              {% else %}
+                                {{ block.settings.custom_icon }}
+                              {% endif %}
+                            </span>
+                          {% endunless %}
+                        {%- endif -%}                
+                        <span>{{ block.settings.label }}</span>
+                      </div>
+                    {%- endif -%} 
+                  </div>
+                </div>
+                <div id="menu-{{ forloop.index }}">
+                  {%- if request.design_mode -%}
+                    {%- render 'header-block-item', type_menu: block.type, block: block, select_motion: select_motion -%}
+                  {%- endif -%}
+                </div>
+              </li>
+            {%- endif -%}
+          {%- when 'tree_menu' -%}
+            {%- if block.settings.heading != blank -%}
+              {%- liquid
+                assign link = false
+                assign is_link = false
+                assign is_active = false
+                if block.settings.menu_item_link != blank
+                  assign link = block.settings.menu_item_link
+                endif
+                if block.settings.menu.links != blank
+                  assign is_link = true
+                  for link_child in block.settings.menu.links
+                    if link_child.current or link_child.child_active
+                     assign is_active = true
+                    endif
+                  endfor
+                endif 
+              -%}
+              <li
+              id="{{ block.id }}"
+              class="{% if will_animate %}flip-container{% endif %} tree-menu{% if logo_center %} mr-7{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}{% if is_link %} relative has-dropdown{% endif %}"
+              {% if select_motion == 'hover' %}
+                x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                @mouseleave="$el.classList.remove('is-focus');"
+                @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                @focusout="$el.classList.remove('is-focus');"
+              {% else %}
+                {% if is_link == false and link %}
+                  @click="window.location.replace($el.querySelector('a').getAttribute('href'));"
+                {% endif %}
+                x-on:mouseover="$el.classList.add('is-focus');"
+                @mouseleave="$el.classList.remove('is-focus');"
+                @focusin="$el.classList.add('is-focus');"
+                @focusout="$el.classList.remove('is-focus');"
+              {% endif %}
+            >
+              <div class="relative cursor-pointer tree-menu-item p-break-words{% if is_link or block.settings.label_position == "aside" %} flex items-center{% else %} inline-block{% endif %} justify-center pt-1 pb-1 relative duration-200 transition hover-text-link is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" x-data='{ active: false }' 
+                {% if is_link %}
+                  {% if select_motion == 'click' %}
+                    @click="$store.xHeaderMenu.clickItem($el, $event, false, false, {{ block.settings.open_new_window }})"
+                  {% else %}
+                    x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"
+                  {% endif %}
+                {% endif %}
+              >
+                <div class="{% if will_animate %}overflow-hidden pb-[1px]{% endif %} flex items-center">
+                  <div class="relative">
+                    <a
+                      href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                      class="{% if will_animate %}front{% endif %} cursor-pointer tree-menu-item p-break-words{% if is_link or block.settings.label_position == "aside" %} flex items-center{% else %} inline-block{% endif %} justify-center pt-1 pb-1 relative duration-200 transition hover-text-link is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                      {% if block.settings.open_new_window and link %} target="_blank"{% endif %}
+                    > 
+                      {{ menu_title }}
+                    </a>
+                    {%- if will_animate -%}
+                      <a
+                        href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                        tabindex="-1"
+                        class="back cursor-pointer tree-menu-item p-break-words{% if is_link or block.settings.label_position == "aside" %} flex items-center{% else %} inline-block{% endif %} justify-center pt-1 pb-1 relative duration-200 transition hover-text-link is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                        {% if block.settings.open_new_window and link %} target="_blank"{% endif %}
+                      > 
+                        {{ menu_title }}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                  {%- if is_link -%}
+                    <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                  {%- endif -%}
+                  {%- if block.settings.label != blank -%}
+                    {%- style -%}
+                      .color-label-{{ block.id }} {
+                        background: {{ block.settings.label_color }};
+                        color: {{ block.settings.label_text_color_light }}
+                      }
+                      .color-label-{{ block.id }}:before{
+                        border-top-color: {{ block.settings.label_color }}; 
+                      }
+                      .dark .color-label-{{ block.id }} {
+                        background: {{ block.settings.label_color_dark }};
+                        color: {{ block.settings.label_text_color_dark }}
+                      }
+                      .dark .color-label-{{ block.id }}:before {
+                        border-top-color: {{ block.settings.label_color_dark }};
+                      }
+                    {%- endstyle -%}    
+                    <div class="color-label-{{ block.id }} z-10 min-w-[40px] flex items-center -right-1.5 bottom-[85%] {% if settings.edges_type == "rounded_corners" %}rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if block.settings.label_position == "above" %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %} rtl:mr-2 ml-2{% endif %}">
+                      {% if block.settings.icon != 'none' %}
+                        {% unless block.settings.custom_icon == blank and block.settings.another_icon == blank and block.settings.icon == 'another_icon' %}
+                          <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                            {% if block.settings.custom_icon == blank %}
+                              {% if block.settings.another_icon != blank and block.settings.icon == 'another_icon' %}
+                                {% render 'icon-new-alls', icon: block.settings.another_icon %}
+                              {% else %}
+                                {% render 'icon-labels-bags', icon: block.settings.icon %}
+                              {% endif %}
+                            {% else %}
+                              {{ block.settings.custom_icon }}
+                            {% endif %}
+                          </span>
+                        {% endunless %}
+                      {%- endif -%}                
+                      <span>{{ block.settings.label }}</span>
+                    </div>
+                  {%- endif -%} 
+                </div>
+              </div>
+              {%- if is_link -%}
+                <div class="toggle-menu toggle-menu-hidden text-[rgba(var(--colors-text))] absolute z-50 background-header top-full w-48 xl:w-[222px] shadow-md is-focus:text-[rgba(var(--colors-text))]" >
+                  <div class="tree-menu-nav" id="menu-{{ forloop.index }}">
+                    {%- if request.design_mode -%}
+                      {%- render 'header-block-item', type_menu: block.type, block: block, class_image_ratio: class_image_ratio, select_motion: select_motion -%}                    
+                    {%- endif -%}
+                  {% assign level_menu = 0 %} 
+                  {%- for link in block.settings.menu.links -%}
+                    {%- liquid
+                      if link.levels > level_menu
+                        assign level_menu = link.levels
+                      endif
+                    -%}
+                  {%- endfor -%}
+                  {%- if level_menu > 0 -%}
+                    <div class="hidden {{ level_menu }}" x-init="$store.xHeaderMenu.setPosition($el,{{ level_menu | plus: 1 }}{% if enable_hamburger %},true{% endif %}); $store.xHeaderMenu.resizeWindow($el,{{ level_menu | plus: 1 }}{% if enable_hamburger %},true{% endif %})"></div>
+                  {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+            </li>
+            {%- endif -%}
+          {%- when 'banner_menu' -%}
+            {%- if block.settings.heading != blank -%}
+              {%- liquid
+                assign link = false
+                if block.settings.menu_item_link != blank
+                  assign link = block.settings.menu_item_link
+                endif
+
+                assign columns_desktop = 0
+                if block.settings.image_3 != blank
+                  assign columns_desktop = columns_desktop | plus: 1
+                endif
+                if block.settings.image_2 != blank
+                  assign columns_desktop = columns_desktop | plus: 1
+                endif
+                if block.settings.image_1 != blank
+                  assign columns_desktop = columns_desktop | plus: 1
+                endif
+              -%}
+              <li x-data='{ active: false }' 
+                class="{% if will_animate %}flip-container{% endif %} tabbed_menu{% if logo_center %} mr-5{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}{% if columns_desktop > 0 %} has-dropdown{% endif %}" 
+                {% if select_motion == "hover" %}
+                  x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');{% if block.settings.tab_style == 'vertical' %}$store.xHeaderMenu.hideMenu($el, true);{% endif %}"
+                  @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% else %}
+                  {% if is_link == false and link %}
+                    @click="window.location.replace($el.querySelector('a').getAttribute('href'));"
+                  {% endif %}
+                  x-on:mouseover="$el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');{% if block.settings.tab_style == 'vertical' %}$store.xHeaderMenu.hideMenu($el, true);{% endif %}"
+                  @focusin="$el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% endif %}
+              >
+                <div class="tabbed_menu_item cursor-pointer relative hover-text-link flex items-center is-focus:link-active"
+                  {% if columns_desktop > 0 %}
+                    {% if select_motion == "click" %}
+                      @click="$store.xHeaderMenu.clickItem($el, $event, false, false, {{ block.settings.open_new_window }})"
+                    {% else %}
+                      x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"
+                    {% endif %}
+                  {% endif %}
+                >
+                  <div class="{% if will_animate %}overflow-hidden pb-[1px]{% endif %} flex items-center">
+                    <div class="relative">
+                      <a href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                        class="{% if will_animate %}front{% endif %} cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if request.path == link %} link-active{% endif %}" 
+                        {% if link and block.settings.open_new_window %}target="_blank"{% endif %}
+                      >
+                        {{ menu_title }}
+                      </a>
+                      {% if will_animate %}
+                        <a href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                          tabindex="-1"
+                          class="back cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if request.path == link %} link-active{% endif %}" 
+                          {% if link and block.settings.open_new_window %}target="_blank"{% endif %}
+                        >
+                          {{ menu_title }}
+                        </a>
+                      {% endif %}
+                    </div>
+                    {%- if columns_desktop > 0 -%}
+                      <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                    {%- endif -%}
+                    {%- if block.settings.label != blank -%}
+                      {%- style -%}
+                        .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color }};
+                          color: {{ block.settings.label_text_color_light }};
+                          {% if block.settings.label_position != "above" %}
+                            line-height: normal
+                          {% endif %}
+                        }
+                        .color-label-{{ block.id }}:before{
+                          border-top-color: {{ block.settings.label_color }}; 
+                        }
+                        .dark .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color_dark }};
+                          color: {{ block.settings.label_text_color_dark }}
+                        }
+                        .dark .color-label-{{ block.id }}:before {
+                          border-top-color: {{ block.settings.label_color_dark }};
+                        }
+                      {%- endstyle -%}    
+                      <div class="color-label-{{ block.id }} z-10 min-w-[40px] flex items-center -right-1.5 bottom-[85%] {% if settings.edges_type == "rounded_corners" %}rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if block.settings.label_position == "above" %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %} rtl:mr-2 ml-2{% endif %}">
+                        {% if block.settings.icon != 'none' %}
+                          {% unless block.settings.custom_icon == blank and block.settings.another_icon == blank and block.settings.icon == 'another_icon' %}
+                            <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                              {% if block.settings.custom_icon == blank %}
+                                {% if block.settings.another_icon != blank and block.settings.icon == 'another_icon' %}
+                                  {% render 'icon-new-alls', icon: block.settings.another_icon %}
+                                {% else %}
+                                  {% render 'icon-labels-bags', icon: block.settings.icon %}
+                                {% endif %}
+                              {% else %}
+                                {{ block.settings.custom_icon }}
+                              {% endif %}
+                            </span>
+                          {% endunless %}
+                        {%- endif -%}                
+                        <span>{{ block.settings.label }}</span>
+                      </div>
+                    {%- endif -%} 
+                  </div>
+                </div>
+                {% if columns_desktop > 0 %}
+                  <div id="menu-{{ forloop.index }}">
+                    {%- if request.design_mode -%}
+                      {%- render 'header-block-item', type_menu: block.type, block: block, columns_desktop: columns_desktop, select_motion: select_motion -%}
+                    {%- endif -%}
+                  </div>
+                {% endif %}
+              </li>
+            {%- endif -%}
+          {%- when "product_menu" -%}
+            {%- if block.settings.heading != blank -%}
+              {%- liquid
+                assign link = false
+                assign is_link = false
+                assign is_active = false
+                if block.settings.menu_item_link
+                  assign link = block.settings.menu_item_link
+                endif
+                if block.settings.menu.links != blank
+                  assign is_link = true
+                  for link_child in block.settings.menu.links
+                    if link_child.current or link_child.child_active
+                     assign is_active = true
+                    endif
+                  endfor
+                endif 
+              -%}
+              <li x-data='{ active: false }' 
+                class="{% if will_animate %}flip-container{% endif %} tabbed_menu product-menu{% if logo_center %} mr-5{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}{% if is_link %} has-dropdown{% endif %}{% if is_link and block.settings.tab_style == 'vertical' %} tabbed-animation-change{% endif %}" 
+                @mouseover.once="$store.xHeaderMenu.initToggleMenuHeight($el)"
+                {% if select_motion == "hover" %}
+                  x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% else %}
+                  {% if is_link == false and link %}
+                    @click="window.location.replace($el.querySelector('a').getAttribute('href'));"
+                  {% endif %}
+                  x-on:mouseover="$el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% endif %}
+              >
+                <div class="tabbed_menu_item relative cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}"
+                  {% if is_link %}
+                    {% if select_motion == "click" %}
+                      @click="$store.xHeaderMenu.clickItem($el, $event, false, false, {{ block.settings.open_new_window }})"
+                    {% else %}
+                      x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"
+                    {% endif %}
+                  {% endif %}
+                >
+                  <div class="{% if will_animate %}overflow-hidden pb-[1px]{% endif %} flex items-center">
+                    <div class="relative">
+                      <a href="{% if link %}{{ link }}{% else %}#{% endif %}"{% if link and block.settings.open_new_window %} target="_blank"{% endif %}
+                        class="{% if will_animate %}front{% endif %} cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                      >
+                        {{ menu_title }}
+                      </a>
+                      {% if will_animate %}
+                        <a href="{% if link %}{{ link }}{% else %}#{% endif %}"{% if link and block.settings.open_new_window %} target="_blank"{% endif %}
+                          tabindex="-1"
+                          class="back cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                        >
+                          {{ menu_title }}
+                        </a>
+                      {% endif %}
+                    </div>
+                    {%- if is_link -%}
+                      <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                    {%- endif -%}
+                    {%- if block.settings.label != blank -%}
+                      {%- style -%}
+                        .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color }};
+                          color: {{ block.settings.label_text_color_light }};
+                          {% if block.settings.label_position != "above" %}
+                            line-height: normal
+                          {% endif %}
+                        }
+                        .color-label-{{ block.id }}:before{
+                          border-top-color: {{ block.settings.label_color }}; 
+                        }
+                        .dark .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color_dark }};
+                          color: {{ block.settings.label_text_color_dark }}
+                        }
+                        .dark .color-label-{{ block.id }}:before {
+                          border-top-color: {{ block.settings.label_color_dark }};
+                        }
+                      {%- endstyle -%}    
+                      <div class="color-label-{{ block.id }} z-10 min-w-[40px] flex items-center -right-1.5 bottom-[85%] {% if settings.edges_type == "rounded_corners" %}rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if block.settings.label_position == "above" %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %} rtl:mr-2 ml-2{% endif %}">
+                        {% if block.settings.icon != 'none' %}
+                          {% unless block.settings.custom_icon == blank and block.settings.another_icon == blank and block.settings.icon == 'another_icon' %}
+                            <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                              {% if block.settings.custom_icon == blank %}
+                                {% if block.settings.another_icon != blank and block.settings.icon == 'another_icon' %}
+                                  {% render 'icon-new-alls', icon: block.settings.another_icon %}
+                                {% else %}
+                                  {% render 'icon-labels-bags', icon: block.settings.icon %}
+                                {% endif %}
+                              {% else %}
+                                {{ block.settings.custom_icon }}
+                              {% endif %}
+                            </span>
+                          {% endunless %}
+                        {%- endif -%}                
+                        <span>{{ block.settings.label }}</span>
+                      </div>
+                    {%- endif -%} 
+                  </div>
+                </div>
+                {%- if is_link -%}
+                  <div id="menu-{{ forloop.index }}">
+                    {%- if request.design_mode -%}
+                      {%- render 'header-block-item', type_menu: block.type, block: block , select_motion: select_motion -%}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+          {%- when "blog_menu" -%}
+            {%- if block.settings.heading != blank -%}
+              {%- liquid
+                assign link = false
+                assign is_link = false
+                assign blog = false
+                assign is_active = false
+                if block.settings.menu_item_link
+                  assign link = block.settings.menu_item_link
+                endif
+                if block.settings.blog and block.settings.blog.articles_count > 0
+                  assign blog = block.settings.blog
+                endif
+                if block.settings.menu.links != blank and block.settings.show_other_blog
+                  assign is_link = true
+                  for link_child in block.settings.menu.links
+                    if link_child.current or link_child.child_active
+                     assign is_active = true
+                    endif
+                  endfor
+                endif
+              -%}
+              <li x-data='{ active: false }' 
+                class="{% if will_animate %}flip-container{% endif %} blog_menu tabbed_menu{% if logo_center %} mr-5{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}{% if is_link or blog %} has-dropdown{% endif %}" 
+                @mouseover.once="$store.xHeaderMenu.initToggleMenuHeight($el)"
+                {% if select_motion == "hover" %}
+                  x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% else %}
+                  {% if is_link == false and link %}
+                    @click="window.location.replace($el.querySelector('a').getAttribute('href'));"
+                  {% endif %}
+                  x-on:mouseover="$el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% endif %}
+              >
+                <div class="blog_menu_item cursor-pointer relative hover-text-link flex items-center is-focus:link-active"
+                  {% if is_link or blog %}
+                    {% if select_motion == "click" %}
+                      @click="$store.xHeaderMenu.clickItem($el, $event, false, false, {{ block.settings.open_new_window }})"
+                    {% else %}
+                      x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"
+                    {% endif %}
+                  {% endif %}
+                >
+                  <div class="{% if will_animate %}overflow-hidden pb-[1px]{% endif %} flex items-center">
+                    <div class="relative">
+                      <a href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                        class="{% if will_animate %}front{% endif %} cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                        {% if link and block.settings.open_new_window %}target="_blank"{% endif %}
+                      >
+                        {{ menu_title }}
+                      </a>
+                      {% if will_animate %}
+                        <a href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                          tabindex="-1"
+                          class="back cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                          {% if link and block.settings.open_new_window %}target="_blank"{% endif %}
+                        >
+                          {{ menu_title }}
+                        </a>
+                      {% endif %}
+                    </div>
+                    {%- if is_link or blog -%}
+                      <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                    {%- endif -%}
+                    {%- if block.settings.label != blank -%}
+                      {%- style -%}
+                        .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color }};
+                          color: {{ block.settings.label_text_color_light }};
+                          {% if block.settings.label_position != "above" %}
+                            line-height: normal
+                          {% endif %}
+                        }
+                        .color-label-{{ block.id }}:before{
+                          border-top-color: {{ block.settings.label_color }}; 
+                        }
+                        .dark .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color_dark }};
+                          color: {{ block.settings.label_text_color_dark }}
+                        }
+                        .dark .color-label-{{ block.id }}:before {
+                          border-top-color: {{ block.settings.label_color_dark }};
+                        }
+                      {%- endstyle -%}    
+                      <div class="color-label-{{ block.id }} z-10 min-w-[40px] flex items-center -right-1.5 bottom-[85%] {% if settings.edges_type == "rounded_corners" %}rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if block.settings.label_position == "above" %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %} rtl:mr-2 ml-2{% endif %}">
+                        {% if block.settings.icon != 'none' %}
+                          {% unless block.settings.custom_icon == blank and block.settings.another_icon == blank and block.settings.icon == 'another_icon' %}
+                            <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                              {% if block.settings.custom_icon == blank %}
+                                {% if block.settings.another_icon != blank and block.settings.icon == 'another_icon' %}
+                                  {% render 'icon-new-alls', icon: block.settings.another_icon %}
+                                {% else %}
+                                  {% render 'icon-labels-bags', icon: block.settings.icon %}
+                                {% endif %}
+                              {% else %}
+                                {{ block.settings.custom_icon }}
+                              {% endif %}
+                            </span>
+                          {% endunless %}
+                        {%- endif -%}                
+                        <span>{{ block.settings.label }}</span>
+                      </div>
+                    {%- endif -%} 
+                  </div>
+                </div>
+                <div id="menu-{{ forloop.index }}">
+                  {%- if request.design_mode -%}
+                    {%- render 'header-block-item', type_menu: block.type, block: block, blog: blog, is_link: is_link, select_motion: select_motion -%}
+                  {%- endif -%}
+                </div>
+              </li>
+            {%- endif -%}
+          {%- when 'contact_menu' -%}
+            {%- if block.settings.heading != blank -%}
+              {%- liquid
+                assign link = false
+                if block.settings.menu_item_link != blank
+                  assign link = block.settings.menu_item_link
+                endif
+                if block.settings.show_contact_information
+                  assign class_infomation = "w-3/12"
+                  assign class_map = "w-4/12"
+                  assign class_form = "w-5/12"
+                else
+                  assign class_map = "w-7/12"
+                  assign class_form = "w-6/12"
+                endif
+                if block.settings.sort_order == 'options__2'
+                  assign class_infomation = class_infomation | append: " order-2"
+                  assign class_map = class_map | append: " order-3"
+                  assign class_form = class_form | append: " order-1"
+                endif
+                if block.settings.sort_order == 'options__3'
+                  assign class_infomation = class_infomation | append: " order-2"
+                  assign class_map = class_map | append: " order-1"
+                  assign class_form = class_form | append: " order-3"
+                endif
+                if block.settings.sort_order == 'options__4'
+                  assign class_infomation = class_infomation | append: " order-1"
+                  assign class_map = class_map | append: " order-3"
+                  assign class_form = class_form | append: " order-2"
+                endif
+              -%}
+              <li x-data='{ active: false }' 
+                class="{% if will_animate %}flip-container{% endif %} contact_menu has-dropdown{% if logo_center %} mr-5{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}" 
+                {% if select_motion == "hover" %}
+                  x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% else %}
+                  x-on:mouseover="$el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% endif %}
+              >
+                <div class="tabbed_menu_item cursor-pointer relative hover-text-link flex items-center is-focus:link-active"
+                  {% if select_motion == 'click' %}
+                    @click="$store.xHeaderMenu.clickItem($el, $event, false, false, {{ block.settings.open_new_window }})"
+                  {% else %}
+                    x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"
+                  {% endif %}
+                >
+                  <div class="{% if will_animate %}overflow-hidden pb-[1px]{% endif %} flex items-center">
+                    <div class="relative">
+                      <a href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                        class="{% if will_animate %}front{% endif %} cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if request.path == link %} link-active{% endif %}" 
+                        {% if link and block.settings.open_new_window %}target="_blank"{% endif %}
+                      >
+                        {{ menu_title }}
+                      </a>
+                      {% if will_animate %}
+                        <a href="{% if link %}{{ link }}{% else %}#{% endif %}"
+                          tabindex="-1"
+                          class="back cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if request.path == link %} link-active{% endif %}" 
+                          {% if link and block.settings.open_new_window %}target="_blank"{% endif %}
+                        >
+                          {{ menu_title }}
+                        </a>
+                      {% endif %}
+                    </div>
+                    <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                    {%- if block.settings.label != blank -%}
+                      {%- style -%}
+                        .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color }};
+                          color: {{ block.settings.label_text_color_light }};
+                          {% if block.settings.label_position != "above" %}
+                            line-height: normal
+                          {% endif %}
+                        }
+                        .color-label-{{ block.id }}:before{
+                          border-top-color: {{ block.settings.label_color }}; 
+                        }
+                        .dark .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color_dark }};
+                          color: {{ block.settings.label_text_color_dark }}
+                        }
+                        .dark .color-label-{{ block.id }}:before {
+                          border-top-color: {{ block.settings.label_color_dark }};
+                        }
+                      {%- endstyle -%}    
+                      <div class="color-label-{{ block.id }} z-10 min-w-[40px] flex items-center -right-1.5 bottom-[85%]{% if settings.edges_type == "rounded_corners" %} rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if block.settings.label_position == "above" %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %} rtl:mr-2 ml-2{% endif %}">
+                        {% if block.settings.icon != 'none' %}
+                          {% unless block.settings.custom_icon == blank and block.settings.another_icon == blank and block.settings.icon == 'another_icon' %}
+                            <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                              {% if block.settings.custom_icon == blank %}
+                                {% if block.settings.another_icon != blank and block.settings.icon == 'another_icon' %}
+                                  {% render 'icon-new-alls', icon: block.settings.another_icon %}
+                                {% else %}
+                                  {% render 'icon-labels-bags', icon: block.settings.icon %}
+                                {% endif %}
+                              {% else %}
+                                {{ block.settings.custom_icon }}
+                              {% endif %}
+                            </span>
+                          {% endunless %}
+                        {%- endif -%}                
+                        <span>{{ block.settings.label }}</span>
+                      </div>
+                    {%- endif -%} 
+                  </div>
+                </div>
+                <div id="menu-{{ forloop.index }}">
+                  {%- if request.design_mode -%}
+                    {%- render 'header-block-item', type_menu: block.type, block: block, class_form: class_form, class_infomation: class_infomation, class_map: class_map, select_motion: select_motion -%}
+                  {%- endif -%}
+                </div>
+              </li>
+              <script src="{{ 'map.js' | asset_url }}" defer></script>
+            {%- endif -%}
+          {%- when 'simple_menu' -%}
+            {%- if block.settings.heading != blank -%}
+              {%- liquid
+                assign link = false
+                assign is_link = false
+                assign is_active = false
+                if block.settings.menu_item_link
+                  assign link = block.settings.menu_item_link
+                endif
+                if block.settings.menu.links != blank
+                  assign is_link = true
+                  for link_Child in block.settings.menu.links
+                    if link_Child.current or link_Child.child_active
+                     assign is_active = true
+                    endif
+                  endfor
+                endif 
+              -%} 
+              <li x-data='{ active: false }' 
+                class="{% if will_animate %}flip-container{% endif %} simple_menu{% if logo_center %} mr-5{% else %} {% if will_animate %}pl-0{% endif %}{% endif %}{% if is_link %} has-dropdown{% endif %}" 
+                @mouseover.once="$store.xHeaderMenu.initToggleMenuHeight($el)"
+                {% if select_motion == "hover" %}
+                  x-on:mouseover="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$store.xHeaderMenu.selectItem($el); $el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% else %}
+                  {% if is_link == false and link %}
+                    @click="window.location.replace($el.querySelector('a').getAttribute('href'));"
+                  {% endif %}
+                  x-on:mouseover="$el.classList.add('is-focus');"
+                  @mouseleave="$el.classList.remove('is-focus');"
+                  @focusin="$el.classList.add('is-focus');"
+                  @focusout="$el.classList.remove('is-focus');"
+                {% endif %}
+              >
+                <div class="simple_menu_item relative cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}"
+                  {% if is_link %}
+                    {% if select_motion == 'click' %}
+                      @click="$store.xHeaderMenu.clickItem($el, $event, false, false, {{ block.settings.open_new_window }})"
+                    {% else %}
+                      x-init="$store.xHeaderMenu.isTouch && $store.xHeaderMenu.touchItem($el)"
+                    {% endif %}
+                  {% endif %}
+                >
+                  <div class="{% if will_animate %}overflow-hidden pb-[1px]{% endif %} flex items-center">
+                    <div class="relative">
+                      <a href="{% if link %}{{ link }}{% else %}#{% endif %}"{% if block.settings.open_new_window and link %} target="_blank"{% endif %}
+                        class="{% if will_animate %}front{% endif %} cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                      >
+                        {{ menu_title }}
+                      </a>
+                      {% if will_animate %}
+                        <a href="{% if link %}{{ link }}{% else %}#{% endif %}"{% if block.settings.open_new_window and link %} target="_blank"{% endif %}
+                          tabindex="-1"
+                          class="back cursor-pointer flex items-center p-break-words justify-center pt-1 pb-1 duration-200 hover-text-link transition is-focus:link-active{% if is_active or request.path == link %} link-active{% endif %}" 
+                        >
+                          {{ menu_title }}
+                        </a>
+                      {% endif %}
+                    </div>
+                    {%- if is_link -%}
+                      <span class="x-icon-caret w-5{% if is_rtl %} pr-2{% else %} pl-2{% endif %}">{% render 'icon-alls', icon: 'icon-caret' %}</span>
+                    {%- endif -%}
+                    {%- if block.settings.label != blank -%}
+                      {%- style -%}
+                        .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color }};
+                          color: {{ block.settings.label_text_color_light }};
+                          {% if block.settings.label_position != "above" %}
+                            line-height: normal
+                          {% endif %}
+                        }
+                        .color-label-{{ block.id }}:before{
+                          border-top-color: {{ block.settings.label_color }}; 
+                        }
+                        .dark .color-label-{{ block.id }} {
+                          background: {{ block.settings.label_color_dark }};
+                          color: {{ block.settings.label_text_color_dark }}
+                        }
+                        .dark .color-label-{{ block.id }}:before {
+                          border-top-color: {{ block.settings.label_color_dark }};
+                        }
+                      {%- endstyle -%}    
+                      <div class="color-label-{{ block.id }} flex z-10 items-center -right-1.5 bottom-[85%]{% if settings.edges_type == "rounded_corners" %} rounded-[4px]{% endif %} shadow-md pl-2 pr-2 pt-0.5 pb-0.5 text-[10px] {% if block.settings.label_position == "above" %}absolute before:absolute before:w-0 before:h-0 before:border-b-8 before:border-b-transparent before:border-r-transparent before:border-r-8 before:border-t-8 before:-bottom-3.5 before:left-2 {% else %} rtl:mr-2 ml-2{% endif %}">
+                        {% if block.settings.icon != 'none' %}
+                          <span class="w-3 h-3{% if is_rtl %} ml-1{% else %} mr-1{% endif %}">
+                            {% if block.settings.custom_icon == blank %}
+                              {% if block.settings.another_icon != blank and block.settings.icon == 'another_icon' %}
+                                {% render 'icon-new-alls', icon: block.settings.another_icon %}
+                              {% else %}
+                                {% render 'icon-labels-bags', icon: block.settings.icon %}
+                              {% endif %}
+                            {% else %}
+                              {{ block.settings.custom_icon }}
+                            {% endif %}
+                          </span>
+                        {%- endif -%}                
+                        <span>{{ block.settings.label }}</span>
+                      </div>
+                    {%- endif -%} 
+                  </div>
+                </div>
+                {%- if is_link -%}
+                  <div id="menu-{{ forloop.index }}">
+                    {%- if request.design_mode -%}
+                      {%- render 'header-block-item', type_menu: block.type, block: block, select_motion: select_motion -%}
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+          {%- when 'button' -%}
+            {% if block.settings.button_label != blank %}
+              <li class="block-button" 
+                {% if select_motion == 'hover' %}
+                  x-on:mouseover="$store.xHeaderMenu.hideMenu($el);"
+                {% else %}
+                  x-on:click="$store.xHeaderMenu.hideMenu($el);"
+                {% endif %}
+                {{ block.shopify_attributes }}
+              >
+                {% style %}
+                  .button-{{ block.id }}, .button-{{ block.id }} *:before {
+                    {% if block.settings.button_light.alpha != 0.0 %}
+                      --colors-button: {{ block.settings.button_light.red }}, {{ block.settings.button_light.green }}, {{ block.settings.button_light.blue }};
+                    {% endif %}
+                    {% if block.settings.button_text_light.alpha != 0.0 %}
+                      --colors-button-text: {{ block.settings.button_text_light.red }}, {{ block.settings.button_text_light.green }}, {{ block.settings.button_text_light.blue }};
+                    {% endif %}
+                    {% if block.settings.button_hover_light.alpha != 0.0 %}
+                      --colors-button-hover: rgb({{ block.settings.button_hover_light.red }}, {{ block.settings.button_hover_light.green }}, {{ block.settings.button_hover_light.blue }});
+                    {% endif %}
+                    {% if block.settings.button_text_hover_light.alpha != 0.0 %}
+                      --colors-button-text-hover: {{ block.settings.button_text_hover_light.red }}, {{ block.settings.button_text_hover_light.green }}, {{ block.settings.button_text_hover_light.blue }};
+                    {% endif %}
+                    {% if block.settings.secondary_button_text_light.alpha != 0.0 %}
+                      --colors-secondary-button: {{ block.settings.secondary_button_text_light.red }}, {{ block.settings.secondary_button_text_light.green }}, {{ block.settings.secondary_button_text_light.blue }};
+                      --colors-line-secondary-button: {{ block.settings.secondary_button_text_light.red }}, {{ block.settings.secondary_button_text_light.green }}, {{ block.settings.secondary_button_text_light.blue }};
+                      --background-secondary-button: transparent;
+                    {% endif %}
+                    {% if block.settings.secondary_button_light.alpha != 0.0 %}
+                      --background-secondary-button: {{ block.settings.secondary_button_light.red }}, {{ block.settings.secondary_button_light.green }}, {{ block.settings.secondary_button_light.blue }};
+                      --colors-line-secondary-button: {{ block.settings.secondary_button_light.red }}, {{ block.settings.secondary_button_light.green }}, {{ block.settings.secondary_button_light.blue }};
+                    {% endif %}
+                    {% if block.settings.colors_text_link.alpha != 0.0 %}
+                      --colors-text-link: {{ block.settings.colors_text_link.red }}, {{ block.settings.colors_text_link.green }}, {{ block.settings.colors_text_link.blue }};
+                    {% endif %}
+                  }
+                  .dark .button-{{ block.id }}, .dark .button-{{ block.id }} *:before {
+                    {% if block.settings.button_dark.alpha != 0.0 %}
+                      --colors-button: {{ block.settings.button_dark.red }}, {{ block.settings.button_dark.green }}, {{ block.settings.button_dark.blue }};
+                    {% else %}  
+                      --colors-button: {{ settings.colors_dark_button.red }}, {{ settings.colors_dark_button.green }}, {{ settings.colors_dark_button.blue }};
+                    {% endif %}
+                    {% if block.settings.button_text_dark.alpha != 0.0 %}
+                      --colors-button-text: {{ block.settings.button_text_dark.red }}, {{ block.settings.button_text_dark.green }}, {{ block.settings.button_text_dark.blue }};
+                    {% else %} 
+                      --colors-button-text: {{ settings.colors_dark_button_text.red }}, {{ settings.colors_dark_button_text.green }}, {{ settings.colors_dark_button_text.blue }}; 
+                    {% endif %}
+                    {% if block.settings.button_hover_dark.alpha != 0.0 %}
+                      --colors-button-hover: rgb({{ block.settings.button_hover_dark.red }}, {{ block.settings.button_hover_dark.green }}, {{ block.settings.button_hover_dark.blue }});
+                    {% else %}  
+                      --colors-button-hover: rgb({{ settings.colors_dark_button_hover.red }}, {{ settings.colors_dark_button_hover.green }}, {{ settings.colors_dark_button_hover.blue }});
+                    {% endif %}
+                    {% if block.settings.button_text_hover_dark.alpha != 0.0 %}
+                      --colors-button-text-hover: {{ block.settings.button_text_hover_dark.red }}, {{ block.settings.button_text_hover_dark.green }}, {{ block.settings.button_text_hover_dark.blue }};
+                    {% else %}  
+                      --colors-button-text-hover: {{ settings.colors_dark_button_text_hover.red }}, {{ settings.colors_dark_button_text_hover.green }}, {{ settings.colors_dark_button_text_hover.blue }};
+                    {% endif %}
+                    {% if block.settings.secondary_button_text_dark.alpha != 0.0 %}
+                      --colors-secondary-button: {{ block.settings.secondary_button_text_dark.red }}, {{ block.settings.secondary_button_text_dark.green }}, {{ block.settings.secondary_button_text_dark.blue }};
+                      --colors-line-secondary-button: {{ block.settings.secondary_button_text_dark.red }}, {{ block.settings.secondary_button_text_dark.green }}, {{ block.settings.secondary_button_text_dark.blue }};
+                      --background-secondary-button: transparent;
+                    {% else %}  
+                      --colors-secondary-button: {{ settings.colors_dark_button_secondary.red }}, {{ settings.colors_dark_button_secondary.green }}, {{ settings.colors_dark_button_secondary.blue }};
+                      --colors-line-secondary-button: {{ settings.colors_dark_button_secondary.red }}, {{ settings.colors_dark_button_secondary.green }}, {{ settings.colors_dark_button_secondary.blue }};
+                    {% endif %}
+                    {% if block.settings.secondary_button_dark.alpha != 0.0 %}
+                      --background-secondary-button: {{ block.settings.secondary_button_dark.red }}, {{ block.settings.secondary_button_dark.green }}, {{ block.settings.secondary_button_dark.blue }};
+                      --colors-line-secondary-button: {{ block.settings.secondary_button_dark.red }}, {{ block.settings.secondary_button_dark.green }}, {{ block.settings.secondary_button_dark.blue }};
+                    {% elsif settings.background_dark_button_secondary.alpha != 0.0 %}  
+                      --background-secondary-button: {{ settings.background_dark_button_secondary.red }}, {{ settings.background_dark_button_secondary.green }}, {{ settings.background_dark_button_secondary.blue }};
+                      --colors-line-secondary-button: {{ settings.background_dark_button_secondary.red }}, {{ settings.background_dark_button_secondary.green }}, {{ settings.background_dark_button_secondary.blue }};
+                    {% else %}
+                      --background-secondary-button: transparent;
+                    {% endif %}
+                    {% if block.settings.colors_text_link_dark.alpha != 0.0 %}
+                      --colors-text-link: {{ block.settings.colors_text_link_dark.red }}, {{ block.settings.colors_text_link_dark.green }}, {{ block.settings.colors_text_link_dark.blue }};
+                    {% else %}
+                      --colors-text-link: {{ settings.colors_dark_text_link.red }}, {{ settings.colors_dark_text_link.green }}, {{ settings.colors_dark_text_link.blue }};
+                    {% endif %}
+                  }
+                {% endstyle %}
+                <div class="button-{{ block.id }} duration-200 transition">
+                  {% if block.settings.button_link == blank %}
+                    <div class="button{% if block.settings.show_button_style == 'secondary' %} button-outline{% elsif block.settings.show_button_style == 'text-link' %} button-text-link {% else %} button-solid{% endif %} leading-normal empty:hidden text-center pl-2 pr-2 pt-1 pb-1 md:pl-2.5 md:pr-2.5 opacity-70 disable-btn-animation hover:cursor-not-allowed">
+                      {% render 'button-label', button_label: block.settings.button_label, show_button_style: block.settings.show_button_style %}
+                    </div>
+                  {% else %}
+                    <a class="button{% if block.settings.show_button_style == 'secondary' %} button-outline{% elsif block.settings.show_button_style == 'text-link' %} button-text-link {% else %} button-solid{% endif %} leading-normal block empty:hidden text-center pl-2 pr-2 pt-1 pb-1 md:pl-2.5 md:pr-2.5" href="{{ block.settings.button_link }}"{% if block.settings.open_new_window %} target="_blank"{% endif %}>
+                      {% render 'button-label', button_label: block.settings.button_label, show_button_style: block.settings.show_button_style %}
+                    </a>
+                  {% endif %}
+                </div>
+              </li>
+            {% endif %}
+        {%- endcase -%}
+      {%- endfor -%}
+      {%- unless request.design_mode -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.heading != blank -%}
+            {% case block.type %}
+              {% when 'product_menu' or 'simple_menu' or 'tabbed_menu' %}
+                {%- if block.settings.menu.links != blank -%}
+                  <template x-teleport="#menu-{{ forloop.index }}">
+                    {%- render 'header-block-item', type_menu: block.type, block: block, select_motion: select_motion -%}
+                  </template>
+                {%- endif -%}
+              {% when 'tree_menu' %}
+                {%- if block.settings.menu.links != blank -%}
+                  <template x-teleport="#menu-{{ forloop.index }}">
+                    {%- render 'header-block-item', type_menu: block.type, block: block, class_image_ratio: class_image_ratio, select_motion: select_motion -%}
+                  </template>
+                {%- endif -%}
+              {% when 'banner_menu' %}
+                {%- liquid 
+                  assign columns_desktop = 0
+                  if block.settings.image_3 != blank
+                    assign columns_desktop = columns_desktop | plus: 1
+                  endif
+                  if block.settings.image_2 != blank
+                    assign columns_desktop = columns_desktop | plus: 1
+                  endif
+                  if block.settings.image_1 != blank
+                    assign columns_desktop = columns_desktop | plus: 1
+                  endif  
+                -%}
+                {% if columns_desktop > 0 %}
+                  <template x-teleport="#menu-{{ forloop.index }}">
+                    {%- render 'header-block-item', type_menu: block.type, block: block, columns_desktop: columns_desktop, select_motion: select_motion -%}
+                  </template>
+                {% endif %}
+              {% when 'blog_menu' %}
+                {%- liquid
+                  assign is_link = false
+                  assign blog = false
+                  if block.settings.blog and block.settings.blog.articles_count > 0
+                    assign blog = block.settings.blog
+                  endif
+                  if block.settings.menu.links != blank and block.settings.show_other_blog
+                    assign is_link = true
+                  endif
+                -%}
+                <template x-teleport="#menu-{{ forloop.index }}">
+                  {%- render 'header-block-item', type_menu: block.type, block: block, blog: blog, is_link: is_link, select_motion: select_motion -%}
+                </template>
+              {% when 'contact_menu' %}
+                {%- liquid
+                  if block.settings.show_contact_information
+                    assign class_infomation = "w-3/12"
+                    assign class_map = "w-4/12"
+                    assign class_form = "w-5/12"
+                  else
+                    assign class_map = "w-7/12"
+                    assign class_form = "w-6/12"
+                  endif
+                  if block.settings.sort_order == 'options__2'
+                    assign class_infomation = class_infomation | append: " order-2"
+                    assign class_map = class_map | append: " order-3"
+                    assign class_form = class_form | append: " order-1"
+                  endif
+                  if block.settings.sort_order == 'options__3'
+                    assign class_infomation = class_infomation | append: " order-2"
+                    assign class_map = class_map | append: " order-1"
+                    assign class_form = class_form | append: " order-3"
+                  endif
+                  if block.settings.sort_order == 'options__4'
+                    assign class_infomation = class_infomation | append: " order-1"
+                    assign class_map = class_map | append: " order-3"
+                    assign class_form = class_form | append: " order-2"
+                  endif  
+                -%}
+                <template x-teleport="#menu-{{ forloop.index }}">
+                  {%- render 'header-block-item', type_menu: block.type, block: block, class_form: class_form, class_infomation: class_infomation, class_map: class_map, select_motion: select_motion -%}
+                </template>
+            {% endcase %}
+          {% endif %}
+        {%- endfor -%}
+      {%- endunless -%}
+    {%- endif -%}
+  </ul>
+  <ul class="hidden md:flex items-center justify-end w-1/3 header-megamenu-block-ul" style="margin-right: 1rem;">
+  {% for block in section.blocks %}
+    {% if block.type == 'custom_button' and block.settings.button_label != blank %}
+      <li class="block-button flex items-center gap-2"
+          {% if select_motion == 'hover' %}
+            x-on:mouseover="$store.xHeaderMenu.hideMenu($el);"
+          {% else %}
+            x-on:click="$store.xHeaderMenu.hideMenu($el);"
+          {% endif %}
+          {{ block.shopify_attributes }}
+      >
+        <div class="flex items-center gap-2">
+          <!-- SVG Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 21" fill="none">
+            <path d="M8.7541 7.83315C8.7541 7.50178 8.48546 7.23315 8.1541 7.23315C7.82276 7.23315 7.55413 7.50178 7.55413 7.83315H8.7541ZM12.4453 7.83315C12.4453 7.50178 12.1767 7.23315 11.8453 7.23315C11.5139 7.23315 11.2453 7.50178 11.2453 7.83315H12.4453ZM7.55422 7.82284C7.54853 8.15416 7.8125 8.42736 8.14378 8.43306C8.47514 8.43875 8.74834 8.17478 8.75402 7.84345L7.55422 7.82284ZM8.76202 7.37785C8.7677 7.04653 8.50378 6.77333 8.17242 6.76763C7.84111 6.76194 7.56791 7.02591 7.56222 7.35724L8.76202 7.37785ZM8.7361 7.97911C8.81674 7.65769 8.62154 7.33178 8.3001 7.25117C7.97867 7.17056 7.65277 7.36577 7.57215 7.68719L8.7361 7.97911ZM8.0285 8.33395L8.60906 8.48553L8.6105 8.47991L8.0285 8.33395ZM5.54162 8.88809C5.26932 8.69927 4.8955 8.76694 4.70667 9.03923C4.51785 9.31155 4.58552 9.68539 4.85783 9.87419L5.54162 8.88809ZM5.7997 9.38731C5.8031 9.05595 5.53723 8.78457 5.20588 8.78118C4.87452 8.77778 4.60316 9.04363 4.59976 9.37499L5.7997 9.38731ZM5.15573 13.6747L5.75569 13.6819L5.7557 13.6809L5.15573 13.6747ZM8.3997 15.8939C8.73106 15.8939 8.9997 15.6253 8.9997 15.2939C8.9997 14.9626 8.73106 14.6939 8.3997 14.6939V15.8939ZM4.85634 9.87315C5.12807 10.0628 5.5021 9.99627 5.69174 9.72451C5.8814 9.45283 5.81486 9.07875 5.54312 8.88913L4.85634 9.87315ZM4.46293 7.36755L3.90048 7.15863C3.89381 7.17658 3.888 7.19484 3.88308 7.21335L4.46293 7.36755ZM5.13093 5.56915L5.69338 5.77807C5.69917 5.7625 5.7043 5.7467 5.70877 5.7307L5.13093 5.56915ZM6.01813 4.89395V4.29395H6.01639L6.01813 4.89395ZM13.9805 4.89395L13.9823 4.29395H13.9805V4.89395ZM14.8677 5.56915L14.2899 5.73071C14.2943 5.74667 14.2995 5.76244 14.3052 5.77799L14.8677 5.56915ZM15.5357 7.36835L16.1156 7.21422C16.1107 7.19571 16.1049 7.17746 16.0982 7.15951L15.5357 7.36835ZM14.4561 8.88932C14.1844 9.07915 14.1181 9.45315 14.3079 9.72483C14.4977 9.99643 14.8718 10.0627 15.1434 9.87299L14.4561 8.88932ZM7.79973 15.2939C7.79973 15.6253 8.06834 15.8939 8.3997 15.8939C8.73106 15.8939 8.9997 15.6253 8.9997 15.2939H7.79973ZM10.9997 15.2939C10.9997 15.6253 11.2683 15.8939 11.5997 15.8939C11.9311 15.8939 12.1997 15.6253 12.1997 15.2939H10.9997ZM8.3997 14.6939C8.06834 14.6939 7.79973 14.9626 7.79973 15.2939C7.79973 15.6253 8.06834 15.8939 8.3997 15.8939V14.6939ZM11.5997 15.8939C11.9311 15.8939 12.1997 15.6253 12.1997 15.2939C12.1997 14.9626 11.9311 14.6939 11.5997 14.6939V15.8939ZM11.2454 7.84036C11.2494 8.17171 11.5212 8.43709 11.8526 8.43311C12.1839 8.42911 12.4493 8.15727 12.4453 7.82593L11.2454 7.84036ZM12.4397 7.36033C12.4357 7.02899 12.1639 6.7636 11.8325 6.76759C11.5011 6.77158 11.2358 7.04342 11.2398 7.37476L12.4397 7.36033ZM12.4295 7.68653C12.3486 7.3652 12.0224 7.17036 11.7011 7.25134C11.3798 7.33231 11.1849 7.65844 11.2659 7.97976L12.4295 7.68653ZM11.9733 8.33155L11.3915 8.47817L11.3927 8.48292L11.9733 8.33155ZM15.1408 9.87475C15.4134 9.68643 15.4817 9.31275 15.2934 9.04011C15.105 8.76746 14.7313 8.69915 14.4587 8.88751L15.1408 9.87475ZM15.3997 9.37531C15.3965 9.04395 15.1253 8.77796 14.7939 8.78118C14.4626 8.78439 14.1966 9.05563 14.1998 9.38699L15.3997 9.37531ZM14.8413 13.6747L14.2414 13.6806V13.6819L14.8413 13.6747ZM11.5997 14.6939C11.2683 14.6939 10.9997 14.9626 10.9997 15.2939C10.9997 15.6253 11.2683 15.8939 11.5997 15.8939V14.6939ZM7.55413 7.83315C7.55413 9.18379 8.64907 10.2787 9.9997 10.2787V9.07875C9.31178 9.07875 8.7541 8.52107 8.7541 7.83315H7.55413ZM9.9997 10.2787C11.3504 10.2787 12.4453 9.18379 12.4453 7.83315H11.2453C11.2453 8.52107 10.6876 9.07875 9.9997 9.07875V10.2787ZM8.75402 7.84345L8.76202 7.37785L7.56222 7.35724L7.55422 7.82284L8.75402 7.84345ZM7.57215 7.68719L7.44655 8.18799L8.6105 8.47991L8.7361 7.97911L7.57215 7.68719ZM7.44799 8.18237C7.34568 8.5742 7.05848 8.89139 6.6787 9.03195L7.0953 10.1573C7.84262 9.88067 8.40778 9.25659 8.60906 8.48553L7.44799 8.18237ZM6.6787 9.03195C6.29892 9.17259 5.87442 9.11883 5.54162 8.88809L4.85783 9.87419C5.51267 10.3283 6.34799 10.434 7.0953 10.1573L6.6787 9.03195ZM4.59976 9.37499L4.55576 13.6686L5.7557 13.6809L5.7997 9.38731L4.59976 9.37499ZM4.55578 13.6675C4.54871 14.2555 4.77738 14.8219 5.19073 15.2403L6.0443 14.3968C5.85642 14.2067 5.75248 13.9492 5.75569 13.6819L4.55578 13.6675ZM5.19073 15.2403C5.60408 15.6586 6.1677 15.894 6.75578 15.8939L6.75573 14.6939C6.48842 14.6939 6.23218 14.587 6.0443 14.3968L5.19073 15.2403ZM6.75578 15.8939H8.3997V14.6939H6.75573L6.75578 15.8939ZM5.54312 8.88913C5.10558 8.58375 4.90566 8.03739 5.04278 7.52174L3.88308 7.21335C3.61635 8.21639 4.00523 9.27915 4.85634 9.87315L5.54312 8.88913ZM5.02538 7.57647L5.69338 5.77807L4.56848 5.36023L3.90048 7.15863L5.02538 7.57647ZM5.70877 5.7307C5.74781 5.59107 5.87487 5.49436 6.01986 5.49395L6.01639 4.29395C5.33438 4.29592 4.73673 4.75077 4.55309 5.40759L5.70877 5.7307ZM6.01813 5.49395H13.9805V4.29395H6.01813V5.49395ZM13.9788 5.49395C14.1238 5.49436 14.2508 5.59107 14.2899 5.73071L15.4455 5.40759C15.2619 4.75077 14.6643 4.29592 13.9823 4.29395L13.9788 5.49395ZM14.3052 5.77799L14.9732 7.57719L16.0982 7.15951L15.4302 5.36031L14.3052 5.77799ZM14.9559 7.52247C15.0928 8.03784 14.8931 8.58388 14.4561 8.88932L15.1434 9.87299C15.9937 9.27883 16.382 8.2167 16.1156 7.21422L14.9559 7.52247ZM8.9997 15.2939V12.8939H7.79973V15.2939H8.9997ZM8.9997 12.8939C8.9997 12.7835 9.0893 12.6939 9.1997 12.6939V11.4939C8.4265 11.4939 7.79973 12.1207 7.79973 12.8939H8.9997ZM9.1997 12.6939H10.7997V11.4939H9.1997V12.6939ZM10.7997 12.6939C10.9102 12.6939 10.9997 12.7835 10.9997 12.8939H12.1997C12.1997 12.1207 11.5729 11.4939 10.7997 11.4939V12.6939ZM10.9997 12.8939V15.2939H12.1997V12.8939H10.9997ZM8.3997 15.8939H11.5997V14.6939H8.3997V15.8939ZM12.4453 7.82593L12.4397 7.36033L11.2398 7.37476L11.2454 7.84036L12.4453 7.82593ZM11.2659 7.97976L11.3915 8.47817L12.5551 8.18493L12.4295 7.68653L11.2659 7.97976ZM11.3927 8.48292C11.5936 9.25347 12.1579 9.87747 12.9043 10.1547L13.3221 9.02979C12.9427 8.88888 12.656 8.57175 12.5539 8.18017L11.3927 8.48292ZM12.9043 10.1547C13.6508 10.4319 14.4856 10.3275 15.1408 9.87475L14.4587 8.88751C14.1257 9.11755 13.7015 9.17067 13.3221 9.02979L12.9043 10.1547ZM14.1998 9.38699L14.2414 13.6806L15.4413 13.6689L15.3997 9.37531L14.1998 9.38699ZM14.2414 13.6819C14.2446 13.9492 14.1407 14.2067 13.9527 14.3968L14.8063 15.2403C15.2197 14.8219 15.4483 14.2555 15.4413 13.6675L14.2414 13.6819ZM13.9527 14.3968C13.7649 14.587 13.5087 14.6939 13.2414 14.6939L13.2413 15.8939C13.8294 15.894 14.393 15.6586 14.8063 15.2403L13.9527 14.3968ZM13.2414 14.6939H11.5997V15.8939H13.2413L13.2414 14.6939Z" fill="#484848"/>
+          </svg>
+
+          <div class="button-{{ block.id }} duration-200 transition">
+            {% if block.settings.button_link == blank %}
+              <div class="custom-button-store-locator button-solid leading-normal empty:hidden text-center pr-2 pt-1 pb-1 md:pl-2.5 md:pr-2.5 opacity-70">
+                {{ block.settings.button_label }}
+              </div>
+            {% else %}
+              <a class="block empty:hidden text-center pr-2 pb-1 md:pr-2.5"
+                 href="{{ block.settings.button_link }}"
+                 {% if block.settings.open_new_window %}target="_blank" rel="noopener"{% endif %}
+              >
+                <button class="custom-button-store-locator  empty:hidden text-center pr-2 pt-1 pb-1 md:pr-2.5 opacity-70">{{ block.settings.button_label }}</button>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+</div>
+</nav>

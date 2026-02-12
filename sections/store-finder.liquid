@@ -1,0 +1,235 @@
+<section class="store-finder-container-section">
+  <div class="store-finder-section">
+    {% if section.settings.title != blank %}
+      <h2 class="store-finder-heading">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div 
+      class="finder-input-wrapper"
+      onclick="window.location.href='{{ section.settings.input_link }}'"
+    >
+      <div class="input-icon-group">
+        <!-- Removed SVG icon as per the previous comment -->
+        <button 
+          type="button" 
+          class="store-finder-input-field" 
+        >
+          {{ section.settings.input_button_text }} <!-- Customizable button text -->
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.store-finder-container-section {
+  display: flex;
+  padding: 36px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.store-finder-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 165px 80px;
+  border-radius: 24px;
+  background: linear-gradient(0deg, rgba(31, 0, 60, 0.86) 0%, rgba(31, 0, 60, 0.86) 100%),
+  url({{ section.settings.bg_image | image_url: width: 1600 }}) center/cover no-repeat;
+  min-height: 250px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.store-finder-heading {
+  max-width: 600px;
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0 10px 100px #000;
+  font-size: 39px;
+  color: #FFF;
+  font-style: normal;
+  line-height: normal;
+}
+
+.finder-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 250px;
+  background: #fff;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.input-icon-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+}
+
+.store-finder-input-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--Purple-Purple, #66328C);
+  font-family: Helvetica;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.store-finder-input-text {
+  color: #B50001;
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 650px) {
+  .store-finder-container-section {
+    padding: 24px 16px;
+    height: auto;
+  }
+
+  .store-finder-section {
+    padding: 80px 20px;
+    gap: 20px;
+    border-radius: 16px;
+    background-size: cover;
+  }
+
+  .store-finder-heading {
+    text-align: center;
+    max-width: 100%;
+    color: #FFF;
+    text-shadow: 0 4.084px 40.836px #000;
+    font-size: 22px;
+    font-style: normal;
+    line-height: normal;
+  }
+
+  .finder-input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .store-finder-svg-icon {
+    justify-content: flex-start;
+  }
+
+  .store-finder-input-text {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Store Finder Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Find your favorite sarees at a store nearby"
+    },
+    {
+      "type": "url",
+      "id": "input_link",
+      "label": "Redirect link for button"
+    },
+    {
+      "type": "text",
+      "id": "input_button_text",
+      "label": "Button text",
+      "default": "Find your Nearest Store"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin top (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Margin bottom (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "label": "Padding (mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin top (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Store Finder Banner"
+    }
+  ]
+}
+{% endschema %}

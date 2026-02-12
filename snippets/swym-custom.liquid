@@ -1,0 +1,23 @@
+<script defer>
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (e) {
+    const tab = e.target.closest(".collection-title");
+
+    if (!tab) return;
+
+    // Ensure Swym is ready
+    if (window._swat && window._swat.collectionsApi) {
+      try {
+        window._swat.collectionsApi.initializeCollections(
+          window._swat,
+          false,
+          Shopify.theme.id
+        );
+      } catch (err) {
+        console.warn("Swym init dispatch failed:", err);
+      }
+    }
+  });
+});
+
+</script>

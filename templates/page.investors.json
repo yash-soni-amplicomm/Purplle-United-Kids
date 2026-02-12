@@ -1,0 +1,925 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_heading": true,
+        "heading_size": 170,
+        "heading_tag": "h1",
+        "show_breadcrumbs": true,
+        "show_breadcrumbs_border": false,
+        "full_width_breadcrumb": true,
+        "desktop_content_alignment": "text-left",
+        "mobile_content_alignment": "text-left",
+        "background_color_light": "#f2f2f2",
+        "text_color_light": "rgba(0,0,0,0)",
+        "textlink_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "#313131",
+        "text_color_dark": "rgba(0,0,0,0)",
+        "textlink_color_dark": "rgba(0,0,0,0)",
+        "max_container_page_width": 100,
+        "padding_top": 12,
+        "padding_bottom": 28,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "slideshow_xbWEnR": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_pYCJwa": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Investor_Banner_Web.jpg",
+            "image_mobile": "shopify://shop_images/Investor_Banner_Mobile-1.jpg",
+            "image_link": "",
+            "open_new_window_image": false,
+            "overlay_opacity": 0,
+            "video_url": "",
+            "video_alt_text": "",
+            "show_sound_control": false,
+            "enable_video_autoplay": false,
+            "mobile_video_url": "",
+            "enable_bakground": false,
+            "subheading": "",
+            "subheading_size": 100,
+            "heading": "",
+            "highlight_type": "underline",
+            "heading_size": 170,
+            "heading_tag": "h2",
+            "text": "",
+            "button_label_1": "",
+            "button_link_1": "",
+            "open_new_window_button": false,
+            "show_button_style_1": "primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "open_new_window_button_2": false,
+            "show_button_style_2": "primary",
+            "content_alignment": "middle-center",
+            "custom_horizontal": 50,
+            "custom_vertical": 50,
+            "alignment": "center",
+            "text_product": "",
+            "list_products": [],
+            "show_rating": false,
+            "open_new_window_product": false,
+            "content_background_color": "rgba(0,0,0,0)",
+            "color_text": "rgba(0,0,0,0)",
+            "color_button": "rgba(0,0,0,0)",
+            "color_text_button": "rgba(0,0,0,0)",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)",
+            "color_heading_highlight_light": "rgba(0,0,0,0)",
+            "color_product_card_background": "rgba(0,0,0,0)",
+            "color_product_card_text": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "slide_pYCJwa"
+      ],
+      "custom_css": [
+        ".x-container-slideshow {padding: 28px;}"
+      ],
+      "name": "t:sections.slideshow.name",
+      "settings": {
+        "show_hero": false,
+        "auto_play": true,
+        "change_slides_speed": 5,
+        "pause_hover": true,
+        "slider_visual": "bars",
+        "show_arrow": true,
+        "image_pagination_background": "rgba(0,0,0,0)",
+        "image_pagination_text": "rgba(0,0,0,0)",
+        "transition_style": "fade",
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": true,
+        "rounded_corner_image": false,
+        "desktop_height": "natural",
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": true,
+        "rounded_corner_image_mobile": false,
+        "show_content_below_image": false,
+        "mobile_height": "500",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "rich_text_7HDXgY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QrbgAC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Investor Relation",
+            "highlight_type": "underline",
+            "heading_size": 100,
+            "heading_tag": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QrbgAC"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "heading_light": "rgba(0,0,0,0)",
+        "color_heading_highlight_light": "rgba(0,0,0,0)",
+        "text_light": "rgba(0,0,0,0)",
+        "background_color_light": "rgba(0,0,0,0)",
+        "heading_dark": "rgba(0,0,0,0)",
+        "color_heading_highlight_dark": "rgba(0,0,0,0)",
+        "text_dark": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "content_alignment": "center",
+        "show_section_divider": false,
+        "make_full_page_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "content_alignment_mobile": "center",
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28
+      }
+    },
+    "investorsdropdown_pPQ9P6": {
+      "type": "investorsdropdown",
+      "blocks": {
+        "image_kY6wpw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Denim_10.png",
+            "title": "Half Yearly Results",
+            "target": "overview"
+          }
+        },
+        "image_Gkkyyy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Denim_6.png",
+            "title": "Annual Reports",
+            "target": "financials"
+          }
+        },
+        "image_3Uk7Ph": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Media_1.jpg",
+            "title": "Subsidiaries",
+            "target": "subsidiaries"
+          }
+        },
+        "image_bY9fPp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Denim_8.png",
+            "title": "Corporate Governance",
+            "target": "documents"
+          }
+        },
+        "image_Mabt3z": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Media_1.jpg",
+            "title": "Corporate Social Responsibility",
+            "target": "type6"
+          }
+        },
+        "image_GepYHf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Denim_9.png",
+            "title": "Investor contacts",
+            "target": "investor"
+          }
+        },
+        "file_item_QAP4kj": {
+          "type": "file_item",
+          "settings": {
+            "title": "About us",
+            "group": "type5-6",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/about_us.pdf?v=1758806502\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/about_us.pdf?v=1758806502\"><strong>About Us</strong></a><strong><br/><br/>Our Business</strong><br/><br/>Purple United Sales Limited (Formerly known as Purple United Sales Private Limited) is a premium fashion brand dedicated to offering high-quality, versatile apparel, footwear, and accessories for children of all ages. Founded in 2014 by Mr. Seth, our mission is to enable children to express themselves using our 'brand' as a medium. Our ethos revolves around celebrating childhood with a strong emphasis on comfort, safety, and quality. Our flagship brand, \"Purple United Kids,\" supports the entire journey of children up to 14 years old, offering lab-tested products made from premium materials in vibrant colours and designs for every occasion. Our operations encompass designing, developing, sourcing, marketing, and selling apparel and footwear for infants (0 to 1 year), toddlers (2 to 6 years), and older kids (7 to 14 years). We also offer a wide range of accessories and hard goods, such as strollers, etc.</p><p>We cater exclusively to the Indian market. Our extensive distribution network comprises 16 exclusive brand outlets (EBOs), multiple shop-n-shops, and a robust online presence through our website, mobile app, and major e-commerce platforms such as Myntra, Amazon, Flipkart, FirstCry, Nykaa, Hopscotch and more. This dynamic approach allows us to maintain high purchase frequency and cater to repeat customers while continually expanding our reach. With an expected CAGR of 32% in the Indian kids' category, we are committed to growth and excellence. Our focus on innovation, quality, and the 3Fs—Fun, Fashion, and Functionality—ensures that we simplify parenthood and keep kids safe, comfortable, and stylish.</p><p>We believe that our combination of brand strength, distribution network size, sourcing, and operational expertise allows us to provide what we believe to be our \"value proposition\"- premium quality and unique designs for the kids. We currently outsource the manufacturing of our apparel and footwear. We believe our offerings appeal to a broad range of consumers, and our omnichannel sales strategy allows us to reach consumers where they are. Our product mix has evolved significantly over the past several years and we continue to expand our product range to meet a varied range of consumer needs for our target segment. We operate in the retail category with high purchase frequency, in which the kids outgrow the clothing sizes frequently, hence through our dynamic product offering with a large variety, we seek to focus on the needs of our customers while expanding our portfolio. Our range of products includes t-shirts, shirts, jackets, sweaters, clothing sets, dungarees, rompers, partywear, dresses, denim, lowers, trousers, jeggings, skirts, shoes, ballerinas, slides, moulds, flipflops, sandals, caps, sling bags, socks, strollers among others.<br/><br/></p>",
+            "vision_title": "Vision & Mission",
+            "faq_image": "shopify://shop_images/VIsion.png",
+            "vision1_title": "Awards & Acheivemnets",
+            "faq1_image": "shopify://shop_images/Mission.jpg"
+          }
+        },
+        "fy_row_mta4ff": {
+          "type": "fy_row",
+          "settings": {
+            "title": "21-22 Half yearly result",
+            "year": "fy-21-22",
+            "group": "overview",
+            "row_label": "Half Yearly Update",
+            "q1_link": "",
+            "q2_link": "",
+            "row_label2": "Financial Results",
+            "q1_link2": "",
+            "q2_link2": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/FY21-22_compressed.pdf?v=1759163614",
+            "row_label3": "",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "Press Releases",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "fy_row_a7NCdF": {
+          "type": "fy_row",
+          "settings": {
+            "title": "22-23 Half yearly result",
+            "year": "fy-22-23",
+            "group": "overview",
+            "row_label": "Half Yearly Update",
+            "q1_link": "",
+            "q2_link": "",
+            "row_label2": "Financial Results",
+            "q1_link2": "",
+            "q2_link2": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/FY22-23_compressed.pdf?v=1759163614",
+            "row_label3": "",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "Press Releases",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "fy_row_R9mBjd": {
+          "type": "fy_row",
+          "settings": {
+            "title": "23-24 Half yearly result",
+            "year": "fy-23-24",
+            "group": "overview",
+            "row_label": "Half Yearly Update",
+            "q1_link": "",
+            "q2_link": "",
+            "row_label2": "Restated Financial Results",
+            "q1_link2": "",
+            "q2_link2": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Restated_Financial_31st_March_2024.pdf?v=1758695669",
+            "row_label3": "Financial Results",
+            "q1_link3": "",
+            "q2_link3": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/FY23-24.pdf?v=1759163481",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "Press Releases",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "fy_row_rxKHwG": {
+          "type": "fy_row",
+          "settings": {
+            "title": "24-25 Half yearly result",
+            "year": "fy-24-25",
+            "group": "overview",
+            "row_label": "Half Yearly Update",
+            "q1_link": "",
+            "q2_link": "",
+            "row_label2": "Financial Results",
+            "q1_link2": "",
+            "q2_link2": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Financial_Results_2024-25_compressed.pdf?v=1759163719",
+            "row_label3": "Restated Financial Results",
+            "q1_link3": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Restated_Financial_30th_Sept_2024_compressed.pdf?v=1758696261",
+            "q2_link3": "",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "Press Releases",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "fy_row_HGbF4K": {
+          "type": "fy_row",
+          "settings": {
+            "title": "FY 25-26 Half Yearly Result",
+            "year": "fy-25-26",
+            "group": "overview",
+            "row_label": "",
+            "q1_link": "",
+            "q2_link": "",
+            "row_label2": "Financial Results",
+            "q1_link2": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/OutcomeofBoardMeeting.pdf?v=1763096356",
+            "q2_link2": "",
+            "row_label3": "",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "Press Releases",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "Board Meeting Outcome",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "pdf_block_iF84Nd": {
+          "type": "pdf_block",
+          "settings": {
+            "title": "24-25 Annual reports",
+            "group": "financials",
+            "pdf_title_1": "",
+            "pdf_thumbnail_1": "shopify://shop_images/Investor_Banner_Mobile_1.jpg",
+            "pdf_content_1": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Annual_Report_and_Notice_2024-25.pdf?v=1758696344\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Annual_Report_and_Notice_2024-25.pdf?v=1758696344\">Annual Report and Notice_2024-25</a></p>",
+            "pdf_title_2": "",
+            "pdf_thumbnail_2": "shopify://shop_images/Investor_Banner_Mobile-1.jpg",
+            "pdf_content_2": "<h6><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Letter_to_the_Members.pdf?v=1758696343\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Letter_to_the_Members.pdf?v=1758696343\">Intimation_of_Letter_to_the_Members</a></h6>",
+            "pdf_title_3": "",
+            "pdf_content_3": "",
+            "pdf_title_4": "",
+            "pdf_content_4": "",
+            "pdf_title_5": "",
+            "pdf_content_5": "",
+            "pdf_title_6": "",
+            "pdf_content_6": "",
+            "pdf_title_7": "",
+            "pdf_content_7": "",
+            "pdf_title_8": "",
+            "pdf_content_8": ""
+          }
+        },
+        "rating_row_QPcWna": {
+          "type": "rating_row",
+          "settings": {
+            "title": "Corporate governance report",
+            "year": "fy-24-25",
+            "group": "documents",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Regulation_27_CGR_PUSL.pdf?v=1758819340\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Regulation_27_CGR_PUSL.pdf?v=1758819340\">📁 Regulation 27 CGR PUSL</a></p>"
+          }
+        },
+        "blocks_qtkWKk": {
+          "type": "blocks",
+          "settings": {
+            "title": "Board & committee",
+            "group": "management",
+            "management_title": "Senior Management",
+            "name1": "Mr. Jatinder Dev Seth",
+            "role1": "Managing Director",
+            "name2": "Ms. Bhawna Seth",
+            "role2": "Whole Time Director",
+            "name3": "Mr. Niraj Rajpal",
+            "role3": "Non Executive Director",
+            "name4": "Mr. Pankaj Lal Gupta",
+            "role4": "Independent Director",
+            "name5": "Mr. Tarun Anand",
+            "role5": "Independent Director",
+            "name6": "Mr. Vishal Sharma",
+            "role6": "Independent Director",
+            "name7": "Mr. Naresh Kumar",
+            "role7": "Chief Financial Officer",
+            "name8": "Ms. Ayati Gupta",
+            "role8": "Company Secretary & Compliance Officer",
+            "name9": "",
+            "role9": "",
+            "name10": "",
+            "role10": "",
+            "member_title": "Corporate Social Responsibility Committee",
+            "member1_name": "Mr. Vishal Sharma",
+            "member1_designation": "Chairman",
+            "member2_name": "Mr. Jatinder Dev Seth",
+            "member2_designation": "",
+            "member3_name": "Ms. Bhawna Seth",
+            "member3_designation": "",
+            "member4_name": "",
+            "member4_designation": "",
+            "member5_name": "",
+            "member5_designation": "",
+            "member6_name": "",
+            "member6_designation": "",
+            "member7_name": "",
+            "member7_designation": "",
+            "member8_name": "",
+            "member8_designation": "",
+            "member9_name": "",
+            "member9_designation": "",
+            "member10_name": "",
+            "member10_designation": "",
+            "seniormember1_name": "Mr. Vishal Sharma",
+            "seniormember1_designation": "Chairman",
+            "seniormember2_name": "Mr. Pankaj Lal Gupta",
+            "seniormember2_designation": "",
+            "seniormember3_name": "Mr. Tarun Anand",
+            "seniormember3_designation": "",
+            "seniormember4_name": "Mr. Jatinder Dev Seth",
+            "seniormember4_designation": "",
+            "seniormember5_name": "",
+            "seniormember5_designation": "",
+            "seniormember6_name": "",
+            "seniormember6_designation": "",
+            "seniormember7_name": "",
+            "seniormember7_designation": "",
+            "comittemember1_name": "Mr. Vishal Sharma",
+            "comittemember1_designation": "Chairman",
+            "comittemember2_name": "Mr. Pankaj Lal Gupta",
+            "comittemember2_designation": "",
+            "comittemember3_name": "Mr. Niraj Rajpal",
+            "comittemember3_designation": "",
+            "comittemember4_name": "",
+            "comittemember4_designation": "",
+            "comittemember5_name": "",
+            "comittemember5_designation": "",
+            "comittemember6_name": "",
+            "comittemember6_designation": "",
+            "comittemember7_name": "",
+            "comittemember7_designation": "",
+            "stakeholdermember1_name": "Mr. Niraj Rajpal",
+            "stakeholdermember1_designation": "Chairman",
+            "stakeholdermember2_name": "Mr. Jatinder Dev Seth",
+            "stakeholdermember2_designation": "",
+            "stakeholdermember3_name": "Ms. Bhawna Seth",
+            "stakeholdermember3_designation": "",
+            "stakeholdermember4_name": "",
+            "stakeholdermember4_designation": "",
+            "stakeholdermember5_name": "",
+            "stakeholdermember5_designation": "",
+            "stakeholdermember6_name": "",
+            "stakeholdermember6_designation": "",
+            "stakeholdermember7_name": "",
+            "senior_title": "Board Members",
+            "person_name1": "Mr. Jatinder Dev Seth",
+            "person_role1": "",
+            "person_name2": "Ms. Bhawna Seth",
+            "person_role2": "",
+            "person_name3": "Mr. Niraj Rajpal",
+            "person_role3": "",
+            "person_name4": "Mr. Pankaj Lal Gupta",
+            "person_role4": "",
+            "person_name5": "Mr. Tarun Anand",
+            "person_role5": "",
+            "person_name6": "Mr. Vishal Sharma",
+            "person_role6": ""
+          }
+        },
+        "file_item_KQytiV": {
+          "type": "file_item",
+          "settings": {
+            "title": "Policies",
+            "group": "type5",
+            "q1_content": "<h6><strong>Polices<br/><br/></strong><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_on_Prevention_of_Sexual_Harassment_POSH_Policy.pdf?v=1758697485\" target=\"_blank\" title=\"https://purpleunited.com/investor/Policy on Prevention of Sexual Harassment (POSH Policy)\">📁 Policy on Prevention of Sexual Harassment (POSH Policy)</a><br/><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_on_Materiality_or_Related_Party_Transactions_Dealing_with_related_Party_Transactions.pdf?v=1758697529\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_on_Materiality_or_Related_Party_Transactions_Dealing_with_related_Party_Transactions.pdf?v=1758697529\">📁 Policy on Materiality or Related Party Transactions Dealing with related Party Transactions</a><br/><br/>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Vigil_Mechanism_Whistle_Blower.pdf?v=1758697931\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Vigil_Mechanism_Whistle_Blower.pdf?v=1758697931\">Policy for Vigil Mechanism & Whistle Blower<br/><br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Preservation_of_Documents.pdf?v=1758697929\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Preservation_of_Documents.pdf?v=1758697929\">Policy for Preservation of Documents</a></h6><h6><br/>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Nomination_Remuneration.pdf?v=1758697931\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Nomination_Remuneration.pdf?v=1758697931\">Policy for Nomination & Remuneration<br/><br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Familiarisation_Programme_for_Independent_Directors.pdf?v=1758697928\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Familiarisation_Programme_for_Independent_Directors.pdf?v=1758697928\">Policy for Familiarisation Programme for Independent Directors<br/><br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Code_of_Conduct_to_Regulate_Monitor_Report_the_Trading_by_Designated_Persons_and_their_Immediate_Relatives.pdf?v=1758697931\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Code_of_Conduct_to_Regulate_Monitor_Report_the_Trading_by_Designated_Persons_and_their_Immediate_Relatives.pdf?v=1758697931\">Policy for Code of Conduct to Regulate, Monitor & Report the Trading by Designated  Persons and their Immediate Relatives<br/></a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Board_Diversity.pdf?v=1758697928\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Policy_for_Board_Diversity.pdf?v=1758697928\">📁Policy_for_Board_Diversity<br/><br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/policy_of_determination_1.pdf?v=1758799319\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/policy_of_determination_1.pdf?v=1758799319\">📁 Policy of determination of material event<br/><br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/code_of_practices.pdf?v=1758819816\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/code_of_practices.pdf?v=1758819816\">📁 Policy for Code of Practices & Procedures for Fair Disclosure of Unpublished Price Sensitive Information<br/><br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/board_of_directors.pdf?v=1758820035\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/board_of_directors.pdf?v=1758820035\">📁 Policy for Code of Conduct for Board of Directors and Senior Managerial Personnel<br/><br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/policy_of_identification.pdf?v=1758820032\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/policy_of_identification.pdf?v=1758820032\">📁 Policy On Identification Of Group Companies. Material Creditors And Material Litigations<br/><br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Corporate_Social_Responsibility_Policy.pdf?v=1759487825\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Corporate_Social_Responsibility_Policy.pdf?v=1759487825\">📁Corporate Social Responsibility</a></h6>",
+            "vision_title": "",
+            "vision1_title": ""
+          }
+        },
+        "pdf_block_gcbN3a": {
+          "type": "pdf_block",
+          "settings": {
+            "title": "23-24 Annual Return",
+            "group": "annual",
+            "pdf_title_1": "",
+            "pdf_thumbnail_1": "shopify://shop_images/Investor_Banner_Mobile-1.jpg",
+            "pdf_content_1": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AR_2023-2024.pdf?v=1758700747\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AR_2023-2024.pdf?v=1758700747\">Annual Return - FY 2023-2024</a></p>",
+            "pdf_title_2": "",
+            "pdf_thumbnail_2": "shopify://shop_images/Investor_Banner_Mobile-1.jpg",
+            "pdf_content_2": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AR_2022_2023.pdf?v=1758700746\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AR_2022_2023.pdf?v=1758700746\">Annual Return - FY 2022-2023</a></p>",
+            "pdf_title_3": "",
+            "pdf_thumbnail_3": "shopify://shop_images/Investor_Banner_Mobile-1.jpg",
+            "pdf_content_3": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AR_2021_2022.pdf?v=1758700744\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AR_2021_2022.pdf?v=1758700744\">Annual Return - FY 2021-2022</a></p>",
+            "pdf_title_4": "",
+            "pdf_thumbnail_4": "shopify://shop_images/Investor_Banner_Mobile-1.jpg",
+            "pdf_content_4": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AB8930800_sd.pdf?v=1764760673\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/AB8930800_sd.pdf?v=1764760673\">Annual Return - FY 2024-25</a></p>",
+            "pdf_title_5": "",
+            "pdf_content_5": "",
+            "pdf_title_6": "",
+            "pdf_content_6": "",
+            "pdf_title_7": "",
+            "pdf_content_7": "",
+            "pdf_title_8": "",
+            "pdf_content_8": ""
+          }
+        },
+        "faq_item_hk6ejj": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Corporate social responsibility",
+            "year": "2025",
+            "group": "type6",
+            "q1_content": ""
+          }
+        },
+        "rating_row_C3myBK": {
+          "type": "rating_row",
+          "settings": {
+            "title": "Integrated filing",
+            "year": "fy-25-26",
+            "group": "rating1",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Integrated_Filing-Governance_March_2025.pdf?v=1759487823\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Integrated_Filing-Governance_March_2025.pdf?v=1759487823\">📁 Integrated Filling Governance</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Integrated_Governance_Report_September_2025.pdf?v=1762496371\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Integrated_Governance_Report_September_2025.pdf?v=1762496371\">📁Integrated Governance Report September 2025</a></p><p></p><p></p>"
+          }
+        },
+        "faq_item_rLMBkf": {
+          "type": "faq_item",
+          "settings": {
+            "title": "2024 Stock exchange",
+            "year": "2024",
+            "group": "type6-5",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Disclosure_under_Regulation_30_of_SEBI_LODR.pdf?v=1758706321\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Disclosure_under_Regulation_30_of_SEBI_LODR.pdf?v=1758706321\">📁 Disclosure under Regulation 30 of LODR</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Investor_grievence_redressal_report_December_2024.pdf?v=1758706321\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Investor_grievence_redressal_report_December_2024.pdf?v=1758706321\">📁 Investor grievence redressal report December 2024</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_13_01_25.pdf?v=1758706321\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_13_01_25.pdf?v=1758706321\">📁 New Stores Opening Intimation 13_01_25</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_28_02_25_compressed.pdf?v=1758706849\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_28_02_25_compressed.pdf?v=1758706849\">📁 New Stores Opening Intimation 28_02_25</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_31_01_25.pdf?v=1758706322\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_31_01_25.pdf?v=1758706322\">📁 New Stores Opening Intimation 31_01_25</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_31_03_25.pdf?v=1758706322\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/New_Stores_Opening_Intimation_31_03_25.pdf?v=1758706322\">📁 New Stores Opening Intimation 31_03_25</a></p><p></p>"
+          }
+        },
+        "faq_item_weHjTX": {
+          "type": "faq_item",
+          "settings": {
+            "title": "2025 Stock exchange",
+            "year": "2025",
+            "group": "type6-5",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Resignation_of_Company_Secretary_and_Compliance_officer_Mr._Vishnu_Kumar.pdf?v=1758707547\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Resignation_of_Company_Secretary_and_Compliance_officer_Mr._Vishnu_Kumar.pdf?v=1758707547\">📁 Intimation of Resignation of Company Secretary and Compliance officer Mr. Vishnu Kumar</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_under_Regulation_30_5_of_the_SEBI_Listing_Obligations_and_Disclosure_Requirements_Regulations_2015.pdf?v=1758707547\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_under_Regulation_30_5_of_the_SEBI_Listing_Obligations_and_Disclosure_Requirements_Regulations_2015.pdf?v=1758707547\">📁 Intimation under Regulation 30(5) of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_under_Regulation_30.pdf?v=1758707547\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_under_Regulation_30.pdf?v=1758707547\">📁 Intimation under Regulation 30</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Trading_Window_Closure_30_June_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Trading_Window_Closure_30_June_2025.pdf?v=1758707546\">📁 Intimation of Trading Window Closure 30 June 2025</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Stores_Opening_August_2025_57d67fe6-c313-4274-806c-2e8c8df36a06.pdf?v=1758708178\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Stores_Opening_August_2025_57d67fe6-c313-4274-806c-2e8c8df36a06.pdf?v=1758708178\">📁 Intimation of Stores Opening August 2025</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/SDD_Compliance_PUSL_f36fc457-515f-4728-b8c2-89fd8ffc1bfd.pdf?v=1758859689\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/SDD_Compliance_PUSL_f36fc457-515f-4728-b8c2-89fd8ffc1bfd.pdf?v=1758859689\">📁 SDD Compliance_PUSL</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Non_Applicablity_of_Large_Corporate_Entity_Disclosure_578dd95d-d129-4534-bab6-b4e237fd86b0.pdf?v=1758859771\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Non_Applicablity_of_Large_Corporate_Entity_Disclosure_578dd95d-d129-4534-bab6-b4e237fd86b0.pdf?v=1758859771\">📁 Non Applicablity of Large Corporate_Entity_Disclosure</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Board_Meeting_27th_August_2025_1dadbdcf-b5d7-48a3-9c0e-4ba0dffca0bb.pdf?v=1758859635\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Board_Meeting_27th_August_2025_1dadbdcf-b5d7-48a3-9c0e-4ba0dffca0bb.pdf?v=1758859635\">📁 Outcome of Board Meeting 27th August 2025<br/></a>📁 <a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_change_in_corporate_office.pdf?v=1759283184\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_change_in_corporate_office.pdf?v=1759283184\">Intimation of change in corporate office</a></p><p>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Trading_Window_Closure_30.09.2025.pdf?v=1759283184\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Trading_Window_Closure_30.09.2025.pdf?v=1759283184\">Intimation of Trading Window Closure_30.09.2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\">📁 Intimation of New Stores Opening 30th September, 2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\">📁</a>Intimation of New Store opening_31st October <a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Store_opening_31st_October_2025_compressed.pdf?v=1762507448\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Store_opening_31st_October_2025_compressed.pdf?v=1762507448\">2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\">📁</a> <a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/OutcomeofBoardMeeting.pdf?v=1763096356\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/OutcomeofBoardMeeting.pdf?v=1763096356\">Outcome of Board Meeting 13th November 2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_New_Stores_Opeing_30th_September_2025_compressed.pdf?v=1759488096\">📁 Intimation of </a>Utilization<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Utilisation_of_Fund_September_2025.pdf?v=1763096799\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Utilisation_of_Fund_September_2025.pdf?v=1763096799\"> of Funds September 2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/freecompress-IntimationofNewStoresopening.pdf?v=1764571613\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/freecompress-IntimationofNewStoresopening.pdf?v=1764571613\">📁 Intimation of New Store opening_30th November 2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/freecompress-IntimationofNewStoresopening.pdf?v=1764571613\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/freecompress-IntimationofNewStoresopening.pdf?v=1764571613\">📁</a> <a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Updation_of_CIN.pdf?v=1766995718\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Updation_of_CIN.pdf?v=1766995718\">Intimation of Updation of CIN</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofTradingWindowClosure_31122025.pdf?v=1766995737\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofTradingWindowClosure_31122025.pdf?v=1766995737\">📁 Intimation of Trading Window Closure_31.12.2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofNewStoreOpeningDec2025_2_27402e5b-b4bc-4812-9618-50bd2efcab2a.pdf?v=1767348205\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofNewStoreOpeningDec2025_2_27402e5b-b4bc-4812-9618-50bd2efcab2a.pdf?v=1767348205\">📁Intimation of New Stores opening_31st December 2025</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimationof100thStoreinaugration.pdf?v=1769148543\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimationof100thStoreinaugration.pdf?v=1769148543\"><strong>📁</strong> Intimation of Achievement of 100-Stores Milestone</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofNewStoresopeningJan2026.pdf?v=1770012201\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofNewStoresopeningJan2026.pdf?v=1770012201\">📁Intimation of New Stores opening_31st January  2026</a></p>"
+          }
+        },
+        "rating_row_K4fyCH": {
+          "type": "rating_row",
+          "settings": {
+            "title": "24-25 Shareholding patterns",
+            "year": "fy-25-26",
+            "group": "rating2",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Shareholding_Pattern_31.03.2025.pdf?v=1759127276\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Shareholding_Pattern_31.03.2025.pdf?v=1759127276\">📁Shareholding Pattern 2024-25</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Shareholding_Pattern__September_2025.pdf?v=1762496608\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Shareholding_Pattern__September_2025.pdf?v=1762496608\">📁Shareholding Pattern_ September 2025</a> </p>"
+          }
+        },
+        "report_row_GxG7nz": {
+          "type": "report_row",
+          "settings": {
+            "title": "24-25 Reg-32-deviation",
+            "year": "fy-24-25",
+            "group": "type3-2",
+            "row_label": "Yearly Update",
+            "q1_link": "",
+            "q2_link": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_Utilisation_Issue_Proceeds_Certificate_H2.pdf?v=1759487827",
+            "row_label2": "",
+            "q1_link2": "",
+            "q2_link2": "",
+            "row_label3": "",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "report_row_nNy43e": {
+          "type": "report_row",
+          "settings": {
+            "title": "25-26 Reg-32-deviation",
+            "year": "fy-25-26",
+            "group": "type3-2",
+            "row_label": "Yearly Update",
+            "q1_link": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Utilisation_of_Fund_September_2025_cbe9a806-8941-4330-af7d-e61b11ea03da.pdf?v=1764758811",
+            "q2_link": "",
+            "row_label2": "",
+            "q1_link2": "",
+            "q2_link2": "",
+            "row_label3": "",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "faq_item_zk4tTg": {
+          "type": "faq_item",
+          "settings": {
+            "title": "2024 AGM reports",
+            "year": "2024",
+            "group": "type6-1",
+            "q1_content": "<p>Proceeding of AGM <br/>Transcript of AGM</p>"
+          }
+        },
+        "faq_item_3p7ytA": {
+          "type": "faq_item",
+          "settings": {
+            "title": "2025 AGM reports",
+            "year": "2025",
+            "group": "type6-1",
+            "q1_content": "<p>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Proceedings_of_AGM_25.09.2025.pdf?v=1759127275\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Proceedings_of_AGM_25.09.2025.pdf?v=1759127275\">Proceedings_of_AGM_25.09.2025<br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Voting_Results_and_Scrutinizer_Report.pdf?v=1759127278\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Voting_Results_and_Scrutinizer_Report.pdf?v=1759127278\">Intimation of Voting Results and Scrutinizer_Report<br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Newspaper_Advertisement_29_August_2025-Pre_Annual_Report.pdf?v=1758702033\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Newspaper_Advertisement_29_August_2025-Pre_Annual_Report.pdf?v=1758702033\">📁 Intimation of Newspaper Advertisement 29 August 2025-Pre Annual Report</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Newspaper_Advertisement_03_September_Post_Dispatch.pdf?v=1758702032\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Newspaper_Advertisement_03_September_Post_Dispatch.pdf?v=1758702032\">📁 Intimation of Newspaper Advertisement 03 September Post Dispatch</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Newspaper_Advertisement_03_September_Post_Dispatch.pdf?v=1758702032\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Newspaper_Advertisement_03_September_Post_Dispatch.pdf?v=1758702032\">📁</a> Transcript of 11th <a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/11th_AGM_Transcript.pdf?v=1762495800\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/11th_AGM_Transcript.pdf?v=1762495800\">AGM</a></p>"
+          }
+        },
+        "faq_item_B6jr8A": {
+          "type": "faq_item",
+          "settings": {
+            "title": "2025 Board meeting",
+            "year": "2025",
+            "group": "type6-2",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Board_Meeting_May_24_2025.pdf?v=1758708648\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Board_Meeting_May_24_2025.pdf?v=1758708648\">📁 Intimation of Board Meeting May 24, 2025</a> <br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Board_Meeting_13th_November_2025.pdf?v=1762506882\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Board_Meeting_13th_November_2025.pdf?v=1762506882\">📁 Intimation of Board Meeting 13th November, 2025</a></p>"
+          }
+        },
+        "faq_item_d3RMpx": {
+          "type": "faq_item",
+          "settings": {
+            "title": "2024 AGM notices",
+            "year": "2024",
+            "group": "type6-3",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Notice_of_AGM.pdf?v=1758701637\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Notice_of_AGM.pdf?v=1758701637\">📁 Notice of AGM</a></p>"
+          }
+        },
+        "faq_item_AU38Lp": {
+          "type": "faq_item",
+          "settings": {
+            "title": "2025 AGM notices",
+            "year": "2025",
+            "group": "type6-3",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Notice_of_AGM_5a18a56b-7443-427b-8794-d151bc0b1df4.pdf?v=1758821575\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Notice_of_AGM_5a18a56b-7443-427b-8794-d151bc0b1df4.pdf?v=1758821575\">📁 Notice of AGM</a></p>"
+          }
+        },
+        "fy_row_PyUYGi": {
+          "type": "fy_row",
+          "settings": {
+            "title": "24-25 Earning calls",
+            "year": "fy-24-25",
+            "group": "rating3",
+            "row_label": "Notice",
+            "q1_link": "",
+            "q2_link": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_for_Schedule_of_Meeting_with_Invite.pdf?v=1758823898",
+            "row_label2": "Transcript",
+            "q1_link2": "",
+            "q2_link2": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_Transcript_Earning_Conference_Call_30_May_2025_1_1033765c-eb84-45d5-bc03-f5385fc726f1.pdf?v=1758823479",
+            "row_label3": "Recording",
+            "q1_link3": "",
+            "q2_link3": "https://purpleunited-investors.purpleunited.com/Investor/Earning-Call-FY%202024-25.m4a",
+            "row_label4": "Presentation",
+            "q1_link4": "",
+            "q2_link4": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Investor_Presentation_May_2025.pdf?v=1758823405",
+            "row_label5": "",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "fy_row_yXUfYb": {
+          "type": "fy_row",
+          "settings": {
+            "title": "25-26 Earning calls",
+            "year": "fy-25-26",
+            "group": "rating3",
+            "row_label": "Notice",
+            "q1_link": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofEarningscall.pdf?v=1764162042",
+            "q2_link": "",
+            "row_label2": "Transcript",
+            "q1_link2": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Earnings_Call_Transcript.pdf?v=1764927963",
+            "q2_link2": "",
+            "row_label3": "Recording",
+            "q1_link3": "https://purpleunited-investors.purpleunited.com/ezyZip.mp4",
+            "q2_link3": "",
+            "row_label4": "Presentation",
+            "q1_link4": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofInvestorPresentation.pdf?v=1764648429",
+            "q2_link4": "",
+            "row_label5": "",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "rating_row_ngJQtA": {
+          "type": "rating_row",
+          "settings": {
+            "title": "Other calls",
+            "year": "fy-25-26",
+            "group": "rating4",
+            "q1_content": "<p>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet___21.06.2025.pdf?v=1758823900\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet___21.06.2025.pdf?v=1758823900\">Intimation of Schedule of Analyst Institutional Investor Meet 21 June 2025</a><br/>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Investor_Meet_21_June_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Investor_Meet_21_June_2025.pdf?v=1758707546\">Outcome of Investor Meet 21 June 2025<br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet_05_July_2025_and_07_July_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet_05_July_2025_and_07_July_2025.pdf?v=1758707546\">Intimation of Schedule of Analyst Institutional Investor Meet 05 July 2025 and 07 July 2025<br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet_29_July_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet_29_July_2025.pdf?v=1758707546\">Intimation of Schedule of Analyst Institutional_Investor_Meet_29_July_2025</a><br/>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_July_07_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_July_07_2025.pdf?v=1758707546\">Outcome of Analyst Meet July 07 2025</a><br/>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_July_05_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_July_05_2025.pdf?v=1758707546\">Outcome of Analyst Meet July 05 2025<br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_26th_August_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_26th_August_2025.pdf?v=1758707546\">Outcome of Analyst Meet 26th August 2025<br/></a>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet_26th_August_2025.pdf?v=1758707546\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet_26th_August_2025.pdf?v=1758707546\">Intimation of Schedule of Analyst Institutional Investor Meet 26th August, 2025</a></p><p>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_30th_September_2025.pdf?v=1759283185\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome_of_Analyst_Meet_30th_September_2025.pdf?v=1759283185\">Outcome of Analyst Meet_30th September, 2025</a></p><p>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet__30th_September_2025_0f65c0c4-5110-4337-9f15-3327e0fab306.pdf?v=1759283184\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Schedule_of_Analyst_Institutional_Investor_Meet__30th_September_2025_0f65c0c4-5110-4337-9f15-3327e0fab306.pdf?v=1759283184\">Intimation of Schedule of Analyst Institutional Investor Meet_ 30th September, 2025</a></p><p>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofAnalystMeet.pdf?v=1767873239\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofAnalystMeet.pdf?v=1767873239\">Intimation of Schedule of Analyst Institutional Investor Meet_ 13th January, 2026</a></p><p>📁<a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofValueportalevent19012026.pdf?v=1768209731\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/IntimationofValueportalevent19012026.pdf?v=1768209731\"> Intimation of Participation in Valueportal Event_ 19th January, 2026</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome.pdf?v=1768290972\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Outcome.pdf?v=1768290972\">📁Outcome of Analyst Meet_13th January, 2026</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Covering.pdf?v=1768802571\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Covering.pdf?v=1768802571\">📁 Intimation of rescheduling of Participation in Valueportal Event_ 21st January, 2026</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Audio_recording_of_valueportal_event.mp3?v=1768980556\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Audio_recording_of_valueportal_event.mp3?v=1768980556\">📁Audio recording of valueportal event</a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Link_of_Audio_Recording.pdf?v=1768985893\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_of_Link_of_Audio_Recording.pdf?v=1768985893\">_ 21st January, 2026</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/purple_united_sales_final_transcript-2-13.pdf?v=1769169413\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/purple_united_sales_final_transcript-2-13.pdf?v=1769169413\"><em>📁Transcript of valueportal event _ 21st January, 2026</em></a></p><p><em><strong><br/></strong></em></p><p></p><p></p><p></p>"
+          }
+        },
+        "rating_row_BLMMGL": {
+          "type": "rating_row",
+          "settings": {
+            "title": "News paper Advertisements",
+            "year": "fy-25-26",
+            "group": "rating5",
+            "q1_content": "<p>Newspaper</p>"
+          }
+        },
+        "file_item_NgNkTx": {
+          "type": "file_item",
+          "settings": {
+            "title": "Material documents",
+            "group": "type5-3",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Draft_Red_Herring_Prospectus_DRHP__compressed.pdf?v=1758712044\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Draft_Red_Herring_Prospectus_DRHP__compressed.pdf?v=1758712044\">📁 Draft Red Herring Prospectus (DRHP)</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Red_Herring_Prospectus_RHP.pdf?v=1758711227\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Red_Herring_Prospectus_RHP.pdf?v=1758711227\">📁 Red Herring Prospectus (RHP)</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Signed_Amended_AOA_25092025.pdf?v=1764761400\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Signed_Amended_AOA_25092025.pdf?v=1764761400\">📁 AOA </a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Signed_Amended_MOA_25092025.pdf?v=1764761399\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Signed_Amended_MOA_25092025.pdf?v=1764761399\">📁 MOA</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Certificate_of_Incorporation.pdf?v=1758711225\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Certificate_of_Incorporation.pdf?v=1758711225\">📁 Certificate of Incorporation</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Industry_Report.pdf?v=1758711225\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Industry_Report.pdf?v=1758711225\">📁 Industry Report</a></p><p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Certificate_received_pursuant_to_conversion.pdf?v=1758711224\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Certificate_received_pursuant_to_conversion.pdf?v=1758711224\">📁 Certificate received pursuant to conversion<br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Prospectus_compressed.pdf?v=1758712045\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Prospectus_compressed.pdf?v=1758712045\">📁 Prospectus<br/></a><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Basis_Of_Allotment.pdf?v=1758711225\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Basis_Of_Allotment.pdf?v=1758711225\">📁 Basis Of Allotment</a></p>",
+            "vision_title": "",
+            "vision1_title": ""
+          }
+        },
+        "file_item_DzyXhW": {
+          "type": "file_item",
+          "settings": {
+            "title": "Investor contracts",
+            "group": "type5-4",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Tripartite_Agreement_-_NSDL.pdf?v=1758712145\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Tripartite_Agreement_-_NSDL.pdf?v=1758712145\">📁 Tripartite Agreement - NSDL</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Tripartite_Agreement_-_CDSL.pdf?v=1758712145\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Tripartite_Agreement_-_CDSL.pdf?v=1758712145\">📁 Tripartite Agreement - CDSL</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/RTA_Agreement.pdf?v=1758712146\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/RTA_Agreement.pdf?v=1758712146\">📁 RTA Agreement</a><br/><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Issue_Agreement_compressed.pdf?v=1758713565\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Issue_Agreement_compressed.pdf?v=1758713565\">📁 Issue Agreement</a><br/></p>",
+            "vision_title": "",
+            "vision1_title": ""
+          }
+        },
+        "file_item_DYdAVp": {
+          "type": "file_item",
+          "settings": {
+            "title": "Contact details",
+            "group": "type5-5",
+            "q1_content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_under_Regulation_30_5_of_the_SEBI_Listing_Obligations_and_Disclosure_Requirements_Regulations_2015_e61f9715-8fe9-46fb-8809-15eac6c3a890.pdf?v=1758804017\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Intimation_under_Regulation_30_5_of_the_SEBI_Listing_Obligations_and_Disclosure_Requirements_Regulations_2015_e61f9715-8fe9-46fb-8809-15eac6c3a890.pdf?v=1758804017\">📁Intimation under Regulation 30(5) of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015</a><br/><br/></p>",
+            "vision_title": "",
+            "vision1_title": ""
+          }
+        },
+        "investor_left_column_kPQ8bH": {
+          "type": "investor_left_column",
+          "settings": {
+            "title": "Registered office of company",
+            "left_title": "Purple United Sales Limited (Formerly known as Purple United Sales Private Limited)",
+            "left_content": "<p><strong>Registered Office of Company</strong></p><p>Khasra No. 55/14 & 55/15, Near Rani Khera Road, Mundka, West Delhi, New Delhi, Delhi, India, 110041</p><p><strong>Corporate Office</strong></p><p>Tower 2, Ground Floor, Candor<br/>TechSpace, Plot No. 20 & 21, Sector 135, Noida, Uttar Pradesh – 201304</p><p><strong>Contact Number</strong></p><p>+91-9667792635/ +91-9667792636</p><p><strong>Email ID</strong></p><p>cs@purpleunited.com</p><p><strong>CIN</strong></p><p>L51909DL2014PLC271636</p><p><strong>GSTIN</strong></p><p>07AAHCP8212F1Z1 (Delhi)</p>"
+          }
+        },
+        "investor_right_column_T3yrEj": {
+          "type": "investor_right_column",
+          "settings": {
+            "title": "Contact person for grievances",
+            "right_title": "Contact person for Shareholder's queries/grievances",
+            "right_content": "<p>Ms. Ayati Gupta</p><p>Company Secretary & Compliance Officer</p><p><strong>Contact Number</strong></p><p>+91-9773892573</p><p><strong>Email ID</strong></p><p>cs@purpleunited.com</p><p>*This email is for shareholder inquiries and issues only. If you have a customer concern, like a refund, return, or product question, please email 'connect@purpleunited.com'. Any customer emails sent to 'cs@purpleunited.com' will not be addressed, as this email is only for shareholder matters.</p><p><strong>Registrar & Transfer Agent</strong></p><p><strong>KFin Technologies Limited</strong></p><p><strong>Correspondence Address</strong></p><p>Tower B Plot No: 31 & 32 Selenium, Financial District, Nanakramguda, Gachibowli Hyderabad, Telangana - 500 032</p><p><strong>Contact Number</strong></p><p>+91-40-67162222</p><p><strong>Email ID</strong></p><p>pusl.ipo@kfintech.com</p><p><strong>Investor Grievance Email ID</strong></p><p>einward.ris@kfintech.com</p><p><strong>CIN</strong></p><p>L72400MH2017PLC444072</p>"
+          }
+        },
+        "report_row_TH3fXf": {
+          "type": "report_row",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "year": "fy-25-26",
+            "group": "type3-1",
+            "row_label": "Yearly Update",
+            "q1_link": "",
+            "q2_link": "",
+            "row_label2": "Yearly Update",
+            "q1_link2": "",
+            "q2_link2": "",
+            "row_label3": "Quarterly Update",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "Quarterly Update",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "Quarterly Update",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "Quarterly Update",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "report_row_Dyye3B": {
+          "type": "report_row",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "year": "fy-25-26",
+            "group": "type3-3",
+            "row_label": "Yearly Update",
+            "q1_link": "",
+            "q2_link": "",
+            "row_label2": "Quarterly Update",
+            "q1_link2": "",
+            "q2_link2": "",
+            "row_label3": "Quarterly Update",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "Quarterly Update",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "Quarterly Update",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "Quarterly Update",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        },
+        "report_row_jpk6YJ": {
+          "type": "report_row",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "year": "fy-25-26",
+            "group": "type3",
+            "row_label": "Yearly Update",
+            "q1_link": "https://cdn.shopify.com/s/files/1/0709/8400/7851/files/Draft_Annual_Return_2024-25.pdf?v=1758616071",
+            "q2_link": "",
+            "row_label2": "Yearly Update",
+            "q1_link2": "",
+            "q2_link2": "",
+            "row_label3": "",
+            "q1_link3": "",
+            "q2_link3": "",
+            "row_label4": "",
+            "q1_link4": "",
+            "q2_link4": "",
+            "row_label5": "",
+            "q1_link5": "",
+            "q2_link5": "",
+            "row_label6": "",
+            "q1_link6": "",
+            "q2_link6": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_kY6wpw",
+        "image_Gkkyyy",
+        "image_3Uk7Ph",
+        "image_bY9fPp",
+        "image_Mabt3z",
+        "image_GepYHf",
+        "file_item_QAP4kj",
+        "fy_row_mta4ff",
+        "fy_row_a7NCdF",
+        "fy_row_R9mBjd",
+        "fy_row_rxKHwG",
+        "fy_row_HGbF4K",
+        "pdf_block_iF84Nd",
+        "rating_row_QPcWna",
+        "blocks_qtkWKk",
+        "file_item_KQytiV",
+        "pdf_block_gcbN3a",
+        "faq_item_hk6ejj",
+        "rating_row_C3myBK",
+        "faq_item_rLMBkf",
+        "faq_item_weHjTX",
+        "rating_row_K4fyCH",
+        "report_row_GxG7nz",
+        "report_row_nNy43e",
+        "faq_item_zk4tTg",
+        "faq_item_3p7ytA",
+        "faq_item_B6jr8A",
+        "faq_item_d3RMpx",
+        "faq_item_AU38Lp",
+        "fy_row_PyUYGi",
+        "fy_row_yXUfYb",
+        "rating_row_ngJQtA",
+        "rating_row_BLMMGL",
+        "file_item_NgNkTx",
+        "file_item_DzyXhW",
+        "file_item_DYdAVp",
+        "investor_left_column_kPQ8bH",
+        "investor_right_column_T3yrEj",
+        "report_row_TH3fXf",
+        "report_row_Dyye3B",
+        "report_row_jpk6YJ"
+      ],
+      "custom_css": [],
+      "name": "Investor Relations",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_xbWEnR",
+    "rich_text_7HDXgY",
+    "investorsdropdown_pPQ9P6"
+  ]
+}

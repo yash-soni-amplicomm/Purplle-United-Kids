@@ -1,0 +1,263 @@
+<style>
+  .product-features-section {
+  padding: 48px 48px !important;
+}
+.product-features-section h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center; 
+}
+
+.product-features-section p {
+  font-size: 10px;
+  color: #fff;
+  {% comment %} margin-bottom: 40px; {% endcomment %}
+  text-align: center; 
+}
+
+.product-features-section .cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 cards per row on large screens */
+  gap: 20px;
+  {% comment %}  {% endcomment %}
+  {% comment %} margin: 10px; {% endcomment %}
+}
+
+/* Card Styles */
+
+.product-features-section .cards-container .card-lab {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;       
+  height: auto;
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid var(--Purple-L-Purple, #AE97C8);
+  text-align: center;
+  {% comment %} padding: 24px 36px; {% endcomment %}
+  box-sizing: border-box;
+}
+.card-lab{
+padding: 24px 36px;
+}
+.product-features-section .cards-container .card-lab .card-img {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  align-items: center;
+  border-radius: 24px;
+  border: 1px solid var(--Purple-L-Purple, #AE97C8);
+  background: var(--Grey-0, #FAFAFA);
+}
+
+.product-features-section .cards-container .card-lab .card-img img {
+  width: 94px;
+  height: 94px;
+}
+
+.product-features-section .cards-container .card-lab h3 {
+color: #000;
+
+text-align: center;
+/* Paragraph/p2: md */
+
+font-size: 16px;
+font-style: normal;
+font-weight: 500 !important;
+line-height: normal;
+padding-top:15px;
+padding-bottom:10px;
+
+}
+
+.product-features-section .cards-container .card-lab p {
+  color: #000;
+  text-align: center;
+font-family: "GT America Trial";
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+/* Media Queries responsiveness */
+@media (max-width: 1024px) {
+  .product-features-section .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-features-section .cards-container .card-lab {
+    width: 100%; 
+  }
+}
+
+
+@media (max-width: 768px) {
+  .product-features-section h2 {
+    font-size: 20px; 
+  }
+
+  .product-features-section p {
+    font-size: 14px; 
+  }
+
+   .product-features-section .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-features-section .cards-container .card-lab {
+    width: 100%; 
+    {% comment %} min-width: 100px; {% endcomment %}
+  }
+  p.card-desp {
+  {% comment %} display: -webkit-box;
+  -webkit-line-clamp: 3;       {% endcomment %}
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  font-family: "GT America Trial";
+  /*font-size: 8px !important;*/
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+ .card-lab {
+width: 105.396px;
+height: 148.213px;
+margin:0px;
+align-items: center;
+
+}
+.cards-container .card-lab{
+  padding: 12.7px 17.462px !important;
+}
+
+.card-test-title{
+  text-align: center;
+{% comment %} font-family: "GT America Trial"; 
+font-size: 8.466px!important;{% endcomment %}
+font-style: normal;
+font-weight: 500 !important;
+line-height: normal;
+padding-top:7px !important;
+padding-bottom:7px !important;
+}
+ .card-lab .card-img{
+padding: 8.466px !important;
+}
+.product-features-section {
+  padding: 30.846px 16px !important;
+}
+.product-features-section .cards-container .card-lab .card-img img {
+    width: 50px;
+    height: 50px;
+}
+.product-features-section .cards-container .card-lab{
+  {% comment %} width: 105.396px; {% endcomment %}
+}
+
+</style>
+
+<section class="product-features-section" style="background: var(--Purple-L-Purple, #AE97C8);">
+    <div class="cards-container">
+      {% for block in section.blocks %}
+        <div class="card-lab" style="background: #fff; border-radius: 24px; text-align: center; border: 1px solid var(--Purple-L-Purple, #AE97C8);">
+          {% if block.settings.card_icon %}
+            <div class="card-img">
+                <img src="{{ block.settings.card_icon | img_url: 'medium' }}" alt="Card Icon">
+            </div>
+          {% endif %}
+          <h3 class="card-test-title">{{ block.settings.card_title }}</h3>
+          <p class="card-desp">{{ block.settings.card_description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "product feature cards",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Logo",
+      "id": "logo"
+    },
+    {
+      "type": "text",
+      "label": "Section Title",
+      "id": "section_title",
+      "default": "Our Promise"
+    },
+    {
+      "type": "textarea",
+      "label": "Section Description",
+      "id": "section_description",
+      "default": "Our products are made with care and the highest quality standards. We prioritize sustainability and the well-being of animals and people alike."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Card Title",
+          "id": "card_title"
+        },
+        {
+          "type": "textarea",
+          "label": "Card Description",
+          "id": "card_description"
+        },
+        {
+          "type": "image_picker",
+          "label": "Card Icon",
+          "id": "card_icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "product feature cards",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "card_title": "Lab Tested",
+            "card_description": "Our products undergo rigorous lab testing to meet the highest quality standards."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "card_title": "Premium Quality",
+            "card_description": "Our products exhibit exceptional craftsmanship, superior materials, and outstanding performance."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "card_title": "No Animals Were Harmed",
+            "card_description": "Fashion with heart—cruelty-free and kind to all creatures."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+
