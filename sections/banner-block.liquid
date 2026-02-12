@@ -18,15 +18,9 @@
     width: 100%;
     flex: 1 1 0;
     aspect-ratio: 247/140;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .two-banner-block img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     transition: transform 0.3s ease;
   }
 
@@ -83,18 +77,17 @@
     .mobile-banner {
       display: block !important;
     }
+   
   }
-  
   @media (min-width: 320px) and (max-width: 600px) {
-    .two-banner-block.mobile-banner {
-      height: 150px;  
-    }
-    .two-banner-block.mobile-banner img {
-      object-fit: cover;
-    }
-    .two-banner-section {
-      padding: 16px !important;
-    }
+     .two-banner-block.mobile-banner {
+    height: 150px;  
+    object-fit: cover;
+    background-size: cover;
+  }
+  .two-banner-section {
+    padding:16px !important;
+  }
   }
 </style>
 
@@ -103,36 +96,17 @@
     {% if block.settings.image %}
       <a href="{{ block.settings.link | default: '#' }}" class="two-banner-link">
         
-        <!-- Desktop Banner - OPTIMIZED with LAZY LOADING -->
-        <div class="two-banner-block desktop-banner">
-          <img
-            src="{{ block.settings.image | image_url: width: 800 }}"
-            srcset="{{ block.settings.image | image_url: width: 400 }} 400w,
-                    {{ block.settings.image | image_url: width: 800 }} 800w,
-                    {{ block.settings.image | image_url: width: 1200 }} 1200w"
-            sizes="(max-width: 768px) 50vw, 50vw"
-            alt="{{ block.settings.image.alt | default: 'Banner' }}"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="453"
-          >
+        <!-- Desktop Banner -->
+        <div
+          class="two-banner-block desktop-banner"
+          style="background-image: url('{{ block.settings.image | image_url: width: 1200 }}');">
         </div>
 
-        <!-- Mobile Banner - OPTIMIZED with LAZY LOADING (only if set) -->
+        <!-- Mobile Banner (only if set) -->
         {% if block.settings.mobile_image %}
-          <div class="two-banner-block mobile-banner">
-            <img
-              src="{{ block.settings.mobile_image | image_url: width: 600 }}"
-              srcset="{{ block.settings.mobile_image | image_url: width: 300 }} 300w,
-                      {{ block.settings.mobile_image | image_url: width: 600 }} 600w"
-              sizes="50vw"
-              alt="{{ block.settings.mobile_image.alt | default: 'Banner' }}"
-              loading="lazy"
-              decoding="async"
-              width="600"
-              height="338"
-            >
+          <div
+            class="two-banner-block mobile-banner"
+            style="background-image: url('{{ block.settings.mobile_image | image_url: width: 600 }}');">
           </div>
         {% endif %}
         
@@ -140,6 +114,9 @@
     {% endif %}
   {% endfor %}
 </div>
+
+
+
 
 {% schema %}
 {
@@ -155,7 +132,7 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Banner Image (Desktop)"
+          "label": "Banner Image"
         },
         {
           "type": "image_picker",

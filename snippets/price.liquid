@@ -62,7 +62,7 @@
           </p>
         {%- else -%}
           <div class="{{ price_class }} custom-align-price-block">
-            <span {% unless product.price_varies == false and product.compare_at_price_varies %} class="price-sale selection:bg-text-[rgb(var(--colors-price-sale),0.2)] {% unless align_left %} rtl:mr-1 rtl:ml-0{% endunless %}"{% endunless %}>{{ money_price }}</span>
+            <span {% unless product.price_varies == false and product.compare_at_price_varies %} class="price-sale selection:bg-text-[rgb(var(--colors-price-sale),0.2)] ml-1{% unless align_left %} rtl:mr-1 rtl:ml-0{% endunless %}"{% endunless %}>{{ money_price }}</span>
             {%- unless product.price_varies == false and product.compare_at_price_varies %}
               <small class="cap rtl:inline-block">
                 <s class="price-compare rtl:leading-tight">{% if settings.currency_code_enable %}{{ compare_at_price | money_with_currency }}{% else %}{{ compare_at_price | money }}{% endif %}</s>

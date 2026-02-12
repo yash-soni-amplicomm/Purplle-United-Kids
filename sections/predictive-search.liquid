@@ -123,7 +123,7 @@
             {% unless hide_all_collections %}
               {%- if predictive_search.resources.products.size > 0 -%}<div class="line-spacing flex-shrink-0"></div>{%- endif -%}
               <div class="flex-1">
-                <h2 id="predictive-search-collections" class="predictive-search-heading flex-1 pl-6 pr-6 lg:pl-10 lg:pr-10{% if predictive_search.resources.products.size > 0 %} pt-6 lg:pt-2{% else %} pt-3{% endif %} pb-2 uppercase text-[{{ settings.text_base_size | times: 0.007875 }}rem] md:text-[{{ settings.text_base_size | times: 0.00875 }}rem]">
+                <h2 id="predictive-search-collections" class="predictive-search-heading flex-1 pl-6 pr-6 lg:pl-10 lg:pr-10{% if predictive_search.resources.products.size > 0 %} pt-6 lg:pt-7{% else %} pt-3{% endif %} pb-2 uppercase text-[{{ settings.text_base_size | times: 0.007875 }}rem] md:text-[{{ settings.text_base_size | times: 0.00875 }}rem]">
                   {{ 'templates.search.collections' | t }}
                 </h2>
                 <div class="predictive-result-item flex-1 pb-2.5 pl-6 pr-6 lg:pl-10 lg:pr-10 gap-2">
@@ -228,7 +228,7 @@
           {%- if predictive_search.resources.articles.size > 0 -%} 
             {%- if predictive_search.resources.products.size > 0 or resources_collections.size > 0 -%}<div class="line-spacing flex-shrink-0"></div>{%- endif -%}
             <div class="flex-1">
-              <h2 id="predictive-search-articles" class="predictive-search-heading pl-6 pr-6 lg:pl-10 lg:pr-10{% if predictive_search.resources.products.size > 0 or resources_collections.size > 0 %}  pt-6 lg:pt-2{% else %} pt-6 lg:pt-2{% endif %} pb-2 uppercase text-[{{ settings.text_base_size | times: 0.007875 }}rem] md:text-[{{ settings.text_base_size | times: 0.00875 }}rem]">
+              <h2 id="predictive-search-articles" class="predictive-search-heading pl-6 pr-6 lg:pl-10 lg:pr-10{% if predictive_search.resources.products.size > 0 or resources_collections.size > 0 %}  pt-6 lg:pt-7{% else %} pt-6 lg:pt-2{% endif %} pb-2 uppercase text-[{{ settings.text_base_size | times: 0.007875 }}rem] md:text-[{{ settings.text_base_size | times: 0.00875 }}rem]">
                 {{ 'templates.search.articles' | t }}
               </h2>
               <div class="predictive-result-item pb-2.5 pl-6 pr-6 lg:pl-10 lg:pr-10 gap-2">

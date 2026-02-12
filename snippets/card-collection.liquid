@@ -192,7 +192,7 @@
     {% else %}
       </div>
     {% endif %}
-  <div class="content--{{ section.id }} pt-1 pb-1 text-{{ content_alignment }} rtl:text-{% if content_alignment == 'center' %}center{% elsif content_alignment == 'left' %}right{% else %}left{% endif -%}
+  <div class="content--{{ section.id }} pt-5 pb-5 text-{{ content_alignment }} rtl:text-{% if content_alignment == 'center' %}center{% elsif content_alignment == 'left' %}right{% else %}left{% endif -%}
     {%- if text_overlay %} overflow-hidden absolute pl-8 pr-8 md:pl-6 md:pr-6
       {%- if columns_desktop < 2 and content_alignment == 'center' %} left-1/2 -translate-x-1/2 w-full{% else %} left-0{% endif %} right-0
       {%- if content_position == 'top' %} top-0{% elsif content_position == 'center' %} top-1/2 -translate-y-1/2{% else %} bottom-0{% endif -%}

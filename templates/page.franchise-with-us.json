@@ -39,8 +39,7 @@
       "name": "t:sections.promotion-banner.name",
       "settings": {
         "heading": "Promotion Banner",
-        "image": "shopify://shop_images/Artboard_1_1.png",
-        "image_mobile": "shopify://shop_images/Untitled-1.png",
+        "image": "shopify://shop_images/Franchise-Image.png",
         "image_link": "",
         "open_new_window": false,
         "image_overlay_opacity": 0,
@@ -55,14 +54,14 @@
         "adapt_corners_desktop": true,
         "rounded_corner_image": false,
         "desktop_height": "natural",
-        "padding_top": 12,
-        "padding_bottom": 12,
+        "padding_top": 0,
+        "padding_bottom": 28,
         "full_width_mobile": true,
         "adapt_corners_mobile": true,
         "rounded_corner_image_mobile": false,
-        "mobile_height": "natural",
-        "padding_top_mobile": 12,
-        "padding_bottom_mobile": 12
+        "mobile_height": "400px",
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
       }
     },
     "rich_text_dyfeBy": {
@@ -76,31 +75,20 @@
             "heading_size": 80,
             "heading_tag": "h3"
           }
-        },
-        "text_WYgmiJ": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em>Complete marketing support and store setup.</em></p>",
-            "number_of_lines_shown": "none",
-            "read_more_label": "Read more",
-            "see_less_label": "See less"
-          }
         }
       },
       "block_order": [
-        "heading_YxCWk4",
-        "text_WYgmiJ"
+        "heading_YxCWk4"
       ],
-      "custom_css": [],
       "name": "t:sections.rich-text.name",
       "settings": {
         "heading_light": "#ffffff",
         "color_heading_highlight_light": "rgba(0,0,0,0)",
-        "text_light": "#ffffff",
+        "text_light": "rgba(0,0,0,0)",
         "background_color_light": "#4d2d82",
         "heading_dark": "rgba(0,0,0,0)",
         "color_heading_highlight_dark": "rgba(0,0,0,0)",
-        "text_dark": "#ffffff",
+        "text_dark": "rgba(0,0,0,0)",
         "background_color_dark": "rgba(0,0,0,0)",
         "content_alignment": "center",
         "show_section_divider": false,
@@ -151,16 +139,7 @@
             "heading": "Select State",
             "mark_as_required": true,
             "type_field": "dropdown",
-            "options": "Andhra Pradesh;Arunachal Pradesh;Assam;Bangalore;Bihar;Chandigarh;Chhattisgarh;Delhi;Goa;Gujarat;Haryana;Himachal Pradesh;Jammu & Kashmir;Jharkhand;Karnataka;Kerala;Madhya Pradesh;Maharashtra;Manipur;Meghalaya;Mizoram;Nagaland;Odisha;Puducherry;Punjab;Rajasthan;Sikkim;Tamil Nadu;Telangana;Tripura;Uttar Pradesh;Uttarakhand;West Bengal"
-          }
-        },
-        "form_m9L7bJ": {
-          "type": "form",
-          "settings": {
-            "heading": "Investment Budget",
-            "mark_as_required": true,
-            "type_field": "radio",
-            "options": "₹50 Lakhs;Above ₹50 Lakhs"
+            "options": "Andhra Pradesh;Assam;Maharastra;Karantaka;Madhya Pradesh"
           }
         },
         "message_pPPMBU": {
@@ -177,7 +156,6 @@
         "email_QV4ayc",
         "form_Mc76Rp",
         "form_yV7EYN",
-        "form_m9L7bJ",
         "message_pPPMBU"
       ],
       "name": "t:sections.contact-form.name",
@@ -202,7 +180,7 @@
         "heading_tag_2": "h2",
         "infomation": "",
         "address": "",
-        "phone_nummber": "+91 9319630025,  +91 9773871525",
+        "phone_nummber": "+91 9319630025",
         "email_address": " franchise@purpleunited.com",
         "contact_text": "",
         "full_width": false,

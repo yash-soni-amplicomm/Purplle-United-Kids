@@ -7722,7 +7722,7 @@ font-size:39px !important;
     padding: 10px 16px !important;
   }
   .collection-item-title {
-    /*font-size: 8.944px !important;*/
+    font-size: 8.944px !important;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -7730,10 +7730,10 @@ font-size:39px !important;
   }
 
   .anm-move-up.active-anm-heading {
-    font-size: 18px !important;
+    font-size: 22px !important;
     font-style: normal;
     line-height: normal;
-    /* margin-top:10px; */
+    margin-top:10px;
   }
 }
 
@@ -7820,12 +7820,9 @@ font-size:39px !important;
   }
 
   .custom-align-price-block{
-    display:inline-block;
+    display:flex;
     flex-direction:column;
   }
-  .main-product-price.price.leading-none {
-    width: 50%;
-}
 }
 
 
@@ -7877,16 +7874,12 @@ s.price-compare {
 /* judge me reviews */
 
 .jdgm-rev-widg__title{
-  margin-top:0px !important;
-  margin-bottom:5px !important;
+  margin-top:20px !important;
+  margin-bottom:10px !important;
 }
 
 .jdgm-widget-actions-wrapper{
-  margin:20px !important;
-}
-
-.jdgm-widget{
-  margin: 10px 0px 10px 0px;
+  margin:20px;
 }
 
 @media (min-width:992px){
@@ -7940,58 +7933,4 @@ div#FacetsWrapperDesktop {
 
 #CartDrawer-CartItems dl > div:last-child {
   display: none;
-}
-#CartDrawer-CartItems a{
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;  
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-#cart-upsell-drawer a{
-   display: -webkit-box;
-  -webkit-line-clamp: 2;  
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.jdgm-row-actions{
-  padding: 0px 10px !important;
-}
-
-.jdgm-rev-widg__body{
-  padding:10px 10px 10px 20px !important;
-}
-
-.jdgm-sort-dropdown{
-  padding:10px !important;
-}
-
-.jdgm-rev {
-    margin: 0;
-    padding: 16px 0px 0px 0px !important;
-}
-
-@media (max-width: 400px) {
-    .anm-move-up.active-anm-heading {
-        font-size: 16px !important;
-    }
-    .clear-button-custom-font-size{
-      font-size:85%;
-    }
-}
-
-.search-page .content-results-horizontal .predictive-search-results-list {
-  width:100% !important;
-}
-.search-page .content-results-horizontal .predictive-search-results-list p {
-  .predictive-search-results-list p {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;  
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.2em;      
-  max-height: 2.4em;       
-}
 }

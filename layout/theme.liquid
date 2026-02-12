@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="">
     <meta name="google-site-verification" content="KK-urxvls17mdv7CajD9EHH11mP7g3aKIE6p-BhvPqc" />
-
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -14,8 +13,6 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TL5SLQM8');</script>
     <!-- End Google Tag Manager -->
-
-
     {% if settings.show_canonical_url_collection and template.name == "collection" %}
       <link rel="canonical" href="{{ canonical_url | split: '?' | first }}">
     {% else %}
@@ -36,6 +33,8 @@
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
+    
+    
     
     {%- if settings.enable_organization_schema and template.name == 'index' -%}
       {% liquid 
@@ -92,18 +91,9 @@
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
-    {% comment %} Replaced for optimization YS {% endcomment %}
-    {% comment %} {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }} {% endcomment %}
-    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
-    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
-    
+    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
     {% # theme-check-disable AssetPreload %}
-
-    {% comment %} Replaced for optimization YS {% endcomment %}
-    {% comment %} <link rel="preload" href="{{ settings.type_body_font | font_url }}" as="font" type="font/woff2" crossorigin="anonymous" /> {% endcomment %}
-    {% assign body_font = settings.type_body_font | font_modify: 'weight', '400' %}
-    <link rel="preload" as="font" href="{{ body_font | font_url }}" type="font/woff2" crossorigin>
-
+    <link rel="preload" href="{{ settings.type_body_font | font_url }}" as="font" type="font/woff2" crossorigin="anonymous" />
     {% # theme-check-enable AssetPreload %}
     {% liquid 
       render 'meta-tags'
@@ -125,20 +115,6 @@
       body {
         /* INP mobile */
         touch-action: manipulation;
-      }
-      .Avada-FaqsWelcomePopup.right {
-        right: 100px !important;
-      }
-      form#product-form-template--19461518590123__main {
-          display: flex;
-      }
-
-      button#x-atc-button-template--19461518590123__main {
-          width: 50%;
-          margin-right: 10px;
-      }
-      div#x-payment-button-template--19461518590123__main {
-          width: 50%;
       }
       {{ menu_font_400 | font_face: font_display: 'swap' }}
       #page-loader {
@@ -165,17 +141,20 @@
         height: auto;
         animation: fadeIn 1.2s ease-in-out infinite alternate;
       }
-      @media (max-width: 768px) {
-        #page-loader img.loader-logo {
-          width: 50% !important;
-        }
-      }
 
       @keyframes fadeIn {
         from { opacity: 0.5; }
         to { opacity: 1; }
       }
-    {% endstyle %}
+          {% endstyle %}
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const loader = document.getElementById("page-loader");
+          if (loader) {
+            loader.classList.add("hide");
+          }
+        });
+      </script>
   </head>
   <body 
     class="gradient scrollbar-body overflow-x-hidden text-[{{ settings.text_base_size | times: 0.007875 }}rem] md:text-[{{ settings.text_base_size | times: 0.00875 }}rem]{% if settings.lang_direction contains request.locale.iso_code %} rtl{% endif %}" 
@@ -191,7 +170,15 @@
       $dispatch('init-run'); runDispatch = false;
     }"
   >
+    {% comment %} <div id="page-loader">
+      <img src="{{ 'purple_united_logo_D2C.png' | file_url }}" alt="Loading..." class="loader-logo">
+    </div> {% endcomment %}
 
+       <div id="page-loader">
+  {% if settings.loader_image %}
+    <img src="{{ settings.loader_image | image_url }}" alt="Loading..." class="loader-logo">
+  {% endif %}
+</div>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL5SLQM8"
@@ -212,22 +199,18 @@
         <script src="{{ 'tab-attention.js' | asset_url }}" defer></script>
       {%- endif -%}
     {%- endif -%}
-    {% unless template.name == 'index' %}
-      {%- if settings.page_transition -%}
-        <script>
-          window.addEventListener('DOMContentLoaded', (event) => {
-            const transitionEl = document.getElementById('page-loader');
-            transitionEl.style.opacity = '0';
-            setTimeout(() => {
-              transitionEl.remove();
-            }, 100); 
-          });
-        </script>
-        <div id="page-loader"  class="transition-all ease-in-out duration-1000 opacity-100 fixed top-0 left-0 w-full h-full bg-black z-[9999]">
-            <img src="{{ settings.loader_image | image_url }}" alt="Loading..." class="loader-logo" >
-        </div>
-      {%- endif -%}
-    {% endunless %}
+    {%- if settings.page_transition -%}
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+          const transitionEl = document.getElementById('x-page-transition');
+          transitionEl.style.opacity = '0';
+          setTimeout(() => {
+            transitionEl.remove();
+          }, 1000); 
+        });
+      </script>
+      <div id="x-page-transition" class="transition-all ease-in-out duration-1000 opacity-100 fixed top-0 left-0 w-full h-full bg-black z-[9999]"></div>
+    {%- endif -%}
     <div class="main-container flex flex-col min-h-screen relative">
       <a class="skip-to-content absolute -z-10 button button-solid hidden lg:block pt-2.5 pb-2.5 pl-6 pr-6 lg:pt-3 lg:pb-3 mt-0.5 ml-0.5 leading-normal justify-center cursor-pointer focus-visible:z-60" href="#MainContent">
         {{ 'accessibility.skip_to_text' | t }}
@@ -306,20 +289,12 @@
       {% if settings.enable_save_share_cart %}
         <script src="{{ 'share-cart.js' | asset_url }}" defer></script>
       {% endif %}
-      {% comment %} commented below code and added new code below it {% endcomment %}
-      {% comment %} {% unless settings.show_minicart %}
+      {% unless settings.show_minicart %}
         <script src="{{ 'cart-noti.js' | asset_url }}" defer></script>
-      {% endunless %} {% endcomment %}
-       {% if template.name == 'cart' or template.name == 'product' %}
-        {% unless settings.show_minicart %}
-          <script src="{{ 'cart-noti.js' | asset_url }}" defer></script>
-        {% endunless %}
-      {% endif %}
-      {% comment %} till here {% endcomment %}
-      
-      {% comment %} {%- if settings.enable_featured_discount -%}
+      {% endunless %}
+      {%- if settings.enable_featured_discount -%}
         <script src="{{ 'coupon-code.js' | asset_url }}" defer></script>
-      {%- endif -%} {% endcomment %}
+      {%- endif -%}
       {%- if settings.show_cart_custom_field and settings.cart_custom_field_label != blank -%}
         <script src="{{ 'cart-fields.js' | asset_url }}" defer></script>
       {%- endif -%}
@@ -329,25 +304,12 @@
       {% if settings.enable_upsell_minicart %}
         <script src="{{ 'product-recommendations.js' | asset_url }}" defer></script>
       {% endif %}
-      {% comment %} {%- if settings.enable_estimate_shipping -%}
+      {%- if settings.enable_estimate_shipping -%}
         <script src="{{ 'estimate-shipping-rate.js' | asset_url }}" defer></script>
-      {%- endif -%} {% endcomment %}
-      {% comment %} {%- if settings.enable_shipping_insurance -%}
+      {%- endif -%}
+      {%- if settings.enable_shipping_insurance -%}
         <script src="{{ 'product-insurance.js' | asset_url }}" defer></script>
-      {%- endif -%} {% endcomment %}
-
-      {% if template.name == 'cart' %}
-        {% if settings.enable_featured_discount %}
-          <script src="{{ 'coupon-code.js' | asset_url }}" defer></script>
-        {% endif %}
-        {% if settings.enable_estimate_shipping %}
-          <script src="{{ 'estimate-shipping-rate.js' | asset_url }}" defer></script>
-        {% endif %}
-        {% if settings.enable_shipping_insurance %}
-          <script src="{{ 'product-insurance.js' | asset_url }}" defer></script>
-        {% endif %}
-      {% endif %}
-
+      {%- endif -%}
       {% if settings.swatches_type == 'both_text_and_color' or settings.swatches_type == 'color' or settings.swatches_type == 'text' %}
         <script src="{{ 'preview-color-swatches.js' | asset_url }}" defer></script>
       {%- endif -%}
@@ -360,13 +322,7 @@
       {%- endif -%}
       <script src="{{ 'theme.js' | asset_url }}" defer></script>
       <script src="{{ 'vendors.js' | asset_url }}" defer></script>
-
-      {% comment %} <script src="{{ 'variant-select-card.js' | asset_url }}" defer></script> {% endcomment %}
-       {% comment %} added this only to run in product and collection pages {% endcomment %}
-       {% if template.name == 'product' or template.name == 'collection' %}
-        <script src="{{ 'variant-select-card.js' | asset_url }}" defer></script>
-      {% endif %}
-      {% comment %} till here {% endcomment %}
+      <script src="{{ 'variant-select-card.js' | asset_url }}" defer></script>
       <script>
         window.addEventListener("load", (event) => {
           deferScriptLoad('instant.page', '{{ 'instant.page.v5.1.1.js' | asset_url }}', () => {}, true);
@@ -425,5 +381,22 @@
       {% endfor %}
     </div>
 {% render 'swym-custom' %}
+
+<link rel="stylesheet" href="https://cdn.shopify.com/extensions/019b6956-c54d-7d76-b87d-f4192c98f939/optretail-crm-loyalty-dev-85/assets/optcult-promo.css">
+<script type="text/javascript" src="https://cdn.shopify.com/extensions/019b6956-c54d-7d76-b87d-f4192c98f939/optretail-crm-loyalty-dev-85/assets/optcult-jquery.js" async></script>
+<script>
+function OptDocumentReady(callback){
+    /* see if DOM is already available */
+    if(typeof spJQuery == 'undefined' || typeof spJQuery == 'undefined'){  
+        setTimeout(function(){
+            OptDocumentReady(callback)
+        }, 1000);
+    }else{
+        setTimeout(callback, 10);
+    }
+}
+</script>
+<script type="text/javascript" src="https://eshop.optretail.com/extension-live/optculture-loyalty/optcult-promo_purpleunited.js?x=1.0.12" async></script> 
+
   </body>
 </html>

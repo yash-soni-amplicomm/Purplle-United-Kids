@@ -1,3 +1,37 @@
+
+<style>
+  .ol-form {
+      max-width: 570px !important;
+      margin: 0 auto .625rem !important;
+  }
+
+  .ol-form .ol-form-field input {
+      padding: .9rem 2rem !important;
+      border-radius: 6px;
+      border: solid 1px rgb(208, 208, 208) !important;
+      box-shadow: unset !important;
+      font-size: .9625rem !important;
+      line-height: 1.375 !important;
+  }
+
+  .ol-form .ol-form-field input[type="number"]::-webkit-input-placeholder {
+      font-size: .9rem;
+      line-height: 1.375;
+      letter-spacing: 0px; 
+      font-family: 'GTStandard-M';
+      color: rgb(var(--colors-text));
+      font-weight:400;
+  }
+
+  .ol-form .ol-form-field input[type="number"]::-moz-placeholder {
+      font-size: .9rem;
+      line-height: 1.375;
+      letter-spacing: 0px; 
+      font-family: 'GTStandard-M';
+      color: rgb(var(--colors-text));
+      font-weight:400;
+  }
+</style>
 {%  liquid 
 if settings.lang_direction contains request.locale.iso_code
   assign is_rtl = true
@@ -92,6 +126,24 @@ endif
         {{ 'customer.register.email' | t }}
       </label>
     </div>
+    <div class="relative max-w-[570px] mr-auto ml-auto mb-2.5">
+      <input
+        id="RegisterForm-phone"
+        class="w-full input border px-5 lg:px-8 pt-5 pb-1 md:pt-5 md:pb-2 focus:outline-none focus:border-current bg-transparent placeholder:opacity-0{% if form.errors contains 'email' %} border-[rgba(var(--color-error))] focus:border-[rgba(var(--color-error))]{% endif %}{% if settings.edges_type == 'rounded_corners' %} !rounded-md{% else %} rounded-none{% endif %}{% if is_rtl %} text-right{% endif %}"
+        type="number"
+        name="customer[note][phone]"
+        aria-required="true"
+        required="required" 
+        
+        placeholder="Mobile Number"
+      >
+      <label
+        for="RegisterForm-phone"
+        class="absolute top-1/2{% if is_rtl %} right-5 lg:right-8{% else %} left-5 lg:left-8{% endif %} -translate-y-1/2 input_focus:text-xs input_focus:top-3.5 input_not_empty:top-3.5 input_not_empty:text-xs"
+      >
+        Mobile Number
+      </label>
+    </div>
     {%- if form.errors contains 'email' -%}
       <span id="RegisterForm-email-error" class="block w-full max-w-[570px] mr-auto ml-auto mb-2.5 text-normal">
         {% render 'icon-alls', icon: 'icon-error', enable_customer_page: true %}
@@ -119,12 +171,26 @@ endif
         {{ 'customer.register.password' | t }}
       </label>
     </div>
+    
     {%- if form.errors contains 'password' -%}
       <span id="RegisterForm-password-error" class="block w-full max-w-[570px] mr-auto ml-auto mb-2.5 text-normal">
         {% render 'icon-alls', icon: 'icon-error', enable_customer_page: true %}
         <span class="ml-0.5">{{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.</span>
       </span>
     {%- endif -%}
+    <div class="max-w-[570px] mr-auto ml-auto mb-4 mt-4">
+      <label class="flex items-center gap-3 cursor-pointer">
+         <input
+        type="checkbox"
+        name="customer[note][opt_join_reward]"
+        value="yes"
+        checked
+      >
+      Yes, I want the Join Reward
+      </label>
+      
+    </div>
+
     <div class="w-full flex justify-center">
       <button class="button button-solid w-full block mr-auto ml-auto max-w-[570px] pt-2.5 pb-2.5 md:pt-3 md:pb-3 mt-8 leading-normal">
         {% assign button_label = 'customer.register.submit' | t %}
@@ -135,6 +201,92 @@ endif
     </div>
   {%- endform -%}
 </div>
+
+{% comment %} <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector('form[action*="/account"]');
+  if (!form) return;
+
+  form.addEventListener("submit", function () {
+    try {
+      const firstName = document.getElementById("RegisterForm-FirstName")?.value || "";
+      const lastName = document.getElementById("RegisterForm-LastName")?.value || "";
+      const email = document.getElementById("RegisterForm-email")?.value || "";
+      const phone = document.getElementById("RegisterForm-phone")?.value || "";
+      const password = document.getElementById("RegisterForm-password")?.value || "";
+
+      const enrollCustomer = document.getElementById("join-loyalty")?.checked ? "Y" : "N";
+
+      const payload = {
+        header: {
+          contactSource: "eComm",
+          contactList: "Shopify",
+          sourceType: "eComm",
+          requestId: Date.now(),
+          requestDate: new Date().toISOString().slice(0, 19).replace("T", " ")
+        },
+        customer: {
+          loyalty: {
+            enrollCustomer: enrollCustomer
+          },
+          password: password,
+          homeStore: "99",
+          customerId: "",
+          instanceId: "",
+          membershipNumber: "",
+          firstName: firstName,
+          lastName: lastName,
+          phone: phone,
+          emailAddress: email,
+          postal: null,
+          birthday: "",
+          anniversary: "",
+          gender: "",
+          addressLine1: null,
+          addressLine2: null,
+          subsidiaryNumber: "1",
+          city: "",
+          state: "",
+          country: "India",
+          creationDate: new Date().toISOString().slice(0, 19).replace("T", " "),
+          UDF1: "",
+          UDF2: "",
+          UDF3: "",
+          UDF4: "",
+          UDF5: "",
+          UDF6: "",
+          UDF7: "",
+          UDF8: "",
+          UDF9: "",
+          UDF10: "",
+          UDF11: "",
+          UDF12: "",
+          UDF13: "",
+          UDF14: "",
+          UDF15: ""
+        },
+        user: {
+          userName: "PurpleUnitedKids",
+          organizationId: "PurpleUnitedKids",
+          token: "HJTU4013BOF7N8K4"
+        }
+      };
+
+      fetch("https://app.optculture.com/subscriber/updateContactsOPT.mqrm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      }).catch(() => {
+      });
+
+    } catch (e) {
+    }
+  });
+});
+</script> {% endcomment %}
+
 {% schema %}
 {
   "name": "t:sections.main-register.name",

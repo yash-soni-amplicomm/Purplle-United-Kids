@@ -12,12 +12,64 @@
     "4c9e1af5-c4c0-48cf-b771-49029eedd24f": {
       "type": "slideshow",
       "blocks": {
-        "22d0c1f1-c698-47cb-9ca4-ee29a140da77": {
+        "template--20740642505005__4c9e1af5-c4c0-48cf-b771-49029eedd24f-slide-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Artboard_5_331321f0-82f9-46c6-866d-541e3c45c73b.jpg",
-            "image_mobile": "shopify://shop_images/Artboard_5_331321f0-82f9-46c6-866d-541e3c45c73b.jpg",
-            "image_link": "shopify://collections/the-denim-collection",
+            "image": "shopify://shop_images/banner_1.jpg",
+            "image_mobile": "shopify://shop_images/front_banner_mobile.jpg",
+            "image_link": "shopify://collections/the-party-edit",
+            "open_new_window_image": false,
+            "overlay_opacity": 0,
+            "video_url": "",
+            "video_alt_text": "",
+            "show_sound_control": false,
+            "enable_video_autoplay": false,
+            "mobile_video_url": "",
+            "enable_bakground": false,
+            "subheading": "",
+            "subheading_size": 100,
+            "heading": "",
+            "highlight_type": "font_highlight",
+            "heading_size": 160,
+            "heading_tag": "h2",
+            "text": "",
+            "button_label_1": "",
+            "button_link_1": "",
+            "open_new_window_button": false,
+            "show_button_style_1": "secondary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "open_new_window_button_2": false,
+            "show_button_style_2": "primary",
+            "content_alignment": "middle-right",
+            "custom_horizontal": 5,
+            "custom_vertical": 59,
+            "alignment": "left",
+            "text_product": "",
+            "list_products": [],
+            "show_rating": false,
+            "open_new_window_product": false,
+            "content_background_color": "rgba(0,0,0,0)",
+            "color_text": "rgba(0,0,0,0)",
+            "color_button": "rgba(0,0,0,0)",
+            "color_text_button": "rgba(0,0,0,0)",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)",
+            "color_heading_highlight_light": "rgba(0,0,0,0)",
+            "color_product_card_background": "rgba(0,0,0,0)",
+            "color_product_card_text": "rgba(0,0,0,0)"
+          }
+        },
+        "22d0c1f1-c698-47cb-9ca4-ee29a140da77": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Denim_2.jpg",
+            "image_mobile": "shopify://shop_images/Denim_6_c8425129-5ac2-4525-a61e-386d7e272154.jpg",
+            "image_link": "shopify://collections/offer",
             "open_new_window_image": false,
             "overlay_opacity": 10,
             "video_url": "",
@@ -43,7 +95,7 @@
             "show_button_style_2": "primary",
             "content_alignment": "bottom-center",
             "custom_horizontal": 64,
-            "custom_vertical": 45,
+            "custom_vertical": 50,
             "alignment": "center",
             "text_product": "Check out our products:",
             "list_products": [],
@@ -66,9 +118,9 @@
         "template--20740642505005__4c9e1af5-c4c0-48cf-b771-49029eedd24f-slide-2": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home_page_banner_1_839f86e7-0294-410e-b5a2-244a34add5e7.webp",
-            "image_mobile": "shopify://shop_images/home_page_banner_1_839f86e7-0294-410e-b5a2-244a34add5e7.webp",
-            "image_link": "shopify://collections/flat-70-off",
+            "image": "shopify://shop_images/Denim_banner_1.jpg",
+            "image_mobile": "shopify://shop_images/denim_kids_banner_mobile.jpg",
+            "image_link": "shopify://collections/the-denim-edit",
             "open_new_window_image": false,
             "overlay_opacity": 0,
             "video_url": "",
@@ -117,9 +169,9 @@
         "slide_fpdQkw": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Orange_Beige_Blue_Modern_Bold_Clothing_Sale_Banner_1_56745c93-5417-4495-834c-65f107f268b3.png",
-            "image_mobile": "shopify://shop_images/Orange_Beige_Blue_Modern_Bold_Clothing_Sale_Banner_1_56745c93-5417-4495-834c-65f107f268b3.png",
-            "image_link": "shopify://collections/flat-70-off-girls",
+            "image": "shopify://shop_images/banner_collection_page.jpg",
+            "image_mobile": "shopify://shop_images/toothless_8.jpg",
+            "image_link": "shopify://collections/step-into-shine",
             "open_new_window_image": false,
             "overlay_opacity": 0,
             "video_url": "",
@@ -165,40 +217,32 @@
             "color_product_card_text": "rgba(0,0,0,0)"
           }
         },
-        "template--20740642505005__4c9e1af5-c4c0-48cf-b771-49029eedd24f-slide-1": {
-          "type": "slide",
+        "three_fold_riJxUQ": {
+          "type": "three_fold",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Grey_and_White_Simple_Launch_Fashion_Banner_105da273-c04f-44ae-b9bf-d1d2ce2dbf92.png",
-            "image_mobile": "shopify://shop_images/Grey_and_White_Simple_Launch_Fashion_Banner_105da273-c04f-44ae-b9bf-d1d2ce2dbf92.png",
-            "image_link": "shopify://collections/flat-70-off-boys",
+            "image_link": "",
             "open_new_window_image": false,
-            "overlay_opacity": 0,
-            "video_url": "",
-            "video_alt_text": "",
-            "show_sound_control": false,
-            "enable_video_autoplay": false,
-            "mobile_video_url": "",
-            "enable_bakground": false,
-            "subheading": "",
+            "image_link_2": "",
+            "open_new_window_image_2": false,
+            "subheading": "Slide subheading",
             "subheading_size": 100,
-            "heading": "",
+            "heading": "Slide [title]",
             "highlight_type": "font_highlight",
             "heading_size": 160,
             "heading_tag": "h2",
-            "text": "",
-            "button_label_1": "",
+            "text": "<p>Tell your brand's story through images</p>",
+            "button_label_1": "Button label",
             "button_link_1": "",
-            "open_new_window_button": false,
+            "open_new_window_button": true,
             "show_button_style_1": "secondary",
-            "button_label_2": "",
+            "button_label_2": "Button label",
             "button_link_2": "",
-            "open_new_window_button_2": false,
+            "open_new_window_button_2": true,
             "show_button_style_2": "primary",
-            "content_alignment": "middle-right",
-            "custom_horizontal": 5,
-            "custom_vertical": 59,
-            "alignment": "left",
-            "text_product": "",
+            "content_alignment": "middle-center",
+            "alignment": "center",
+            "text_product": "Check out our products:",
             "list_products": [],
             "show_rating": false,
             "open_new_window_product": false,
@@ -218,10 +262,11 @@
         }
       },
       "block_order": [
+        "template--20740642505005__4c9e1af5-c4c0-48cf-b771-49029eedd24f-slide-1",
         "22d0c1f1-c698-47cb-9ca4-ee29a140da77",
         "template--20740642505005__4c9e1af5-c4c0-48cf-b771-49029eedd24f-slide-2",
         "slide_fpdQkw",
-        "template--20740642505005__4c9e1af5-c4c0-48cf-b771-49029eedd24f-slide-1"
+        "three_fold_riJxUQ"
       ],
       "custom_css": [],
       "settings": {
@@ -304,7 +349,7 @@
         "text_XgYnXw": {
           "type": "text",
           "settings": {
-            "text": "Premium styles crafted for little icons",
+            "text": "PREMIUM BABY COLLECTION",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -331,7 +376,7 @@
         "text_kCw67P": {
           "type": "text",
           "settings": {
-            "text": "KIDS",
+            "text": "BABY & KIDS",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -358,7 +403,7 @@
         "text_yEmkwV": {
           "type": "text",
           "settings": {
-            "text": "Upto 50% Off",
+            "text": "50% OFF",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -444,6 +489,32 @@
       "name": "Two Image Banners",
       "settings": {}
     },
+    "full_width_double_banner_nNtL9p": {
+      "type": "full-width-double-banner",
+      "blocks": {
+        "banner_dcNNri": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-08-20_at_3.06.58_PM_1.jpg",
+            "link": "shopify://collections/ready-to-play-infant"
+          }
+        },
+        "banner_MPtPkL": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-08-20_at_3.07.17_PM_1.jpg",
+            "link": "shopify://collections/step-into-shine-infant"
+          }
+        }
+      },
+      "block_order": [
+        "banner_dcNNri",
+        "banner_MPtPkL"
+      ],
+      "disabled": true,
+      "name": "Full Width Double Banner",
+      "settings": {}
+    },
     "promotion_banner_dtipYm": {
       "type": "promotion-banner",
       "custom_css": [
@@ -501,7 +572,7 @@
         "tab_G7xze8": {
           "type": "tab",
           "settings": {
-            "collection": "boys-footwear",
+            "collection": "slip-into-fun-boys",
             "custom_tab_label": "Boys",
             "viewall": true
           }
@@ -521,7 +592,6 @@
         "banner_image": "shopify://shop_images/toothless_home_45a3bb0c-0f94-4d03-8bfe-5228b4099e81.jpg",
         "banner_image_mobile": "shopify://shop_images/toothless_home_e3422bc3-7a63-491a-90fc-99a3b1243fd6.jpg",
         "title": "",
-        "section_collection": "slip-into-fun",
         "background_color": "#ffffff",
         "heading_size": 26,
         "text_color": "#111111",
@@ -558,6 +628,24 @@
             "collection": "boys-jackets"
           }
         },
+        "featured_collection_XJYh6h": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "boys-denim-3"
+          }
+        },
+        "featured_collection_NrKTtJ": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "boys-trousers"
+          }
+        },
+        "featured_collection_nRKnAE": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "boys-lowers"
+          }
+        },
         "featured_collection_AgmTN4": {
           "type": "featured_collection",
           "settings": {
@@ -580,24 +668,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "boys-shorts"
-          }
-        },
-        "featured_collection_nRKnAE": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "boys-lowers"
-          }
-        },
-        "featured_collection_XJYh6h": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "boys-denim-3"
-          }
-        },
-        "featured_collection_NrKTtJ": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "boys-trousers"
           }
         },
         "featured_collection_kztTak": {
@@ -629,13 +699,13 @@
         "featured_collection_GByLzi",
         "featured_collection_feKk9U",
         "featured_collection_pXaRN6",
+        "featured_collection_XJYh6h",
+        "featured_collection_NrKTtJ",
+        "featured_collection_nRKnAE",
         "featured_collection_AgmTN4",
         "featured_collection_8xLajG",
         "featured_collection_EnzrNE",
         "featured_collection_ACwmF7",
-        "featured_collection_nRKnAE",
-        "featured_collection_XJYh6h",
-        "featured_collection_NrKTtJ",
         "featured_collection_kztTak",
         "featured_collection_cThABg",
         "featured_collection_6TJ4DY",
@@ -677,7 +747,7 @@
         "full_width": false,
         "padding_top": 28,
         "padding_bottom": 28,
-        "spacing_mobile": 15,
+        "spacing_mobile": 25,
         "show_section_divider_mobile": false,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0
@@ -776,22 +846,10 @@
             "collection": "girls-casual-shoes"
           }
         },
-        "featured_collection_RGnpPL": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "girls-sports-shoes"
-          }
-        },
         "featured_collection_Arg6bm": {
           "type": "featured_collection",
           "settings": {
             "collection": "girls-boots"
-          }
-        },
-        "featured_collection_ihNRVk": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "girls-sweater"
           }
         }
       },
@@ -811,9 +869,7 @@
         "featured_collection_7qtANE",
         "featured_collection_NVMmHF",
         "featured_collection_d8cGTc",
-        "featured_collection_RGnpPL",
-        "featured_collection_Arg6bm",
-        "featured_collection_ihNRVk"
+        "featured_collection_Arg6bm"
       ],
       "custom_css": [
         ".x-container-collection-list {padding: 10px 16px;}",
@@ -852,7 +908,7 @@
         "full_width": false,
         "padding_top": 28,
         "padding_bottom": 28,
-        "spacing_mobile": 15,
+        "spacing_mobile": 25,
         "show_section_divider_mobile": false,
         "padding_top_mobile": 28,
         "padding_bottom_mobile": 12
@@ -864,7 +920,7 @@
         "collection_wPRi3e": {
           "type": "collection",
           "settings": {
-            "collection": "best-seller",
+            "collection": "all-products-1",
             "show_description": true,
             "description": "",
             "number_of_lines_shown": "none",
@@ -913,7 +969,7 @@
         "collection_pG6JL6": {
           "type": "collection",
           "settings": {
-            "collection": "girls-best-seller",
+            "collection": "girls-1",
             "show_description": true,
             "description": "",
             "number_of_lines_shown": "none",
@@ -962,7 +1018,7 @@
         "collection_M67DjH": {
           "type": "collection",
           "settings": {
-            "collection": "boys-best-seller",
+            "collection": "infant",
             "show_description": true,
             "description": "",
             "number_of_lines_shown": "none",
@@ -1109,10 +1165,10 @@
           "type": "card",
           "settings": {
             "heading": "T-shirt",
-            "subtitle": "",
-            "price": "650",
+            "subtitle": "Under",
+            "price": "799",
             "button_label": "Shop Now",
-            "button_link": "shopify://collections/t-shirts-shirts-polos",
+            "button_link": "shopify://collections/t-shirts",
             "background_image": "shopify://shop_images/4aa93aecf6531be321285a870b98bf6d83f1c252_3.png"
           }
         },
@@ -1120,10 +1176,10 @@
           "type": "card",
           "settings": {
             "heading": "Clogs",
-            "subtitle": "",
-            "price": "459",
+            "subtitle": "Under",
+            "price": "799",
             "button_label": "Shop Now",
-            "button_link": "shopify://collections/clogs-1",
+            "button_link": "shopify://collections/clogs",
             "background_image": "shopify://shop_images/4aa93aecf6531be321285a870b98bf6d83f1c252_5.png"
           }
         },
@@ -1131,8 +1187,8 @@
           "type": "card",
           "settings": {
             "heading": "Denim",
-            "subtitle": "",
-            "price": "950",
+            "subtitle": "Under",
+            "price": "1899",
             "button_label": "Shop Now",
             "button_link": "shopify://collections/denim"
           }
@@ -1140,22 +1196,22 @@
         "card_nCbNKU": {
           "type": "card",
           "settings": {
-            "heading": "Trousers",
-            "subtitle": "",
-            "price": "800",
+            "heading": "Ballerinas",
+            "subtitle": "Under",
+            "price": "999",
             "button_label": "Shop Now",
-            "button_link": "shopify://collections/trousers-1",
+            "button_link": "shopify://collections/ballerinas",
             "background_image": "shopify://shop_images/4aa93aecf6531be321285a870b98bf6d83f1c252_6.png"
           }
         },
         "card_D7Nm4d": {
           "type": "card",
           "settings": {
-            "heading": "Boots",
-            "subtitle": "",
-            "price": "949",
+            "heading": "Casual Shoes",
+            "subtitle": "Under",
+            "price": "1299",
             "button_label": "Shop Now",
-            "button_link": "shopify://collections/boots",
+            "button_link": "shopify://collections/all-shoes",
             "background_image": "shopify://shop_images/4aa93aecf6531be321285a870b98bf6d83f1c252_7.png"
           }
         }
@@ -1221,7 +1277,7 @@
         "tab_wTqm3K": {
           "type": "tab",
           "settings": {
-            "collection": "denim-girls",
+            "collection": "girls-denim-2",
             "custom_tab_label": "Girls",
             "viewall": true
           }
@@ -1229,7 +1285,7 @@
         "tab_6WmhfP": {
           "type": "tab",
           "settings": {
-            "collection": "boys-denim",
+            "collection": "boys-denim-2",
             "custom_tab_label": "Boys",
             "viewall": true
           }
@@ -1249,7 +1305,6 @@
         "banner_image": "shopify://shop_images/purple_united_1_6ede8f12-2772-4d6d-a2bb-e4c14751e707.jpg",
         "banner_image_mobile": "shopify://shop_images/purple_united_1_6ede8f12-2772-4d6d-a2bb-e4c14751e707.jpg",
         "title": "",
-        "section_collection": "denim",
         "background_color": "#ffffff",
         "heading_size": 26,
         "text_color": "#111111",
@@ -1265,13 +1320,45 @@
         "show_quick_add": true
       }
     },
+    "promotion_banner_Ua7tzq": {
+      "type": "promotion-banner",
+      "disabled": true,
+      "name": "t:sections.promotion-banner.name",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/Website_Banner_New_1.jpg",
+        "image_mobile": "shopify://shop_images/Website_Banner_-_Mobile_294ff561-cfc6-413f-8ea6-305c889d04ab.jpg",
+        "image_link": "shopify://collections/all-products",
+        "open_new_window": false,
+        "image_overlay_opacity": 0,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": true,
+        "rounded_corner_image": false,
+        "desktop_height": "natural",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": true,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "natural",
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 12
+      }
+    },
     "featured_collection_d7Cz4a": {
       "type": "featured-collection",
       "blocks": {
         "collection_VFXdyH": {
           "type": "collection",
           "settings": {
-            "collection": "top-picks",
+            "collection": "all-products-1",
             "show_description": true,
             "description": "",
             "number_of_lines_shown": "none",
@@ -1319,7 +1406,6 @@
         },
         "collection_TVC7pp": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "infant",
             "show_description": true,
@@ -1369,7 +1455,6 @@
         },
         "collection_GjbXHN": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "girls-1",
             "show_description": true,
@@ -1901,8 +1986,110 @@
         "spacing_mobile": 9,
         "full_width_mobile": false,
         "show_section_divider_mobile": false,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 0
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
+    "promotion_banner_ijXatP": {
+      "type": "promotion-banner",
+      "blocks": {
+        "image_banner_HYLK68": {
+          "type": "image_banner",
+          "disabled": true,
+          "settings": {
+            "heading": "",
+            "highlight_type": "underline",
+            "heading_size": 140,
+            "heading_tag": "h2",
+            "subheading": "",
+            "subheading_size": 100,
+            "text": "Hurry up! Get the best deal at best price.",
+            "text_size": 100,
+            "content_box_type": "square",
+            "add_frame": false,
+            "color_content_box_light": "rgba(0,0,0,0)",
+            "color_content_box_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "countdown_timer_MNe8Kp": {
+          "type": "countdown_timer",
+          "disabled": true,
+          "settings": {
+            "countdown_type": "standard",
+            "countdown_interval": 30,
+            "interval_unit": "day",
+            "timezone": "-4",
+            "end_year": 2025,
+            "end_month": "6",
+            "end_day": "27",
+            "end_hour": "0",
+            "end_minute": "45",
+            "timer_style": "square",
+            "border_style": "border",
+            "overlay_opacity": 100,
+            "timer_color_countdown": "#ffffff",
+            "text_color_countdown": "#ffffff",
+            "bg_color_countdown": "rgba(0,0,0,0)",
+            "spacing_col": 12,
+            "spacing_col_mobile": 8
+          }
+        },
+        "buttons_EyUERK": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label": "View Collection",
+            "button_link": "",
+            "open_new_window_button": false,
+            "show_button_style_1": "primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "open_new_window_button_2": false,
+            "show_button_style_2": "primary",
+            "color_button": "#ffffff",
+            "color_text_button": "#101010",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_banner_HYLK68",
+        "countdown_timer_MNe8Kp",
+        "buttons_EyUERK"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "name": "t:sections.promotion-banner.name",
+      "settings": {
+        "heading": "Promotion Banner",
+        "image": "shopify://shop_images/Denim_30.jpg",
+        "image_mobile": "shopify://shop_images/flash_sale_mobile.jpg",
+        "image_link": "shopify://collections/purple-united",
+        "open_new_window": false,
+        "image_overlay_opacity": 10,
+        "content_position": "center",
+        "content_horizontal": 50,
+        "content_vertical": 50,
+        "position_content_mobile": "center",
+        "content_alignment": "center",
+        "show_hero": false,
+        "full_width": true,
+        "padding_full_width": false,
+        "adapt_corners_desktop": false,
+        "rounded_corner_image": false,
+        "desktop_height": "natural",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "full_width_mobile": true,
+        "adapt_corners_mobile": false,
+        "rounded_corner_image_mobile": false,
+        "mobile_height": "natural",
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 12
       }
     },
     "collection_list_jQAWia": {
@@ -1999,6 +2186,7 @@
     },
     "products_bundle_rzdqQU": {
       "type": "products-bundle",
+      "disabled": true,
       "custom_css": [
         ".inline-flex.flex-wrap.justify-center.gap-x-1\\.5.ml-0\\.5.mr-0\\.5 {max-height: 100px; overflow-y: auto; overflow-x: hidden; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; padding-right: 4px;}",
         ".custom-bundle-button-style input:checked + .size-scroll-wrapper label {background: var( --Purple-Grad, linear-gradient(180deg, #5d2f91 0%, #1c0e2b 142.55%) ); color: rgb(var(--background-color), 1);}"
@@ -2017,23 +2205,15 @@
         "discount_value_label_text": "",
         "button_atb_label": "Add bundle",
         "collection": "",
-        "product_to_show": 4,
+        "product_to_show": 3,
         "products": [
-          "boys-beige-twill-cargo-trousers",
-          "girls-metallic-antique-high-top-boots",
-          "kids-high-top-blue-canvas-shoes-with-lace-up-closure",
-          "boys-blue-twill-cargo-trousers",
-          "boys-dark-blue-twill-cargo-trousers",
-          "boys-olive-cargo-trousers-with-elasticated-waist",
-          "boys-olive-twill-cargo-trousers",
-          "girls-metallic-gold-high-top-boots",
-          "girls-metallic-rose-gold-high-top-boots",
-          "girls-metallic-silver-high-top-boots",
-          "kids-high-top-maroon-canvas-shoes-with-lace-up-closure"
+          "boys-white-blue-gradient-lace-up-sports-shoes",
+          "girls-gold-ballerinas-with-floral-detail",
+          "girls-colourful-printed-flip-flops-with-anti-skid-sole"
         ],
         "show_highlighted_features": false,
         "each_product_can_added_to_bundle_once": true,
-        "minimum_items": 4,
+        "minimum_items": 3,
         "discount_type": "percentage",
         "discount_value": "",
         "apply_discount_once_per_order": false,
@@ -2045,7 +2225,7 @@
         "summary_layout": "vertical",
         "summary_position": "right",
         "bundler_heading": "Bundle Contents",
-        "bundler_text": "<p>Add at least 4 items to get 10% Off</p>",
+        "bundler_text": "<p>Add at least 3 items to get 33% Off</p>",
         "background_color_light": "#ffffff",
         "title_color": "#5d2f91",
         "text_light": "#5d2f91",
@@ -2081,14 +2261,70 @@
       "settings": {
         "bg_image": "shopify://shop_images/17a7607a9664a363ddb99c7e068c0e5b39f81674_1.png",
         "title": "Discover trendy kids’ clothing and footwear just around the corner.",
-        "input_link": "https://purpleunited.com/a/store-locator/list",
+        "input_link": "https://purpleunitedkids.myshopify.com/apps/cws-store-locator",
         "input_button_text": "Find your Nearest Store",
         "margin_top_mobile": 20,
         "margin_bottom_mobile": 20,
         "padding_mobile": 36,
-        "margin_top": 20,
-        "margin_bottom": 20,
-        "padding": 20
+        "margin_top": 40,
+        "margin_bottom": 40,
+        "padding": 36
+      }
+    },
+    "featured_blog_mmpCGy": {
+      "type": "featured-blog",
+      "disabled": true,
+      "custom_css": [
+        ".x-container-featured-blog {padding: 0px 24px;}",
+        ".x-block-posts {padding: 0px;}",
+        ".x-block-header {padding: 0px; margin: auto;}",
+        ".splide__track {padding-top: 31px; padding-bottom: 36px;}",
+        ".article-card {border: 1px solid black; border-radius: 24px;}",
+        ".text-left {padding: 0px 10px 0px 10px;}",
+        "@media (max-width: 768px) {.text-left {padding: 0px 10px 0px 10px; }}"
+      ],
+      "name": "t:sections.featured-blog.name",
+      "settings": {
+        "heading": "Our Blogs",
+        "highlight_type": "underline",
+        "heading_size": 100,
+        "heading_tag": "h2",
+        "heading_alignment": "center",
+        "subheading": "",
+        "blog": "related-blogs",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "show_show_more": false,
+        "show_view_all": false,
+        "view_all_position": "top",
+        "title_size": 140,
+        "content_alignment": "left",
+        "show_image": true,
+        "image_ratio": "56",
+        "item_secondary_background": false,
+        "show_author": false,
+        "show_name": false,
+        "show_date": true,
+        "show_excerpt": true,
+        "show_tag": true,
+        "show_comment_counts": true,
+        "show_read_more": true,
+        "button_read_more_label": "Read more",
+        "enable_desktop_slider": false,
+        "swiper_on_mobile": true,
+        "enable_arrow_mobile": false,
+        "auto_play": true,
+        "change_slides_speed": 5,
+        "full_width": false,
+        "spacing": 24,
+        "show_section_divider": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "columns_mobile": "1",
+        "spacing_mobile": 28,
+        "show_section_divider_mobile": false,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
       }
     },
     "17563619705084adeb": {
@@ -2200,6 +2436,7 @@
     "grid_view_CpcA9Q",
     "scrolling_banner_BB8zDw",
     "banner_block_HxR3UX",
+    "full_width_double_banner_nNtL9p",
     "promotion_banner_dtipYm",
     "product_list_slider_KYXzzt",
     "collection_list_fYjCfF",
@@ -2209,12 +2446,15 @@
     "budget_buy_section_nKx3XW",
     "promotion_banner_7jNKBT",
     "product_list_slider_gUUDrW",
+    "promotion_banner_Ua7tzq",
     "featured_collection_d7Cz4a",
     "media_gallery_B3NkJH",
     "featured_collection_h9zfGb",
+    "promotion_banner_ijXatP",
     "collection_list_jQAWia",
     "products_bundle_rzdqQU",
     "store_finder_bbLCEK",
+    "featured_blog_mmpCGy",
     "17563619705084adeb",
     "products_features_card_rgxGmH"
   ]

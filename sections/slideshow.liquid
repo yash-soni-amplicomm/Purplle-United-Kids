@@ -724,7 +724,6 @@
                   <div x-intersect.half="effect = true" x-intersect:leave.margin.-20px="effect = false" class="absolute top-0 left-0 w-full h-full hidden active-slide-fade{% if forloop.first %} active-slide-fade-first{% endif %}">
                   </div>
                 {% endif %}
-                {% comment %} worked from here {% endcomment %}
                 <div class="{% if section.settings.show_content_below_image %}h-fit md:h-full{% else %}h-full{% endif %} md:w-3/5 relative overflow-hidden">
                   <div :class="effect && 'active'" class="w-full {% unless section.settings.show_content_below_image %}absolute top-0 left-0 {% endunless %} h-full md:absolute md:top-0 md:left-0 z-0 animate_transition_slide__image">
                     {%- if block.settings.image == blank -%}
@@ -740,19 +739,22 @@
                               srcset="{{ image_url_mobile | image_url: width: 375 }} 375w,
                                 {{ image_url_mobile | image_url: width: 450 }} 450w,
                                 {{ image_url_mobile | image_url: width: 750 }} 750w,
-                                {{ image_url_mobile | image_url: width: 900 }} 900w"
+                                {{ image_url_mobile | image_url: width: 900 }} 900w,
+                                {{ image_url_mobile | image_url: width: 1100 }} 1100w,
+                                {{ image_url_mobile | image_url: width: 1500 }} 1500w"
                               media="(max-width: 767px)"
                               width="{{ image_url_mobile.width }}"
                               height="{{ image_url_mobile.height }}"
                             >
                             <img
                               srcset="{{ block.settings.image | image_url: width: 750 }} 750w,
-                                {{ block.settings.image | image_url: width: 900 }} 900w,
-                                {{ block.settings.image | image_url: width: 1100 }} 1100w,
-                                {{ block.settings.image | image_url: width: 1500 }} 1500w,
-                                {{ block.settings.image | image_url: width: 1920 }} 1920w,
-                                {{ block.settings.image | image_url: width: 2400 }} 2400w,
-                                {{ block.settings.image | image_url: width: 3000 }} 3000w
+                                {{ block.settings.image | image_url: width: 600 }} 900w,
+                                {{ block.settings.image | image_url: width: 700 }} 1100w,
+                                {{ block.settings.image | image_url: width: 1000 }} 1500w,
+                                {{ block.settings.image | image_url: width: 1200 }} 1780w,
+                                {{ block.settings.image | image_url: width: 1300 }} 2000w,
+                                {{ block.settings.image | image_url: width: 1900 }} 3000w,
+                                {{ block.settings.image | image_url: width: 2400 }} 3840w"
                               {% unless section.settings.show_hero and forloop.first %}
                                 {% if settings.enable_lazy_loading_image %}
                                   loading="lazy"
@@ -765,7 +767,7 @@
                                 decoding="sync"
                               {% endunless %}
                               sizes="100vw"
-                              src="{{ block.settings.image | image_url: width: 1500 }}"
+                              src="{{ block.settings.image | image_url: width: 3840 }}"
                               alt="{{ block.settings.image.alt | escape }}"
                               class="object-cover h-full w-full image-{{ block.id }}"
                               width="{{ block.settings.image.width }}"
@@ -782,7 +784,9 @@
                         srcset="{{ block.settings.image_mobile | image_url: width: 375 }} 375w,
                         {{ block.settings.image_mobile | image_url: width: 450 }} 450w,
                         {{ block.settings.image_mobile | image_url: width: 750 }} 750w,
-                        {{ block.settings.image_mobile | image_url: width: 900 }} 900w"
+                        {{ block.settings.image_mobile | image_url: width: 900 }} 900w,
+                        {{ block.settings.image_mobile | image_url: width: 1100 }} 1100w,
+                        {{ block.settings.image_mobile | image_url: width: 1500 }} 1500w"
                         sizes="100vw"
                         src="{{ block.settings.image_mobile | image_url: width: 750 }}"
                         alt="{{ block.settings.image_mobile.alt | escape }}"
@@ -809,7 +813,6 @@
                     <a href="{{ block.settings.image_link }}"{% if block.settings.open_new_window_image %} target="_blank"{% endif %} class="absolute top-0 left-0 bottom-0 right-0 z-[19] opacity-0">{{ block.settings.image_link }}</a>
                   {% endif %}
                 </div>
-                {% comment %} till here {% endcomment %}
                 {%- assign alignment = block.settings.content_alignment | split: '-' -%}
                 {% style %}
                   .bg-full-{{ block.id }} {

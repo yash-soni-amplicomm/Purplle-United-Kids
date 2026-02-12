@@ -157,19 +157,19 @@
             }
           {%- endstyle %}
           <div class="flex items-center justify-between gap-4">
-          <div class="mob-header-count">
-          <p id="ProductCount_header" class="mb-2">
-            {%- if collection.products_count == collection.all_products_count -%}
-              {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
-            {%- else -%}
-              {{ 'products.facets.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}
-            {%- endif -%}
-          </p>
-           </div>
-          <div class="mb-2 mb-2 w-full md:w-auto">
-            {% render 'facetsplp', results: collection, enable_filtering: true, enable_sorting: true %}
+            <div class="mob-header-count">
+              <p id="ProductCount_header" class="mb-2">
+                {%- if collection.products_count == collection.all_products_count -%}
+                  {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+                {%- else -%}
+                  {{ 'products.facets.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}
+                {%- endif -%}
+              </p>
+            </div>
+            <div class="mb-2 mb-2 w-full md:w-auto">
+              {% render 'facetsplp', results: collection, enable_filtering: true, enable_sorting: true %}
+            </div> 
           </div>
-        </div>
         {%- endif -%}
         {%- paginate collection.products by products_per_page -%}
           <div class="relative" :class="listLayout ? 'list-layout' : 'grid-layout'">

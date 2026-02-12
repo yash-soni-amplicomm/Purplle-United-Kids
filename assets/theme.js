@@ -2136,3 +2136,26 @@ requestAnimationFrame(() => {
     })
   })
 })
+
+requestAnimationFrame(() => {
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('xDiscountTabs', {
+      active: 'shopify',
+
+      setTab(tab) {
+        this.active = tab;
+        const shopify = document.getElementById('shopify-default-discount-wrap');
+        const membership = document.getElementById('loyalty-cart-drawer');
+        if (!shopify || !membership) return;
+        
+        if (tab === 'shopify') {
+          shopify.style.display = 'block';
+          membership.style.display = 'none';
+        } else {
+          shopify.style.display = 'none';
+          membership.style.display = 'block';
+        }
+      }
+    });
+  });
+});

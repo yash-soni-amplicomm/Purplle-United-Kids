@@ -67,7 +67,7 @@
   class="recently-viewed-products pb-[{{ section.settings.padding_bottom_mobile }}px] pt-[{{ section.settings.padding_top_mobile }}px] md:pb-[{{ section.settings.padding_bottom }}px] md:pt-[{{ section.settings.padding_top }}px]"
 >
   {% if section.settings.heading != blank or section.settings.enable_clear_history %}
-    {% comment %} <div class="relative pl-5 pr-5 leading-tight mb-7 md:mb-8 mt-2 text-{{ section.settings.heading_alignment }} rtl:text-{% if section.settings.heading_alignment == 'center' %}center{% elsif section.settings.heading_alignment == 'left' %}right{% else %}left{% endif %}{% if section.settings.full_width %} full-width{% else %} x-pgw page-width{% endif %}">
+    <div class="relative pl-5 pr-5 leading-tight mb-7 md:mb-8 mt-2 text-{{ section.settings.heading_alignment }} rtl:text-{% if section.settings.heading_alignment == 'center' %}center{% elsif section.settings.heading_alignment == 'left' %}right{% else %}left{% endif %}{% if section.settings.full_width %} full-width{% else %} x-pgw page-width{% endif %}">
       {% render 'heading-highlight',
         headingId: section.id,
         heading: section.settings.heading,
@@ -83,31 +83,6 @@
           </button>
         </div>
       {%- endif -%}
-    </div> {% endcomment %}
-
-    {% comment %} heading with clear history button {% endcomment %}
-    <div class="relative pl-5 pr-5 leading-tight mb-4 md:mb-4 mt-2 text-{{ section.settings.heading_alignment }} rtl:text-{% if section.settings.heading_alignment == 'center' %}center{% elsif section.settings.heading_alignment == 'left' %}right{% else %}left{% endif %}{% if section.settings.full_width %} full-width{% else %} x-pgw page-width{% endif %}">
-      <div class="relative flex items-center">
-        <!-- Heading container - centered and left aligned on mobile -->
-        <div class="text-left md:absolute md:left-1/2 md:-translate-x-1/2 md:text-center flex-1 md:flex-none">
-          {% render 'heading-highlight',
-            headingId: section.id,
-            heading: section.settings.heading,
-            highlight_type: section.settings.highlight_type,
-            class: 'h2 block',
-            heading_tag: section.settings.heading_tag,
-            animation_heading: true
-          %}
-        </div>
-        {%- if section.settings.enable_clear_history -%}
-          <!-- Clear History Button - always on the right -->
-          <div class="ml-auto text-right rtl:text-left">
-            <button class="button-link effect-inline relative clear-button-custom-font-size cursor-pointer hover:text-[rgba(var(--colors-text-link))] text-center" @click="$store.xProductRecently.clearStory()">
-              {{ 'products.product.clear' | t }}
-            </button>
-          </div>
-        {%- endif -%}
-      </div>
     </div>
   {% endif %}
   <div class="mx-auto{% if swiper_on_mobile %} carousel-mobile {% endif %}{% if enable_desktop_slider %} carousel-tablet{% endif %}{% if section.settings.full_width %} full-width{% else %} x-pgw page-width{% endif %}">
@@ -201,7 +176,7 @@
       {%- endstyle -%}
       {%- if search.results_count > 0 -%}
         {%- if swiper_on_mobile or enable_desktop_slider -%}
-          <div class="splide__arrows order-2{% if swiper_on_mobile %} flex items-center justify-center gap-3 md:gap-0 md:mb-0 md:mt-0{% endif %}" x-show="$store.xProductRecently.show">
+          <div class="splide__arrows order-2{% if swiper_on_mobile %} flex items-center justify-center gap-3 md:gap-0 mb-1 md:mb-0 mt-5 md:mt-0{% endif %}" x-show="$store.xProductRecently.show">
             <button 
               class="splide__arrow splide__arrow--prev button-arrow p-3 rounded-full z-10 w-11 h-11 border border-solid md:border-none after:text-[20px] rtl:rotate-180 disabled:cursor-not-allowed disabled:opacity-30
               {%- unless arrow_swipe_mobile %} hidden{% else %} block{% endunless -%}
@@ -547,11 +522,7 @@
         {
           "value": "2",
           "label": "t:settings_schema.search_navigation.settings.search_style.options__2"
-        },
-        {
-          "value": "3",
-          "label": "t:sections.collection-list.settings.columns_desktop.options__3.label"
-        },
+        }
       ]
     },
     {

@@ -37,63 +37,12 @@
     "slideshow_HPDY93": {
       "type": "slideshow",
       "blocks": {
-        "slide_DDK7NL": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Grey_and_White_Simple_Launch_Fashion_Banner_105da273-c04f-44ae-b9bf-d1d2ce2dbf92.png",
-            "image_mobile": "shopify://shop_images/Grey_and_White_Simple_Launch_Fashion_Banner_105da273-c04f-44ae-b9bf-d1d2ce2dbf92.png",
-            "image_link": "shopify://collections/flat-70-off-girls",
-            "open_new_window_image": false,
-            "overlay_opacity": 10,
-            "video_url": "",
-            "video_alt_text": "",
-            "show_sound_control": false,
-            "enable_video_autoplay": false,
-            "mobile_video_url": "",
-            "enable_bakground": false,
-            "subheading": "",
-            "subheading_size": 100,
-            "heading": "",
-            "highlight_type": "underline",
-            "heading_size": 170,
-            "heading_tag": "h2",
-            "text": "",
-            "button_label_1": "",
-            "button_link_1": "",
-            "open_new_window_button": false,
-            "show_button_style_1": "primary",
-            "button_label_2": "",
-            "button_link_2": "",
-            "open_new_window_button_2": false,
-            "show_button_style_2": "primary",
-            "content_alignment": "middle-center",
-            "custom_horizontal": 50,
-            "custom_vertical": 50,
-            "alignment": "center",
-            "text_product": "Check out our products:",
-            "list_products": [],
-            "show_rating": false,
-            "open_new_window_product": false,
-            "content_background_color": "rgba(0,0,0,0)",
-            "color_text": "rgba(0,0,0,0)",
-            "color_button": "rgba(0,0,0,0)",
-            "color_text_button": "rgba(0,0,0,0)",
-            "color_button_hover": "rgba(0,0,0,0)",
-            "color_text_button_hover": "rgba(0,0,0,0)",
-            "color_button_secondary": "rgba(0,0,0,0)",
-            "secondary_button_text": "rgba(0,0,0,0)",
-            "colors_text_link": "rgba(0,0,0,0)",
-            "color_heading_highlight_light": "rgba(0,0,0,0)",
-            "color_product_card_background": "rgba(0,0,0,0)",
-            "color_product_card_text": "rgba(0,0,0,0)"
-          }
-        },
         "slide_MBaXF3": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Web-Banner-01-Final_d4b0e7c1-c5e3-480e-86c8-b2b600d6a85e.jpg",
             "image_mobile": "shopify://shop_images/Web-Banner-01-Mobile-Final.jpg",
-            "image_link": "shopify://collections/girls",
+            "image_link": "shopify://collections/the-play-edit",
             "open_new_window_image": true,
             "overlay_opacity": 0,
             "video_url": "",
@@ -138,11 +87,62 @@
             "color_product_card_background": "rgba(0,0,0,0)",
             "color_product_card_text": "rgba(0,0,0,0)"
           }
+        },
+        "slide_DDK7NL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Web_Banners_1800_450Artboard_5.jpg",
+            "image_mobile": "shopify://shop_images/Web_Banners_Mobile_02Artboard_2.jpg",
+            "image_link": "shopify://collections/slip-into-fun-girls",
+            "open_new_window_image": false,
+            "overlay_opacity": 10,
+            "video_url": "",
+            "video_alt_text": "",
+            "show_sound_control": false,
+            "enable_video_autoplay": false,
+            "mobile_video_url": "",
+            "enable_bakground": false,
+            "subheading": "",
+            "subheading_size": 100,
+            "heading": "",
+            "highlight_type": "underline",
+            "heading_size": 170,
+            "heading_tag": "h2",
+            "text": "",
+            "button_label_1": "",
+            "button_link_1": "",
+            "open_new_window_button": false,
+            "show_button_style_1": "primary",
+            "button_label_2": "",
+            "button_link_2": "",
+            "open_new_window_button_2": false,
+            "show_button_style_2": "primary",
+            "content_alignment": "middle-center",
+            "custom_horizontal": 50,
+            "custom_vertical": 50,
+            "alignment": "center",
+            "text_product": "Check out our products:",
+            "list_products": [],
+            "show_rating": false,
+            "open_new_window_product": false,
+            "content_background_color": "rgba(0,0,0,0)",
+            "color_text": "rgba(0,0,0,0)",
+            "color_button": "rgba(0,0,0,0)",
+            "color_text_button": "rgba(0,0,0,0)",
+            "color_button_hover": "rgba(0,0,0,0)",
+            "color_text_button_hover": "rgba(0,0,0,0)",
+            "color_button_secondary": "rgba(0,0,0,0)",
+            "secondary_button_text": "rgba(0,0,0,0)",
+            "colors_text_link": "rgba(0,0,0,0)",
+            "color_heading_highlight_light": "rgba(0,0,0,0)",
+            "color_product_card_background": "rgba(0,0,0,0)",
+            "color_product_card_text": "rgba(0,0,0,0)"
+          }
         }
       },
       "block_order": [
-        "slide_DDK7NL",
-        "slide_MBaXF3"
+        "slide_MBaXF3",
+        "slide_DDK7NL"
       ],
       "custom_css": [
         ".x-container-slideshow {background: linear-gradient(90deg, #ffd6f8 0%, #f8fdff 100%);}"
@@ -198,7 +198,7 @@
           "settings": {
             "image": "shopify://shop_images/Artboard_17.jpg",
             "title": "Celeb Ready",
-            "link": "shopify://collections/celeb-ready-girls"
+            "link": "shopify://collections/celeb-ready-1"
           }
         },
         "card_rDpm4a": {
@@ -206,7 +206,7 @@
           "settings": {
             "image": "shopify://shop_images/Artboard_16_6d9df5c1-73f1-4287-8765-abd4b977d2f6.jpg",
             "title": "Denim",
-            "link": "shopify://collections/the-denim-edit-girls"
+            "link": "shopify://collections/the-sport-edit-girls"
           }
         }
       },
@@ -228,7 +228,7 @@
         "text_RLycGD": {
           "type": "text",
           "settings": {
-            "text": "Premium styles crafted for little icons",
+            "text": "CHRIISTMAS & NEW YEAR SALE",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -255,7 +255,7 @@
         "text_8eyqHz": {
           "type": "text",
           "settings": {
-            "text": "KIDS",
+            "text": "BABY & KIDS",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -282,7 +282,7 @@
         "text_qCcyUm": {
           "type": "text",
           "settings": {
-            "text": "Upto 50% Off",
+            "text": "45% OFF",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -400,7 +400,6 @@
         "banner_image": "shopify://shop_images/girls_toothless.jpg",
         "banner_image_mobile": "shopify://shop_images/girls_toothless.jpg",
         "title": "",
-        "section_collection": "",
         "background_color": "#ffffff",
         "heading_size": 26,
         "text_color": "#111111",
@@ -492,12 +491,6 @@
             "collection": "girls-sweatshirt"
           }
         },
-        "featured_collection_7crVht": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "girls-sweater"
-          }
-        },
         "featured_collection_QMibUU": {
           "type": "featured_collection",
           "settings": {
@@ -514,12 +507,6 @@
           "type": "featured_collection",
           "settings": {
             "collection": "girls-top"
-          }
-        },
-        "featured_collection_AwVGj8": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "girls-trousers"
           }
         },
         "featured_collection_RU8Grp": {
@@ -582,12 +569,6 @@
             "collection": "girls-boots"
           }
         },
-        "featured_collection_EfLKUa": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "girls-flip-flops"
-          }
-        },
         "featured_collection_xX6Aah": {
           "type": "featured_collection",
           "settings": {
@@ -598,11 +579,9 @@
       "block_order": [
         "featured_collection_FXGtaM",
         "featured_collection_KzTXEB",
-        "featured_collection_7crVht",
         "featured_collection_QMibUU",
         "featured_collection_FnrcUe",
         "featured_collection_HLKnMU",
-        "featured_collection_AwVGj8",
         "featured_collection_RU8Grp",
         "featured_collection_bhG9Xp",
         "featured_collection_U46rDG",
@@ -613,7 +592,6 @@
         "featured_collection_yXbAj4",
         "featured_collection_Mz3ban",
         "featured_collection_ATUyki",
-        "featured_collection_EfLKUa",
         "featured_collection_xX6Aah"
       ],
       "custom_css": [
@@ -663,7 +641,7 @@
         "collection_yjQ7Fe": {
           "type": "collection",
           "settings": {
-            "collection": "girls-best-seller",
+            "collection": "best-seller-girls",
             "show_description": true,
             "description": "",
             "number_of_lines_shown": "none",
@@ -711,7 +689,6 @@
         },
         "collection_8pMW6U": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "girls-ballerinas",
             "show_description": true,
@@ -761,7 +738,6 @@
         },
         "collection_zmzAjf": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "girls-sandals",
             "show_description": true,
@@ -1068,14 +1044,13 @@
         "tab_kzXbPC": {
           "type": "tab",
           "settings": {
-            "collection": "denim-girls",
+            "collection": "the-denim-edit-girls",
             "custom_tab_label": "",
             "viewall": true
           }
         },
         "tab_dkpgdH": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "collection": "ballerinas-1",
             "custom_tab_label": "",
@@ -1084,7 +1059,6 @@
         },
         "tab_NPiFCA": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "collection": "casual-shoes-girls",
             "custom_tab_label": "",
@@ -1106,7 +1080,6 @@
         "banner_image": "shopify://shop_images/high_heels.jpg",
         "banner_image_mobile": "shopify://shop_images/high_heels.jpg",
         "title": "",
-        "section_collection": "",
         "background_color": "#ffffff",
         "heading_size": 26,
         "text_color": "#111111",
@@ -1837,7 +1810,7 @@
       "settings": {
         "bg_image": "shopify://shop_images/17a7607a9664a363ddb99c7e068c0e5b39f81674_3.png",
         "title": "Discover trendy kids’ clothing and footwear just around the corner.",
-        "input_link": "https://purpleunited.com/a/store-locator/list",
+        "input_link": "https://purpleunitedkids.myshopify.com/apps/cws-store-locator",
         "input_button_text": "Find your Nearest Store",
         "margin_top_mobile": 20,
         "margin_bottom_mobile": 20,

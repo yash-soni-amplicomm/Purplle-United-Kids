@@ -51,7 +51,7 @@
 -%}
 <div class="relative{% if filter_type == 'above' %} md:mb-3{% else %} mb-6 md:mb-7{% endif %}{% if sticky_filter and filter_type == 'aside' %} sticky top-[calc(var(--height-header)+70px)] duration-300{% endif %}">
   <div class="facets">
-    <template x-teleport="#header-filter">
+    <template  x-teleport="#header-filter">
       <div
         id="FacetsWrapperDesktop"
         class="flex justify-between"
@@ -675,8 +675,9 @@
   }
  
  .mobile-filter{
-  height:60vh;
+  height:85%;
   }
+
 }
 div#FacetsWrapperDesktop {
     height: 0px;
@@ -686,8 +687,8 @@ div#FacetsWrapperDesktop {
     height: 30px !important;
   }
   .mob-header-count{
-  width:100%;
-}
+    width:100%;
+  }
 }
   @media (min-width: 768px) {
     .custom-border{

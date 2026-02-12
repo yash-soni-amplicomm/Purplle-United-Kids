@@ -21,7 +21,7 @@
         ".animate_transition_image {border-radius: 20px;}",
         ".image-hover {transform: none !important;}",
         "@media (max-width: 768px) {.text-left {padding: 0px 10px 0px 10px; }}",
-        ".h3 {font-weight: 700; min-height: 2.5em; margin-bottom: 0px; }"
+        ".h3 {font-weight: 700;}"
       ],
       "settings": {
         "heading_tag": "h1",
@@ -49,7 +49,7 @@
         "content_alignment": "left",
         "show_image": true,
         "columns_mobile": "1",
-        "image_ratio": "auto",
+        "image_ratio": "56",
         "item_secondary_background": false,
         "show_author": false,
         "show_name": false,

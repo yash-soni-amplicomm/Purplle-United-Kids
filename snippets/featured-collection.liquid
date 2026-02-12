@@ -36,7 +36,7 @@
 }
 {% endstyle %}
 
-<div class="md:mb-2 relative">
+<div class="mb-4 md:mb-2 relative">
   <div class="relative w-full bg-transparent">
     {%- paginate pages by 1 -%}
       <div class="featured-collection relative min-h-[300px] left-0 right-0 bg-[rgba(var(--background-color))] pb-2" x-data='xFeaturedCollection("{{ section.id }}", "{{ paginate.page_param }}", $el)'>
@@ -89,10 +89,10 @@
                     :class="currentTab === {{ forloop.index }} || 'opacity-80'"
                     {{ block.shopify_attributes }}
                     {% unless forloop.first %}
-                      x-intersect.once.margin.500px='loadData({{ forloop.index }})'
+                      x-intersect.once='loadData({{ forloop.index }})'
                     {% else %}
                       {% if paginate.current_page > 1 %}
-                        x-intersect.once.margin.500px='loadData({{ forloop.index }})'
+                        x-intersect.once='loadData({{ forloop.index }})'
                       {% endif %}
                     {% endunless %}
                   >
@@ -417,10 +417,10 @@
                         aria-label="{{ 'sections.video.load_video' | t: video_alt_text: block.settings.video_alt_text | escape }}"
                         x-intersect:leave="$store.xVideo.pause($el)"
                         @click.stop="$store.xVideo.togglePlay($el)"
-                        {% if video_type == 'video_select' %}x-intersect.once.margin.300px="$store.xVideo.play($el)"{% endif %}  
+                        {% if video_type == 'video_select' %}x-intersect="$store.xVideo.play($el)"{% endif %}  
                         {% if video_type == 'youtube' or video_type == 'vimeo' %}
                           x-intersect.once="$store.xVideo.externalLoad($el, '{{ video_type }}', '{{ video_id }}', false, '{{ video_alt }}', 1)"
-                          x-intersect.once.margin.300px="$store.xVideo.play($el)"
+                          x-intersect="$store.xVideo.play($el)"
                         {% endif %}
                           {% if block.settings.video != blank %}
                           style="padding-bottom: {{ 1 | divided_by: block.settings.video.aspect_ratio | times: 100 }}%;"
@@ -533,7 +533,7 @@
                       </div>
                     {% endif %}
                   {% endif %}
-                  <script src="{{ 'video.js' | asset_url }}" defer async></script>
+                  <script src="{{ 'video.js' | asset_url }}" defer></script>
                 {% else %}
                   <div class="sticky-content{% if enable_slider_vertical %} sticky top-[calc(var(--height-header)+1rem)]{% else %} relative{% endif %}{% if enable_slider_vertical %}{% if block.settings.enable_text_overlay %} h-1/2{% else %} h-auto{% endif %}{% else %} h-full{% endif %}">
                     {% if block.settings.card_link != blank %}
@@ -587,7 +587,7 @@
                 class="collection{% if enable_desktop_slider or swiper_on_mobile %} overflow-hidden x-splide visible splide{% endif %}{% if swiper_on_mobile and section.settings.full_width_mobile %} {% endif %}{% if arrow_swipe_mobile %} flex flex-col{% endif %}"
                 {% if enable_desktop_slider or swiper_on_mobile -%}
                   x-data-slider="{{ section.id }}"
-                  x-intersect.once.margin.400px='$store.xSplide.load($el, {
+                  x-intersect.once.margin.200px='$store.xSplide.load($el, {
                     "speed": 1000,
                     "pagination": false, 
                     "mediaQuery": "min",
@@ -666,7 +666,7 @@
                   }
                 {% endstyle %}
                 {% if enable_desktop_slider or swiper_on_mobile %}
-                  <div class="splide__arrows{% if section.settings.slider_style == "vertical" %} md:hidden{% endif %}{% if swiper_on_mobile %} flex items-center justify-center gap-3 md:gap-0 md:mb-0 md:mt-0{% else %} md:block gap-2{% endif %} order-2">
+                  <div class="splide__arrows{% if section.settings.slider_style == "vertical" %} md:hidden{% endif %}{% if swiper_on_mobile %} flex items-center justify-center gap-3 md:gap-0 mb-1 md:mb-0 mt-5 md:mt-0{% else %} md:block gap-2{% endif %} order-2">
                     <button 
                       class="splide__arrow splide__arrow--prev button-arrow p-3 rounded-full z-10 w-11 h-11 border border-solid md:border-none after:text-[20px] rtl:rotate-180 disabled:cursor-not-allowed disabled:opacity-30
                       {%- unless arrow_swipe_mobile %} hidden{% else %} block{% endunless -%}
@@ -812,4 +812,4 @@
     {%- endpaginate %}
   </div>
 </div>
-<script src="{{ 'preview-color-swatches.js' | asset_url }}" defer async></script>
+<script src="{{ 'preview-color-swatches.js' | asset_url }}" defer></script>

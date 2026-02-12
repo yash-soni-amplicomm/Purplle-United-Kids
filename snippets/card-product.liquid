@@ -190,7 +190,7 @@
   {% else %}
     x-data="{ showOptions: false, options: [] }"
   {% endif %}
-  class="card-product {{ anm_class }} overflow-hidden card md:list-layout:flex relative md:pb-5{% if is_rtl %} rtl{% endif -%}
+  class="card-product {{ anm_class }} overflow-hidden card md:list-layout:flex relative pb-4 md:pb-5{% if is_rtl %} rtl{% endif -%}
     {%- if image_ratio_setting == 'fit_grid_layout' %} flex flex-col md:flex md:flex-col{% else %}{% if mediaGallery %} flex flex-col md:block{% endif %}{% endif -%}
     {%- if request.params.size > 0 %} cos pram{% endif -%}
     {%- if class_slide %} {{ class_slide }}{% endif -%}
@@ -319,30 +319,17 @@
             <div class="w-full h-full splide__list">
           {%- endif -%}
           {%- if card_product.featured_media -%}
-            {% comment %} worked on this MD Faraan to generate lower size of images for mobile screens {% endcomment %}
             {%- capture sizes -%}
-            {%- if collage or mediaGallery -%}
-              {%- if full_width -%}
-                (min-width: 768px) {{ columns_desktop | times: 100 | divided_by: max_columns }}vw,
-                {{ columns_mobile | times: 100 | divided_by: min_columns_mobile }}vw
+              {%- if collage or mediaGallery -%}
+                {%- if full_width -%}
+                  (min-width: 768px) {{ columns_desktop | times: 100 | divided_by: max_columns }}vw, {{ columns_mobile | times: 100 | divided_by: min_columns_mobile }}vw
+                {%- else -%}
+                  (min-width: {{ settings.page_width }}px) {{ settings.page_width | times: columns_desktop | divided_by: max_columns }}px, {{ columns_mobile | times: 100 | divided_by: min_columns_mobile }}vw
+                {%- endif -%}
               {%- else -%}
-                (min-width: {{ settings.page_width }}px)
-                {{ settings.page_width | times: columns_desktop | divided_by: max_columns }}px,
-                {{ columns_mobile | times: 100 | divided_by: min_columns_mobile }}vw
+                (min-width: {{ settings.page_width }}px) {% if enable_desktop_slider %}{{ settings.page_width | plus: 100 | divided_by: columns_desktop }}px{% else %}calc(100vw / {{ columns_desktop }}){% endif %}, (min-width: 1024px) calc((100vw) / {{ columns_desktop }}), (min-width: 768px) calc((100vw) / 2), calc(100vw /{{ column_mobile }})
               {%- endif -%}
-            {%- else -%}
-              (min-width: {{ settings.page_width }}px)
-              {% if enable_desktop_slider %}
-                {{ settings.page_width | plus: 100 | divided_by: columns_desktop }}px
-              {% else %}
-                calc(100vw / {{ columns_desktop }})
-              {% endif %},
-              (min-width: 1024px) calc(100vw / {{ columns_desktop }}),
-              (min-width: 768px) calc(100vw / 2),
-              calc(100vw / {{ column_mobile | at_least: 2 }})
-            {%- endif -%}
-          {%- endcapture -%}
-          {% comment %} till here {% endcomment %}
+            {%- endcapture -%}
             {%- capture onload -%}
               this.closest(".skeleton-image")?.classList.remove("animate-Xpulse", "skeleton-image");
             {%- endcapture -%}
@@ -416,7 +403,7 @@
                   {{ product_featured_image | image_url: width: 1100 }} 1100w,
                   {{ product_featured_image | image_url: width: 1500 }} 1500w
                   {%- if product_featured_image.width %},{{ product_featured_image | image_url }} {{ product_featured_image.width }}w{% endif %}" 
-                  src="{{ product_featured_image | image_url: width: 450 }}"
+                  src="{{ product_featured_image | image_url: width: 1500 }}"
                   sizes="{{ sizes }}"
                   alt="{{ product_featured_image.alt | split: "#" | first | escape }}"
                   :class="showSecond ? 'first-img' : ''"
@@ -824,7 +811,7 @@
             {% render 'review-product', product: card_product, content_alignment: content_alignment, card_product: true %}
           {%- endif -%}
           {% comment %} <div{% unless product_complementary %} class="{% if mediaGallery %} card-product-price-text-{{ block_id }} {% endif %}x-card-price flex items-center mb-3 flex-wrap gap-1{% unless content_alignment == 'right' %} justify-{{ content_alignment }} rtl:flex-row-reverse md:rtl:list-layout:flex-row md:list-layout:justify-start{% endunless %}{% if content_alignment == 'right' %} flex-row-reverse rtl:flex-row md:list-layout:flex-row{% endif %}"{% else %} class="x-card-price mb-3"{% endunless %}> {% endcomment %}
-          <div{% unless product_complementary %} class="{% if mediaGallery %} card-product-price-text-{{ block_id }} {% endif %}x-card-price custom-card-price-style flex items-center flex-wrap gap-1{% unless content_alignment == 'right' %} rtl:flex-row-reverse md:rtl:list-layout:flex-row md:list-layout:justify-start{% endunless %}{% if content_alignment == 'right' %} flex-row-reverse rtl:flex-row md:list-layout:flex-row{% endif %}"{% else %} class="x-card-price "{% endunless %}>
+          <div{% unless product_complementary %} class="{% if mediaGallery %} card-product-price-text-{{ block_id }} {% endif %}x-card-price custom-card-price-style flex items-center mb-3 flex-wrap gap-1{% unless content_alignment == 'right' %} rtl:flex-row-reverse md:rtl:list-layout:flex-row md:list-layout:justify-start{% endunless %}{% if content_alignment == 'right' %} flex-row-reverse rtl:flex-row md:list-layout:flex-row{% endif %}"{% else %} class="x-card-price mb-3"{% endunless %}>
             {% assign priceID = section_id | append: '-' | append: product_card_id %}
             {% if card_product.options_with_values.size == swatch_count %}
               {% render 'price', product: card_product, use_variant: true, container: 'main-product-price' %}

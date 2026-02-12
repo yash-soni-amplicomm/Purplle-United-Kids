@@ -200,7 +200,7 @@
     {% endif %}
   >
     {%- if product != blank -%}
-      <div class="product-media-container w-full relative quick-view:md:pb-0 quick-view:md:w-[45%] md:w-1/2 md:pb-0
+      <div class="product-media-container w-full relative quick-view:md:pb-0 quick-view:md:w-[45%] md:w-1/2 pb-7 md:pb-0
         {%- if full_width -%}
           {%- unless mobile_media_full %} pr-5 pl-5{% endunless %} md:pl-12 md:pr-12 lg:pl-[84px] lg:pr-[84px]
         {%- else -%}
@@ -249,7 +249,7 @@
         endif
       %}
       <div 
-        class="product-content-container w-full relative {{ rounded_class }} quick-view:md:w-[55%] md:w-1/2{% if mobile_media_full %} pr-0 pl-0{% endif %}{% if full_width %} pl-5 pr-5 md:pr-0 md:pl-0{% else %} md:pl-0 md:pr-0{% endif %}{% if section.settings.desktop_layout == "right" %} flex product-page:md:justify-end rtl:product-page:md:justify-start{% else %} rtl:flex rtl:product-page:md:justify-end{% endif %}{% if featured_product and full_width %} content-{{ section.id }} pt-8 pb-12 {{ class_padding_light }} {{ class_padding_dark }}{% else %} pt-3 md:pt-0 pb-0{% endif %}"
+        class="product-content-container w-full relative {{ rounded_class }} quick-view:md:w-[55%] md:w-1/2{% if mobile_media_full %} pr-5 pl-5{% endif %}{% if full_width %} pl-5 pr-5 md:pr-0 md:pl-0{% else %} md:pl-0 md:pr-0{% endif %}{% if section.settings.desktop_layout == "right" %} flex product-page:md:justify-end rtl:product-page:md:justify-start{% else %} rtl:flex rtl:product-page:md:justify-end{% endif %}{% if featured_product and full_width %} content-{{ section.id }} pt-8 pb-12 {{ class_padding_light }} {{ class_padding_dark }}{% else %} pt-3 md:pt-0 pb-0{% endif %}"
         {%- if section.settings.desktop_layout == "right" -%} tabindex="0" {%- endif -%}
       >
         {%- if featured_product and full_width -%}
@@ -295,7 +295,7 @@
             {%- for block in section.blocks -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
-                  <div class="x-block-app w-full app-block{% if show_content_center %} text-center{% endif %}">
+                  <div class="x-block-app mb-4 md:mb-6 w-full app-block{% if show_content_center %} text-center{% endif %}">
                     {% render block %}
                   </div>
                 {%- when 'discount_progress_bar' -%}
@@ -590,13 +590,13 @@
                       }
                     }
                   {% endstyle %}
-                  <div class="x-block-product-title w-full{% if show_content_center %} text-center{% endif %}{% unless settings.disable_heading_animation %} overflow-hidden{% endunless %}" {{ block.shopify_attributes }}{% unless settings.disable_heading_animation %} x-intersect.once="$el.querySelector('.anm-move-up')?.classList.add('active-anm-heading')"{% endunless %}>
+                  <div class="x-block-product-title mb-4 md:mb-5 w-full{% if show_content_center %} text-center{% endif %}{% unless settings.disable_heading_animation %} overflow-hidden{% endunless %}" {{ block.shopify_attributes }}{% unless settings.disable_heading_animation %} x-intersect.once="$el.querySelector('.anm-move-up')?.classList.add('active-anm-heading')"{% endunless %}>
                     <{{ block.settings.heading_tag }} class="product-title h2 title-size--{{ block.id }} leading-tight{% unless settings.disable_heading_animation %} anm-move-up{% endunless %}">
                       {{ product.title | escape }}
                     </{{ block.settings.heading_tag }}>
                   </div>
                 {%- when 'price' -%}
-                  <div class="x-block-price w-full pricearea{% if show_content_center %} text-center{% endif %}" {{ block.shopify_attributes }}>
+                  <div class="x-block-price mb-4 md:mb-6 w-full pricearea{% if show_content_center %} text-center{% endif %}" {{ block.shopify_attributes }}>
                     {%- liquid
                       assign text_size = block.settings.text_size_price | times: settings.heading_base_size | times: 0.000225
                       assign text_size_mobile = text_size | times: 0.9
@@ -756,7 +756,7 @@
                         assign quantity_rule_soldout = true
                       endif
                     -%}
-                    <div x-ref='product_form_container' class="x-block-buy-buttons button-product-{{ block.id }} w-full button-product{% unless forloop.last %} {% endunless %}{% if settings.edges_type == 'rounded_corners' %} corners-app{% endif %}"
+                    <div x-ref='product_form_container' class="x-block-buy-buttons button-product-{{ block.id }} w-full button-product{% unless forloop.last %} mb-4 md:mb-6{% endunless %}{% if settings.edges_type == 'rounded_corners' %} corners-app{% endif %}"
                       {% if settings.gift_wrapping_product != blank and settings.gift_wrapping_product.selected_or_first_available_variant and settings.engraving_product == blank %}
                         x-data="xProductCart('{{ settings.gift_wrapping_product.selected_or_first_available_variant.id }}', '')"
                       {% elsif settings.engraving_product != blank and settings.engraving_product.selected_or_first_available_variant and settings.gift_wrapping_product == blank %}
@@ -985,8 +985,7 @@
                                   }
                                 {% endif %}
                               {% endstyle %}
-                              {% comment %} add to cart button price code {% endcomment %}
-                              {% comment %} {% capture add_to_cart_price %}
+                              {% capture add_to_cart_price %}
                                 <span> - </span>
                                 {%- render 'price',
                                   product: product,
@@ -994,7 +993,7 @@
                                   hide_sale_price: block.settings.hide_sale_price,
                                   container: 'main-product-price inline-block'
                                 -%}
-                              {% endcapture %} {% endcomment %}
+                              {% endcapture %}
                             {%- endif -%}
                             <span class="flex justify-center" :class="loading && 'invisible'">
                               <span class="x-atc-text button-text w-fit pt-0.5 pb-0.5 {{ class_rtl }}">
@@ -1071,12 +1070,11 @@
                             -%}
                           {%- endif -%}
                         </div>
-                        {% comment %} pick up availability commented code {% endcomment %}
-                        {% comment %} {%- if block.settings.pickup_availability -%}
+                        {%- if block.settings.pickup_availability -%}
                           <div id="pickup-pre-order-{{ section.id }}" class="x-pickup-pre-order mt-6 {% if can_show_preorder and block.settings.hide_when_pre_order %} hidden disable-pickup{% endif %}">
                             <div id="pickup-{{ section.id }}" class="pick-up-{{ section.id }}{% if show_content_center %} text-center{% endif %}" x-intersect.once.margin.300px="$store.xPickupAvailable.updatePickUp('{{ section.id }}', '{{ product.selected_or_first_available_variant.id }}')"></div>
                           </div>
-                        {%- endif -%} {% endcomment %}
+                        {%- endif -%}
                       </div>
                       <script src="{{ 'product-cart.js' | asset_url }}" defer></script>
                     </div>

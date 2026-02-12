@@ -55,7 +55,7 @@
                     {% endunless %}
                   {%- endfor -%}
                   <!-- Add the custom 'Sort by Discount' option -->
-                 {% comment %} <option
+                  <option
                     class="bg-[rgba(var(--background-color),1)]"
                     value="discount"
                     {% if sort_by == 'discount' %}
@@ -63,7 +63,7 @@
                     {% endif %}
                   >
                     Better Discount
-                  </option>{% endcomment %}
+                  </option>
                 </select>
                 <span class="absolute top-1/2 {% if is_rtl %} left-2{% else %} right-2{% endif %} -translate-y-1/2 w-2.5">
                   {%- render 'icon-alls', icon: 'icon-caret' -%}

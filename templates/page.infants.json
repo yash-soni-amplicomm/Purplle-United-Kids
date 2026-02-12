@@ -232,7 +232,7 @@
         "text_kxgjJh": {
           "type": "text",
           "settings": {
-            "text": "Big Republic Day Sale  Up to 60% Off",
+            "text": "CHRIISTMAS & NEW YEAR SALE",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -259,7 +259,7 @@
         "text_XzPaN4": {
           "type": "text",
           "settings": {
-            "text": "KIDS",
+            "text": "BABY & KIDS",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -286,7 +286,7 @@
         "text_ad7XTJ": {
           "type": "text",
           "settings": {
-            "text": "Up to 60% OFF",
+            "text": "45% OFF",
             "text_link": "",
             "highlight_type": "underline",
             "text_size": 100,
@@ -356,6 +356,7 @@
       "settings": {
         "heading": "Promotion Banner",
         "image": "shopify://shop_images/purple_united_8.png",
+        "image_mobile": "shopify://shop_images/purple_united_8.png",
         "image_link": "shopify://collections/step-into-shine-infant",
         "open_new_window": false,
         "image_overlay_opacity": 0,
@@ -404,7 +405,6 @@
         "banner_image": "shopify://shop_images/Denim_7808094c-cddb-4e54-9f3b-ab87277978c1.jpg",
         "banner_image_mobile": "shopify://shop_images/Denim_7808094c-cddb-4e54-9f3b-ab87277978c1.jpg",
         "title": "",
-        "section_collection": "",
         "background_color": "#ffffff",
         "heading_size": 26,
         "text_color": "#111111",
@@ -465,7 +465,6 @@
         },
         "featured_collection_xyk8MX": {
           "type": "featured_collection",
-          "disabled": true,
           "settings": {
             "collection": "infant-dungaree-set"
           }
@@ -550,7 +549,6 @@
       "blocks": {
         "collection_wFmKLX": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "infant-dungaree-set",
             "show_description": true,
@@ -957,7 +955,6 @@
       "blocks": {
         "tab_4VTUJN": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "collection": "infant-dungaree-set",
             "custom_tab_label": "",
@@ -966,7 +963,6 @@
         },
         "tab_GqiKz3": {
           "type": "tab",
-          "disabled": true,
           "settings": {
             "collection": "",
             "custom_tab_label": "",
@@ -1006,7 +1002,6 @@
         "banner_image": "shopify://shop_images/purple_united_3.jpg",
         "banner_image_mobile": "shopify://shop_images/purple_united_3.jpg",
         "title": "",
-        "section_collection": "",
         "background_color": "#ffffff",
         "heading_size": 26,
         "text_color": "#111111",
@@ -1063,7 +1058,6 @@
       "blocks": {
         "collection_R8Lnce": {
           "type": "collection",
-          "disabled": true,
           "settings": {
             "collection": "infant-dungaree-set",
             "show_description": true,
@@ -1793,7 +1787,7 @@
       "settings": {
         "bg_image": "shopify://shop_images/17a7607a9664a363ddb99c7e068c0e5b39f81674_3.png",
         "title": "Discover trendy kids’ clothing and footwear just around the corner.",
-        "input_link": "https://purpleunited.com/a/store-locator/list",
+        "input_link": "https://purpleunitedkids.myshopify.com/apps/cws-store-locator",
         "input_button_text": "Find your Nearest Store",
         "margin_top_mobile": 20,
         "margin_bottom_mobile": 20,

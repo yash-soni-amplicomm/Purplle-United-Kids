@@ -1,63 +1,37 @@
 <section class="custom-section-budget-buy">
-  <div class="budget-buy-section">
-      {% if section.settings.title != blank %}
-          <h2 class="budget-title">{{ section.settings.title }}</h2>
-      {% endif %}
+<div class="budget-buy-section">
+    {% if section.settings.title != blank %}
+        <h2 class="budget-title">{{ section.settings.title }}</h2>
+    {% endif %}
 
-      <div class="budget-cards-scroll">
-          <div class="budget-cards-wrapper">
-              {% for block in section.blocks %}
-                  <div class="budget-card">
-                    {% if block.settings.background_image %}
-                      <picture class="budget-bg">
-                        <!-- Mobile -->
-                        <source
-                          media="(max-width: 767px)"
-                          srcset="
-                            {{ block.settings.background_image | image_url: width: 150 }} 150w,
-                            {{ block.settings.background_image | image_url: width: 300 }} 300w
-                          "
-                          sizes="150px"
-                        >
-
-                        <!-- Desktop -->
-                        <source
-                          media="(min-width: 768px)"
-                          srcset="
-                            {{ block.settings.background_image | image_url: width: 300 }} 300w,
-                            {{ block.settings.background_image | image_url: width: 600 }} 600w
-                          "
-                          sizes="(min-width: 1024px) 20vw, 33vw"
-                        >
-
-                        <img
-                          src="{{ block.settings.background_image | image_url: width: 300 }}"
-                          alt="{{ block.settings.heading | escape }}"
-                          loading="lazy"
-                          decoding="async"
-                          width="300"
-                          height="400"
-                        >
-                      </picture>
+    <div class="budget-cards-scroll">
+        <div class="budget-cards-wrapper">
+            {% for block in section.blocks %}
+                <div class="budget-card"
+                    {% if block.settings.background_image != blank %}
+                        style="background-image: 
+                            linear-gradient(180deg, rgba(93, 47, 145, 0.9) 0%, rgba(28, 14, 43, 0.9) 142.55%),
+                            url({{ block.settings.background_image | image_url: width: 600 }});"
+                    {% else %}
+                        style="background: linear-gradient(180deg, rgba(93, 47, 145, 0.9) 0%, rgba(28, 14, 43, 0.9) 142.55%);"
                     {% endif %}
-
-                    <div class="budget-overlay"></div>
-
+                >
                     <h3 class="budget-card-title">{{ block.settings.heading }}</h3>
                     <div class="budget-card-subtitle">
-                      <span class="dash"></span>
-                      <p>{{ block.settings.subtitle }}</p>
+                        <span class="dash"></span>
+                        <p>{{ block.settings.subtitle }}</p>
                     </div>
-                    <div class="budget-card-price">₹{{ block.settings.price }}</div>
+                    <div class="budget-card-price">
+                        ₹{{ block.settings.price }}
+                    </div>
                     <a href="{{ block.settings.button_link }}" class="budget-btn">
-                      {{ block.settings.button_label }}
+                        {{ block.settings.button_label }}
                     </a>
-                  </div>
-
-              {% endfor %}
-          </div>
-      </div>
-  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 </section>
 
 
@@ -100,37 +74,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-  .budget-card {
-    position: relative;
-    overflow: hidden;
-  }
-
-.budget-bg,
-.budget-bg img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-.budget-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(93, 47, 145, 0.9) 0%,
-    rgba(28, 14, 43, 0.9) 142.55%
-  );
-  z-index: 1;
-}
-
-/* Content above image */
-.budget-card > *:not(.budget-bg):not(.budget-overlay) {
-  position: relative;
-  z-index: 2;
 }
 
 .budget-card-title {
@@ -264,6 +207,31 @@ font-weight: 400;
 }
 
 </style>
+
+
+
+{% comment %} <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const scrollContainer = document.querySelector('.budget-cards-scroll');
+
+    if (window.innerWidth <= 900 && scrollContainer) {
+      let scrollAmount = 0;
+      const cardWidth = 240; // card width + margin
+      const slideInterval = 3000;
+
+      setInterval(() => {
+        scrollAmount += cardWidth;
+        if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
+          scrollAmount = 0;
+        }
+        scrollContainer.scrollTo({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }, slideInterval);
+    }
+  });
+</script> {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const scrollContainer = document.querySelector('.budget-cards-scroll');

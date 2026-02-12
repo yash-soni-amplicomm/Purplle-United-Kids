@@ -288,6 +288,9 @@ if (!window.Eurus.loadedScript.has('coupon-code.js')) {
           Alpine.store('xPopup').close();
         },
         removeDiscountCode(el, isCart=false) {
+          
+          clearDiscountOC();
+
           Alpine.store('xCouponCodeDetail').discountFaild = false;
           Alpine.store('xCouponCodeDetail').discountApplied = false;
           Alpine.store('xCouponCodeDetail').discountCorrect = false;
@@ -359,16 +362,20 @@ if (!window.Eurus.loadedScript.has('coupon-code.js')) {
           }).finally(() => {
             this.loading = false;
             this.removedDiscountCode = discountCode;
+            
             setTimeout(() => {
               Alpine.store('xCouponCodeDetail').discountFaild = false;
             }, 5000);
             setTimeout(() => {
               Alpine.store('xCouponCodeDetail').discountCorrect = false;
+              
             }, 3000);
+            
           });
         },
         clearRemovedDiscount() {
           this.removedDiscountCode = '';
+          clearDiscountOC();
         },
         getDiscountCode() {
           let cookieValue = document.cookie.match('(^|;)\\s*' + 'eurus_discount_code' + '\\s*=\\s*([^;]+)');

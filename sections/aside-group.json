@@ -235,6 +235,162 @@
         "color_text_button_hover_dark": "rgba(0,0,0,0)"
       }
     },
+    "popup-promotion": {
+      "type": "popup-promotion",
+      "blocks": {
+        "sections--18371362324774__2eca4af3-5277-406b-a4de-c52946c34b5f-1680002178ae4a2c07-0": {
+          "type": "heading",
+          "settings": {
+            "subheading": "",
+            "heading": "Write your store's popup content",
+            "highlight_type": "underline",
+            "heading_color": "rgba(0,0,0,0)",
+            "heading_color_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "text_Dka9AE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Write your store's popup detailed content</p>",
+            "coupon_code": "SIMPLY10",
+            "coupon_color": "rgba(0,0,0,0)",
+            "coupon_color_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "countdown_timer_tLNd9i": {
+          "type": "countdown_timer",
+          "disabled": true,
+          "settings": {
+            "countdown_type": "standard",
+            "countdown_interval": 7,
+            "interval_unit": "day",
+            "timezone": "-4",
+            "start_year": 2024,
+            "start_month": "8",
+            "start_day": "17",
+            "start_hour": "0",
+            "start_minute": "0",
+            "end_year": 2025,
+            "end_month": "12",
+            "end_day": "2",
+            "end_hour": "0",
+            "end_minute": "45",
+            "background_color": "rgba(0,0,0,0)",
+            "time_color": "rgba(0,0,0,0)",
+            "text_color": "rgba(0,0,0,0)",
+            "background_color_dark": "rgba(0,0,0,0)",
+            "time_color_dark": "rgba(0,0,0,0)",
+            "text_color_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "email_form_9nnNXU": {
+          "type": "email_form",
+          "disabled": true,
+          "settings": {}
+        },
+        "sections--18371362324774__2eca4af3-5277-406b-a4de-c52946c34b5f-1680002178ae4a2c07-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn more",
+            "button_link": "",
+            "open_new_window": true,
+            "button_color": "rgba(0,0,0,0)",
+            "button_text_color": "rgba(0,0,0,0)",
+            "button_color_hover": "rgba(0,0,0,0)",
+            "button_text_color_hover": "rgba(0,0,0,0)",
+            "button_color_dark": "rgba(0,0,0,0)",
+            "button_text_color_dark": "rgba(0,0,0,0)",
+            "button_color_hover_dark": "rgba(0,0,0,0)",
+            "button_text_color_hover_dark": "rgba(0,0,0,0)"
+          }
+        },
+        "text_VGnQcp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Write your store's popup detailed content</p>",
+            "coupon_code": "",
+            "coupon_color": "rgba(0,0,0,0)",
+            "coupon_color_dark": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "sections--18371362324774__2eca4af3-5277-406b-a4de-c52946c34b5f-1680002178ae4a2c07-0",
+        "text_Dka9AE",
+        "countdown_timer_tLNd9i",
+        "email_form_9nnNXU",
+        "sections--18371362324774__2eca4af3-5277-406b-a4de-c52946c34b5f-1680002178ae4a2c07-2",
+        "text_VGnQcp"
+      ],
+      "disabled": true,
+      "settings": {
+        "popup_position": "bottom-left",
+        "content_position": "right",
+        "content_alignment": "center",
+        "background_color_light": "rgba(0,0,0,0)",
+        "text_color_light": "rgba(0,0,0,0)",
+        "background_color_dark": "rgba(0,0,0,0)",
+        "text_color_dark": "rgba(0,0,0,0)",
+        "trigger_intent": "delay",
+        "delay": 10,
+        "scroll_height": 25,
+        "show_for_guests_only": true,
+        "show_on_mobile": true,
+        "schedule_enabled": true,
+        "reappear_after": 1,
+        "enable_desktop": true,
+        "default_style": "minimal",
+        "enable_mobile": true,
+        "default_style_mobile": "minimal",
+        "minimal_title": "Write your store's popup content",
+        "minimal_subtitle": ""
+      }
+    },
+    "popup-age-verification": {
+      "type": "popup-age-verification",
+      "blocks": {
+        "content-0": {
+          "type": "content",
+          "settings": {
+            "heading": "Confirm your age",
+            "text": "<p>Please verify that you are 18 years of age or older to enter this site.</p>",
+            "heading_color": "#282928",
+            "text_color_light": "#454645",
+            "heading_color_dark": "#f7f7f7",
+            "text_color_dark": "#e1e3e1"
+          }
+        },
+        "buttons-0": {
+          "type": "buttons",
+          "settings": {
+            "decline_button_label": "Disagree",
+            "decline_button_link": "",
+            "open_new_window": false,
+            "accept_button_label": "Agree",
+            "accept_button_background": "rgba(0,0,0,0)",
+            "accept_button_text": "rgba(0,0,0,0)",
+            "accept_button_hover": "rgba(0,0,0,0)",
+            "accept_button_text_hover": "rgba(0,0,0,0)",
+            "accept_button_background_dark": "rgba(0,0,0,0)",
+            "accept_button_text_dark": "rgba(0,0,0,0)",
+            "accept_button_hover_dark": "rgba(0,0,0,0)",
+            "accept_button_text_hover_dark": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "content-0",
+        "buttons-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "overlay_opacity": 80,
+        "content_alignment": "center",
+        "reappear_after": 1,
+        "background_color_light": "#ffffff",
+        "background_color_dark": "#282928"
+      }
+    },
     "cookie-banner": {
       "type": "cookie-banner",
       "settings": {
@@ -258,6 +414,8 @@
   "order": [
     "product-labels-and-badges",
     "quick-view",
+    "popup-promotion",
+    "popup-age-verification",
     "cookie-banner"
   ]
 }
